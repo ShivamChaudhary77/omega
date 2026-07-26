@@ -1,0 +1,1183 @@
+/********** Template CSS **********/
+
+/********** Brand Palette — The Omega Group **********/
+:root {
+    --clr-gold: #C9A84C;
+    --clr-gold-light: #E2C97E;
+    --clr-gold-dark: #9E7E30;
+
+    --clr-black: #0A0A0A;
+    --clr-ink: #1A1208;
+
+    --clr-dark: #FAF7F2;
+    --clr-dark-2: #F0EAE0;
+    --clr-dark-3: #E8DFD0;
+
+    --clr-surface: #FFFFFF;
+
+    /* This stylesheet's own rules already lean on Bootstrap's --bs-* tokens
+       (carousel accents, overlays, footer, service-item hover swap) — remapping
+       them here keeps those rules on-brand automatically. */
+    --bs-primary: var(--clr-black);
+    --bs-secondary: var(--clr-ink);
+    --bs-light: var(--clr-dark-2);
+    --bs-dark: var(--clr-black);
+    --bs-white: var(--clr-surface);
+}
+
+body {
+    background-color: var(--clr-dark);
+    color: var(--clr-ink);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--clr-black);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Bootstrap ships utilities like .text-primary/.bg-primary/.btn-primary as
+   compiled, hardcoded hex — the --bs-* remap above never reaches them, so
+   they are overridden directly here (after bootstrap.min.css) instead.
+   Gold is reserved for interactive/accent use (text, borders, buttons,
+   icons); large structural panels stay black/ink/neutral on purpose so
+   gold reads as an accent rather than the dominant color. */
+.text-primary { color: var(--clr-gold) !important; }
+.border-primary { border-color: var(--clr-gold) !important; }
+.bg-primary { background-color: var(--clr-black) !important; }
+.bg-light { background-color: var(--clr-dark-2) !important; }
+/* .bg-dark is only ever used on the footer, so it gets the warm espresso
+   "ink" tone instead of pure black to keep the footer feeling premium
+   rather than harsh. */
+.bg-dark { background-color: var(--clr-ink) !important; }
+.bg-white { background-color: var(--clr-surface) !important; }
+.text-secondary { color: var(--clr-ink) !important; }
+.text-light { color: var(--clr-dark) !important; }
+.text-dark { color: var(--clr-black) !important; }
+.text-white-50 { color: rgba(250, 247, 242, .7) !important; }
+
+.btn {
+    border-radius: 6px;
+    transition: transform .35s ease, box-shadow .35s ease, background-color .35s ease, color .35s ease, border-color .35s ease;
+}
+
+.btn-primary {
+    color: var(--clr-surface);
+    background-color: var(--clr-gold);
+    border-color: var(--clr-gold);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    color: var(--clr-surface) !important;
+    background-color: var(--clr-gold-dark) !important;
+    border-color: var(--clr-gold-dark) !important;
+    box-shadow: 0 .5rem 1.25rem rgba(158, 126, 48, .35) !important;
+}
+
+.btn-outline-primary {
+    color: var(--clr-gold);
+    border-color: var(--clr-gold);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    color: var(--clr-surface) !important;
+    background-color: var(--clr-gold) !important;
+    border-color: var(--clr-gold) !important;
+}
+
+.btn-light {
+    color: var(--clr-black);
+    background-color: var(--clr-surface);
+    border-color: var(--clr-surface);
+}
+
+.btn-light:hover {
+    color: var(--clr-black);
+    background-color: var(--clr-dark-2);
+    border-color: var(--clr-dark-2);
+}
+
+.btn-primary:hover,
+.btn-outline-primary:hover,
+.btn-light:hover {
+    transform: translateY(-2px);
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    border-radius: 50%;
+}
+
+/* Gold underline beneath every highlighted section-title word — reuses the
+   existing ".text-uppercase.text-primary.bg-light" chip markup already used
+   across every section heading, so no template markup changes were needed. */
+.text-uppercase.text-primary.bg-light {
+    border-bottom: 2px solid var(--clr-gold);
+}
+
+/* Feature / icon cards + process "timeline" steps */
+.icon-card {
+    background-color: var(--clr-dark-3);
+    border-radius: 14px;
+    padding: 45px 30px;
+    height: 100%;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .05);
+    transition: transform .35s ease, box-shadow .35s ease, background-color .35s ease;
+}
+
+.icon-card:hover {
+    background-color: var(--clr-surface);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, .25);
+}
+
+.icon-card i {
+    color: var(--clr-gold);
+    transition: color .35s ease;
+}
+
+.icon-card:hover i {
+    color: var(--clr-gold-dark);
+}
+
+/* Hero dark-gradient overlay + glassmorphism content panel */
+.hero-header {
+    position: relative;
+}
+
+.hero-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10, 10, 10, .58) 0%, rgba(10, 10, 10, .3) 55%, rgba(10, 10, 10, .08) 100%);
+    pointer-events: none;
+}
+
+.hero-header > .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-header h1,
+.hero-header h5,
+.hero-header p {
+    color: var(--clr-dark);
+}
+
+.hero-header .breadcrumb-item.active {
+    color: rgba(250, 247, 242, .75) !important;
+}
+
+.hero-header .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(250, 247, 242, .5);
+}
+
+.hero-glass {
+    background: rgba(255, 255, 255, .12);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(201, 168, 76, .55);
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(10, 10, 10, .3);
+}
+
+/* Homepage hero — solid black, no image texture/gradient competing with the
+   slider, no glass-card shadow, and a lighter heading so the slider reads as
+   the focal point rather than the copy block. */
+.hero-home {
+    background-color: var(--clr-black) !important;
+    background-image: none !important;
+}
+
+.hero-home::before {
+    display: none;
+}
+
+.hero-home .hero-glass {
+    box-shadow: none;
+}
+
+.hero-home .header-carousel img {
+    border-radius: 12px;
+    border: 1px solid rgba(201, 168, 76, .45);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, .55);
+}
+
+.newsletter-text h2 {
+    color: var(--clr-surface);
+}
+
+/* Homepage hero — full-bleed looping background video with a minimal,
+   center-aligned heading and paragraph. Self-contained (doesn't rely on
+   .hero-header/.hero-home) since it replaces the old text + slider layout. */
+.hero-video {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 100vh;
+    margin-top: -100px;
+    background-color: var(--clr-black);
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 10, .6) 0%, rgba(10, 10, 10, .38) 45%, rgba(10, 10, 10, .7) 100%);
+    z-index: 1;
+}
+
+.hero-video-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.hero-video-content h1 {
+    color: var(--clr-dark);
+}
+
+.hero-video-content p {
+    color: var(--clr-dark);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-video-scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 36px;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--clr-gold);
+    font-size: 1.5rem;
+    animation: heroScrollCue 2s ease-in-out infinite;
+}
+
+@keyframes heroScrollCue {
+    0%, 100% { transform: translate(-50%, 0); opacity: .6; }
+    50% { transform: translate(-50%, 10px); opacity: 1; }
+}
+
+@media (max-width: 767.98px) {
+    .hero-video {
+        min-height: 100svh;
+    }
+
+    .hero-video-content p {
+        font-size: 1rem;
+    }
+}
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+a.back-to-top {
+    /* Element-qualified so this beats the later, equal-specificity
+       ".btn-lg-square { display: flex }" rule and actually stays hidden
+       until main.js reveals it on scroll (it was showing on load before). */
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+/*** Button ***/
+.btn {
+    transition: .5s;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+
+/*** Navbar ***/
+.sticky-top {
+    top: -150px;
+    transition: .5s;
+}
+
+.navbar {
+    padding: 15px 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+}
+
+.brand-logo {
+    display: inline-block;
+    height: 40px;
+    width: auto;
+    transition: filter .3s ease;
+    /* Every hero is now solid black and the navbar overlaps its top edge
+       before the page scrolls, so the (dark-lettered) logo needs to render
+       as a light mark until the sticky navbar picks up its solid white
+       background — see the `.sticky-top.bg-white` override below. */
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 575.98px) {
+    .brand-logo {
+        height: 32px;
+    }
+}
+
+.navbar-toggler-icon {
+    transition: filter .3s ease;
+    filter: brightness(0) invert(1);
+}
+
+.navbar-toggler {
+    border-color: rgba(250, 247, 242, .5);
+}
+
+.sticky-top.bg-white .brand-logo,
+.sticky-top.bg-white .navbar-toggler-icon {
+    filter: none;
+}
+
+.sticky-top.bg-white .navbar-toggler {
+    border-color: rgba(10, 10, 10, .1);
+}
+
+.navbar .navbar-nav .nav-link {
+    position: relative;
+    margin-left: 30px;
+    padding: 0 0 6px;
+    outline: none;
+    color: var(--clr-dark);
+    transition: color .3s ease;
+}
+
+.sticky-top.bg-white .navbar .navbar-nav .nav-link {
+    color: var(--clr-black);
+}
+
+.navbar .navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--clr-gold);
+    transition: width .3s ease;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--clr-gold) !important;
+}
+
+.navbar .navbar-nav .nav-link:hover::after,
+.navbar .navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+@media (max-width: 991.98px) {
+
+    /* The expanded mobile menu needs its own opaque background — it can
+       overlap the black hero or the page's ivory body background depending
+       on scroll position, so it can't just inherit ambient text color. */
+    .navbar-collapse.show {
+        background-color: var(--clr-black);
+        margin-top: 10px;
+        padding: 15px 20px;
+        border-radius: 8px;
+    }
+
+    .navbar-collapse.show .navbar-nav .nav-link {
+        color: var(--clr-dark);
+    }
+
+    .sticky-top.bg-white .navbar-collapse.show {
+        background-color: var(--clr-surface);
+        box-shadow: 0 10px 25px rgba(10, 10, 10, .12);
+    }
+
+    .sticky-top.bg-white .navbar-collapse.show .navbar-nav .nav-link {
+        color: var(--clr-black);
+    }
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item.active {
+    color: var(--bs-white);
+    background: var(--bs-primary);
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav .nav-link  {
+        margin-left: 0;
+        padding: 10px 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+
+/*** Hero Header ***/
+.hero-header {
+    margin-top: -100px;
+    padding-top: 150px;
+    background: url(../img/hero-bg.jpg) top center no-repeat;
+    background-size: cover;
+}
+
+.hero-header .breadcrumb-item+.breadcrumb-item::before {
+    color: var(--light);
+}
+
+.header-carousel {
+    position: relative;
+    padding: 45px 90px 45px 0;
+}
+
+.header-carousel::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: calc(50% + 45px);
+    height: 100%;
+    background: var(--bs-primary);
+    z-index: -1;
+}
+
+.header-carousel .owl-dots {
+    position: absolute;
+    top: 50%;
+    right: 38px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 5px 0;
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--bs-white);
+    transition: .5s;
+}
+
+.header-carousel .owl-dot.active {
+    height: 30px;
+    background: var(--bs-white);
+}
+
+
+/*** About ***/
+.about-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-img::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url(../img/bg-about-img.png) top left no-repeat;
+    background-size: contain;
+}
+
+
+/*** Project ***/
+.project-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .08);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, .25);
+}
+
+.project-item img {
+    transition: .5s;
+}
+
+.project-item:hover img {
+    transform: scale(1.2);
+}
+
+.project-overlay {
+    position: absolute;
+    padding: 25px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background: linear-gradient(rgba(255, 255, 255, .1) 50%, var(--bs-dark));
+    z-index: 1;
+}
+
+
+/*** Latest Projects carousel (homepage) ***/
+.project-carousel-wrap {
+    position: relative;
+    padding: 0 55px;
+}
+
+.project-carousel .owl-stage-outer {
+    padding: 8px 0 16px;
+}
+
+.project-card {
+    display: block;
+    background-color: var(--clr-surface);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .08);
+    transition: transform .35s ease, box-shadow .35s ease;
+    color: inherit;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, .25);
+    color: inherit;
+}
+
+.project-card-img {
+    aspect-ratio: 4 / 3;
+}
+
+.project-card-img img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.project-card:hover .project-card-img img {
+    transform: scale(1.08);
+}
+
+.project-card-body {
+    padding: 20px 22px 24px;
+}
+
+.project-card-body h4 {
+    margin-bottom: 4px;
+}
+
+.project-card-tag {
+    display: inline-block;
+    color: var(--clr-gold);
+    text-transform: uppercase;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+.project-carousel .owl-nav button.owl-prev,
+.project-carousel .owl-nav button.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--clr-surface) !important;
+    color: var(--clr-gold) !important;
+    border: 1px solid rgba(201, 168, 76, .5);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .12);
+    transition: background-color .3s ease, color .3s ease;
+}
+
+.project-carousel .owl-nav button.owl-prev {
+    left: -10px;
+}
+
+.project-carousel .owl-nav button.owl-next {
+    right: -10px;
+}
+
+.project-carousel .owl-nav button.owl-prev:hover,
+.project-carousel .owl-nav button.owl-next:hover {
+    background-color: var(--clr-gold) !important;
+    color: var(--clr-surface) !important;
+}
+
+.project-carousel .owl-nav button.disabled {
+    opacity: .35;
+}
+
+@media (max-width: 767.98px) {
+    /* Desktop insets the wrap 40px each side to clear the overlaid arrows,
+       leaving the card sitting well past the 12px container gutter every
+       other mobile section's cards align to (icon-card, service-card, …).
+       Controls move to a static row below the card instead, so the wrap
+       can drop to 0 and the card lines up flush with that shared gutter. */
+    .project-carousel-wrap {
+        padding: 0;
+    }
+
+    .project-carousel .owl-stage-outer {
+        padding: 8px 2px 4px;
+    }
+
+    /* Tap feedback so the card reads as touchable, same shadow language
+       already used on hover — no new colors introduced. */
+    .project-card:active {
+        transform: scale(.97);
+        box-shadow: 0 6px 20px rgba(10, 10, 10, .08);
+    }
+
+    .project-carousel .owl-nav {
+        text-align: center;
+    }
+
+    .project-carousel .owl-nav button.owl-prev,
+    .project-carousel .owl-nav button.owl-next {
+        position: static;
+        display: inline-flex;
+        width: 42px;
+        height: 42px;
+        margin: 18px 8px 0;
+        font-size: .95rem;
+    }
+
+    .project-carousel .owl-nav button.owl-prev:active,
+    .project-carousel .owl-nav button.owl-next:active {
+        transform: scale(.88);
+    }
+
+    /* Position dots (enabled for this breakpoint only in main.js) give a
+       swipeable carousel a clear sense of "where am I" on mobile, styled
+       after the existing testimonial-carousel dots — same gold/white/black
+       palette already used across the site, nothing new added. */
+    .project-carousel .owl-dots {
+        margin-top: 14px;
+        text-align: center;
+    }
+
+    .project-carousel .owl-dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        border-radius: 50%;
+        border: 1px solid rgba(201, 168, 76, .5);
+        background-color: var(--clr-surface);
+        transition: width .3s ease, border-radius .3s ease, background-color .3s ease;
+    }
+
+    .project-carousel .owl-dot.active {
+        width: 22px;
+        border-radius: 5px;
+        background-color: var(--clr-gold);
+        border-color: var(--clr-gold);
+    }
+}
+
+
+/*** What We Create cards (homepage) ***/
+.service-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--clr-surface);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .08);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, .25);
+}
+
+.service-card-img {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.service-card-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.service-card:hover .service-card-img img {
+    transform: scale(1.08);
+}
+
+.service-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 24px 22px;
+}
+
+.service-card-body h4 {
+    margin-bottom: 10px;
+}
+
+.service-card-body p {
+    flex: 1;
+    color: var(--clr-ink);
+    font-size: .95rem;
+}
+
+.service-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    color: var(--clr-gold);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .3s ease, gap .3s ease;
+}
+
+.service-card-link:hover {
+    color: var(--clr-gold-dark);
+    gap: 10px;
+}
+
+
+/*** Service ***/
+.service-item {
+    position: relative;
+    padding: 30px 25px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .08);
+    transition: .5s;
+}
+
+.service-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, .25);
+}
+
+.service-item.bg-primary:hover {
+    background: var(--bs-light) !important;
+}
+
+.service-item.bg-primary p {
+    color: var(--bs-light);
+    transition: .5s;
+}
+
+.service-item.bg-primary:hover p {
+    color: var(--bs-secondary);
+}
+
+.service-item.bg-light:hover {
+    background: var(--bs-primary) !important;
+}
+
+.service-item.bg-light p {
+    color: var(--bs-secondary);
+    transition: .5s;
+}
+
+.service-item.bg-light:hover p {
+    color: var(--bs-light);
+}
+
+.service-item .service-link {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.service-item.bg-primary .service-link {
+    color: var(--bs-light);
+    transition: .5s;
+}
+
+.service-item.bg-primary:hover .service-link {
+    color: var(--bs-secondary);
+}
+
+.service-item.bg-light .service-link {
+    color: var(--bs-secondary);
+    transition: .5s;
+}
+
+.service-item.bg-light:hover .service-link {
+    color: var(--bs-light);
+}
+
+
+.service-item .service-img h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 12px 7px 0;
+}
+
+.service-item.bg-primary .service-img h3 {
+    background: var(--bs-primary);
+    color: var(--bs-white);
+    transition: .5s;
+}
+
+.service-item.bg-primary:hover .service-img h3 {
+    background: var(--bs-light);
+    color: var(--bs-dark);
+}
+
+.service-item.bg-light .service-img h3 {
+    background: var(--bs-light);
+    color: var(--bs-dark);
+    transition: .5s;
+}
+
+.service-item.bg-light:hover .service-img h3 {
+    background: var(--bs-primary);
+    color: var(--bs-white);
+}
+
+
+/*** Our Team ***/
+.team-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .08);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.team-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, .25);
+}
+
+.team-item img {
+    transition: .5s;
+}
+
+.team-item:hover img {
+    transform: scale(1.2);
+}
+
+.team-overlay {
+    position: absolute;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background: linear-gradient(rgba(255, 255, 255, .1) 50%, var(--bs-dark));
+    z-index: 1;
+}
+
+.team-overlay small {
+    display: inline-block;
+    padding: 3px 15px;
+    color: var(--bs-white);
+    background: var(--bs-primary);
+}
+
+
+/*** Testimonial ***/
+.testimonial-item {
+    background-color: var(--clr-dark-3);
+    border-radius: 16px;
+    padding: 60px;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .05);
+}
+
+.testimonial-text {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial-text i.fa-quote-left {
+    color: var(--clr-gold);
+}
+
+.testimonial-text h5 {
+    position: relative;
+    padding-top: 20px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.testimonial-text h5::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--clr-gold);
+}
+
+.testimonial-carousel .owl-dots {
+    position: absolute;
+    height: 17px;
+    bottom: 0;
+    right: 0;
+    left: auto;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+    background: var(--bs-white);
+    border: 2px solid var(--bs-primary);
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    width: 30px;
+    background: var(--bs-primary);
+}
+
+@media (max-width: 768px) {
+    .testimonial-carousel .owl-dots {
+        left: 0;
+        right: auto;
+    }
+
+    .testimonial-carousel .owl-dot {
+        margin-right: 10px;
+        margin-left: 0;
+    }
+}
+
+
+/*** Newsletter ***/
+.newsletter {
+    position: relative;
+    background: url(../img/hero-bg.jpg) bottom right no-repeat;
+    background-size: cover;
+}
+
+.newsletter::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(10, 10, 10, .88) 0%, rgba(10, 10, 10, .62) 100%);
+    pointer-events: none;
+}
+
+.newsletter .container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 992px) {
+    .newsletter .container {
+        max-width: 100% !important;
+    }
+
+    .newsletter .newsletter-text  {
+        padding-right: calc(((100% - 960px) / 2) + .75rem);
+    }
+}
+
+@media (min-width: 1200px) {
+    .newsletter .newsletter-text  {
+        padding-right: calc(((100% - 1140px) / 2) + .75rem);
+    }
+}
+
+@media (min-width: 1400px) {
+    .newsletter .newsletter-text  {
+        padding-right: calc(((100% - 1320px) / 2) + .75rem);
+    }
+}
+
+
+/*** Footer ***/
+.footer h5.text-white {
+    color: var(--clr-gold) !important;
+    letter-spacing: .5px;
+}
+
+.footer .brand-mark {
+    display: inline-block;
+    background-color: var(--clr-ink);
+    padding: 12px 18px;
+    border-radius: 8px;
+}
+
+.footer-map {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 76, .35);
+    filter: grayscale(.4) contrast(1.05);
+}
+
+.footer-map iframe {
+    display: block;
+    width: 100%;
+    height: 150px;
+    border: 0;
+}
+
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 10px;
+    padding: 0;
+    text-align: left;
+    color: rgba(255, 255, 255, .85);
+    font-weight: normal;
+    transition: .3s;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--clr-gold);
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    font-size: 14px;
+    border-top: 1px solid rgba(256, 256, 256, .1);
+}
+
+.footer .copyright a {
+    color: rgba(255, 255, 255, .85);
+}
+
+.footer .copyright a:hover {
+    color: var(--clr-gold);
+}
+
+.footer .footer-menu a {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid rgba(255, 255, 255, .1);
+    transition: color .3s;
+}
+
+.footer .footer-menu a:hover {
+    color: var(--clr-gold);
+}
+
+.footer .footer-menu a:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}

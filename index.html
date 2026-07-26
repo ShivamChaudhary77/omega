@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>The Omega Group | Luxury Interior Design &amp; Turnkey Execution</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="keywords" content="luxury interior design, turnkey interior execution, villa interior design, apartment interior design, modular kitchen, bespoke furniture, office interiors, commercial interiors">
+    <meta name="description" content="The Omega Group designs and delivers bespoke luxury interiors for homes, villas, apartments and commercial spaces, with end-to-end turnkey execution from concept to handover.">
+
+    <!-- Favicon -->
+    <link href="img/favicon.svg" rel="icon" type="image/svg+xml">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
+                <a href="index.html" class="navbar-brand">
+                    <img class="brand-logo" src="img/logo.png" alt="The Omega Group logo" width="300" height="42">
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
+                        <a href="project.html" class="nav-item nav-link">Projects</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Hero Start (previous text + image-slider hero — replaced by the video hero below, kept here for reference)
+    <div class="container-fluid pb-5 hero-header hero-home mb-5">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center mb-5">
+                <div class="col-lg-5">
+                    <div class="hero-glass p-4 animated fadeIn">
+                        <h1 class="display-4 mb-4 animated slideInRight">Luxury Interiors Crafted Around Your <span
+                                class="text-primary">Lifestyle</span></h1>
+                        <h5 class="d-inline-block border border-2 border-primary py-3 px-5 mb-4 animated slideInRight">
+                            Premium Interior Design &amp; Turnkey Execution</h5>
+                        <p class="animated slideInRight mb-4">The Omega Group designs and
+                            delivers bespoke residential and commercial interiors, managing every stage from concept to
+                            final handover under one accountable roof.</p>
+                        <div class="animated slideInRight">
+                            <a href="contact.html" class="btn btn-primary py-3 px-4 me-2">Book Consultation</a>
+                            <a href="project.html" class="btn btn-outline-primary py-3 px-4">Explore Projects</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="owl-carousel header-carousel animated fadeIn">
+                        <img class="img-fluid"
+                            src="img/hero-slider-1.jpg"
+                            alt="Contemporary kitchen with timber cabinetry and pendant lighting designed by The Omega Group">
+                        <img class="img-fluid"
+                            src="img/hero-slider-2.jpg"
+                            alt="Warm, timber-framed living room styled by The Omega Group">
+                        <img class="img-fluid"
+                            src="img/hero-slider-3.jpg"
+                            alt="Custom kitchen with statement lighting and rich wood finishes by The Omega Group">
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5 animated fadeIn">
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-drafting-compass text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">Bespoke Design</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-gem text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">Premium Materials</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-tools text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">Turnkey Execution</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 btn-square border border-2 border-white me-3">
+                            <i class="fa fa-clock text-primary"></i>
+                        </div>
+                        <h5 class="lh-base mb-0">On-Time Delivery</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    Hero End -->
+
+
+    <!-- Hero Start (video background) -->
+    <div class="hero-video">
+        <video class="hero-video-bg" autoplay muted loop playsinline
+            poster="img/hero-slider-1.jpg" aria-hidden="true">
+            <source src="video/banner-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-content animated fadeIn">
+            <h1 class="display-3 mb-4">Luxury Interiors Crafted Around Your <span class="text-primary">Lifestyle</span></h1>
+            <p class="mb-0">The Omega Group designs and delivers bespoke residential and commercial interiors,
+                managing every stage from concept to final handover under one accountable roof.</p>
+        </div>
+        <div class="hero-video-scroll">
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Featured Projects Start -->
+    <div class="container-fluid bg-light py-5">
+        <div class="container py-5">
+            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+                <h2 class="h1 mb-3">Our Latest <span
+                        class="text-uppercase text-primary bg-light px-2">Projects</span></h2>
+                <p class="mx-auto mb-5" style="max-width: 600px;">A glimpse into the homes and workspaces we have
+                    designed and delivered end-to-end for villas, apartments, and commercial addresses.</p>
+            </div>
+            <div class="project-carousel-wrap wow fadeIn" data-wow-delay="0.2s">
+                <div class="owl-carousel project-carousel">
+                    <a href="project.html" class="project-card text-decoration-none">
+                        <div class="project-card-img overflow-hidden">
+                            <img class="img-fluid w-100"
+                                src="https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.40.32-1.jpeg"
+                                alt="Open-plan apartment living and dining area with teal accents by The Omega Group">
+                        </div>
+                        <div class="project-card-body">
+                            <h4 class="mb-1">SOBHA</h4>
+                            <span class="project-card-tag">Apartment Interior</span>
+                        </div>
+                    </a>
+                    <a href="project.html" class="project-card text-decoration-none">
+                        <div class="project-card-img overflow-hidden">
+                            <img class="img-fluid w-100"
+                                src="https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.40.29-2.jpeg"
+                                alt="Sleek white modular kitchen with dark countertops by The Omega Group">
+                        </div>
+                        <div class="project-card-body">
+                            <h4 class="mb-1">SHREE BALAJI CGHS</h4>
+                            <span class="project-card-tag">Modular Kitchen</span>
+                        </div>
+                    </a>
+                    <a href="project.html" class="project-card text-decoration-none">
+                        <div class="project-card-img overflow-hidden">
+                            <img class="img-fluid w-100"
+                                src="https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.45.25.jpeg"
+                                alt="Compact modern apartment living space with a statement red armchair by The Omega Group">
+                        </div>
+                        <div class="project-card-body">
+                            <h4 class="mb-1">PAREENA HEIGHTS</h4>
+                            <span class="project-card-tag">Apartment Interior</span>
+                        </div>
+                    </a>
+                    <a href="project.html" class="project-card text-decoration-none">
+                        <div class="project-card-img overflow-hidden">
+                            <img class="img-fluid w-100"
+                                src="https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.30.20.jpeg"
+                                alt="Moody, dark-toned living room and media lounge by The Omega Group">
+                        </div>
+                        <div class="project-card-body">
+                            <h4 class="mb-1">M3M WOODHSIRE</h4>
+                            <span class="project-card-tag">Villa Interior</span>
+                        </div>
+                    </a>
+                    <a href="project.html" class="project-card text-decoration-none">
+                        <div class="project-card-img overflow-hidden">
+                            <img class="img-fluid w-100"
+                                src="https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.34.40.jpeg"
+                                alt="Traditional wood-finished kitchen with center island by The Omega Group">
+                        </div>
+                        <div class="project-card-body">
+                            <h4 class="mb-1">HPURI EMERALD BAY</h4>
+                            <span class="project-card-tag">Modular Kitchen</span>
+                        </div>
+                    </a>
+                    <a href="project.html" class="project-card text-decoration-none">
+                        <div class="project-card-img overflow-hidden">
+                            <img class="img-fluid w-100"
+                                src="https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.25.04-2.jpeg"
+                                alt="Contemporary open-plan kitchen and dining loft by The Omega Group">
+                        </div>
+                        <div class="project-card-body">
+                            <h4 class="mb-1">Urban Loft</h4>
+                            <span class="project-card-tag">Apartment Interior</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="project.html" class="btn btn-outline-primary px-4 py-2">View All Projects</a>
+            </div>
+        </div>
+    </div>
+    <!-- Featured Projects End -->
+
+
+    <!-- What We Create Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+                <h2 class="h1 mb-3">What We <span class="text-uppercase text-primary bg-light px-2">Create</span>
+                </h2>
+                <p class="mx-auto mb-5" style="max-width: 640px;">From a single room to a full turnkey build, The
+                    Omega Group designs and delivers interiors across residential and commercial categories — always
+                    led by one design team, one point of contact, and one standard of craftsmanship.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="service-card">
+                        <div class="service-card-img">
+                            <img class="img-fluid w-100"
+                                src="img/service-1.jpg"
+                                alt="Luxury living room interior with custom furnishings by The Omega Group">
+                        </div>
+                        <div class="service-card-body">
+                            <h4>Luxury Home Interiors</h4>
+                            <p>Full-home interiors tailored to your lifestyle, from layout and lighting to furniture
+                                and finishes.</p>
+                            <a href="service.html" class="service-card-link">Read More <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.2s">
+                    <div class="service-card">
+                        <div class="service-card-img">
+                            <img class="img-fluid w-100"
+                                src="img/service-2.jpg"
+                                alt="Villa and apartment living room interior styled by The Omega Group">
+                        </div>
+                        <div class="service-card-body">
+                            <h4>Villa &amp; Apartment Interiors</h4>
+                            <p>Considered interiors for villas and apartments that balance comfort, style, and
+                                everyday practicality.</p>
+                            <a href="service.html" class="service-card-link">Read More <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="service-card">
+                        <div class="service-card-img">
+                            <img class="img-fluid w-100"
+                                src="img/service-3.jpg"
+                                alt="Custom cabinetry and styled reading corner by The Omega Group">
+                        </div>
+                        <div class="service-card-body">
+                            <h4>Bespoke Furniture</h4>
+                            <p>Custom-made furniture and cabinetry designed to fit your space, proportions, and
+                                material palette exactly.</p>
+                            <a href="service.html" class="service-card-link">Read More <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.4s">
+                    <div class="service-card">
+                        <div class="service-card-img">
+                            <img class="img-fluid w-100"
+                                src="img/service-4.jpg"
+                                alt="Modern living space with clean lines suited to office and commercial interiors by The Omega Group">
+                        </div>
+                        <div class="service-card-body">
+                            <h4>Office &amp; Commercial</h4>
+                            <p>Workspaces and commercial interiors designed for brand identity, comfort, and everyday
+                                function.</p>
+                            <a href="service.html" class="service-card-link">Read More <i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="service.html" class="btn btn-outline-primary px-4 py-2">View All Services</a>
+            </div>
+        </div>
+    </div>
+    <!-- What We Create End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
+                            <img class="img-fluid"
+                                src="img/about-1.jpg"
+                                alt="Contemporary open-plan kitchen with pendant lighting designed by The Omega Group">
+                        </div>
+                        <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
+                            <img class="img-fluid h-75"
+                                src="https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.40.30-1.jpeg"
+                                alt="Warm, timber-accented living space crafted by The Omega Group">
+                            <div class="h-25 d-flex align-items-center text-center bg-primary px-4">
+                                <h4 class="text-white lh-base mb-0">15+ Years of Design Excellence</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h2 class="h1 mb-5"><span class="text-uppercase text-primary bg-light px-2">About</span> The Omega
+                        Group</h2>
+                    <p class="mb-4">The Omega Group is a premium interior design and turnkey execution studio,
+                        crafting refined homes and commercial spaces for clients who value thoughtful design as much
+                        as flawless delivery. For over 15 years, we have partnered with luxury homeowners, villa and
+                        apartment owners, architects, and businesses to turn ambitious ideas into interiors that feel
+                        personal, effortless, and enduring.</p>
+                    <p class="mb-5">Every project begins with a conversation, not a template. Our design team studies
+                        how you live and work, then carries that understanding through concept, material selection,
+                        and on-site execution — managing every stage under one accountable roof, so you never have to
+                        coordinate multiple vendors.</p>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Bespoke Design Approach</h6>
+                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Certified Design
+                                Professionals</h6>
+                        </div>
+                        <div class="col-sm-6">
+                            <h6 class="mb-3"><i class="fa fa-check text-primary me-2"></i>Single-Point Turnkey
+                                Execution</h6>
+                            <h6 class="mb-0"><i class="fa fa-check text-primary me-2"></i>Premium Material Sourcing
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mt-5">
+                        <a class="btn btn-primary px-4 me-2" href="about.html">Explore More</a>
+                        <a class="btn btn-outline-primary btn-square border-2 me-2"
+                            href="https://www.facebook.com/theomegainteriors" target="_blank" rel="noopener"
+                            aria-label="The Omega Group on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2"
+                            href="https://www.instagram.com/theomegainteriors/" target="_blank" rel="noopener"
+                            aria-label="The Omega Group on Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Our Difference Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+                <h2 class="h1 mb-5">Our <span class="text-uppercase text-primary bg-light px-2">Difference</span></h2>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="icon-card">
+                        <i class="fa fa-pencil-ruler fa-3x mb-4"></i>
+                        <h4>Customized Design</h4>
+                        <p class="mb-0">No two projects share a template. Every layout, palette, and finish is
+                            developed around how you actually live or work.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="icon-card">
+                        <i class="fa fa-gem fa-3x mb-4"></i>
+                        <h4>Premium Materials</h4>
+                        <p class="mb-0">We source finishes, fittings, and furnishings from trusted premium suppliers,
+                            so every surface performs as beautifully as it looks.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="icon-card">
+                        <i class="fa fa-tasks fa-3x mb-4"></i>
+                        <h4>End-to-End Execution</h4>
+                        <p class="mb-0">Design, procurement, and site execution are managed by one team, so your
+                            project moves forward without gaps or handovers.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="icon-card">
+                        <i class="fa fa-user-tie fa-3x mb-4"></i>
+                        <h4>Expert Designers</h4>
+                        <p class="mb-0">Our design consultants bring years of residential and commercial experience to
+                            every consultation and site visit.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="icon-card">
+                        <i class="fa fa-clipboard-check fa-3x mb-4"></i>
+                        <h4>Transparent Process</h4>
+                        <p class="mb-0">Clear timelines, itemised costing, and regular updates keep you informed at
+                            every stage, with no hidden surprises.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="icon-card">
+                        <i class="fa fa-calendar-check fa-3x mb-4"></i>
+                        <h4>On-Time Delivery</h4>
+                        <p class="mb-0">Disciplined project planning and dedicated site supervision help us deliver
+                            every space on schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Difference End -->
+
+
+    <!-- How We Work Start -->
+    <!-- <div class="container-fluid bg-light py-5">
+        <div class="container py-5">
+            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+                <h2 class="h1 mb-5">How We <span class="text-uppercase text-primary bg-light px-2">Work</span></h2>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-md-4 col-lg wow fadeIn" data-wow-delay="0.1s">
+                    <div class="icon-card">
+                        <div class="btn-square bg-primary mx-auto mb-4" style="width: 60px; height: 60px;">
+                            <h4 class="text-white mb-0">01</h4>
+                        </div>
+                        <h5>Consultation</h5>
+                        <p class="mb-0">We begin with a detailed conversation about your space, lifestyle, and
+                            budget.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg wow fadeIn" data-wow-delay="0.2s">
+                    <div class="icon-card">
+                        <div class="btn-square bg-primary mx-auto mb-4" style="width: 60px; height: 60px;">
+                            <h4 class="text-white mb-0">02</h4>
+                        </div>
+                        <h5>Design Planning</h5>
+                        <p class="mb-0">Our designers translate your brief into detailed layouts, mood boards, and
+                            concepts.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg wow fadeIn" data-wow-delay="0.3s">
+                    <div class="icon-card">
+                        <div class="btn-square bg-primary mx-auto mb-4" style="width: 60px; height: 60px;">
+                            <h4 class="text-white mb-0">03</h4>
+                        </div>
+                        <h5>Material Selection</h5>
+                        <p class="mb-0">We curate premium materials, finishes, and furnishings to match your design
+                            and budget.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg wow fadeIn" data-wow-delay="0.4s">
+                    <div class="icon-card">
+                        <div class="btn-square bg-primary mx-auto mb-4" style="width: 60px; height: 60px;">
+                            <h4 class="text-white mb-0">04</h4>
+                        </div>
+                        <h5>Execution</h5>
+                        <p class="mb-0">Our site teams carry out the build, with regular quality checks at every
+                            milestone.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg wow fadeIn" data-wow-delay="0.5s">
+                    <div class="icon-card">
+                        <div class="btn-square bg-primary mx-auto mb-4" style="width: 60px; height: 60px;">
+                            <h4 class="text-white mb-0">05</h4>
+                        </div>
+                        <h5>Final Handover</h5>
+                        <p class="mb-0">We complete a final walkthrough with you before handing over a space that's
+                            ready to live and work in.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- How We Work End -->
+
+
+    <!-- Client Love Start -->
+    <div class="container-xxl py-5">
+        <div class="container py-5">
+            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+                <h2 class="h1 mb-5">Client <span class="text-uppercase text-primary bg-light px-2">Love</span></h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-9">
+                    <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.2s">
+                        <div class="testimonial-item">
+                            <div class="testimonial-text">
+                                <i class="fa fa-quote-left fa-2x mb-4"></i>
+                                <p>The Omega Group listened to how our family actually lives before drawing a single
+                                    layout. The result feels curated but never staged, and the execution was handled
+                                    without a single missed deadline.</p>
+                                <h5 class="mb-0">Rohan Mehta, Villa Owner</h5>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-text">
+                                <i class="fa fa-quote-left fa-2x mb-4"></i>
+                                <p>We never had to manage a single vendor ourselves. From design to the final coat of
+                                    paint, The Omega Group's team took full ownership, and the finish quality exceeded
+                                    what we expected.</p>
+                                <h5 class="mb-0">Ananya Iyer, Apartment Owner</h5>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-text">
+                                <i class="fa fa-quote-left fa-2x mb-4"></i>
+                                <p>The design team understood our brand identity and translated it into a workspace
+                                    our clients and employees both comment on. Communication throughout the project
+                                    was clear and consistent.</p>
+                                <h5 class="mb-0">Karan Shah, Business Owner</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Client Love End -->
+
+
+    <!-- Final CTA Start -->
+    <div class="container-fluid bg-primary newsletter p-0">
+        <div class="container p-0">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
+                    <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-14.57.31-1.jpeg"
+                        alt="Luxury bedroom suite with marble accent wall and custom dressing area designed by The Omega Group">
+                </div>
+                <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
+                    <div class="p-5">
+                        <span class="text-uppercase text-primary fw-bold d-block mb-2" style="letter-spacing: 2px;">Book Your Appointment</span>
+                        <h2 class="h1 mb-4">Free Luxury Design Consultation</h2>
+                        <p class="text-white mb-4">Your design is an expression of who you are, and its design should match your lifestyle. Whether you have traditional tastes or desire a modern feel, we can design your dream space to suit any purpose.</p>
+                        <a href="contact.html" class="btn btn-primary py-3 px-5">Book Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Final CTA End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3 brand-mark">
+                        <img class="brand-logo" src="img/logo.png" alt="The Omega Group logo" width="300" height="42">
+                    </a>
+                    <p class="mb-0">The Omega Group is a premium interior design and turnkey execution studio,
+                        crafting bespoke homes and commercial spaces for clients who expect nothing less than
+                        excellence.</p>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="project.html">Our Projects</a>
+                    <a class="btn btn-link" href="service.html">Our Services</a>
+                    <a class="btn btn-link" href="contact.html">Book a Consultation</a>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <h5 class="text-white mb-4">Our Services</h5>
+                    <a class="btn btn-link" href="service.html">Luxury Home Interiors</a>
+                    <a class="btn btn-link" href="service.html">Villa &amp; Apartment Interiors</a>
+                    <a class="btn btn-link" href="service.html">Office &amp; Commercial Interiors</a>
+                    <a class="btn btn-link" href="service.html">Bespoke Furniture</a>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <h5 class="text-white mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Plot S4 &amp; S5, Main Dwarka Expressway, Near, Daulatabad Chowk, opp. Pillar 109, Gurugram, Haryana 122006</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+91 981 1001 900</p>
+                    <p><i class="fa fa-envelope me-3"></i>thegroupomega@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-primary btn-square border-2 me-2"
+                            href="https://www.facebook.com/theomegainteriors" target="_blank" rel="noopener"
+                            aria-label="The Omega Group on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2"
+                            href="https://www.instagram.com/theomegainteriors/" target="_blank" rel="noopener"
+                            aria-label="The Omega Group on Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="footer-map">
+                        <iframe
+                            src="https://www.google.com/maps?q=Plot%20S4%20%26%20S5%2C%20Main%20Dwarka%20Expressway%2C%20Near%2C%20Daulatabad%20Chowk%2C%20opp.%20Pillar%20109%2C%20Gurugram%2C%20Haryana%20122006&amp;output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            title="The Omega Group location map"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="index.html">The Omega Group</a>, All Rights Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="index.html">Home</a>
+                            <a href="about.html">About</a>
+                            <a href="service.html">Services</a>
+                            <a href="contact.html">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" aria-label="Back to top"><i
+            class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
