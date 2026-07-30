@@ -1,0 +1,53 @@
+{
+  "name": "The Omega Group",
+  "alternateName": "Omega Interiors & Furniture",
+  "url": "https://theomegagroup.in/",
+  "logo": "https://theomegagroup.in/img/logo.png",
+  "image": "https://theomegagroup.in/img/about-1.jpg",
+  "telephone": "+91-981-1001-900",
+  "telephoneDisplay": "+91 981 1001 900",
+  "email": "thegroupomega@gmail.com",
+  "priceRange": "₹₹₹₹",
+  "foundingDate": "2022-06",
+  "startingPrice": {
+    "amount": 1500000,
+    "currency": "INR",
+    "display": "₹15 Lakhs+",
+    "unit": "full home turnkey"
+  },
+  "stats": {
+    "yearsExperience": "10+",
+    "projectsDelivered": "90+",
+    "onTimeDeliveryRate": "90%",
+    "qcChecksPerProject": "70+",
+    "customFurnitureDesigns": "290+"
+  },
+  "address": {
+    "streetAddress": "Plot S4 & S5, Main Dwarka Expressway, Near Daulatabad Chowk, opp. Pillar 109",
+    "addressLocality": "Gurugram",
+    "addressRegion": "Haryana",
+    "postalCode": "122006",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "latitude": 28.4499,
+    "longitude": 76.9995
+  },
+  "areaServed": [
+    "Gurgaon",
+    "Delhi NCR",
+    "DLF Gurgaon",
+    "Sushant Lok",
+    "Dwarka Expressway",
+    "Sohna Road",
+    "New Gurgaon",
+    "Manesar"
+  ],
+  "sameAs": [
+    "https://www.facebook.com/theomegainteriors",
+    "https://www.instagram.com/theomegainteriors/"
+  ],
+  "googleBusinessProfileUrl": "",
+  "mapEmbedUrl": "https://www.google.com/maps?q=Plot%20S4%20%26%20S5%2C%20Main%20Dwarka%20Expressway%2C%20Near%2C%20Daulatabad%20Chowk%2C%20opp.%20Pillar%20109%2C%20Gurugram%2C%20Haryana%20122006&output=embed",
+  "ga4MeasurementId": "G-XXXXXXXXXX"
+}

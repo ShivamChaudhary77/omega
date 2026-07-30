@@ -40,6 +40,13 @@
     });
 
 
+    // Pages without any carousel markup (e.g. the blog) don't load the Owl
+    // Carousel library at all, so skip these inits rather than throw.
+    if (!$.fn.owlCarousel) {
+        return;
+    }
+
+
     // Header carousel
     $(".header-carousel").owlCarousel({
         autoplay: true,

@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="keywords" content="luxury home interiors, villa interior design, apartment interior design, turnkey interior solutions, office interiors, commercial interiors, modular kitchens, bespoke furniture, space planning, interior styling">
     <meta name="description" content="Explore The Omega Group's interior design services — luxury home, villa and apartment interiors, turnkey execution, office and commercial interiors, modular kitchens, bespoke furniture, space planning, and styling.">
+    <link rel="canonical" href="https://theomegagroup.in/service.html">
 
     <!-- Favicon -->
     <link href="img/favicon.svg" rel="icon" type="image/svg+xml">
@@ -29,6 +30,53 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/blog.css" rel="stylesheet">
+
+    <!-- Service schema — one entry per real service offered on this page -->
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Residential Interior Design",
+            "name": "Luxury Home, Villa &amp; Apartment Interiors",
+            "description": "Full-home, villa, and apartment interior design and turnkey execution — layout, lighting, furniture, and finishes planned as one cohesive whole.",
+            "provider": { "@type": "LocalBusiness", "@id": "https://theomegagroup.in/#organization" },
+            "areaServed": ["Gurgaon", "Delhi NCR"],
+            "url": "https://theomegagroup.in/service.html"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Office &amp; Commercial Interior Design",
+            "name": "Office &amp; Commercial Interiors",
+            "description": "Workspace and commercial interior design and turnkey execution built to reflect a brand and support everyday operations.",
+            "provider": { "@type": "LocalBusiness", "@id": "https://theomegagroup.in/#organization" },
+            "areaServed": ["Gurgaon", "Delhi NCR"],
+            "url": "https://theomegagroup.in/service.html"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Modular Kitchen Design",
+            "name": "Modular Kitchens",
+            "description": "Ergonomic, high-durability modular kitchens tailored to cooking habits and storage needs.",
+            "provider": { "@type": "LocalBusiness", "@id": "https://theomegagroup.in/#organization" },
+            "areaServed": ["Gurgaon", "Delhi NCR"],
+            "url": "https://theomegagroup.in/service.html"
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Custom Furniture Design",
+            "name": "Bespoke Furniture",
+            "description": "Custom-made furniture and cabinetry designed and built to fit exact space, proportions, and material palette.",
+            "provider": { "@type": "LocalBusiness", "@id": "https://theomegagroup.in/#organization" },
+            "areaServed": ["Gurgaon", "Delhi NCR"],
+            "url": "https://theomegagroup.in/service.html"
+        }
+    ]
+    </script>
 </head>
 
 <body>
@@ -59,6 +107,7 @@
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link active">Services</a>
                         <a href="project.html" class="nav-item nav-link">Projects</a>
+                        <a href="blog.html" class="nav-item nav-link">Blog</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
@@ -112,57 +161,69 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <div class="row g-0">
+                    <div class="row g-4">
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
-                                <a href="contact.html" class="service-img position-relative mb-4">
+                            <div class="service-card">
+                                <div class="service-card-img">
                                     <img class="img-fluid w-100"
                                         src="img/service-1.jpg"
                                         alt="Luxury living room interior with custom furnishings by The Omega Group">
-                                    <h3>Luxury Home Interiors</h3>
-                                </a>
-                                <p class="mb-3">Complete home interiors designed around your lifestyle — layout,
-                                    lighting, furniture, and finishes planned as one cohesive whole.</p>
-                                <a href="contact.html" class="service-link">Enquire Now</a>
+                                </div>
+                                <div class="service-card-body">
+                                    <h4>Luxury Home Interiors</h4>
+                                    <p>Complete home interiors designed around your lifestyle — layout,
+                                        lighting, furniture, and finishes planned as one cohesive whole.</p>
+                                    <a href="contact.html" class="service-card-link">Enquire Now <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.4s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
-                                <a href="contact.html" class="service-img position-relative mb-4">
+                            <div class="service-card">
+                                <div class="service-card-img">
                                     <img class="img-fluid w-100"
                                         src="img/service-2.jpg"
                                         alt="Contemporary apartment living room with a navy sectional sofa styled by The Omega Group">
-                                    <h3>Apartment Interiors</h3>
-                                </a>
-                                <p class="mb-3">Space-smart interiors for apartments that make the most of every
-                                    square foot without compromising on style.</p>
-                                <a href="contact.html" class="service-link">Enquire Now</a>
+                                </div>
+                                <div class="service-card-body">
+                                    <h4>Apartment Interiors</h4>
+                                    <p>Space-smart interiors for apartments that make the most of every
+                                        square foot without compromising on style.</p>
+                                    <a href="contact.html" class="service-card-link">Enquire Now <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.6s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-light">
-                                <a href="contact.html" class="service-img position-relative mb-4">
+                            <div class="service-card">
+                                <div class="service-card-img">
                                     <img class="img-fluid w-100"
                                         src="img/service-3.jpg"
                                         alt="Custom cabinetry and styled reading corner crafted by The Omega Group">
-                                    <h3>Bespoke Furniture</h3>
-                                </a>
-                                <p class="mb-3">Custom-made furniture and cabinetry, designed and built to fit your
-                                    exact space, proportions, and material palette.</p>
-                                <a href="contact.html" class="service-link">Enquire Now</a>
+                                </div>
+                                <div class="service-card-body">
+                                    <h4>Bespoke Furniture</h4>
+                                    <p>Custom-made furniture and cabinetry, designed and built to fit your
+                                        exact space, proportions, and material palette.</p>
+                                    <a href="contact.html" class="service-card-link">Enquire Now <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 wow fadeIn" data-wow-delay="0.8s">
-                            <div class="service-item h-100 d-flex flex-column justify-content-center bg-primary">
-                                <a href="contact.html" class="service-img position-relative mb-4">
+                            <div class="service-card">
+                                <div class="service-card-img">
                                     <img class="img-fluid w-100"
-                                        src="img/service-4.jpg"
-                                        alt="Bright, Scandinavian-style villa living room designed by The Omega Group">
-                                    <h3>Villa Interiors</h3>
-                                </a>
-                                <p class="mb-3">Expansive interiors for independent villas, balancing indoor-outdoor
-                                    flow with refined, liveable luxury.</p>
-                                <a href="contact.html" class="service-link">Enquire Now</a>
+                                        src="img/project-4.jpg"
+                                        alt="Moody, dark-toned villa living room and lounge by The Omega Group">
+                                </div>
+                                <div class="service-card-body">
+                                    <h4>Villa Interiors</h4>
+                                    <p>Expansive interiors for independent villas, balancing indoor-outdoor
+                                        flow with refined, liveable luxury.</p>
+                                    <a href="contact.html" class="service-card-link">Enquire Now <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -235,6 +296,76 @@
     <!-- More Services End -->
 
 
+    <!-- FAQ Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5" style="max-width: 860px;">
+            <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+                <h2 class="h1 mb-5">Frequently Asked <span class="text-uppercase text-primary bg-light px-2">Questions</span></h2>
+            </div>
+            <div class="post-faq mt-0" data-faq-schema>
+                <div class="accordion" id="faq-service">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-service-0" aria-expanded="true" aria-controls="faq-service-0">
+                                What interior design services does The Omega Group offer?
+                            </button>
+                        </h3>
+                        <div id="faq-service-0" class="accordion-collapse collapse show" data-bs-parent="#faq-service">
+                            <div class="accordion-body">Full-home, villa, and apartment interiors, modular kitchens, bespoke furniture, and office &amp; commercial interiors — plus turnkey execution, space planning, and interior styling across all of them.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-service-1" aria-expanded="false" aria-controls="faq-service-1">
+                                Do you design modular kitchens?
+                            </button>
+                        </h3>
+                        <div id="faq-service-1" class="accordion-collapse collapse" data-bs-parent="#faq-service">
+                            <div class="accordion-body">Yes — ergonomic, high-durability modular kitchens tailored to cooking habits and storage needs, designed and installed by our own team.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-service-2" aria-expanded="false" aria-controls="faq-service-2">
+                                Can you design both residential and commercial spaces?
+                            </button>
+                        </h3>
+                        <div id="faq-service-2" class="accordion-collapse collapse" data-bs-parent="#faq-service">
+                            <div class="accordion-body">Yes — homes, villas, and apartments as well as office and commercial interiors, all under the same turnkey process.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-service-3" aria-expanded="false" aria-controls="faq-service-3">
+                                Is turnkey execution included in your services?
+                            </button>
+                        </h3>
+                        <div id="faq-service-3" class="accordion-collapse collapse" data-bs-parent="#faq-service">
+                            <div class="accordion-body">Yes — design, procurement, and site execution are managed by one team, so you deal with a single point of contact from start to finish.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#faq-service-4" aria-expanded="false" aria-controls="faq-service-4">
+                                How do I request a quote?
+                            </button>
+                        </h3>
+                        <div id="faq-service-4" class="accordion-collapse collapse" data-bs-parent="#faq-service">
+                            <div class="accordion-body">Book a complimentary consultation on our <a href="contact.html">Contact page</a> or call +91 981 1001 900 — we'll scope your project before proposing pricing.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FAQ End -->
+
+
     <!-- Testimonial Start -->
     <div class="container-xxl pb-5">
         <div class="container pb-5">
@@ -292,7 +423,7 @@
                         <p class="text-white mb-4">Your design is an expression of who you are, and its design should
                             match your lifestyle. Whether you have traditional tastes or desire a modern feel, we can
                             design your dream space to suit any purpose.</p>
-                        <a href="contact.html" class="btn btn-primary py-3 px-5">Book Consultation</a>
+                        <a href="contact.html" class="btn btn-primary py-3 px-5" data-cta="book-appointment">Book Consultation</a>
                     </div>
                 </div>
             </div>
@@ -307,20 +438,31 @@
             <div class="row g-5">
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
                     <a href="index.html" class="d-inline-block mb-3 brand-mark">
-                        <img class="brand-logo" src="img/logo.png" alt="The Omega Group logo" width="300" height="42">
+                        <img class="brand-logo" src="img/logo.png" alt="The Omega Group logo" width="300" height="42" loading="lazy">
                     </a>
                     <p class="mb-0">The Omega Group is a premium interior design and turnkey execution studio,
                         crafting bespoke homes and commercial spaces for clients who expect nothing less than
                         excellence.</p>
                 </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                <div class="col-md-6 col-lg-2 wow fadeIn" data-wow-delay="0.3s">
                     <h5 class="text-white mb-4">Quick Links</h5>
                     <a class="btn btn-link" href="about.html">About Us</a>
                     <a class="btn btn-link" href="project.html">Our Projects</a>
                     <a class="btn btn-link" href="service.html">Our Services</a>
+                    <a class="btn btn-link" href="blog.html">Blog</a>
                     <a class="btn btn-link" href="contact.html">Book a Consultation</a>
                 </div>
-                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                <div class="col-md-6 col-lg-2 wow fadeIn" data-wow-delay="0.4s">
+                    <h5 class="text-white mb-4">Service Areas</h5>
+                    <a class="btn btn-link" href="/interior-designers-gurgaon/">Gurgaon</a>
+                    <a class="btn btn-link" href="/interior-designers-dwarka-expressway/">Dwarka Expressway</a>
+                    <a class="btn btn-link" href="/interior-designers-sohna-road/">Sohna Road</a>
+                    <a class="btn btn-link" href="/interior-designers-sushant-lok/">Sushant Lok</a>
+                    <a class="btn btn-link" href="/interior-designers-new-gurgaon/">New Gurgaon</a>
+                    <a class="btn btn-link" href="/interior-designers-dlf-gurgaon/">DLF Gurgaon</a>
+                    <a class="btn btn-link" href="/interior-designers-manesar/">Manesar</a>
+                </div>
+                <div class="col-md-6 col-lg-2 wow fadeIn" data-wow-delay="0.5s">
                     <h5 class="text-white mb-4">Our Services</h5>
                     <a class="btn btn-link" href="service.html">Luxury Home Interiors</a>
                     <a class="btn btn-link" href="service.html">Villa &amp; Apartment Interiors</a>
@@ -336,9 +478,12 @@
                         <a class="btn btn-outline-primary btn-square border-2 me-2"
                             href="https://www.facebook.com/theomegainteriors" target="_blank" rel="noopener"
                             aria-label="The Omega Group on Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-primary btn-square border-2"
+                        <a class="btn btn-outline-primary btn-square border-2 me-2"
                             href="https://www.instagram.com/theomegainteriors/" target="_blank" rel="noopener"
                             aria-label="The Omega Group on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-primary btn-square border-2"
+                            href="https://wa.me/919811001900" target="_blank" rel="noopener"
+                            aria-label="Chat with The Omega Group on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                     <div class="footer-map">
                         <iframe
@@ -360,6 +505,7 @@
                             <a href="index.html">Home</a>
                             <a href="about.html">About</a>
                             <a href="service.html">Services</a>
+                            <a href="blog.html">Blog</a>
                             <a href="contact.html">Contact</a>
                         </div>
                     </div>
@@ -385,6 +531,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/schema.js"></script>
+    <script src="js/analytics.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,71 @@
+{
+  "_note": "Structured fact block source for project.html. sizeSqFt/budgetBand/timeline/materials are intentionally null — real figures were not available at build time and must be supplied per project (not estimated) before they're shown. The UI and CreativeWork schema only render fields that are non-null, so filling one in here is enough to make it appear in both places.",
+  "projects": [
+    {
+      "slug": "sobha",
+      "name": "SOBHA",
+      "type": "Apartment Interior",
+      "location": null,
+      "sizeSqFt": null,
+      "budgetBand": null,
+      "timeline": null,
+      "materials": [],
+      "image": "https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.40.32-1.jpeg"
+    },
+    {
+      "slug": "shree-balaji-cghs",
+      "name": "Shree Balaji CGHS",
+      "type": "Modular Kitchen",
+      "location": null,
+      "sizeSqFt": null,
+      "budgetBand": null,
+      "timeline": null,
+      "materials": [],
+      "image": "https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.40.29-2.jpeg"
+    },
+    {
+      "slug": "pareena-heights",
+      "name": "Pareena Heights",
+      "type": "Apartment Interior",
+      "location": null,
+      "sizeSqFt": null,
+      "budgetBand": null,
+      "timeline": null,
+      "materials": [],
+      "image": "https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.45.25.jpeg"
+    },
+    {
+      "slug": "m3m-woodshire",
+      "name": "M3M Woodshire",
+      "type": "Villa Interior",
+      "location": null,
+      "sizeSqFt": null,
+      "budgetBand": null,
+      "timeline": null,
+      "materials": [],
+      "image": "https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.30.20.jpeg"
+    },
+    {
+      "slug": "hpuri-emerald-bay",
+      "name": "Hpuri Emerald Bay",
+      "type": "Modular Kitchen",
+      "location": null,
+      "sizeSqFt": null,
+      "budgetBand": null,
+      "timeline": null,
+      "materials": [],
+      "image": "https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.34.40.jpeg"
+    },
+    {
+      "slug": "urban-loft",
+      "name": "Urban Loft",
+      "type": "Apartment Interior",
+      "location": null,
+      "sizeSqFt": null,
+      "budgetBand": null,
+      "timeline": null,
+      "materials": [],
+      "image": "https://theomegagroup.in/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-24-at-15.25.04-2.jpeg"
+    }
+  ]
+}

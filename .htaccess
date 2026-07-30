@@ -1,0 +1,10 @@
+# Generated from redirects.json by scripts/build-redirects.py — do not hand-edit the
+# redirect block below; edit redirects.json and re-run the script instead.
+RewriteEngine On
+
+Redirect 301 /best-home-interior-designer-in-dwarka/ https://theomegagroup.in/interior-designers-dwarka-expressway/
+Redirect 301 /turnkey-interior-contractors-in-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
+
+# Clean directory-style URLs (blog posts + location pages) are real
+# directories with their own index.html, so no rewrite rules are needed
+# for them — Apache serves <dir>/index.html for <dir>/ automatically.

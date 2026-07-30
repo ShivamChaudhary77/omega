@@ -1,0 +1,15 @@
+{
+  "_note": "Only 2 mappings are confirmed here — the two legacy URLs explicitly cited with real GSC impression/position data in the SEO review PDF. The review also references '~10 Gurgaon pages and 3 Dwarka pages' that were cannibalizing rankings, but this WordPress export only contained blog posts (not WordPress Pages/Elementor landing pages), so their exact old URLs aren't available here. Before launch: pull the full list from Search Console → Pages (or WordPress Admin → Pages) filtered to /gurgaon/ and /dwarka/ paths, add each as a new entry below, then re-run scripts/build-redirects.py to regenerate _redirects / .htaccess / vercel.json.",
+  "redirects": [
+    {
+      "from": "/best-home-interior-designer-in-dwarka/",
+      "to": "/interior-designers-dwarka-expressway/",
+      "source": "GSC: 397 impressions, position 32, 0 clicks (confirmed in SEO review PDF, Section 3)"
+    },
+    {
+      "from": "/turnkey-interior-contractors-in-gurgaon/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC: 294 impressions, position 27.7, 0 clicks (confirmed in SEO review PDF, Section 3)"
+    }
+  ]
+}

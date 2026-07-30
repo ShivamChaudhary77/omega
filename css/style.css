@@ -16,7 +16,7 @@
     --clr-surface: #FFFFFF;
 
     /* This stylesheet's own rules already lean on Bootstrap's --bs-* tokens
-       (carousel accents, overlays, footer, service-item hover swap) — remapping
+       (carousel accents, team/testimonial overlays, footer) — remapping
        them here keeps those rules on-brand automatically. */
     --bs-primary: var(--clr-black);
     --bs-secondary: var(--clr-ink);
@@ -578,43 +578,6 @@ a.back-to-top {
 }
 
 
-/*** Project ***/
-.project-item {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(10, 10, 10, .08);
-    transition: transform .35s ease, box-shadow .35s ease;
-}
-
-.project-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(201, 168, 76, .25);
-}
-
-.project-item img {
-    transition: .5s;
-}
-
-.project-item:hover img {
-    transform: scale(1.2);
-}
-
-.project-overlay {
-    position: absolute;
-    padding: 25px;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    background: linear-gradient(rgba(255, 255, 255, .1) 50%, var(--bs-dark));
-    z-index: 1;
-}
-
-
 /*** Latest Projects carousel (homepage) ***/
 .project-carousel-wrap {
     position: relative;
@@ -842,100 +805,6 @@ a.back-to-top {
 .service-card-link:hover {
     color: var(--clr-gold-dark);
     gap: 10px;
-}
-
-
-/*** Service ***/
-.service-item {
-    position: relative;
-    padding: 30px 25px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(10, 10, 10, .08);
-    transition: .5s;
-}
-
-.service-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(201, 168, 76, .25);
-}
-
-.service-item.bg-primary:hover {
-    background: var(--bs-light) !important;
-}
-
-.service-item.bg-primary p {
-    color: var(--bs-light);
-    transition: .5s;
-}
-
-.service-item.bg-primary:hover p {
-    color: var(--bs-secondary);
-}
-
-.service-item.bg-light:hover {
-    background: var(--bs-primary) !important;
-}
-
-.service-item.bg-light p {
-    color: var(--bs-secondary);
-    transition: .5s;
-}
-
-.service-item.bg-light:hover p {
-    color: var(--bs-light);
-}
-
-.service-item .service-link {
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-.service-item.bg-primary .service-link {
-    color: var(--bs-light);
-    transition: .5s;
-}
-
-.service-item.bg-primary:hover .service-link {
-    color: var(--bs-secondary);
-}
-
-.service-item.bg-light .service-link {
-    color: var(--bs-secondary);
-    transition: .5s;
-}
-
-.service-item.bg-light:hover .service-link {
-    color: var(--bs-light);
-}
-
-
-.service-item .service-img h3 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 12px 7px 0;
-}
-
-.service-item.bg-primary .service-img h3 {
-    background: var(--bs-primary);
-    color: var(--bs-white);
-    transition: .5s;
-}
-
-.service-item.bg-primary:hover .service-img h3 {
-    background: var(--bs-light);
-    color: var(--bs-dark);
-}
-
-.service-item.bg-light .service-img h3 {
-    background: var(--bs-light);
-    color: var(--bs-dark);
-    transition: .5s;
-}
-
-.service-item.bg-light:hover .service-img h3 {
-    background: var(--bs-primary);
-    color: var(--bs-white);
 }
 
 
