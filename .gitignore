@@ -1,0 +1,6 @@
+# Real database credentials — never commit. See php/config.example.php for
+# the template and README-CONTACT-FORM.md for setup instructions.
+php/config.php
+
+# OS / editor cruft
+.DS_Store

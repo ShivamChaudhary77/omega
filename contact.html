@@ -3,6 +3,18 @@
 
 <head>
     <meta charset="utf-8">
+
+    <!-- Google Search Console verification -->
+    <meta name="google-site-verification" content="WfK6bn2Y0riMl83guJlVGhq8GrnN6rbKjyn5Nrk43Ls" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FSNHC0N7BD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-FSNHC0N7BD');
+    </script>
     <title>Contact Us | The Omega Group – Book a Design Consultation</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="keywords" content="book interior design consultation, contact The Omega Group, luxury interior designer near me">
@@ -149,36 +161,48 @@
                         space, and a member of our design team will get back to you within 24 hours to schedule your
                         complimentary consultation.</p>
                     <div class="wow fadeIn" data-wow-delay="0.3s">
-                        <form id="contact-form" data-track-submit>
+                        <div id="contact-form-status" class="d-none mb-4" role="status" aria-live="polite"></div>
+                        <form id="contact-form" novalidate>
+                            <!-- Honeypot — hidden from real users, bots that fill every field trip this -->
+                            <div class="d-none" aria-hidden="true">
+                                <label for="website">Leave this field blank</label>
+                                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                            </div>
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
+                                        <input type="text" class="form-control" id="full_name" name="full_name"
+                                            placeholder="Your Full Name" maxlength="150" required>
+                                        <label for="full_name">Full Name</label>
+                                        <div class="invalid-feedback"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
+                                        <input type="tel" class="form-control" id="phone_number" name="phone_number"
+                                            placeholder="Your Phone Number" maxlength="20" required>
+                                        <label for="phone_number">Phone Number</label>
+                                        <div class="invalid-feedback"></div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject"
-                                            placeholder="What are you looking to design?">
-                                        <label for="subject">What are you looking to design?</label>
+                                        <input type="text" class="form-control" id="city" name="city"
+                                            placeholder="Your City" maxlength="100" required>
+                                        <label for="city">City</label>
+                                        <div class="invalid-feedback"></div>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea class="form-control" placeholder="Tell us about your project"
-                                            id="message" style="height: 150px"></textarea>
-                                        <label for="message">Tell us about your project</label>
+                                            id="project_details" name="project_details" style="height: 150px" required></textarea>
+                                        <label for="project_details">Tell us about your project</label>
+                                        <div class="invalid-feedback"></div>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit" id="contact-form-submit">Send Message</button>
                                 </div>
                             </div>
                         </form>
@@ -315,6 +339,7 @@
     <script src="js/main.js"></script>
     <script src="js/schema.js"></script>
     <script src="js/analytics.js"></script>
+    <script src="js/contact-form.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,25 @@
 # Analytics & Tracking Reference
 
-## GA4 setup
+## GA4 + Search Console setup
 
-`js/analytics.js` loads `gtag.js` using the Measurement ID stored in `data/organization.json` → `ga4MeasurementId`. It currently holds a placeholder (`G-XXXXXXXXXX`) — **gtag.js will not load, and no events will fire, until a real GA4 Measurement ID is put there.** This was a deliberate choice: better to visibly no-op than to silently wire tracking to a fake ID.
+**Live**, using property `G-FSNHC0N7BD`. Every page's `<head>` carries the standard Google gtag.js snippet directly (inline, synchronous — the way Google's own setup instructions specify), immediately after `<meta charset>`:
 
-To go live: create/confirm the GA4 property for theomegagroup.in, copy its Measurement ID (`G-XXXXXXXXXX` format) from GA4 Admin → Data Streams, and paste it into `data/organization.json`. No other file changes needed — every page picks it up automatically since `js/analytics.js` is already included everywhere.
+```html
+<meta name="google-site-verification" content="WfK6bn2Y0riMl83guJlVGhq8GrnN6rbKjyn5Nrk43Ls" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FSNHC0N7BD"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FSNHC0N7BD');
+</script>
+```
+
+`js/analytics.js` no longer loads gtag.js itself (that would double-initialize it) — it just binds the four key events below on top of the `gtag` the head snippet already defines. It's included near the end of `<body>` on every page.
+
+Both the GSC verification meta tag and the GA4 ID are also recorded in `data/organization.json` (`googleSiteVerification`, `ga4MeasurementId`) for reference/documentation, but the live tag lives in each page's `<head>` — that's what Google actually reads.
+
+**To change the GA4 property or add a new page:** edit the snippet in `scripts/build-location-pages.py` (for pillar/satellite pages) and `single-post.html` (for the blog template), then re-run `scripts/build-post-pages.py` / `scripts/build-location-pages.py` to propagate; hand-edit the 7 static core pages (index/about/service/project/contact/blog/404) directly.
 
 In GA4 Admin → Events, mark these four as **Key Events** (GA4's current name for what used to be "Conversions") so they show up in the reporting used throughout the SEO plan:
 
@@ -15,11 +30,11 @@ In GA4 Admin → Events, mark these four as **Key Events** (GA4's current name f
 | `whatsapp_click` | Any click on a link whose `href` contains `wa.me` or `api.whatsapp.com` | `link_url`, `page_path` |
 | `call_click` | Any click on a `tel:` link | `link_url`, `page_path` |
 | `book_appointment` | Any click on an element with `data-cta="book-appointment"` | `link_url`, `page_path` |
-| `form_submit` | Native `submit` event on any `<form data-track-submit>` | `form_id`, `page_path` |
+| `form_submit` | Contact form save confirmed successful by the backend (not the click, not a validation failure) | `form_id`, `page_path` |
 
-All four are delegated listeners bound once in `js/analytics.js` (`bindKeyEvents`) — they work on elements added to the page later (e.g. dynamically rendered blog cards), no per-element wiring needed. To make a new WhatsApp/call/booking link trackable, just use a real `wa.me`/`tel:`/`data-cta="book-appointment"` link — nothing else to configure.
+The first three are delegated listeners bound once in `js/analytics.js` — they work on elements added to the page later (e.g. dynamically rendered blog cards), no per-element wiring needed. To make a new WhatsApp/call/booking link trackable, just use a real `wa.me`/`tel:`/`data-cta="book-appointment"` link — nothing else to configure.
 
-**Note on `form_submit`:** the contact form (`contact.html`) has no backend endpoint wired up yet — it's a static site with no server. `data-track-submit` is already on the form, so the event fires the moment a real form handler (Formspree, a serverless function, mailto fallback, etc.) is added — no code changes needed then either.
+**`form_submit` is different on purpose:** it's fired directly by `js/contact-form.js`, only after `php/contact-submit.php` responds `{ success: true }`. A blocked-by-validation or failed-network submit does not fire it — see `README-CONTACT-FORM.md` for how the form/backend pair works.
 
 ## UTM convention
 
