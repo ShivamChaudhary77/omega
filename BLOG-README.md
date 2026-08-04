@@ -67,6 +67,8 @@ Then:
 3. Regenerate `sitemap-blog.xml` (see below), or add a `<url>` block for the new post by hand following the existing pattern.
 4. No other file needs to change. `blog.html` picks up new categories automatically for the filter bar.
 
+**If you change an existing post's `urlPath`** (e.g. moving it to a new category, or — as with the modular kitchen renovation guide — giving it a one-off `/blog/<slug>/` URL to preserve external rankings): `build-post-pages.py` only ever *creates/updates* directories, it never deletes. After regenerating, manually `rm -rf` the old `<old-category>/<slug>/` directory yourself, or the post will be reachable (and indexable) at two URLs at once.
+
 ### Regenerating the sitemap
 
 ```python

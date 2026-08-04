@@ -623,16 +623,7 @@ a.back-to-top {
 }
 
 .project-card-body h4 {
-    margin-bottom: 4px;
-}
-
-.project-card-tag {
-    display: inline-block;
-    color: var(--clr-gold);
-    text-transform: uppercase;
-    font-size: .8rem;
-    font-weight: 600;
-    letter-spacing: .5px;
+    margin-bottom: 0;
 }
 
 .project-carousel .owl-nav button.owl-prev,

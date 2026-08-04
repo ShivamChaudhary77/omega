@@ -310,6 +310,7 @@ FOOTER_TEMPLATE = """<!-- Footer Start -->
                     <a class="btn btn-link" href="/project.html">Our Projects</a>
                     <a class="btn btn-link" href="/service.html">Our Services</a>
                     <a class="btn btn-link" href="/blog.html">Blog</a>
+                    <a class="btn btn-link" href="/faqs.html">FAQs</a>
                     <a class="btn btn-link" href="/contact.html">Book a Consultation</a>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
@@ -348,6 +349,7 @@ FOOTER_TEMPLATE = """<!-- Footer Start -->
                             <a href="/service.html">Services</a>
                             <a href="/blog.html">Blog</a>
                             <a href="/contact.html">Contact</a>
+                            <a href="/privacy-policy.html">Privacy Policy</a>
                         </div>
                     </div>
                 </div>

@@ -490,6 +490,50 @@
     box-shadow: 0 10px 30px rgba(10, 10, 10, .12);
 }
 
+/* Data tables (fact/comparison/timeline tables) — wrapped in a scroll
+   container so wide tables don't force horizontal page overflow on mobile. */
+.post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 28px;
+    font-size: .95rem;
+}
+
+.post-body .table-scroll {
+    overflow-x: auto;
+    margin: 0 0 28px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.post-body .table-scroll table {
+    margin-bottom: 0;
+    min-width: 480px;
+}
+
+.post-body th,
+.post-body td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(10, 10, 10, .08);
+    vertical-align: top;
+}
+
+.post-body thead th {
+    background-color: var(--clr-black);
+    color: var(--clr-gold);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.post-body tbody tr:nth-child(even) {
+    background-color: var(--clr-dark-2);
+}
+
+.post-body table + p {
+    margin-top: -8px;
+}
+
 .post-body a {
     color: var(--clr-gold-dark);
     text-decoration: underline;

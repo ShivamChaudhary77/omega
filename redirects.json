@@ -1,5 +1,5 @@
 {
-  "_note": "Only 2 mappings are confirmed here — the two legacy URLs explicitly cited with real GSC impression/position data in the SEO review PDF. The review also references '~10 Gurgaon pages and 3 Dwarka pages' that were cannibalizing rankings, but this WordPress export only contained blog posts (not WordPress Pages/Elementor landing pages), so their exact old URLs aren't available here. Before launch: pull the full list from Search Console → Pages (or WordPress Admin → Pages) filtered to /gurgaon/ and /dwarka/ paths, add each as a new entry below, then re-run scripts/build-redirects.py to regenerate _redirects / .htaccess / vercel.json.",
+  "_note": "Redirect sources, in order added: (1) 2 URLs cited with real GSC data in the original SEO review PDF; (2) 1 URL moved for the kitchen-renovation-guide content update; (3) the full GSC 'Coverage: Valid' export (Aug 2026, ~90 URLs) cross-referenced against every page that exists on the new site — 44 matched an existing page 1:1, ~10 generic 'designer in Gurgaon/Dwarka' queries were consolidated into the relevant pillar page, and the rest were WordPress system pages (pagination, author archives, taxonomy pages) or pages with no real data to rebuild honestly, redirected to the nearest meaningful page instead. Individual project detail pages, a Privacy Policy page, an FAQ hub, and two new blog posts (builder floor guide, DLF The Arbour cost guide) were built fresh rather than redirected — see BLOG-README.md / project pages / their own git history for that work.",
   "redirects": [
     {
       "from": "/best-home-interior-designer-in-dwarka/",
@@ -10,6 +10,381 @@
       "from": "/turnkey-interior-contractors-in-gurgaon/",
       "to": "/interior-designers-gurgaon/",
       "source": "GSC: 294 impressions, position 27.7, 0 clicks (confirmed in SEO review PDF, Section 3)"
+    },
+    {
+      "from": "/modular-kitchen-designer-gurgaon-renovation-guide/",
+      "to": "/blog/modular-kitchen-designer-gurgaon-renovation-guide/",
+      "source": "Content update package (Aug 2026): post moved to its /blog/ URL to match the already-indexed live WordPress permalink and preserve existing rankings"
+    },
+    {
+      "from": "/turnkey-interior-design-gurgaon-guide/",
+      "to": "/home-residential-interiors/turnkey-interior-design-gurgaon-guide/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/interior-designer-dwarka-expressway-compare-choose/",
+      "to": "/home-residential-interiors/interior-designer-dwarka-expressway-compare-choose/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/10-innovative-and-sustainable-office-interior-designing-ideas-by-the-omega-group/",
+      "to": "/office-commercial-interiors/10-innovative-and-sustainable-office-interior-designing-ideas-by-the-omega-group/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/modular-kitchen-cost-gurgaon-2026/",
+      "to": "/kitchen-design/modular-kitchen-cost-gurgaon-2026/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/project/",
+      "to": "/project.html",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/a-budget-friendly-guide-to-interior-design-services-in-gurgaon/",
+      "to": "/cost-planning-guides/a-budget-friendly-guide-to-interior-design-services-in-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/design-on-a-budget-finding-a-good-interior-designer-in-gurgaon/",
+      "to": "/cost-planning-guides/design-on-a-budget-finding-a-good-interior-designer-in-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/crafting-dreams-unveiling-the-top-10-interior-designers-in-gurgaon/",
+      "to": "/office-commercial-interiors/crafting-dreams-unveiling-the-top-10-interior-designers-in-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/best-interior-designers-near-dwarka-expressway-comparison-guide/",
+      "to": "/home-residential-interiors/best-interior-designers-near-dwarka-expressway-comparison-guide/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/luxury-interior-designer-gurgaon-sobha-city-4bhk-transformation/",
+      "to": "/home-residential-interiors/luxury-interior-designer-gurgaon-sobha-city-4bhk-transformation/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/pop-ceiling-vs-false-ceiling-gurgaon/",
+      "to": "/home-residential-interiors/pop-ceiling-vs-false-ceiling-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/luxury-living-room-interior-gurgaon/",
+      "to": "/home-residential-interiors/luxury-living-room-interior-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/smart-home-interior-design-gurgaon/",
+      "to": "/home-residential-interiors/smart-home-interior-design-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/turnkey-interior-design-gurgaon-vs-modular/",
+      "to": "/home-residential-interiors/turnkey-interior-design-gurgaon-vs-modular/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/5bhk-interior-design-gurgaon/",
+      "to": "/home-residential-interiors/5bhk-interior-design-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/luxury-interior-design-trends-gurgaon/",
+      "to": "/home-residential-interiors/luxury-interior-design-trends-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/interior-design-cost-in-gurgaon-2bhk-3bhk-4bhk-2026/",
+      "to": "/home-residential-interiors/interior-design-cost-in-gurgaon-2bhk-3bhk-4bhk-2026/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/adani-oyster-grande-interior-design-sector-102/",
+      "to": "/home-residential-interiors/adani-oyster-grande-interior-design-sector-102/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/interior-design-gurgaon-3bhk-2026/",
+      "to": "/home-residential-interiors/interior-design-gurgaon-3bhk-2026/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/modular-kitchen-designer-gurgaon-3bhk-designs/",
+      "to": "/kitchen-design/modular-kitchen-designer-gurgaon-3bhk-designs/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/from-budget-friendly-to-luxe-decoding-the-best-interior-designers-in-gurgaon/",
+      "to": "/cost-planning-guides/from-budget-friendly-to-luxe-decoding-the-best-interior-designers-in-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/our-services/",
+      "to": "/service.html",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/interior-designer-dwarka-expressway-checklist/",
+      "to": "/home-residential-interiors/interior-designer-dwarka-expressway-checklist/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/modular-vs-custom-furniture-gurgaon-flats/",
+      "to": "/home-residential-interiors/modular-vs-custom-furniture-gurgaon-flats/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/interior-design-experion-windchants-sector-112/",
+      "to": "/home-residential-interiors/interior-design-experion-windchants-sector-112/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/interior-designer-dwarka-expressway-client-stories/",
+      "to": "/home-residential-interiors/interior-designer-dwarka-expressway-client-stories/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/category/project/",
+      "to": "/project.html",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/about-us/",
+      "to": "/about.html",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/contact/",
+      "to": "/contact.html",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/affordable-luxury-interior-designer-in-gurgaon/",
+      "to": "/cost-planning-guides/affordable-luxury-interior-designer-in-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/affordable-interior-designing-solution-in-gurgaon-the-omega-group/",
+      "to": "/home-residential-interiors/affordable-interior-designing-solution-in-gurgaon-the-omega-group/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/smart-stylish-insider-secrets-for-commercial-interior-design/",
+      "to": "/office-commercial-interiors/smart-stylish-insider-secrets-for-commercial-interior-design/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/best-office-interior-designing-ideas-by-office-interior-designer-in-gurgaon/",
+      "to": "/office-commercial-interiors/best-office-interior-designing-ideas-by-office-interior-designer-in-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/home-decor-tips-by-the-best-home-interior-designer-in-gurgaon/",
+      "to": "/home-residential-interiors/home-decor-tips-by-the-best-home-interior-designer-in-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/4bhk-interior-design-gurgaon/",
+      "to": "/home-residential-interiors/4bhk-interior-design-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/blog/",
+      "to": "/blog.html",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/exploring-the-world-of-custom-furniture-design/",
+      "to": "/home-residential-interiors/exploring-the-world-of-custom-furniture-design/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/projects/",
+      "to": "/project.html",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/luxury-interior-designer-gurgaon-italian-vs-contemporary/",
+      "to": "/home-residential-interiors/luxury-interior-designer-gurgaon-italian-vs-contemporary/",
+      "source": "GSC Coverage export (Aug 2026): matches an existing page 1:1"
+    },
+    {
+      "from": "/best-interior-designing-company-in-gurgaon/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Gurgaon pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/luxury-residential-interior-designer-in-gurgaon/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Gurgaon pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/budget-interior-designers-in-gurgaon/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Gurgaon pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/home-interior-design-gurgaon/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Gurgaon pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/luxury-interior-designer-gurgaon/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Gurgaon pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/gurgaon-top-interior-designer/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Gurgaon pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/best-luxury-interior-designers-in-gurugram/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Gurgaon pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/best-home-interior-designers-in-gurgaon/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Gurgaon pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/office-interior-designers-in-gurgaon/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Gurgaon pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/gurgaon-interior-designer/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): retired thin (530-word, no-FAQ) blog post that directly cannibalized the Gurgaon pillar's core keyword"
+    },
+    {
+      "from": "/best-interior-designer-in-dwarka-expressway/",
+      "to": "/interior-designers-dwarka-expressway/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Dwarka Expressway pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/best-interior-designers-in-dwarka/",
+      "to": "/interior-designers-dwarka-expressway/",
+      "source": "GSC Coverage export (Aug 2026): consolidated into Dwarka Expressway pillar (cannibalizing generic query)"
+    },
+    {
+      "from": "/interior-design-for-dlf-privana-gurgaon/",
+      "to": "/interior-designers-dlf-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): DLF-specific query, mapped to DLF satellite page"
+    },
+    {
+      "from": "/modular-kitchen-cost-in-gurgaon-2026-budget-mid-range-luxury-kitchen-pricing-guide/",
+      "to": "/kitchen-design/modular-kitchen-cost-gurgaon-2026/",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/modern_bedroom_interior_design_gurgaon/",
+      "to": "/home-residential-interiors/balancing-aesthetics-and-functionality-in-gurgaons-modern-bedroom-designs/",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/luxury-interiors/",
+      "to": "/service.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/luxuryinteriors/",
+      "to": "/service.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/our-services/bespoke-interior-designer-in-gurgaon/",
+      "to": "/service.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/virtual-showroom/",
+      "to": "/project.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/client-diaries/",
+      "to": "/project.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/testimonial/asda/",
+      "to": "/project.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/project-cat/coastal/",
+      "to": "/project.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/project/project-1/",
+      "to": "/project.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/career/",
+      "to": "/about.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/thank-you/",
+      "to": "/contact.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/book-appointment/",
+      "to": "/contact.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/category/blog/page/7/",
+      "to": "/blog.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/category/blog/page/2/",
+      "to": "/blog.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/blog/page/6/",
+      "to": "/blog.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/blog/page/7/",
+      "to": "/blog.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/author/seo_omega/",
+      "to": "/blog.html",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/project/pareena-heights-second-sector-99-gurgaon/",
+      "to": "/project/pareena-heights-sector-99-gurgaon/",
+      "source": "GSC Coverage export (Aug 2026): no rebuildable content/data — redirected to nearest meaningful page"
+    },
+    {
+      "from": "/home-residential-interiors/gurgaon-interior-designer/",
+      "to": "/interior-designers-gurgaon/",
+      "source": "This site's own now-deleted copy of the retired thin cannibalizing post — same redirect target as its old WordPress URL"
+    },
+    {
+      "from": "/privacy-policy/",
+      "to": "/privacy-policy.html",
+      "source": "New page built for this GSC URL (real functional gap — no privacy policy existed on the new site)"
+    },
+    {
+      "from": "/faqs/",
+      "to": "/faqs.html",
+      "source": "New page built for this GSC URL — dedicated FAQ hub with process/pricing/policy questions not duplicated elsewhere on the site"
     }
   ]
 }
