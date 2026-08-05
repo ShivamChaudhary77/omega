@@ -322,6 +322,16 @@
     .post-featured-img {
         margin-top: -60px;
     }
+
+    .post-featured-img img {
+        aspect-ratio: 2 / 1;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .post-featured-img img {
+        aspect-ratio: 21 / 9;
+    }
 }
 
 .post-layout {

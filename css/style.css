@@ -578,6 +578,31 @@ a.back-to-top {
 }
 
 
+/*** About (image pair + "10+ Years" badge) ***/
+@media (max-width: 767.98px) {
+    .about-badge {
+        height: auto !important;
+        padding: 10px 6px;
+    }
+
+    .about-badge-title {
+        font-size: .85rem;
+        line-height: 1.25;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .about-badge {
+        padding: 8px 4px;
+    }
+
+    .about-badge-title {
+        font-size: .68rem;
+        letter-spacing: 0;
+    }
+}
+
+
 /*** Latest Projects carousel (homepage) ***/
 .project-carousel-wrap {
     position: relative;
