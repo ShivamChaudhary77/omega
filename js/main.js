@@ -40,6 +40,17 @@
     });
 
 
+    // Fixed WhatsApp CTA — injected here (rather than hard-coded per page)
+    // so every page on the site gets it without editing 90+ static HTML
+    // files individually. js/analytics.js already tracks any a[href*="wa.me"]
+    // click as the whatsapp_click GA4 event, so no extra wiring is needed.
+    if ($('.whatsapp-float').length === 0) {
+        $('body').append(
+            '<a href="https://wa.me/919811001900" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with The Omega Group on WhatsApp"><i class="fab fa-whatsapp"></i></a>'
+        );
+    }
+
+
     // Pages without any carousel markup (e.g. the blog) don't load the Owl
     // Carousel library at all, so skip these inits rather than throw.
     if (!$.fn.owlCarousel) {
