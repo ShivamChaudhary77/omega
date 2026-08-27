@@ -38,6 +38,7 @@ SERVICE_AREAS_HTML = """
     <li><a href="/interior-designers-sushant-lok/">Sushant Lok</a></li>
     <li><a href="/interior-designers-new-gurgaon/">New Gurgaon</a></li>
     <li><a href="/interior-designers-dlf-gurgaon/">DLF Gurgaon</a></li>
+    <li><a href="/interior-designers-golf-course-road/">Golf Course Road</a></li>
     <li><a href="/interior-designers-manesar/">Manesar</a></li>
 </ul>
 """
@@ -163,6 +164,7 @@ CONTENT = {
             ("Interior Designer in Sushant Lok", "/interior-designers-sushant-lok/"),
             ("Interior Designer in New Gurgaon", "/interior-designers-new-gurgaon/"),
             ("Interior Designer in DLF Gurgaon", "/interior-designers-dlf-gurgaon/"),
+            ("Interior Designer in Golf Course Road", "/interior-designers-golf-course-road/"),
             ("Interior Designer in Manesar", "/interior-designers-manesar/"),
             ("Our Services", "/service.html"),
             ("Our Projects", "/project.html"),
@@ -253,5 +255,9 @@ CONTENT = {
     "interior-designers-manesar": satellite_content(
         "Manesar", "interior-designers-manesar", "img/about-2.jpg",
         "Manesar's residential and industrial-adjacent developments fall within our standard Gurgaon service radius."
+    ),
+    "interior-designers-golf-course-road": satellite_content(
+        "Golf Course Road", "interior-designers-golf-course-road", "img/project-4.jpg",
+        "Golf Course Road and Golf Course Extension Road's ultra-luxury towers and villas are a core part of our regular Gurgaon service area."
     ),
 }

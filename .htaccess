@@ -79,6 +79,15 @@ Redirect 301 /project/pareena-heights-second-sector-99-gurgaon/ https://theomega
 Redirect 301 /home-residential-interiors/gurgaon-interior-designer/ https://theomegagroup.in/interior-designers-gurgaon/
 Redirect 301 /privacy-policy/ https://theomegagroup.in/privacy-policy.html
 Redirect 301 /faqs/ https://theomegagroup.in/faqs.html
+Redirect 301 /project/emaar/ https://theomegagroup.in/project.html
+Redirect 301 /project/hibiscus/ https://theomegagroup.in/project.html
+Redirect 301 /project/adani-m2k/ https://theomegagroup.in/project.html
+Redirect 301 /project/curzon/ https://theomegagroup.in/project.html
+Redirect 301 /project/crest/ https://theomegagroup.in/project.html
+Redirect 301 /project/dwarka-farmhouse/ https://theomegagroup.in/project.html
+Redirect 301 /project/krishna/ https://theomegagroup.in/project.html
+Redirect 301 /service/bespoke-furniture/ https://theomegagroup.in/service.html
+Redirect 301 /author/admin/page/4/ https://theomegagroup.in/blog.html
 
 # Clean directory-style URLs (blog posts + location pages) are real
 # directories with their own index.html, so no rewrite rules are needed

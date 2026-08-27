@@ -12,6 +12,69 @@ from pathlib import Path
 
 SITE_ROOT = Path(__file__).resolve().parent.parent
 SITE_BASE = "https://theomegagroup.in"
+ORG_JSON = SITE_ROOT / "data" / "organization.json"
+
+
+def strip_empty(d):
+    return {k: v for k, v in d.items() if v not in (None, "", [], {})}
+
+
+def json_ld_script(data):
+    """Populated <script type="application/ld+json"> tag, or "" if no data.
+    Escapes "</" so a literal "</script" inside content can't close the tag."""
+    if not data:
+        return ""
+    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    return f'<script type="application/ld+json">{payload}</script>'
+
+
+def build_local_business_ld(org):
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": org["url"] + "#organization",
+        "name": org["name"],
+        "alternateName": org.get("alternateName"),
+        "url": org["url"],
+        "logo": org["logo"],
+        "image": org.get("image"),
+        "telephone": org["telephone"],
+        "email": org.get("email"),
+        "priceRange": org.get("priceRange"),
+        "sameAs": org.get("sameAs") or None,
+        "address": strip_empty({
+            "@type": "PostalAddress",
+            "streetAddress": org["address"]["streetAddress"],
+            "addressLocality": org["address"]["addressLocality"],
+            "addressRegion": org["address"]["addressRegion"],
+            "postalCode": org["address"].get("postalCode"),
+            "addressCountry": org["address"]["addressCountry"],
+        }) if org.get("address") else None,
+    }
+    return strip_empty(ld)
+
+
+def build_breadcrumb_ld(crumbs, canonical):
+    # crumbs: list of (label, href_or_None) — mirrors the visible breadcrumb_html().
+    items = []
+    for i, (label, href) in enumerate(crumbs):
+        url = (SITE_BASE + href) if href and href.startswith("/") else (href or canonical)
+        items.append({"@type": "ListItem", "position": i + 1, "name": label, "item": url})
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": items}
+
+
+def build_faq_ld(faqs):
+    # faqs: list of (question, answer) tuples — mirrors faq_accordion_html().
+    if not faqs:
+        return None
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": re.sub("<[^>]+>", "", a)}}
+            for q, a in faqs
+        ],
+    }
 
 NAV_LINKS = [
     ("index.html", "Home"),
@@ -29,6 +92,7 @@ FOOTER_SERVICE_AREAS = [
     ("/interior-designers-sushant-lok/", "Sushant Lok"),
     ("/interior-designers-new-gurgaon/", "New Gurgaon"),
     ("/interior-designers-dlf-gurgaon/", "DLF Gurgaon"),
+    ("/interior-designers-golf-course-road/", "Golf Course Road"),
     ("/interior-designers-manesar/", "Manesar"),
 ]
 
@@ -150,6 +214,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
     <!-- Preload LCP image -->
     <link rel="preload" as="image" href="/{hero_image}">
+
+    <!-- LocalBusiness/BreadcrumbList/FAQPage JSON-LD — baked in at build time
+         (previously only injected client-side by js/schema.js, invisible to
+         crawlers that don't execute JavaScript). -->
+    {schema_ld}
 </head>
 
 <body>
@@ -364,7 +433,18 @@ def build_footer():
     return FOOTER_TEMPLATE.replace("__SERVICE_AREAS__", links)
 
 
-def render_page(slug, data):
+def build_schema_ld(slug, data, canonical, org):
+    blocks = []
+    if org:
+        blocks.append(json_ld_script(build_local_business_ld(org)))
+    blocks.append(json_ld_script(build_breadcrumb_ld(data["breadcrumb"], canonical)))
+    faq_ld = build_faq_ld(data["faqs"])
+    if faq_ld:
+        blocks.append(json_ld_script(faq_ld))
+    return "\n    ".join(b for b in blocks if b)
+
+
+def render_page(slug, data, org):
     canonical = f"{SITE_BASE}/{slug}/"
     html = PAGE_TEMPLATE.format(
         meta_title=data["meta_title"],
@@ -385,6 +465,7 @@ def render_page(slug, data):
         internal_links=internal_links_html(data["internal_links"]),
         cta_context=data["cta_context"],
         footer=build_footer(),
+        schema_ld=build_schema_ld(slug, data, canonical, org),
     )
     target_dir = SITE_ROOT / slug
     target_dir.mkdir(parents=True, exist_ok=True)
@@ -394,5 +475,6 @@ def render_page(slug, data):
 
 if __name__ == "__main__":
     from location_pages_content import CONTENT
+    org = json.loads(ORG_JSON.read_text(encoding="utf-8")) if ORG_JSON.exists() else None
     for slug, data in CONTENT.items():
-        render_page(slug, data)
+        render_page(slug, data, org)

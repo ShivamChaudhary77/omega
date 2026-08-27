@@ -384,6 +384,51 @@
       "source": "/faqs",
       "destination": "/faqs.html",
       "permanent": true
+    },
+    {
+      "source": "/project/emaar",
+      "destination": "/project.html",
+      "permanent": true
+    },
+    {
+      "source": "/project/hibiscus",
+      "destination": "/project.html",
+      "permanent": true
+    },
+    {
+      "source": "/project/adani-m2k",
+      "destination": "/project.html",
+      "permanent": true
+    },
+    {
+      "source": "/project/curzon",
+      "destination": "/project.html",
+      "permanent": true
+    },
+    {
+      "source": "/project/crest",
+      "destination": "/project.html",
+      "permanent": true
+    },
+    {
+      "source": "/project/dwarka-farmhouse",
+      "destination": "/project.html",
+      "permanent": true
+    },
+    {
+      "source": "/project/krishna",
+      "destination": "/project.html",
+      "permanent": true
+    },
+    {
+      "source": "/service/bespoke-furniture",
+      "destination": "/service.html",
+      "permanent": true
+    },
+    {
+      "source": "/author/admin/page/4",
+      "destination": "/blog.html",
+      "permanent": true
     }
   ]
 }

@@ -46,6 +46,15 @@
 
     <!-- Preload LCP element: the hero video's poster frame -->
     <link rel="preload" as="image" href="img/hero-slider-1.jpg">
+
+    <!-- Organization/LocalBusiness JSON-LD — baked in from data/organization.json
+         by scripts/build-homepage-schema.py (re-run after editing organization.json;
+         do not hand-edit the block below). Previously this only existed as a
+         client-side injection via js/schema.js, invisible to crawlers that don't
+         execute JavaScript. -->
+    <!-- ORG-SCHEMA:START -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "@id": "https://theomegagroup.in/#organization", "name": "The Omega Group", "alternateName": "Omega Interiors & Furniture", "url": "https://theomegagroup.in/", "logo": "https://theomegagroup.in/img/logo.png", "image": "https://theomegagroup.in/img/about-1.jpg", "telephone": "+91-981-1001-900", "email": "thegroupomega@gmail.com", "priceRange": "₹₹₹₹", "foundingDate": "2022-06", "sameAs": ["https://www.facebook.com/theomegainteriors", "https://www.instagram.com/theomegainteriors/"], "address": {"@type": "PostalAddress", "streetAddress": "Plot S4 & S5, Main Dwarka Expressway, Near Daulatabad Chowk, opp. Pillar 109", "addressLocality": "Gurugram", "addressRegion": "Haryana", "postalCode": "122006", "addressCountry": "IN"}, "geo": {"@type": "GeoCoordinates", "latitude": 28.4499, "longitude": 76.9995}, "areaServed": [{"@type": "AdministrativeArea", "name": "Gurgaon"}, {"@type": "AdministrativeArea", "name": "Delhi NCR"}, {"@type": "AdministrativeArea", "name": "DLF Gurgaon"}, {"@type": "AdministrativeArea", "name": "Sushant Lok"}, {"@type": "AdministrativeArea", "name": "Dwarka Expressway"}, {"@type": "AdministrativeArea", "name": "Sohna Road"}, {"@type": "AdministrativeArea", "name": "New Gurgaon"}, {"@type": "AdministrativeArea", "name": "Manesar"}]}</script>
+    <!-- ORG-SCHEMA:END -->
 </head>
 
 <body>
@@ -191,7 +200,7 @@
                         <div class="project-card-img overflow-hidden">
                             <img class="img-fluid w-100"
                                 src="/img/projects/sobha.jpg"
-                                alt="Open-plan apartment living and dining area with teal accents by The Omega Group">
+                                alt="Open-plan apartment living and dining area with teal accents by The Omega Group" loading="lazy">
                         </div>
                         <div class="project-card-body">
                             <h4 class="mb-1">SOBHA</h4>
@@ -201,7 +210,7 @@
                         <div class="project-card-img overflow-hidden">
                             <img class="img-fluid w-100"
                                 src="/img/projects/shree-balaji-cghs/shree-balaji-cghs-banner.webp"
-                                alt="Shree Balaji CGHS modular kitchen by The Omega Group">
+                                alt="Shree Balaji CGHS modular kitchen by The Omega Group" loading="lazy">
                         </div>
                         <div class="project-card-body">
                             <h4 class="mb-1">Shree Balaji CGHS</h4>
@@ -211,7 +220,7 @@
                         <div class="project-card-img overflow-hidden">
                             <img class="img-fluid w-100"
                                 src="/img/projects/pareena-heights/pareena-heights-banner.webp"
-                                alt="Pareena Heights, Sector 99 apartment interior by The Omega Group">
+                                alt="Pareena Heights, Sector 99 apartment interior by The Omega Group" loading="lazy">
                         </div>
                         <div class="project-card-body">
                             <h4 class="mb-1">Pareena Heights</h4>
@@ -221,7 +230,7 @@
                         <div class="project-card-img overflow-hidden">
                             <img class="img-fluid w-100"
                                 src="/img/projects/m3m-woodshire/m3m-woodshire-banner.webp"
-                                alt="M3M Woodshire villa interior and lounge by The Omega Group">
+                                alt="M3M Woodshire villa interior and lounge by The Omega Group" loading="lazy">
                         </div>
                         <div class="project-card-body">
                             <h4 class="mb-1">M3M Woodshire</h4>
@@ -231,7 +240,7 @@
                         <div class="project-card-img overflow-hidden">
                             <img class="img-fluid w-100"
                                 src="/img/projects/puri-emerald-bay/puri-emerald-bay-banner.webp"
-                                alt="Puri Emerald Bay modular kitchen with center island by The Omega Group">
+                                alt="Puri Emerald Bay modular kitchen with center island by The Omega Group" loading="lazy">
                         </div>
                         <div class="project-card-body">
                             <h4 class="mb-1">Puri Emerald Bay</h4>
@@ -241,7 +250,7 @@
                         <div class="project-card-img overflow-hidden">
                             <img class="img-fluid w-100"
                                 src="/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-banner.webp"
-                                alt="Joyville, Sector 102 apartment interior by The Omega Group">
+                                alt="Joyville, Sector 102 apartment interior by The Omega Group" loading="lazy">
                         </div>
                         <div class="project-card-body">
                             <h4 class="mb-1">Joyville</h4>
@@ -273,7 +282,7 @@
                         <div class="service-card-img">
                             <img class="img-fluid w-100"
                                 src="img/service-1.jpg"
-                                alt="Luxury living room interior with custom furnishings by The Omega Group">
+                                alt="Luxury living room interior with custom furnishings by The Omega Group" loading="lazy">
                         </div>
                         <div class="service-card-body">
                             <h4>Luxury Home Interiors</h4>
@@ -289,7 +298,7 @@
                         <div class="service-card-img">
                             <img class="img-fluid w-100"
                                 src="img/service-2.jpg"
-                                alt="Villa and apartment living room interior styled by The Omega Group">
+                                alt="Villa and apartment living room interior styled by The Omega Group" loading="lazy">
                         </div>
                         <div class="service-card-body">
                             <h4>Villa &amp; Apartment Interiors</h4>
@@ -305,7 +314,7 @@
                         <div class="service-card-img">
                             <img class="img-fluid w-100"
                                 src="img/service-3.jpg"
-                                alt="Custom cabinetry and styled reading corner by The Omega Group">
+                                alt="Custom cabinetry and styled reading corner by The Omega Group" loading="lazy">
                         </div>
                         <div class="service-card-body">
                             <h4>Bespoke Furniture</h4>
@@ -321,7 +330,7 @@
                         <div class="service-card-img">
                             <img class="img-fluid w-100"
                                 src="img/service-4.jpg"
-                                alt="Modern living space with clean lines suited to office and commercial interiors by The Omega Group">
+                                alt="Modern living space with clean lines suited to office and commercial interiors by The Omega Group" loading="lazy">
                         </div>
                         <div class="service-card-body">
                             <h4>Office &amp; Commercial</h4>
@@ -350,12 +359,12 @@
                         <div class="col-6 wow fadeIn" data-wow-delay="0.1s">
                             <img class="img-fluid"
                                 src="img/about-1.jpg"
-                                alt="Contemporary open-plan kitchen with pendant lighting designed by The Omega Group">
+                                alt="Contemporary open-plan kitchen with pendant lighting designed by The Omega Group" loading="lazy">
                         </div>
                         <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
                             <img class="img-fluid h-75"
                                 src="img/about-2.jpg"
-                                alt="Warm, timber-accented living space crafted by The Omega Group">
+                                alt="Warm, timber-accented living space crafted by The Omega Group" loading="lazy">
                             <div class="h-25 d-flex align-items-center text-center bg-primary px-4 about-badge">
                                 <h4 class="text-white lh-base mb-0 about-badge-title">10+ Years of Design Excellence</h4>
                             </div>
@@ -661,7 +670,7 @@
             <div class="row g-0 align-items-center">
                 <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
                     <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="img/cta-consultation.jpg"
-                        alt="Luxury bedroom suite with marble accent wall and custom dressing area designed by The Omega Group">
+                        alt="Luxury bedroom suite with marble accent wall and custom dressing area designed by The Omega Group" loading="lazy">
                 </div>
                 <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
                     <div class="p-5">
@@ -706,6 +715,7 @@
                     <a class="btn btn-link" href="/interior-designers-sushant-lok/">Sushant Lok</a>
                     <a class="btn btn-link" href="/interior-designers-new-gurgaon/">New Gurgaon</a>
                     <a class="btn btn-link" href="/interior-designers-dlf-gurgaon/">DLF Gurgaon</a>
+                    <a class="btn btn-link" href="/interior-designers-golf-course-road/">Golf Course Road</a>
                     <a class="btn btn-link" href="/interior-designers-manesar/">Manesar</a>
                 </div>
                 <div class="col-md-6 col-lg-2 wow fadeIn" data-wow-delay="0.5s">

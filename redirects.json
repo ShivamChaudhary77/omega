@@ -385,6 +385,51 @@
       "from": "/faqs/",
       "to": "/faqs.html",
       "source": "New page built for this GSC URL — dedicated FAQ hub with process/pricing/policy questions not duplicated elsewhere on the site"
+    },
+    {
+      "from": "/project/emaar/",
+      "to": "/project.html",
+      "source": "GA4: 9 sessions, 9 new users (12-31 Jul 2026 export) — no current project matches this legacy slug; redirected to the projects listing"
+    },
+    {
+      "from": "/project/hibiscus/",
+      "to": "/project.html",
+      "source": "GA4: 4 sessions (12-31 Jul 2026 export) — legacy project slug, redirected to the projects listing"
+    },
+    {
+      "from": "/project/adani-m2k/",
+      "to": "/project.html",
+      "source": "GA4: 4 sessions (12-31 Jul 2026 export) — legacy project slug, redirected to the projects listing"
+    },
+    {
+      "from": "/project/curzon/",
+      "to": "/project.html",
+      "source": "GA4: 3 sessions (12-31 Jul 2026 export) — legacy project slug, redirected to the projects listing"
+    },
+    {
+      "from": "/project/crest/",
+      "to": "/project.html",
+      "source": "GA4: 2 sessions (12-31 Jul 2026 export) — legacy project slug, redirected to the projects listing"
+    },
+    {
+      "from": "/project/dwarka-farmhouse/",
+      "to": "/project.html",
+      "source": "GA4: 3 sessions (12-31 Jul 2026 export) — legacy project slug, redirected to the projects listing"
+    },
+    {
+      "from": "/project/krishna/",
+      "to": "/project.html",
+      "source": "GA4: 2 sessions (12-31 Jul 2026 export) — legacy project slug, redirected to the projects listing"
+    },
+    {
+      "from": "/service/bespoke-furniture/",
+      "to": "/service.html",
+      "source": "GA4: 11 sessions, 21.9s avg engagement (12-31 Jul 2026 export) — legacy service sub-page, redirected to the services listing which covers Bespoke Furniture"
+    },
+    {
+      "from": "/author/admin/page/4/",
+      "to": "/blog.html",
+      "source": "GSC coverage export (Aug 2026) — legacy WordPress author-archive pagination artifact, redirected to the blog listing"
     }
   ]
 }
