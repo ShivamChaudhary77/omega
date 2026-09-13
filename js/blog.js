@@ -170,6 +170,7 @@
             .then(function (r) { return r.json(); })
             .then(function (data) {
                 allPosts = data.filter(function (p) { return p.slug && p.title; });
+                allPosts.sort(function (a, b) { return new Date(b.publishDate) - new Date(a.publishDate); });
                 renderPinned();
                 renderFilterPills();
                 renderGrid();

@@ -247,20 +247,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
     <div class="container py-5">
         <div class="post-layout">
-            <p class="lead-answer">{direct_answer}</p>
+            {lead_section}
 
             {fact_strip}
 
-            <div class="post-body">
-                <h2>About This Project</h2>
-                <p>{type_copy}</p>
-                <h2>The Omega Group Approach</h2>
-                <p>Every project — including this one — follows the same process: a detailed consultation about
-                    the space and how it's actually used, design and material sign-off before any work begins,
-                    execution by our own site team with quality checks at every milestone, and a final walkthrough
-                    before handover. It's the same process we walk through in detail on our
-                    <a href="/interior-designers-gurgaon/">Gurgaon interior design page</a>.</p>
-            </div>
+            {about_section}
 
             {gallery_section}
 
@@ -383,13 +374,13 @@ def main():
         slug = p["detailPageSlug"]
         canonical = f"{SITE_BASE}/project/{slug}/"
         location_bit = f", {p['location']}" if p.get("location") else ""
-        h1 = f"{p['name']} — {p['type']}{location_bit}"
-        meta_title = f"{p['name']} | {p['type']} by The Omega Group"
-        meta_description = f"{p['name']} — a {p['type'].lower()} designed and delivered end-to-end by The Omega Group{location_bit}. See the finished space and how we approach every project."
-        direct_answer = (
-            f"{p['name']} is a {p['type'].lower()} designed and delivered end-to-end by The Omega Group"
-            f"{location_bit} — design, material sourcing, and on-site execution managed by one team from "
-            f"first consultation to final handover."
+        minimal = bool(p.get("minimal"))
+
+        h1 = p.get("h1") or f"{p['name']} — {p['type']}{location_bit}"
+        meta_title = p.get("metaTitle") or f"{p['name']} | {p['type']} by The Omega Group"
+        meta_description = p.get("metaDescription") or (
+            f"{p['name']} — a {p['type'].lower()} designed and delivered end-to-end by The Omega Group"
+            f"{location_bit}. See the finished space and how we approach every project."
         )
         alt = f"{p['name']} — {p['type']} designed by The Omega Group"
         fact_strip = '<div class="fact-strip">\n                ' + "\n                ".join(fact_pills(p)) + '\n            </div>'
@@ -398,6 +389,31 @@ def main():
             f'<li><a href="/project/{q["detailPageSlug"]}/">{q["name"]} — {q["type"]}</a></li>' for q in related
         )
         creative_work_json = json.dumps(build_creative_work(p, canonical), ensure_ascii=False)
+
+        if minimal:
+            # Gallery-only pages: no synthesized/explanatory prose — just the
+            # hero H1, fact pills, and photos.
+            lead_section = ""
+            about_section = ""
+        else:
+            direct_answer = (
+                f"{p['name']} is a {p['type'].lower()} designed and delivered end-to-end by The Omega Group"
+                f"{location_bit} — design, material sourcing, and on-site execution managed by one team from "
+                f"first consultation to final handover."
+            )
+            lead_section = f'<p class="lead-answer">{direct_answer}</p>'
+            about_section = (
+                '<div class="post-body">\n'
+                '                <h2>About This Project</h2>\n'
+                f'                <p>{TYPE_COPY.get(p["type"], TYPE_COPY["Apartment Interior"])}</p>\n'
+                '                <h2>The Omega Group Approach</h2>\n'
+                "                <p>Every project — including this one — follows the same process: a detailed "
+                "consultation about the space and how it's actually used, design and material sign-off before any "
+                "work begins, execution by our own site team with quality checks at every milestone, and a final "
+                "walkthrough before handover. It's the same process we walk through in detail on our "
+                '<a href="/interior-designers-gurgaon/">Gurgaon interior design page</a>.</p>\n'
+                "            </div>"
+            )
 
         html = PAGE_TEMPLATE.format(
             meta_title=meta_title,
@@ -410,9 +426,9 @@ def main():
             h1=h1,
             name=p["name"],
             alt=alt,
-            direct_answer=direct_answer,
+            lead_section=lead_section,
             fact_strip=fact_strip,
-            type_copy=TYPE_COPY.get(p["type"], TYPE_COPY["Apartment Interior"]),
+            about_section=about_section,
             gallery_section=build_gallery_section(p),
             related_links=related_links,
             footer=FOOTER,
@@ -420,7 +436,7 @@ def main():
         target_dir = SITE_ROOT / "project" / slug
         target_dir.mkdir(parents=True, exist_ok=True)
         (target_dir / "index.html").write_text(html, encoding="utf-8")
-        print(f"wrote project/{slug}/index.html")
+        print(f"wrote project/{slug}/index.html" + (" (minimal)" if minimal else ""))
 
 
 if __name__ == "__main__":
