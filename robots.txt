@@ -1,9 +1,17 @@
 User-agent: *
 Allow: /
+Disallow: /blog-cms/admin/
 
 # Static site — no WooCommerce/cart/account scaffolding exists to block.
 # 404.html is served directly by the host on unmatched paths and also
 # carries its own noindex meta tag; nothing to disallow here.
+#
+# /blog-cms/admin/ is disallowed above as defense-in-depth on top of its own
+# login wall + per-page noindex meta tag — every admin page already refuses
+# unauthenticated access, this just keeps well-behaved crawlers from even
+# requesting it. blog-cms/public/ (router, sitemap, feed, preview) is
+# intentionally NOT disallowed — published posts there must stay crawlable.
 
 Sitemap: https://theomegagroup.in/sitemap.xml
 Sitemap: https://theomegagroup.in/sitemap-blog.xml
+Sitemap: https://theomegagroup.in/blog-cms/public/sitemap.php

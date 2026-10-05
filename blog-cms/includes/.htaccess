@@ -1,0 +1,10 @@
+# Nothing in this directory is meant to be requested directly — these files
+# only define functions/constants for other scripts to require(). Block
+# direct web access entirely.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

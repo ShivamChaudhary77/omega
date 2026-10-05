@@ -31,6 +31,18 @@ htaccess_lines += [
     "# Clean directory-style URLs (blog posts + location pages) are real",
     "# directories with their own index.html, so no rewrite rules are needed",
     "# for them — Apache serves <dir>/index.html for <dir>/ automatically.",
+    "",
+    "# ---- Blog CMS dynamic routing (blog-cms/public/router.php) ----",
+    "# Added for the Blog CMS module (see BLOG-README.md / blog-cms/DEPLOYMENT.md).",
+    "# This block ONLY ever fires when Apache found NO existing static file or",
+    "# directory for the request — every one of the existing static blog posts,",
+    "# and every other existing page, resolves exactly as before and never",
+    "# reaches this rule at all. Only a URL with no matching static content",
+    "# falls through to the CMS's MySQL-backed router, which serves it if a",
+    "# published CMS post exists at that category/slug or a real 404 if not.",
+    "RewriteCond %{REQUEST_FILENAME} !-f",
+    "RewriteCond %{REQUEST_FILENAME} !-d",
+    "RewriteRule ^([a-z0-9-]+)/([a-z0-9-]+)/?$ /blog-cms/public/router.php?category_slug=$1&post_slug=$2 [L,QSA]",
 ]
 (SITE_ROOT / ".htaccess").write_text("\n".join(htaccess_lines) + "\n", encoding="utf-8")
 

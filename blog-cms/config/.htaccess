@@ -1,0 +1,10 @@
+# Config file returns a plain PHP array — no secrets in it (DB credentials
+# stay in the site's existing php/config.php), but no legitimate reason to
+# request it directly either.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

@@ -15,6 +15,23 @@
         gtag('js', new Date());
         gtag('config', 'G-FSNHC0N7BD');
     </script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '857790543995038');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=857790543995038&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <title>Interior Design Blog | The Omega Group – Gurgaon</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="keywords" content="interior design blog Gurgaon, luxury interior design tips, modular kitchen guide, turnkey interior design, home interior ideas Gurgaon">
@@ -115,6 +132,22 @@
         </div>
     </div>
     <!-- Hero End -->
+
+
+    <!-- New Blog Posts (CMS) Start — populated from the Blog CMS's published
+         posts via blog-cms/public/posts-feed.php. Kept entirely separate
+         from the existing grid below (which reads data/blog-data.json) so
+         neither can affect the other. Hidden automatically if there are no
+         CMS posts yet. -->
+    <div class="container-fluid py-5" id="blog-cms-section" style="display:none;">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="h1 mb-0">Latest From <span class="text-uppercase text-primary bg-light px-2">The Team</span></h2>
+            </div>
+            <div class="row g-4" id="blog-cms-grid"></div>
+        </div>
+    </div>
+    <!-- New Blog Posts (CMS) End -->
 
 
     <!-- Blog Grid Start -->
@@ -271,6 +304,7 @@
     <script src="js/schema.js"></script>
     <script src="js/analytics.js"></script>
     <script src="js/blog.js"></script>
+    <script src="js/blog-cms-grid.js"></script>
 </body>
 
 </html>

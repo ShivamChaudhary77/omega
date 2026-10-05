@@ -1,0 +1,15 @@
+# Defense-in-depth: config.php/config.example.php should never be directly
+# web-requestable. In practice Apache executes .php files rather than
+# serving their source, so this isn't a live credential leak today — but a
+# direct request to /php/config.php has no legitimate purpose and blocking
+# it costs nothing. contact-submit.php and consultation-leads-submit.php are
+# untouched — they're meant to be POSTed to directly by the site's own JS.
+<FilesMatch "^config(\.example)?\.php$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>

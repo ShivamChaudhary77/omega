@@ -1,0 +1,20 @@
+# Uploaded images must remain servable (that's the whole point of this
+# folder), but PHP files must NEVER execute here even if one somehow ended
+# up with a .php-like name — defense in depth on top of media.php's own
+# MIME-sniffing + safe-random-filename generation, which already prevents a
+# real PHP file from being saved here in the first place.
+<FilesMatch "\.(php|php\d|phtml|phar)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+    php_flag engine off
+</IfModule>
