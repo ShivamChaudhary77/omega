@@ -665,9 +665,41 @@
     font-size: 1.1rem;
 }
 
+.author-box h3 a {
+    color: var(--clr-gold);
+    text-decoration: none;
+}
+
+.author-box h3 a:hover {
+    text-decoration: underline;
+}
+
 .author-box p {
     color: rgba(250, 247, 242, .78);
     margin-bottom: 14px;
+}
+
+.author-box-reviewed {
+    font-size: .85rem;
+    color: rgba(250, 247, 242, .6) !important;
+}
+
+.author-box-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 14px;
+}
+
+.author-box-links a {
+    color: var(--clr-gold);
+    font-weight: 600;
+    font-size: .9rem;
+    text-decoration: none;
+}
+
+.author-box-links a:hover {
+    text-decoration: underline;
 }
 
 .author-box-stats {

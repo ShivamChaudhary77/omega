@@ -104,6 +104,27 @@ function seo_render_head_tags(array $post, string $categorySlug, ?string $featur
 }
 
 /**
+ * Known named authors, keyed by exact display name — mirrors AUTHORS in
+ * scripts/build-post-pages.py (the static pipeline's equivalent). Extend
+ * both together if a second named author is ever added.
+ */
+const SEO_AUTHORS = [
+    'Shivam Kumar' => [
+        'url' => SEO_SITE_URL . '/author/shivam-kumar/',
+        'sameAs' => ['https://www.linkedin.com/in/shivam-growth-engineer/'],
+    ],
+];
+
+function seo_build_author_ld(string $authorName): array
+{
+    $ld = ['@type' => 'Person', 'name' => $authorName];
+    if (isset(SEO_AUTHORS[$authorName])) {
+        $ld += SEO_AUTHORS[$authorName];
+    }
+    return $ld;
+}
+
+/**
  * Builds one BlogPosting JSON-LD block server-side from trusted, already-
  * validated post fields (never from raw unsanitized admin JSON input — the
  * project requirement is explicit that arbitrary JSON-LD injection from
@@ -121,7 +142,7 @@ function seo_build_article_ld(array $post, string $categorySlug, ?string $featur
         'headline' => mb_substr($post['title'], 0, 110),
         'description' => seo_resolve_meta_description($post),
         'mainEntityOfPage' => ['@type' => 'WebPage', '@id' => $url],
-        'author' => ['@type' => 'Person', 'name' => $authorName],
+        'author' => seo_build_author_ld($authorName),
         'publisher' => [
             '@type' => 'Organization',
             'name' => SEO_SITE_NAME,

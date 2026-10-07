@@ -110,7 +110,7 @@ CONTENT = {
         "meta_title": "Interior Designers in Gurgaon | The Omega Group",
         "keywords": "interior designer gurgaon, interior designers in gurgaon, best interior designer gurgaon, top 10 interior designers in gurgaon, luxury interior designers in gurgaon, turnkey interior contractors in gurgaon",
         "meta_description": "The Omega Group is a Gurgaon-based luxury interior design and turnkey execution studio — 10+ years, 90+ projects, 90% on-time delivery. Residential and commercial interiors across every Gurgaon micro-market.",
-        "hero_image": "img/hero-slider-2.jpg",
+        "hero_image": "img/hero-slider-2.webp",
         "h1": "Interior Designers in Gurgaon",
         "breadcrumb": [("Home", "/index.html"), ("Interior Designers in Gurgaon", None)],
         "direct_answer": (
@@ -177,7 +177,7 @@ CONTENT = {
         "meta_title": "Interior Designer in Dwarka Expressway | The Omega Group",
         "keywords": "interior designer dwarka expressway, interior designer in dwarka, best interior designer in dwarka, best home interior designer in dwarka, interior designers in dwarka",
         "meta_description": "The Omega Group is headquartered on Dwarka Expressway and designs luxury home and commercial interiors for the corridor — 10+ years, 90+ projects, full turnkey execution from design to handover.",
-        "hero_image": "img/about-1.jpg",
+        "hero_image": "img/about-1.webp",
         "h1": "Interior Designer in Dwarka Expressway",
         "breadcrumb": [("Home", "/index.html"), ("Interior Designer in Dwarka Expressway", None)],
         "direct_answer": (
@@ -253,11 +253,11 @@ CONTENT = {
         "From DLF Phase 1 through Phase 5, we regularly work across DLF's established residential phases."
     ),
     "interior-designers-manesar": satellite_content(
-        "Manesar", "interior-designers-manesar", "img/about-2.jpg",
+        "Manesar", "interior-designers-manesar", "img/about-2.webp",
         "Manesar's residential and industrial-adjacent developments fall within our standard Gurgaon service radius."
     ),
     "interior-designers-golf-course-road": satellite_content(
-        "Golf Course Road", "interior-designers-golf-course-road", "img/project-4.jpg",
+        "Golf Course Road", "interior-designers-golf-course-road", "img/project-4.webp",
         "Golf Course Road and Golf Course Extension Road's ultra-luxury towers and villas are a core part of our regular Gurgaon service area."
     ),
 }

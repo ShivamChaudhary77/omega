@@ -40,7 +40,7 @@ function render_public_post_page(array $post, array $category, ?array $author, a
     $e = fn($v) => htmlspecialchars((string) ($v ?? ''), ENT_QUOTES, 'UTF-8');
     $categorySlug = $category['slug'];
     $postUrl = seo_post_url($post, $categorySlug);
-    $authorName = $author['name'] ?? 'The Omega Group Design Team';
+    $authorName = $author['name'] ?? 'Shivam Kumar';
 
     $featuredImageUrl = null;
     if (!empty($post['featured_image_id'])) {
@@ -147,7 +147,7 @@ function render_public_post_page(array $post, array $category, ?array $author, a
                         </nav>
                         <h1 class="display-5 mb-0"><?= $e($post['title']) ?></h1>
                         <div class="post-hero-meta-row">
-                            <span>By <?= $e($authorName) ?></span>
+                            <span>By <?php if (isset(SEO_AUTHORS[$authorName])): ?><a href="<?= $e(SEO_AUTHORS[$authorName]['url']) ?>"><?= $e($authorName) ?></a><?php else: ?><?= $e($authorName) ?><?php endif; ?></span>
                             <?php if (!empty($post['published_at'])): ?><span> · Published <?= $e(date('F j, Y', strtotime($post['published_at']))) ?></span><?php endif; ?>
                             <?php if (!empty($post['reading_time'])): ?><span> · <?= (int) $post['reading_time'] ?> min read</span><?php endif; ?>
                         </div>
@@ -176,11 +176,25 @@ function render_public_post_page(array $post, array $category, ?array $author, a
                     <a href="https://wa.me/?text=<?= urlencode($post['title'] . ' ' . $postUrl) ?>" target="_blank" rel="noopener" class="btn btn-outline-primary btn-square border-2" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
 
+                <?php $authorInfo = SEO_AUTHORS[$authorName] ?? null; ?>
                 <div class="author-box">
-                    <div class="author-box-logo">&Omega;</div>
+                    <div class="author-box-logo"><?= $e(mb_substr($authorName, 0, 1)) ?></div>
                     <div>
-                        <h3>The Omega Group</h3>
+                        <h3>Written by <?php if ($authorInfo): ?><a href="<?= $e($authorInfo['url']) ?>"><?= $e($authorName) ?></a><?php else: ?><?= $e($authorName) ?><?php endif; ?></h3>
+                        <?php if ($authorName === 'Shivam Kumar'): ?>
+                        <p>Shivam Kumar is a content writer and digital marketing professional with an interest in SEO, technology, and digital growth. He focuses on creating clear, useful, and research-driven content that helps readers understand complex topics in a simple way.</p>
+                        <p class="author-box-reviewed">Reviewed for accuracy by The Omega Group's in-house design team — Gurgaon's luxury interior design and turnkey execution studio.</p>
+                        <?php else: ?>
                         <p>Written and reviewed by <?= $e($authorName) ?> — Gurgaon's luxury interior design and turnkey execution studio.</p>
+                        <?php endif; ?>
+                        <?php if ($authorInfo): ?>
+                        <div class="author-box-links">
+                            <a href="<?= $e($authorInfo['url']) ?>">Full bio <i class="bi bi-arrow-right"></i></a>
+                            <?php foreach (($authorInfo['sameAs'] ?? []) as $social): ?>
+                            <a href="<?= $e($social) ?>" target="_blank" rel="noopener"><?php if (strpos($social, 'linkedin.com') !== false): ?><i class="fab fa-linkedin-in"></i> LinkedIn<?php else: ?><?= $e($social) ?><?php endif; ?></a>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -209,7 +223,7 @@ function render_public_post_page(array $post, array $category, ?array $author, a
             <div class="container p-0">
                 <div class="row g-0 align-items-center">
                     <div class="col-md-5 ps-lg-0 text-start">
-                        <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="/img/cta-consultation.jpg" alt="Luxury bedroom suite designed by The Omega Group">
+                        <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="/img/cta-consultation.webp" alt="Luxury bedroom suite designed by The Omega Group">
                     </div>
                     <div class="col-md-7 py-5 newsletter-text">
                         <div class="p-5">

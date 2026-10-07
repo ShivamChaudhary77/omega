@@ -32,7 +32,7 @@ if (!$post) {
 $category = blog_category_find((int) $post['category_id']) ?: ['id' => 0, 'name' => 'Blog', 'slug' => 'blog'];
 $authorStmt = blog_db()->prepare('SELECT name FROM blog_users WHERE id = :id');
 $authorStmt->execute([':id' => $post['author_id']]);
-$author = ['name' => $authorStmt->fetchColumn() ?: 'The Omega Group Design Team'];
+$author = ['name' => $authorStmt->fetchColumn() ?: 'Shivam Kumar'];
 $related = $category['id'] ? blog_post_related((int) $post['id'], (int) $category['id']) : [];
 
 render_public_post_page($post, $category, $author, $related, true);

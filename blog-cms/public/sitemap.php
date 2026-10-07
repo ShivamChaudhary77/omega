@@ -15,15 +15,25 @@ require_once __DIR__ . '/../includes/blog_functions.php';
 
 header('Content-Type: application/xml; charset=utf-8');
 
-$pdo = blog_db();
-$stmt = $pdo->query(
-    "SELECT p.slug, p.updated_at, c.slug AS category_slug
-       FROM blog_posts p
-       JOIN blog_categories c ON c.id = p.category_id
-      WHERE p.status = 'published' AND p.published_at <= NOW()
-      ORDER BY p.published_at DESC"
-);
-$posts = $stmt->fetchAll();
+// robots.txt lists this URL unconditionally, so it must always return valid
+// XML — a DB outage or a not-yet-migrated blog_posts table must degrade to
+// an empty sitemap, never a 500 that drags down the whole robots.txt file
+// in Search Console's eyes.
+$posts = [];
+try {
+    $pdo = blog_db();
+    $stmt = $pdo->query(
+        "SELECT p.slug, p.updated_at, c.slug AS category_slug
+           FROM blog_posts p
+           JOIN blog_categories c ON c.id = p.category_id
+          WHERE p.status = 'published' AND p.published_at <= NOW()
+          ORDER BY p.published_at DESC"
+    );
+    $posts = $stmt->fetchAll();
+} catch (Throwable $e) {
+    error_log('blog-cms sitemap.php: ' . $e->getMessage());
+    $posts = [];
+}
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";

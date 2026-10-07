@@ -30,8 +30,19 @@ TEMPLATE = SITE_ROOT / "single-post.html"
 DATA = SITE_ROOT / "data" / "blog-data.json"
 SITE_BASE = "https://theomegagroup.in"
 
+# Known named authors, keyed by the exact string stored in blog-data.json's
+# "author" field — lets build_article_ld() emit a full linked Person schema
+# instead of a bare name. Extend this dict if a second named author is ever
+# added; falls back to a plain name-only Person for anything not listed here.
+AUTHORS = {
+    "Shivam Kumar": {
+        "url": f"{SITE_BASE}/author/shivam-kumar/",
+        "sameAs": ["https://www.linkedin.com/in/shivam-growth-engineer/"],
+    },
+}
+
 # Category directories that must never collide with existing top-level files.
-RESERVED = {"css", "js", "img", "lib", "video", "data", "scripts",
+RESERVED = {"css", "js", "img", "lib", "video", "data", "scripts", "author",
             "index.html", "about.html", "service.html", "project.html",
             "contact.html", "blog.html", "single-post.html"}
 
@@ -57,6 +68,12 @@ def json_ld_script(ld_id, data):
     return f'<script type="application/ld+json" id="{ld_id}">{payload}</script>'
 
 
+def build_author_ld(name):
+    author_ld = {"@type": "Person", "name": name}
+    author_ld.update(AUTHORS.get(name, {}))
+    return author_ld
+
+
 def build_article_ld(post, url):
     return {
         "@context": "https://schema.org",
@@ -66,7 +83,7 @@ def build_article_ld(post, url):
         "image": SITE_BASE + post["featuredImage"]["src"],
         "datePublished": post["publishDate"],
         "dateModified": post.get("modifiedDate") or post["publishDate"],
-        "author": {"@type": "Organization", "name": post.get("author") or "The Omega Group"},
+        "author": build_author_ld(post.get("author") or "Shivam Kumar"),
         "publisher": {
             "@type": "Organization",
             "name": "The Omega Group",
@@ -147,7 +164,7 @@ def render_head(template_html, post):
         f'<meta property="og:url" id="og-url" content="{canonical}">',
     )
     html = html.replace(
-        '<meta property="og:image" id="og-image" content="https://theomegagroup.in/img/about-1.jpg">',
+        '<meta property="og:image" id="og-image" content="https://theomegagroup.in/img/about-1.webp">',
         f'<meta property="og:image" id="og-image" content="{og_image}">',
     )
     html = html.replace(

@@ -335,7 +335,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <div class="container p-0">
             <div class="row g-0 align-items-center">
                 <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
-                    <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="/img/cta-consultation.jpg"
+                    <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="/img/cta-consultation.webp"
                         alt="Luxury bedroom suite with marble accent wall and custom dressing area designed by The Omega Group"
                         loading="lazy" width="720" height="480">
                 </div>

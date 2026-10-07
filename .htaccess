@@ -2,6 +2,14 @@
 # redirect block below; edit redirects.json and re-run the script instead.
 RewriteEngine On
 
+# Serve the site's own branded 404 page for any unmatched URL, instead of
+# the host's generic default error page. 404.html already carries its own
+# noindex meta tag, so this does not affect indexability — only what a
+# visitor (or a crawler checking the page itself) actually sees. The
+# blog-cms router has its own equivalent fallback for its specific
+# category/slug routes (see blog-cms/public/router.php) and is unaffected.
+ErrorDocument 404 /404.html
+
 Redirect 301 /best-home-interior-designer-in-dwarka/ https://theomegagroup.in/interior-designers-dwarka-expressway/
 Redirect 301 /turnkey-interior-contractors-in-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
 Redirect 301 /modular-kitchen-designer-gurgaon-renovation-guide/ https://theomegagroup.in/blog/modular-kitchen-designer-gurgaon-renovation-guide/

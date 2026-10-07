@@ -4,6 +4,15 @@
     const DATA_URL = "/data/blog-data.json";
     const SITE_BASE = "https://theomegagroup.in";
 
+    // Mirrors AUTHORS in scripts/build-post-pages.py — extend both together
+    // if a second named author is ever added.
+    const AUTHORS = {
+        "Shivam Kumar": {
+            url: "/author/shivam-kumar/",
+            sameAs: ["https://www.linkedin.com/in/shivam-growth-engineer/"],
+        },
+    };
+
     function esc(str) {
         const div = document.createElement("div");
         div.textContent = str == null ? "" : String(str);
@@ -43,13 +52,29 @@
         else el.setAttribute(attr, value);
     }
 
+    function authorLd(name) {
+        const author = AUTHORS[name];
+        const ld = { "@type": "Person", "name": name || "Shivam Kumar" };
+        if (author) {
+            ld.url = SITE_BASE + author.url;
+            ld.sameAs = author.sameAs;
+        }
+        return ld;
+    }
+
+    function authorByline(name) {
+        const author = AUTHORS[name];
+        if (!author) return esc(name);
+        return `<a href="${esc(author.url)}">${esc(name)}</a>`;
+    }
+
     function renderMetaRow(post) {
         const wrap = document.getElementById("post-meta-row");
         wrap.innerHTML = `
             <span><i class="bi bi-calendar3"></i>${esc(formatDate(post.publishDate))}</span>
             <span><i class="bi bi-clock"></i>${post.readingTimeMinutes} min read</span>
             <span><i class="bi bi-folder2"></i>${esc(post.category)}</span>
-            <span><i class="bi bi-person"></i>${esc(post.author)}</span>
+            <span><i class="bi bi-person"></i>By ${authorByline(post.author)}</span>
         `;
     }
 
@@ -200,7 +225,7 @@
             "image": SITE_BASE + post.featuredImage.src,
             "datePublished": post.publishDate,
             "dateModified": post.modifiedDate || post.publishDate,
-            "author": { "@type": "Organization", "name": post.author || "The Omega Group" },
+            "author": authorLd(post.author),
             "publisher": {
                 "@type": "Organization",
                 "name": "The Omega Group",

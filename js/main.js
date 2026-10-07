@@ -44,9 +44,12 @@
     // so every page on the site gets it without editing 90+ static HTML
     // files individually. js/analytics.js already tracks any a[href*="wa.me"]
     // click as the whatsapp_click GA4 event, so no extra wiring is needed.
+    // Pre-filled message is a real intent signal, not a generic greeting —
+    // it tells the team what the chat is about before they even open it.
     if ($('.whatsapp-float').length === 0) {
+        var waMessage = encodeURIComponent("Hi! I'm planning my interiors and want to get started — can we talk?");
         $('body').append(
-            '<a href="https://wa.me/919811001900" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with The Omega Group on WhatsApp"><i class="fab fa-whatsapp"></i></a>'
+            '<a href="https://wa.me/919811001900?text=' + waMessage + '" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with The Omega Group on WhatsApp"><i class="fab fa-whatsapp"></i></a>'
         );
     }
 

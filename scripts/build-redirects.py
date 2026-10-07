@@ -23,6 +23,14 @@ htaccess_lines = [
     "# redirect block below; edit redirects.json and re-run the script instead.",
     "RewriteEngine On",
     "",
+    "# Serve the site's own branded 404 page for any unmatched URL, instead of",
+    "# the host's generic default error page. 404.html already carries its own",
+    "# noindex meta tag, so this does not affect indexability — only what a",
+    "# visitor (or a crawler checking the page itself) actually sees. The",
+    "# blog-cms router has its own equivalent fallback for its specific",
+    "# category/slug routes (see blog-cms/public/router.php) and is unaffected.",
+    "ErrorDocument 404 /404.html",
+    "",
 ]
 for r in redirects:
     htaccess_lines.append(f"Redirect 301 {r['from']} {DOMAIN}{r['to']}")

@@ -40,7 +40,7 @@ if (!$post) {
 }
 
 $category = blog_category_find((int) $post['category_id']);
-$author = ['name' => $post['author_name'] ?? 'The Omega Group Design Team'];
+$author = ['name' => $post['author_name'] ?? 'Shivam Kumar'];
 $related = blog_post_related((int) $post['id'], (int) $post['category_id']);
 
 render_public_post_page($post, $category, $author, $related, false);

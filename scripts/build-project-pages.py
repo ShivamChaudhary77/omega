@@ -208,6 +208,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <link rel="preload" as="image" href="{image}">
 
     <script type="application/ld+json">{creative_work_json}</script>
+    <script type="application/ld+json">{breadcrumb_json}</script>
 </head>
 
 <body>
@@ -287,7 +288,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <div class="container p-0">
             <div class="row g-0 align-items-center">
                 <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
-                    <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="/img/cta-consultation.jpg"
+                    <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="/img/cta-consultation.webp"
                         alt="Luxury bedroom suite with marble accent wall and custom dressing area designed by The Omega Group"
                         loading="lazy" width="720" height="480">
                 </div>
@@ -361,6 +362,27 @@ def build_creative_work(p, canonical):
     return cw
 
 
+def build_breadcrumb_ld(p, canonical):
+    """Matches the visible breadcrumb nav in PAGE_TEMPLATE exactly
+    (Home > Projects > <project name>) — same pairing convention as the
+    blog pipeline's build_breadcrumb_ld in build-post-pages.py."""
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_BASE}/index.html"},
+            {"@type": "ListItem", "position": 2, "name": "Projects", "item": f"{SITE_BASE}/project.html"},
+            {"@type": "ListItem", "position": 3, "name": p["name"], "item": canonical},
+        ],
+    }
+
+
+def ld_json(data):
+    """json.dumps with "</" escaped so a literal "</script" inside content
+    can never prematurely close the tag."""
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+
 def build_gallery_section(p):
     gallery = p.get("gallery") or []
     if not gallery:
@@ -405,7 +427,8 @@ def main():
         related_links = "\n                    ".join(
             f'<li><a href="/project/{q["detailPageSlug"]}/">{q["name"]} — {q["type"]}</a></li>' for q in related
         )
-        creative_work_json = json.dumps(build_creative_work(p, canonical), ensure_ascii=False)
+        creative_work_json = ld_json(build_creative_work(p, canonical))
+        breadcrumb_json = ld_json(build_breadcrumb_ld(p, canonical))
 
         if minimal:
             # Gallery-only pages: no synthesized/explanatory prose — just the
@@ -439,6 +462,7 @@ def main():
             image=p["image"],
             image_abs=abs_url(p["image"]),
             creative_work_json=creative_work_json,
+            breadcrumb_json=breadcrumb_json,
             nav=NAV,
             h1=h1,
             name=p["name"],

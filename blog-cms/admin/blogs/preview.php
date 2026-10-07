@@ -21,7 +21,7 @@ if (!perm_can_manage_post($user, $post)) {
 $category = blog_category_find((int) $post['category_id']);
 $authorStmt = blog_db()->prepare('SELECT name FROM blog_users WHERE id = :id');
 $authorStmt->execute([':id' => $post['author_id']]);
-$author = ['name' => $authorStmt->fetchColumn() ?: 'The Omega Group Design Team'];
+$author = ['name' => $authorStmt->fetchColumn() ?: 'Shivam Kumar'];
 $related = $category ? blog_post_related($post['id'], $category['id']) : [];
 
 render_public_post_page($post, $category ?: ['name' => 'Blog', 'slug' => 'blog'], $author, $related, true);
