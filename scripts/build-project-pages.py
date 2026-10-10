@@ -424,9 +424,13 @@ def main():
         alt = f"{p['name']} — {p['type']} designed by The Omega Group"
         fact_strip = '<div class="fact-strip">\n                ' + "\n                ".join(fact_pills(p)) + '\n            </div>'
         related = [q for q in projects if q["slug"] != p["slug"]][:3]
-        related_links = "\n                    ".join(
+        related_links_items = [
             f'<li><a href="/project/{q["detailPageSlug"]}/">{q["name"]} — {q["type"]}</a></li>' for q in related
-        )
+        ]
+        if p.get("relatedBlogPost"):
+            rb = p["relatedBlogPost"]
+            related_links_items.append(f'<li><a href="{rb["href"]}">{rb["text"]}</a></li>')
+        related_links = "\n                    ".join(related_links_items)
         creative_work_json = ld_json(build_creative_work(p, canonical))
         breadcrumb_json = ld_json(build_breadcrumb_ld(p, canonical))
 

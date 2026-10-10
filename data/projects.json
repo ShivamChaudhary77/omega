@@ -154,7 +154,11 @@
       "minimal": true,
       "h1": "Eldeco County Villa Interior Design — Sonepat",
       "metaTitle": "Eldeco County Villa Interior Design | Sonepat",
-      "metaDescription": "Photo gallery of our villa interior design project at Eldeco County Villa, Sonepat — designed and delivered end-to-end by The Omega Group."
+      "metaDescription": "Photo gallery of our villa interior design project at Eldeco County Villa, Sonepat — designed and delivered end-to-end by The Omega Group.",
+      "relatedBlogPost": {
+        "text": "Villa Interior Design in Gurgaon",
+        "href": "/home-residential-interiors/villa-interior-design-gurgaon/"
+      }
     },
     {
       "slug": "farmhouse-dwarka-expressway-gurgaon",
@@ -185,7 +189,11 @@
       "minimal": true,
       "h1": "Farmhouse Interior Design — Dwarka Expressway, Gurgaon",
       "metaTitle": "Farmhouse Interior Design | Dwarka Expressway",
-      "metaDescription": "Photo gallery of our farmhouse interior design project on Dwarka Expressway, Gurgaon — designed and delivered end-to-end by The Omega Group."
+      "metaDescription": "Photo gallery of our farmhouse interior design project on Dwarka Expressway, Gurgaon — designed and delivered end-to-end by The Omega Group.",
+      "relatedBlogPost": {
+        "text": "Villa Interior Design in Gurgaon",
+        "href": "/home-residential-interiors/villa-interior-design-gurgaon/"
+      }
     },
     {
       "slug": "godrej-meridien-tower-3-sector-106-gurgaon",
