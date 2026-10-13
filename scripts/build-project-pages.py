@@ -427,8 +427,8 @@ def main():
         related_links_items = [
             f'<li><a href="/project/{q["detailPageSlug"]}/">{q["name"]} — {q["type"]}</a></li>' for q in related
         ]
-        if p.get("relatedBlogPost"):
-            rb = p["relatedBlogPost"]
+        related_blog_posts = p.get("relatedBlogPosts") or ([p["relatedBlogPost"]] if p.get("relatedBlogPost") else [])
+        for rb in related_blog_posts:
             related_links_items.append(f'<li><a href="{rb["href"]}">{rb["text"]}</a></li>')
         related_links = "\n                    ".join(related_links_items)
         creative_work_json = ld_json(build_creative_work(p, canonical))
