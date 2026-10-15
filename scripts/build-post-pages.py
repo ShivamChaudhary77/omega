@@ -75,7 +75,7 @@ def build_author_ld(name):
 
 
 def build_article_ld(post, url):
-    return {
+    ld = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": post["title"],
@@ -92,6 +92,9 @@ def build_article_ld(post, url):
         "mainEntityOfPage": {"@type": "WebPage", "@id": url},
         "keywords": ", ".join(filter(None, [post.get("focusKeyword")] + (post.get("tags") or []))),
     }
+    if post.get("reviewedBy"):
+        ld["reviewedBy"] = {"@type": "Organization", "name": post["reviewedBy"]}
+    return ld
 
 
 def build_breadcrumb_ld(post, url):

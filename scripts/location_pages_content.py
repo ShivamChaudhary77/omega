@@ -30,6 +30,10 @@ COST_HTML = """
 <p>For a detailed, size-by-size cost breakdown, see our <a href="/home-residential-interiors/interior-design-cost-in-gurgaon-2bhk-3bhk-4bhk-2026/">2BHK/3BHK/4BHK interior design cost guide</a> and <a href="/kitchen-design/modular-kitchen-cost-gurgaon-2026/">modular kitchen cost guide</a> for Gurgaon.</p>
 """
 
+DWARKA_EXPRESSWAY_COST_EXTRA_HTML = """
+<p>For the corridor's own builder-tier benchmarks — mid-segment, premium and luxury societies, each with real per-sq-ft rates — see our <a href="/cost-planning-guides/dwarka-expressway-interior-design-cost-2026/">Dwarka Expressway interior design cost</a> guide.</p>
+"""
+
 SERVICE_AREAS_HTML = """
 <p>The Omega Group is headquartered on Dwarka Expressway and serves clients across every major Gurgaon micro-market:</p>
 <ul>
@@ -207,7 +211,7 @@ CONTENT = {
              "the complete breakdown on our <a href=\"/service.html\">Services page</a>.</p>"),
             ("Our Interior Design Process", PROCESS_HTML),
             ("Recent Projects", RECENT_PROJECTS_HTML),
-            ("Interior Design Costs on Dwarka Expressway", COST_HTML),
+            ("Interior Design Costs on Dwarka Expressway", COST_HTML + DWARKA_EXPRESSWAY_COST_EXTRA_HTML),
             ("Also Serving Nearby Gurgaon Areas",
              "<p>Beyond Dwarka Expressway, we serve clients across Gurgaon — see our "
              "<a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a> for the full list of areas, "
