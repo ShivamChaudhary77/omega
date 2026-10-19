@@ -1,13 +1,22 @@
 #!/usr/bin/env python3
 """Bake the pinned post + first page of the blog grid into blog.html's raw
-HTML, between the BLOG-PINNED:START/END and BLOG-GRID:START/END markers.
+HTML, between the BLOG-PINNED:START/END and BLOG-GRID:START/END markers, and
+the N most recent posts into index.html's "From The Blog" section between
+HOME-BLOG:START/END.
 
-js/blog.js only renders these client-side after fetching
+js/blog.js only renders the blog.html grid client-side after fetching
 data/blog-data.json, so a crawler (or any visitor) that doesn't execute
-JavaScript sees an empty grid. This script mirrors js/blog.js's own sort
-(newest publishDate first), pinned-post rule (newest post) and page size (9)
-so the baked-in markup matches exactly what js/blog.js re-renders on load —
-no visible flash, no mismatch for crawlers.
+JavaScript would otherwise see an empty grid. This script mirrors js/blog.js's
+own sort (newest publishDate first) and page size (9) so the baked-in markup
+matches exactly what js/blog.js re-renders on load — no visible flash, no
+mismatch for crawlers.
+
+The homepage section exists because index.html — almost certainly the most
+frequently crawled page on the site — previously linked to zero individual
+blog posts (only to /blog.html generically). Keeping this section driven by
+the same script, rather than a one-off hand-edit, means every future post
+gets this homepage-level authority signal automatically for as long as it
+stays among the most recent, instead of the list silently going stale.
 
 Re-run after editing data/blog-data.json; do not hand-edit the markers.
 
@@ -21,14 +30,18 @@ from pathlib import Path
 
 SITE_ROOT = Path(__file__).resolve().parent.parent
 BLOG_HTML = SITE_ROOT / "blog.html"
+INDEX_HTML = SITE_ROOT / "index.html"
 BLOG_DATA = SITE_ROOT / "data" / "blog-data.json"
 
 PAGE_SIZE = 9
+HOME_COUNT = 4
 
 PINNED_START = "<!-- BLOG-PINNED:START -->"
 PINNED_END = "<!-- BLOG-PINNED:END -->"
 GRID_START = "<!-- BLOG-GRID:START -->"
 GRID_END = "<!-- BLOG-GRID:END -->"
+HOME_START = "<!-- HOME-BLOG:START -->"
+HOME_END = "<!-- HOME-BLOG:END -->"
 
 
 def esc(s):
@@ -96,13 +109,18 @@ def main():
 
     pinned = posts[0]
     page_posts = posts[:PAGE_SIZE]
+    home_posts = posts[:HOME_COUNT]
 
     html_text = BLOG_HTML.read_text(encoding="utf-8")
     html_text = replace_between(html_text, PINNED_START, PINNED_END, pinned_html(pinned))
     html_text = replace_between(html_text, GRID_START, GRID_END, "".join(card_html(p) for p in page_posts))
     BLOG_HTML.write_text(html_text, encoding="utf-8")
-
     print(f"blog.html updated: pinned post + {len(page_posts)} grid card(s) baked in from {len(posts)} total post(s)")
+
+    index_text = INDEX_HTML.read_text(encoding="utf-8")
+    index_text = replace_between(index_text, HOME_START, HOME_END, "".join(card_html(p) for p in home_posts))
+    INDEX_HTML.write_text(index_text, encoding="utf-8")
+    print(f"index.html updated: {len(home_posts)} 'From The Blog' card(s) baked in")
 
 
 if __name__ == "__main__":

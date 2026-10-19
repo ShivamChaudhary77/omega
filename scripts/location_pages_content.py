@@ -55,8 +55,8 @@ FACTS = [
 ]
 
 
-def satellite_content(location, slug, hero_image, nearby_note):
-    return {
+def satellite_content(location, slug, hero_image, nearby_note, extra_section=None):
+    data = {
         "meta_title": f"Interior Designer in {location} | The Omega Group",
         "keywords": f"interior designer {location.lower()}, interior design {location.lower()} gurgaon, home interior designer {location.lower()}",
         "meta_description": f"Looking for an interior designer in {location}, Gurgaon? The Omega Group designs and delivers luxury home and commercial interiors with full turnkey execution — 10+ years, 90+ projects, 90% on-time delivery.",
@@ -107,6 +107,9 @@ def satellite_content(location, slug, hero_image, nearby_note):
         ],
         "cta_context": f"{location.lower()} interior design project",
     }
+    if extra_section:
+        data["sections"].insert(-1, extra_section)
+    return data
 
 
 CONTENT = {
@@ -262,6 +265,17 @@ CONTENT = {
     ),
     "interior-designers-golf-course-road": satellite_content(
         "Golf Course Road", "interior-designers-golf-course-road", "img/project-4.webp",
-        "Golf Course Road and Golf Course Extension Road's ultra-luxury towers and villas are a core part of our regular Gurgaon service area."
+        "Golf Course Road and Golf Course Extension Road's ultra-luxury towers and villas are a core part of our regular Gurgaon service area.",
+        extra_section=(
+            "Interior Design Guides for Golf Course Road's DLF5 Societies",
+            "<p>The Aralias, the Magnolias and the Camellias are Golf Course Road's three DLF5 condominiums, "
+            "each with a different brief. We've written a dedicated interior design guide for each:</p>"
+            "<ul>"
+            "<li><a href=\"/home-residential-interiors/dlf-aralias-interior-design-golf-course-road/\">DLF Aralias interior design</a> — renovating one of the corridor's older luxury towers.</li>"
+            "<li><a href=\"/home-residential-interiors/dlf-magnolias-interior-design-sector-42/\">DLF Magnolias interior design</a> — the largest of the three, usually a resale renovation.</li>"
+            "<li><a href=\"/home-residential-interiors/dlf-camellias-interior-design-sector-42/\">DLF Camellias interior design</a> — newer, larger homes, usually a bare-shell fit-out.</li>"
+            "</ul>"
+            "<p>See <a href=\"/home-residential-interiors/what-makes-golf-course-road-interiors-different/\">what makes Golf Course Road interiors different</a> for the corridor-level picture.</p>"
+        ),
     ),
 }
