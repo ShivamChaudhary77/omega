@@ -2,6 +2,11 @@
   "_note": "Redirect sources, in order added: (1) 2 URLs cited with real GSC data in the original SEO review PDF; (2) 1 URL moved for the kitchen-renovation-guide content update; (3) the full GSC 'Coverage: Valid' export (Aug 2026, ~90 URLs) cross-referenced against every page that exists on the new site — 44 matched an existing page 1:1, ~10 generic 'designer in Gurgaon/Dwarka' queries were consolidated into the relevant pillar page, and the rest were WordPress system pages (pagination, author archives, taxonomy pages) or pages with no real data to rebuild honestly, redirected to the nearest meaningful page instead. Individual project detail pages, a Privacy Policy page, an FAQ hub, and two new blog posts (builder floor guide, DLF The Arbour cost guide) were built fresh rather than redirected — see BLOG-README.md / project pages / their own git history for that work.",
   "redirects": [
     {
+      "from": "/blog.htmldesign-on-a-budget-finding-a-good-interior-designer-in-gurgaon/",
+      "to": "/cost-planning-guides/design-on-a-budget-finding-a-good-interior-designer-in-gurgaon/",
+      "source": "User-reported (Oct 2026): ranking in Google for 'best luxury interior designer under premium budget in gurgaon' but the SERP link led to this malformed URL (404). No source for this exact concatenation exists anywhere in the current site; almost certainly a stale URL Google indexed from the old WordPress theme's broken breadcrumb/permalink logic before the static migration. Confirmed dead on the live site before adding this redirect."
+    },
+    {
       "from": "/best-home-interior-designer-in-dwarka/",
       "to": "/interior-designers-dwarka-expressway/",
       "source": "GSC: 397 impressions, position 32, 0 clicks (confirmed in SEO review PDF, Section 3)"

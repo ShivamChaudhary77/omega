@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/blog.htmldesign-on-a-budget-finding-a-good-interior-designer-in-gurgaon",
+      "destination": "/cost-planning-guides/design-on-a-budget-finding-a-good-interior-designer-in-gurgaon/",
+      "permanent": true
+    },
+    {
       "source": "/best-home-interior-designer-in-dwarka",
       "destination": "/interior-designers-dwarka-expressway/",
       "permanent": true
