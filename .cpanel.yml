@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/theomega/public_html/
+    - /bin/rsync -av --exclude='.git' --exclude='.claude' --exclude='.cpanel.yml' --exclude='.DS_Store' --exclude='php/config.php' --exclude='blog-cms/uploads' --exclude='node_modules' ./ $DEPLOYPATH
