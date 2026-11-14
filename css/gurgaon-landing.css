@@ -1,0 +1,309 @@
+/**
+ * Page-specific styles for gurgaon-home-interiors/ (paid-ads landing page).
+ * Loaded after css/style.css and css/consultation-landing.css, which already
+ * supply the stat band, process timeline, 3-step form, society pills and the
+ * mobile sticky CTA bar. This file only adds what those don't cover:
+ * hero trust badges, image service cards, the price card, the comparison
+ * table and the project cards. Uses the brand tokens from css/style.css.
+ */
+
+/* Hero — sits on the site's black .hero-home header under the normal navbar */
+.gl-hero p {
+    color: rgba(250, 247, 242, .85);
+}
+
+.gl-hero .lp-hero-media {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 168, 76, .45);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, .55);
+}
+
+.gl-hero .lp-hero-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.gl-hero .about-badge {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-top-right-radius: 12px;
+}
+
+.gl-hero .about-badge-title {
+    color: var(--clr-gold) !important;
+}
+
+.gl-badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.gl-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(201, 168, 76, .4);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .05);
+    color: rgba(250, 247, 242, .85);
+    font-size: .9rem;
+    line-height: 1.3;
+}
+
+.gl-badge i {
+    color: var(--clr-gold);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.gl-badge strong {
+    color: var(--clr-dark);
+}
+
+/* Keep the sticky navbar from covering the form heading on CTA jumps */
+#consult-form {
+    scroll-margin-top: 80px;
+}
+
+/* Gold primary button for dark backgrounds (the site's .btn-primary is black) */
+.gl-btn-gold {
+    background-color: var(--clr-gold) !important;
+    border-color: var(--clr-gold) !important;
+    color: var(--clr-black) !important;
+}
+
+.gl-btn-gold:hover {
+    background-color: var(--clr-gold-light) !important;
+    border-color: var(--clr-gold-light) !important;
+}
+
+/* Image service cards */
+.gl-card {
+    background-color: var(--clr-surface);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .06);
+}
+
+.gl-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.gl-card-body {
+    padding: 20px 22px 24px;
+}
+
+/* Starting price card */
+.gl-price-card {
+    background-color: var(--clr-black);
+    color: rgba(250, 247, 242, .8);
+    border-radius: 18px;
+    padding: 36px;
+    box-shadow: 0 20px 50px rgba(10, 10, 10, .15);
+}
+
+.gl-price-card .small {
+    color: var(--clr-gold);
+}
+
+.gl-price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.75rem;
+    color: var(--clr-dark);
+    line-height: 1.1;
+}
+
+/* Comparison table — a normal table on desktop, stacked cards on phones */
+.gl-compare {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--clr-surface);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(10, 10, 10, .06);
+}
+
+.gl-compare th,
+.gl-compare td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--clr-dark-3);
+    vertical-align: top;
+}
+
+.gl-compare tbody tr:last-child th,
+.gl-compare tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.gl-compare thead th {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--clr-black);
+    background-color: var(--clr-dark-2);
+}
+
+.gl-compare thead th.gl-compare-us {
+    background-color: var(--clr-black);
+    color: var(--clr-gold);
+}
+
+.gl-compare tbody th {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--clr-black);
+    width: 22%;
+}
+
+.gl-compare td.gl-compare-us {
+    background-color: rgba(201, 168, 76, .08);
+    font-weight: 600;
+}
+
+.gl-compare td i {
+    margin-right: 8px;
+}
+
+.gl-compare td .fa-check {
+    color: var(--clr-gold-dark);
+}
+
+.gl-compare td .fa-times {
+    color: #a0958a;
+}
+
+@media (max-width: 767.98px) {
+    .gl-compare thead {
+        display: none;
+    }
+
+    .gl-compare,
+    .gl-compare tbody,
+    .gl-compare tr,
+    .gl-compare th,
+    .gl-compare td {
+        display: block;
+        width: 100%;
+    }
+
+    .gl-compare tbody th {
+        width: 100%;
+        padding-bottom: 6px;
+        border-bottom: 0;
+        background-color: var(--clr-dark-2);
+    }
+
+    .gl-compare td {
+        padding: 10px 20px;
+    }
+
+    .gl-compare td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #8a7f74;
+        margin-bottom: 2px;
+        font-weight: 400;
+    }
+}
+
+/* Project cards */
+.gl-project {
+    display: block;
+    color: var(--clr-ink);
+    text-decoration: none;
+}
+
+.gl-project img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: transform .3s ease;
+}
+
+.gl-project:hover img {
+    transform: translateY(-3px);
+}
+
+.gl-project-name {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--clr-black);
+}
+
+.gl-project-meta {
+    display: block;
+    font-size: .85rem;
+    color: #6f655b;
+}
+
+/* Phones: the sticky Call/WhatsApp bar replaces the site-wide floating
+   WhatsApp button (injected by js/main.js), and back-to-top moves up so it
+   doesn't sit on the bar. */
+@media (max-width: 767.98px) {
+    .gl-page a.whatsapp-float {
+        display: none !important;
+    }
+
+    .gl-page a.back-to-top {
+        bottom: 74px;
+        right: 16px;
+    }
+
+    /* site .hero-header uses padding-top:150px to clear the navbar; on
+       phones the navbar is shorter, so trim the empty band above the H1 */
+    .gl-hero {
+        padding-top: 100px;
+    }
+
+    .gl-hero > .container {
+        padding-top: 0 !important;
+    }
+
+    .gl-hero h1 {
+        font-size: 1.7rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .gl-hero .gl-eyebrow {
+        font-size: .75rem;
+        letter-spacing: 1px !important;
+        margin-bottom: .75rem !important;
+    }
+
+    .gl-hero .gl-lead {
+        font-size: .95rem;
+        margin-bottom: 1rem !important;
+    }
+
+    .gl-badges {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .gl-badge {
+        font-size: .8rem;
+        padding: 8px 10px;
+    }
+
+    .gl-price-card {
+        padding: 28px 22px;
+    }
+}
