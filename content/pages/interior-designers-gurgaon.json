@@ -143,5 +143,11 @@
       "href": "/contact.html"
     }
   ],
-  "ctaContext": "Gurgaon interior design project"
+  "ctaContext": "Gurgaon interior design project",
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "monthly",
+    "priority": "0.95",
+    "order": 9
+  }
 }

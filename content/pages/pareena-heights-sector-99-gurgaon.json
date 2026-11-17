@@ -59,5 +59,11 @@
   },
   "carouselCard": {
     "title": "Pareena Heights"
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 19
   }
 }

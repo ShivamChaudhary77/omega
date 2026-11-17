@@ -20,6 +20,7 @@ Every page is one JSON file: `content/pages/<id>.json` locally, and the same fil
 | `layout` | `default` or `bare` (no site nav, footer or CTA; for the ads landing pages) |
 | `assets` | `css[]`, `js[]` (added to the defaults), `scripts[]` (replaces all scripts), `owlCarousel` (bool), `animateCss` (bool, default true) |
 | `headHtml` | advanced: extra HTML for `<head>` |
+| `sitemap` | optional `{changefreq, priority, lastmod, order}` for `/sitemap.xml` (carried over from the old static sitemap; defaults by type otherwise) |
 | `schemaExtra` | advanced: page-specific JSON-LD kept from the original page (e.g. Service list, author Person, a landing page's FAQ) |
 
 ## Blog post (`blog-post`)
@@ -53,8 +54,13 @@ A page with `blocks: [...]` is rendered block by block, in order:
 A page **without** blocks is a simple page: `h1`, `intro` (HTML), `sections[{heading, html}]`, `faqs[]`.
 
 ## Special URLs
+Every one of these is generated live from the content:
 - **`/api/posts.json`:** live feed of published posts for `js/blog.js`.
+- **`/sitemap.xml`:** every published, indexable page except blog posts.
+- **`/sitemap-blog.xml`:** published blog posts.
+- **`/llms.txt`:** brand fact sheet for AI assistants, built from `site.json` (`llms` plus the business details, stats and starting price).
+- **Dashboard redirects:** stored in `redirects.json` in the content folder. They're checked before pages, and saving a page at an address removes any redirect from it.
 - **404 page:** the published page with id `not-found` is used for every 404. Without it, the static `404.html` is used.
 
 ## site.json
-`business{name, alternateName, telephone, email, priceRange, foundingDate, address, geo, areaServed[], sameAs[], logo, image}`, `phoneDisplay`, `whatsappNumber`, `startingPrice`, `stats`, `mapEmbedUrl`, `defaultOgImage`, `tracking{ga4MeasurementId, metaPixelId, googleSiteVerification}`, `nav[{key,label,href}]`, `footer{about, quickLinks[], serviceAreas[], services[], addressDisplay, bottomMenu[]}`, `cta{...}`, `ctaTextByType{type: text}`, `authors{name: {url, sameAs[], bio, reviewedNote}}`.
+`business{name, alternateName, telephone, email, priceRange, foundingDate, address, geo, areaServed[], sameAs[], logo, image}`, `phoneDisplay`, `whatsappNumber`, `startingPrice`, `stats`, `mapEmbedUrl`, `defaultOgImage`, `tracking{ga4MeasurementId, metaPixelId, googleSiteVerification}`, `nav[{key,label,href}]`, `footer{about, quickLinks[], serviceAreas[], services[], addressDisplay, bottomMenu[]}`, `cta{...}`, `ctaTextByType{type: text}`, `authors{name: {url, sameAs[], bio, reviewedNote}}`, `llms{summary, whatWeDo, locationText, keyPages[{label, href}], differentiators[]}`.

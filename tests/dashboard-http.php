@@ -26,7 +26,7 @@ foreach (glob("$repo/content/pages/*.json") as $f) {
 }
 $port = 8790 + random_int(0, 50);
 $base = "http://127.0.0.1:$port";
-$env = array_merge(getenv(), ['OMEGA_CONTENT_DIR' => $content, 'OMEGA_UPLOADS_DIR' => $uploads, 'OMEGA_MODE' => 'dynamic']);
+$env = array_merge(getenv(), ['OMEGA_CONTENT_DIR' => $content, 'OMEGA_UPLOADS_DIR' => $uploads, 'OMEGA_MODE' => 'live']);
 
 // Set the password through the real CLI command.
 $cli = proc_open([PHP_BINARY, "$repo/app/cli.php", 'set-password'], [['pipe', 'r'], ['pipe', 'w'], ['pipe', 'w']], $pipes, $repo, $env);
@@ -247,6 +247,34 @@ try {
     check('restored post is live again', http('GET', '/kitchen-design/test-post-from-the-dashboard/')['status'] === 200);
     $r = http('POST', '/admin/delete.php', ['csrf' => $csrf, 'id' => 'home']);
     check('home page cannot be deleted', http('GET', '/')['status'] === 200);
+
+    echo "\nSEO automation (Phase 5)\n";
+    $editor = http('GET', '/admin/edit.php?id=interior-designers-manesar');
+    check('editor shows the SEO panel with a Google preview', str_contains($editor['body'], 'data-serp') && str_contains($editor['body'], 'seo-checks'));
+    $fields = form_fields($editor['body']);
+    $fields['meta[urlPath]'] = '/interior-designer-manesar-gurgaon/';
+    http('POST', '/admin/edit.php', $fields);
+    $old = http('GET', '/interior-designers-manesar/');
+    check('changing a URL redirects the old address (301)', $old['status'] === 301 && $old['location'] === '/interior-designer-manesar-gurgaon/');
+    check('page works at its new URL', http('GET', '/interior-designer-manesar-gurgaon/')['status'] === 200);
+    check('sitemap lists the new URL, not the old one', str_contains($sm = http('GET', '/sitemap.xml')['body'], '/interior-designer-manesar-gurgaon/') && !str_contains($sm, '/interior-designers-manesar/'));
+    $csrf = csrf_from(http('GET', '/admin/')['body']);
+    http('POST', '/admin/delete.php', ['csrf' => $csrf, 'id' => 'pooja-room-design-ideas', 'redirect' => '/blog.html']);
+    $gone = http('GET', '/home-residential-interiors/pooja-room-design-ideas/');
+    check('deleting with a redirect sends visitors to the chosen page', $gone['status'] === 301 && $gone['location'] === '/blog.html');
+    http('POST', '/admin/delete.php', ['csrf' => $csrf, 'id' => 'wallpaper-vs-paint-gurgaon', 'redirect' => 'none']);
+    check('deleting without a redirect shows page not found', http('GET', '/home-residential-interiors/wallpaper-vs-paint-gurgaon/')['status'] === 404);
+    http('POST', '/admin/trash.php', ['csrf' => $csrf, 'id' => 'pooja-room-design-ideas', 'action' => 'restore']);
+    check('restoring removes the redirect and the page is back', http('GET', '/home-residential-interiors/pooja-room-design-ideas/')['status'] === 200);
+    $rp = http('GET', '/admin/redirects.php');
+    check('redirects screen lists dashboard redirects', str_contains($rp['body'], '/interior-designers-manesar/'));
+    http('POST', '/admin/redirects.php', ['csrf' => csrf_from($rp['body']), 'action' => 'add', 'from' => '/old-offer/', 'to' => '/contact.html', 'code' => '301']);
+    check('manual redirect added', http('GET', '/old-offer/')['location'] === '/contact.html');
+    $r = http('POST', '/admin/redirects.php', ['csrf' => csrf_from($rp['body']), 'action' => 'add', 'from' => '/about.html', 'to' => '/', 'code' => '301']);
+    check('a redirect cannot hide an existing page', str_contains($r['body'], 'A page exists at /about.html') && http('GET', '/about.html')['status'] === 200);
+    http('POST', '/admin/redirects.php', ['csrf' => csrf_from($rp['body']), 'action' => 'delete', 'from' => '/old-offer/']);
+    check('redirect removed', http('GET', '/old-offer/')['status'] === 404);
+    check('llms.txt and sitemap-blog.xml served', str_contains(http('GET', '/llms.txt')['body'], '# The Omega Group') && str_contains(http('GET', '/sitemap-blog.xml')['body'], '<urlset'));
 
     echo "\nSettings\n";
     $settings = http('GET', '/admin/settings.php');

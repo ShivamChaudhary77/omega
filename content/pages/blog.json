@@ -40,5 +40,11 @@
     "js": [
       "/js/blog.js"
     ]
+  },
+  "sitemap": {
+    "lastmod": "2026-10-19",
+    "changefreq": "weekly",
+    "priority": "0.8",
+    "order": 6
   }
 }

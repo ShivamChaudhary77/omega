@@ -55,5 +55,11 @@
   "card": {
     "title": "Smart World Orchard",
     "alt": "Smart World Orchard apartment interior with bespoke bar unit by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 24
   }
 }

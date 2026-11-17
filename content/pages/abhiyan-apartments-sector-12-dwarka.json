@@ -51,5 +51,11 @@
   "card": {
     "title": "Abhiyan Apartments",
     "alt": "Abhiyan Apartments interior design, Sector 12, Dwarka, by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-09-13",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 29
   }
 }

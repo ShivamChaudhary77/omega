@@ -42,5 +42,11 @@
   "card": {
     "title": "Dwarka Expressway Farmhouse",
     "alt": "Farmhouse interior design, Dwarka Expressway, Gurgaon, by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-09-12",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 27
   }
 }

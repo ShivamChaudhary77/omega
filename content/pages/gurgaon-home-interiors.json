@@ -161,5 +161,11 @@
       "/js/analytics.js",
       "/js/consultation-form.js"
     ]
+  },
+  "sitemap": {
+    "lastmod": "2026-11-17",
+    "changefreq": "monthly",
+    "priority": "0.8",
+    "order": 10
   }
 }

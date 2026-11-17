@@ -53,5 +53,11 @@
   "card": {
     "title": "Godrej Meridien",
     "alt": "Godrej Meridien interior design, Tower 3, Sector 106, Gurgaon, by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-09-12",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 28
   }
 }

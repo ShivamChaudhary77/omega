@@ -53,5 +53,11 @@
   "card": {
     "title": "M3M Woodshire",
     "alt": "M3M Woodshire villa interior and lounge by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 20
   }
 }

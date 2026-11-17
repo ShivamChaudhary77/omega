@@ -92,5 +92,11 @@
       "/css/blog.css"
     ],
     "owlCarousel": true
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "weekly",
+    "priority": "1.0",
+    "order": 1
   }
 }

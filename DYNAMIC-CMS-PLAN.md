@@ -1,6 +1,6 @@
 # Plan: Static Site → Dynamic Site with a Simple Dashboard
 
-**Status:** Phases 1–4 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
+**Status:** Phases 1–5 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
 
 ## Progress
 
@@ -10,7 +10,7 @@
 | 2. Templates | ✅ Done | See "Phase 2 delivered" below |
 | 3. Migration + comparison | ✅ Done | See "Phase 3 delivered" below |
 | 4. Dashboard | ✅ Done | See "Phase 4 delivered" below |
-| 5. SEO automation | Not started | |
+| 5. SEO automation | ✅ Done | See "Phase 5 delivered" below |
 | 6. Staging, go-live, monitoring | Not started | |
 
 ### Phase 1 delivered
@@ -100,6 +100,32 @@
   - `tests/dashboard-http.php`: 38 end-to-end checks over real HTTP (login, CSRF, edit, text edit on the home page, upload, create/publish, duplicate URL, preview, delete/restore, settings, logout, lockout).
   - Browser walkthrough of the list, editor, image picker and section editor, including phone width.
 - **Left for Phase 5, as planned:** automatic redirects when a URL changes or a page is deleted, and the SEO panel (Google preview, duplicate-title and keyword warnings).
+
+### Phase 5 delivered
+- **Live sitemaps and `llms.txt`** (`app/seo.php`), generated from the content on every change:
+  - **`/sitemap.xml`:** identical to the static file (same URLs, order, lastmod, changefreq and priority), plus the author page that was missing.
+  - **`/sitemap-blog.xml`:** byte-identical to the static file.
+  - **`/llms.txt`:** byte-identical to the static file, now built from `site.json`.
+  - **Sitemap settings:** the migration carries each page's sitemap settings over (`sitemap` field).
+- **Automatic redirects:**
+  - **URL change:** changing a published page's URL creates a 301 from the old address.
+  - **Deleting:** you choose where visitors go (a suggested page, the home page, a custom address, or none).
+  - **Saving or restoring:** a page saved or restored at an address removes any redirect from it.
+  - **Redirects screen** in the dashboard: list, add (301 or 410) and remove. A redirect can never hide an existing page.
+- **SEO panel in the editor:**
+  - a live Google-style preview (title, URL, description)
+  - title and description length, and duplicate titles or descriptions across the site
+  - a competing focus keyword between posts, and the keyword missing from the title or first paragraph
+  - missing image alt text, missing H1, and missing internal links or FAQs on posts
+  - **broken internal links and images:** checked against pages, dashboard and historic redirects, and real files
+- **`router.php` "live" mode** (`OMEGA_MODE=live`) behaves like the server after go-live (static HTML ignored). The end-to-end test now runs in it, which shows the site works with the static pages removed.
+- **Tests:**
+  - **`tests/suite-seo.php`:** live files identical to the static ones, sitemap updates on publish/unpublish, `llms.txt` follows settings, redirect/page consistency, link checker, SEO warnings.
+  - **Totals:** 199 unit checks and 50 end-to-end checks; 148 of 148 pages still match.
+- **Whole-site SEO audit** using the new checks. These are existing content issues on today's site, not fixed here:
+  - 42 SEO titles over 60 characters and 40 meta descriptions over 160.
+  - 3 posts share one SEO title, and the two Pareena Heights projects share "Pareena Heights".
+  - One broken link: the DLF Phase 1–5 post links to `/home-residential-interiors/golf-course-road-interior-design-ultra-luxury-guide/`, which doesn't exist.
 
 ## 1. The approach in one paragraph
 

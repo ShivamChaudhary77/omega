@@ -106,5 +106,11 @@
       "href": "/contact.html"
     }
   ],
-  "ctaContext": "golf course road interior design project"
+  "ctaContext": "golf course road interior design project",
+  "sitemap": {
+    "lastmod": "2026-08-27",
+    "changefreq": "monthly",
+    "priority": "0.8",
+    "order": 25
+  }
 }

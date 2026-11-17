@@ -39,10 +39,10 @@ function content_path(string $relative = ''): string
 /* Site settings                                                       */
 /* ------------------------------------------------------------------ */
 
-/** site.json, loaded once per request. */
+/** site.json, loaded once per request (and refreshed by site_save()). */
 function site(?string $key = null)
 {
-    static $cache = [];
+    $cache = &site_memo();
     $dir = content_dir();
     if (!array_key_exists($dir, $cache)) {
         $site = json_read(content_path('site.json'));
@@ -55,9 +55,17 @@ function site(?string $key = null)
     return $key === null ? $site : ($site[$key] ?? null);
 }
 
+function &site_memo(): array
+{
+    static $memo = [];
+    return $memo;
+}
+
 function site_save(array $site): void
 {
     json_write(content_path('site.json'), $site);
+    $cache = &site_memo();
+    $cache[content_dir()] = $site;
     cache_clear_pages();
 }
 
@@ -317,6 +325,17 @@ function page_save(array $page): array
 
     json_write($file, $page);
     page_index_rebuild();
+
+    // A page now lives at these addresses, so any dashboard redirect away
+    // from them would hide it: remove those redirects.
+    $redirects = redirects_all();
+    $paths = array_merge([$page['urlPath']], (array) ($page['aliases'] ?? []));
+    if (array_intersect($paths, array_keys($redirects))) {
+        foreach ($paths as $path) {
+            unset($redirects[$path]);
+        }
+        json_write(content_path('redirects.json'), $redirects);
+    }
     cache_clear_pages();
     return $page;
 }

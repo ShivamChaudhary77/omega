@@ -31,5 +31,11 @@
   "card": {
     "title": "Eldeco County Villa",
     "alt": "Eldeco County Villa interior design, Sonepat, by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-09-12",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 26
   }
 }

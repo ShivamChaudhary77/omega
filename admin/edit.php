@@ -64,8 +64,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         try {
             $saved = page_save($page);
             $verb = $saved['status'] === 'published' ? 'Saved and published' : 'Saved as draft';
-            flash('success', $verb . ': ' . ($saved['title'] ?? $saved['name'] ?? $saved['h1'] ?? $saved['seo']['title'])
-                . (($stored['urlPath'] ?? $saved['urlPath']) !== $saved['urlPath'] ? '. Its address changed: remember that links to the old address will stop working.' : '.'));
+            $note = '.';
+            // A published page moved: send its old address to the new one
+            // (301), so links and Google rankings carry over.
+            if ($stored && ($stored['status'] ?? '') === 'published' && $stored['urlPath'] !== $saved['urlPath']) {
+                redirect_set($stored['urlPath'], $saved['urlPath']);
+                $note = '. Its address changed, so the old address ' . $stored['urlPath'] . ' now redirects here automatically.';
+            }
+            flash('success', $verb . ': ' . ($saved['title'] ?? $saved['name'] ?? $saved['h1'] ?? $saved['seo']['title']) . $note);
             redirect_to('/admin/edit.php?id=' . rawurlencode($saved['id']));
         } catch (PageValidationException $e) {
             foreach ($e->errors as $k => $msg) {
@@ -145,14 +151,43 @@ $scripts = ['https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js
                     <a class="btn btn-link w-100" href="/admin/history.php?id=<?= e($page['id']) ?>">Earlier versions</a>
 <?php endif; ?>
                 </section>
+
+                <section class="card admin-card">
+                    <h2 class="admin-card-title">SEO check</h2>
+                    <div class="serp-preview" data-serp>
+                        <div class="serp-url" data-serp-url><?= e(preg_replace('#^https?://#', '', absolute_url($page['urlPath'] ?: '/'))) ?></div>
+                        <div class="serp-title" data-serp-title><?= e($page['seo']['title'] ?? '') ?></div>
+                        <div class="serp-desc" data-serp-desc><?= e($page['seo']['description'] ?? '') ?></div>
+                    </div>
+                    <div class="form-text mb-3">How the page may look in Google. Updates as you type.</div>
+                    <ul class="seo-checks">
+<?php foreach (seo_checks($page) as $c): ?>
+                        <li class="seo-<?= e($c['level']) ?>"><i class="bi <?= $c['level'] === 'good' ? 'bi-check-circle-fill' : ($c['level'] === 'warn' ? 'bi-exclamation-triangle-fill' : 'bi-info-circle') ?>"></i> <?= e($c['text']) ?></li>
+<?php endforeach; ?>
+                    </ul>
+                    <div class="form-text"><?= $isNew ? 'Checks run on the saved page; save to update them.' : 'Checked when the page was opened or last saved.' ?></div>
+                </section>
             </aside>
         </form>
 
 <?php if (!$isNew && $page['type'] !== 'home'): ?>
-        <form method="post" action="/admin/delete.php" class="admin-delete" data-confirm="Move “<?= e($displayTitle) ?>” to the trash? It will disappear from the website. You can restore it from the trash.">
+        <form method="post" action="/admin/delete.php" class="admin-delete card admin-card" data-confirm="Move “<?= e($displayTitle) ?>” to the trash? It will disappear from the website. You can restore it from the trash.">
             <?= csrf_field() ?>
             <input type="hidden" name="id" value="<?= e($page['id']) ?>">
-            <button type="submit" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> Move to trash</button>
+<?php if (($stored['status'] ?? '') === 'published'): $suggested = suggested_redirect_target($stored); ?>
+            <label class="form-label" for="redirect_choice">After deleting, send visitors of <code><?= e($stored['urlPath']) ?></code> to:</label>
+            <select class="form-select mb-2" id="redirect_choice" name="redirect" data-redirect-choice>
+                <option value="<?= e($suggested) ?>" selected><?= e($suggested) ?> (recommended)</option>
+<?php if ($suggested !== '/index.html'): ?>
+                <option value="/index.html">The home page</option>
+<?php endif; ?>
+                <option value="custom">Another address…</option>
+                <option value="none">Nowhere: show "page not found"</option>
+            </select>
+            <input class="form-control mb-2" type="text" name="redirect_custom" placeholder="/blog.html" hidden data-redirect-custom>
+            <div class="form-text mb-3">A redirect keeps visitors from old links and Google rankings instead of losing them.</div>
+<?php endif; ?>
+            <div><button type="submit" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> Move to trash</button></div>
         </form>
 <?php endif; ?>
 

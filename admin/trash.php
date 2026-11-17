@@ -12,7 +12,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     try {
         if ($action === 'restore') {
             $page = page_restore_from_trash($id);
-            flash('success', 'Restored "' . ($page['title'] ?? $page['name'] ?? $page['h1'] ?? $id) . '". It is back on the website with its previous status.');
+            flash('success', 'Restored "' . ($page['title'] ?? $page['name'] ?? $page['h1'] ?? $id) . '". It is back at ' . $page['urlPath'] . ' with its previous status (any redirect from that address was removed).');
             redirect_to('/admin/edit.php?id=' . rawurlencode($id));
         } elseif ($action === 'purge' && page_id_is_valid($id) && is_file(content_path("_trash/$id.json"))) {
             unlink(content_path("_trash/$id.json"));

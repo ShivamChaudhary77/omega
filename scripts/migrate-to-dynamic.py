@@ -334,8 +334,15 @@ def main():
     site = json.loads((ROOT / "content" / "site.json").read_text(encoding="utf-8"))
     written = []
 
+    sitemap_meta = {}
+    sm = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    for order, m in enumerate(re.finditer(r"<loc>([^<]*)</loc>\s*<lastmod>([^<]*)</lastmod>\s*<changefreq>([^<]*)</changefreq>\s*<priority>([^<]*)</priority>", sm), 1):
+        sitemap_meta[m.group(1).replace(SITE, "") or "/"] = {"lastmod": m.group(2), "changefreq": m.group(3), "priority": m.group(4), "order": order}
+
     def write(page):
         page = {k: v for k, v in page.items() if v is not None}
+        if page["type"] != "blog-post" and page["urlPath"] in sitemap_meta:
+            page["sitemap"] = sitemap_meta[page["urlPath"]]
         (out / f"{page['id']}.json").write_text(json.dumps(page, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         written.append(page["id"])
 

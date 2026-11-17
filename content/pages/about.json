@@ -36,5 +36,11 @@
   ],
   "assets": {
     "owlCarousel": true
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "monthly",
+    "priority": "0.7",
+    "order": 2
   }
 }

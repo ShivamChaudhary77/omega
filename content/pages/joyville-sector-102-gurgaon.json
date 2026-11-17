@@ -44,5 +44,11 @@
   "card": {
     "title": "Joyville",
     "alt": "Joyville, Sector 102 apartment interior by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 23
   }
 }

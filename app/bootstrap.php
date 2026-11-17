@@ -56,4 +56,5 @@ require_once OMEGA_APP . '/helpers.php';
 require_once OMEGA_APP . '/content.php';
 require_once OMEGA_APP . '/cache.php';
 require_once OMEGA_APP . '/render.php';
+require_once OMEGA_APP . '/seo.php';
 require_once OMEGA_APP . '/front.php';

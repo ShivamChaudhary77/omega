@@ -68,5 +68,11 @@
   "card": {
     "title": "Pareena Heights, Sector 100",
     "alt": "Pareena Heights, Sector 100 apartment interior by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 22
   }
 }

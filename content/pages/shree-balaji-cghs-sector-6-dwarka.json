@@ -46,5 +46,11 @@
   "card": {
     "title": "Shree Balaji CGHS",
     "alt": "Shree Balaji CGHS modular kitchen by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 18
   }
 }

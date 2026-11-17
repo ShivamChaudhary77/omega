@@ -53,5 +53,11 @@
   "card": {
     "title": "SOBHA",
     "alt": "Open-plan apartment living and dining area with teal accents by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 17
   }
 }

@@ -119,5 +119,11 @@
       "href": "/contact.html"
     }
   ],
-  "ctaContext": "Dwarka Expressway interior design project"
+  "ctaContext": "Dwarka Expressway interior design project",
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "monthly",
+    "priority": "0.95",
+    "order": 11
+  }
 }

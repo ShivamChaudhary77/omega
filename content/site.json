@@ -221,5 +221,54 @@
             "bio": "Shivam Kumar is a content writer and digital marketing professional with an interest in SEO, technology, and digital growth. He focuses on creating clear, useful, and research-driven content that helps readers understand complex topics in a simple way.",
             "reviewedNote": "Reviewed for accuracy by The Omega Group's in-house design team — Gurgaon's luxury interior design and turnkey execution studio."
         }
+    },
+    "llms": {
+        "summary": "Luxury interior design and turnkey execution studio based in Gurgaon, India.",
+        "whatWeDo": "The Omega Group designs and delivers residential and commercial interiors — full-home and apartment interiors, villa interiors, modular kitchens, bespoke furniture, and office & commercial fit-outs. All projects are turnkey: design, material procurement, and on-site execution are managed by one team, not separate designers and contractors.",
+        "locationText": "Headquartered on Main Dwarka Expressway, Gurugram, Haryana, India. Serves Gurgaon and Delhi NCR, including Dwarka Expressway, DLF, Sushant Lok, Sohna Road, New Gurgaon, Manesar, and Golf Course Road.",
+        "keyPages": [
+            {
+                "label": "Homepage",
+                "href": "/index.html"
+            },
+            {
+                "label": "Services",
+                "href": "/service.html"
+            },
+            {
+                "label": "Projects/portfolio",
+                "href": "/project.html"
+            },
+            {
+                "label": "About",
+                "href": "/about.html"
+            },
+            {
+                "label": "Blog (interior design guides for Gurgaon)",
+                "href": "/blog.html"
+            },
+            {
+                "label": "Contact",
+                "href": "/contact.html"
+            },
+            {
+                "label": "Interior designers in Gurgaon (service area hub)",
+                "href": "/interior-designers-gurgaon/"
+            },
+            {
+                "label": "Turnkey home interiors in Gurgaon (apartments, builder floors, villas)",
+                "href": "/gurgaon-home-interiors/"
+            },
+            {
+                "label": "Interior designer in Dwarka Expressway (service area hub)",
+                "href": "/interior-designers-dwarka-expressway/"
+            }
+        ],
+        "differentiators": [
+            "Single accountable team for design and execution — no separate designer/contractor coordination required by the client.",
+            "Headquartered directly on Dwarka Expressway, not a satellite office covering the area remotely.",
+            "Itemised quoting — costs are shown before work begins.",
+            "70+ quality-control checks built into the execution process, not left to a single final inspection."
+        ]
     }
 }

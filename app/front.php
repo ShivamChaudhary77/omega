@@ -5,7 +5,8 @@
  * Order of checks for GET/HEAD requests:
  *   1. bad/suspicious path           -> 400
  *   2. page cache hit                -> cached response
- *   3. dashboard redirect            -> 301/302 (or 410 Gone)
+ *   3. generated files               -> /sitemap.xml, /sitemap-blog.xml, /llms.txt, /api/posts.json
+ *   3b. dashboard redirect           -> 301/302 (or 410 Gone)
  *   4. published page at this URL    -> rendered page
  *   5. same URL with a trailing "/"  -> 301 to it (matches Apache's old behaviour)
  *   6. otherwise                     -> 404 with the site's branded 404 page
@@ -39,6 +40,13 @@ function front_dispatch(string $method, string $uri): array
         return $cached;
     }
 
+    $special = special_route($path);
+    if ($special !== null) {
+        $result = response(200, $special[1], ['Content-Type' => $special[0], 'X-Omega-Cache' => 'MISS']);
+        cache_put($path, $result);
+        return $result;
+    }
+
     $redirect = redirect_find($path);
     if ($redirect) {
         $code = (int) ($redirect['code'] ?? 301);
@@ -51,15 +59,6 @@ function front_dispatch(string $method, string $uri): array
             $location .= (str_contains($location, '?') ? '&' : '?') . $query;
         }
         return response($code, '', ['Location' => $location]);
-    }
-
-    if ($path === '/api/posts.json') {
-        $result = response(200, posts_feed_json(), [
-            'Content-Type' => 'application/json; charset=utf-8',
-            'X-Omega-Cache' => 'MISS',
-        ]);
-        cache_put($path, $result);
-        return $result;
     }
 
     $page = page_find_by_path($path);
@@ -83,6 +82,29 @@ function front_dispatch(string $method, string $uri): array
 function response(int $status, string $body, array $headers = []): array
 {
     return ['status' => $status, 'headers' => $headers, 'body' => $body];
+}
+
+/** Generated files served by the site: path => content type. */
+const SPECIAL_ROUTES = [
+    '/api/posts.json' => 'application/json; charset=utf-8',
+    '/sitemap.xml' => 'application/xml; charset=utf-8',
+    '/sitemap-blog.xml' => 'application/xml; charset=utf-8',
+    '/llms.txt' => 'text/plain; charset=utf-8',
+];
+
+/** [content type, body] for a generated file, or null. */
+function special_route(string $path): ?array
+{
+    if (!isset(SPECIAL_ROUTES[$path])) {
+        return null;
+    }
+    $body = match ($path) {
+        '/api/posts.json' => posts_feed_json(),
+        '/sitemap.xml' => sitemap_xml('pages'),
+        '/sitemap-blog.xml' => sitemap_xml('blog'),
+        '/llms.txt' => llms_txt(),
+    };
+    return [SPECIAL_ROUTES[$path], $body];
 }
 
 /**

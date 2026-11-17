@@ -43,5 +43,11 @@
     "js": [
       "/js/contact-form.js"
     ]
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.6",
+    "order": 5
   }
 }

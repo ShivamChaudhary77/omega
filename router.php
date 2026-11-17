@@ -12,6 +12,10 @@
  *       rendered even when a static file exists at the same URL. Use this to
  *       compare dynamic pages against the static ones during Phases 2–5.
  *
+ *   OMEGA_MODE=live php -S localhost:8000 router.php
+ *       Behaves like the server after go-live: the static HTML pages are
+ *       ignored (they get deleted at go-live) and everything is dynamic.
+ *
  * On the live server this file does nothing (404): it only works under the
  * built-in server (PHP_SAPI "cli-server").
  */
@@ -47,11 +51,19 @@ if (str_starts_with($path, '/uploads/')) {
     return true;
 }
 
-$preferDynamic = getenv('OMEGA_MODE') === 'dynamic';
-$hasDynamicPage = $preferDynamic && page_find_by_path($path) !== null;
+$mode = (string) getenv('OMEGA_MODE');
+$preferDynamic = $mode === 'dynamic' || $mode === 'live';
+$hasDynamicPage = $preferDynamic && (page_find_by_path($path) !== null || isset(SPECIAL_ROUTES[$path]));
 
 if (!$hasDynamicPage) {
     $file = __DIR__ . $path;
+    // "live" mode behaves like the server after go-live, when the static
+    // HTML pages are deleted: only real non-HTML files are served directly.
+    $isStaticHtml = str_ends_with($path, '.html') || (is_dir($file) && is_file(rtrim($file, '/') . '/index.html'));
+    if ($mode === 'live' && $isStaticHtml) {
+        front_handle_request();
+        return true;
+    }
     if (is_file($file) || (is_dir($file) && (is_file("$file/index.html") || is_file("$file/index.php")))) {
         return false; // let the built-in server serve the real file
     }

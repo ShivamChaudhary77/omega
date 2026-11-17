@@ -42,5 +42,11 @@
   "card": {
     "title": "Krisumi",
     "alt": "Krisumi interior design, Sector 36A, Gurgaon, by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-09-13",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 31
   }
 }

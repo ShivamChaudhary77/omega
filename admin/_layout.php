@@ -12,6 +12,7 @@ function admin_header(string $title, string $active = ''): void
     $nav = [
         'pages' => ['/admin/', 'Pages'],
         'media' => ['/admin/media.php', 'Images'],
+        'redirects' => ['/admin/redirects.php', 'Redirects'],
         'trash' => ['/admin/trash.php', 'Trash'],
         'settings' => ['/admin/settings.php', 'Settings'],
     ];

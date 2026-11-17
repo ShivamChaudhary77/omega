@@ -44,5 +44,11 @@
   "card": {
     "title": "Hero Homes",
     "alt": "Hero Homes interior design, Sector 104, Gurgaon, by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-09-13",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 30
   }
 }

@@ -295,6 +295,27 @@
         }
     }
 
+    /* Live Google-style preview in the SEO panel. */
+    var serp = document.querySelector("[data-serp]");
+    if (serp && editForm) {
+        var siteHost = serp.querySelector("[data-serp-url]").textContent.split("/")[0];
+        var tIn = editForm.querySelector('[name="f[seo][title]"]');
+        var dIn = editForm.querySelector('[name="f[seo][description]"]');
+        var uIn = editForm.querySelector('[name="meta[urlPath]"]');
+        var update = function () {
+            if (tIn) serp.querySelector("[data-serp-title]").textContent = tIn.value.length > 62 ? tIn.value.slice(0, 60) + "…" : tIn.value;
+            if (dIn) serp.querySelector("[data-serp-desc]").textContent = dIn.value.length > 162 ? dIn.value.slice(0, 158) + "…" : dIn.value;
+            if (uIn && uIn.value) serp.querySelector("[data-serp-url]").textContent = siteHost + uIn.value.replace(/\/$/, "").replace(/\//g, " › ").replace(/^ › /, " › ");
+        };
+        [tIn, dIn, uIn].forEach(function (el) { if (el) el.addEventListener("input", update); });
+    }
+
+    /* Delete form: show the custom-address box only when chosen. */
+    document.querySelectorAll("[data-redirect-choice]").forEach(function (sel) {
+        var custom = sel.form.querySelector("[data-redirect-custom]");
+        sel.addEventListener("change", function () { custom.hidden = sel.value !== "custom"; if (!custom.hidden) custom.focus(); });
+    });
+
     initEditors(document);
     initCounters(document);
 })();

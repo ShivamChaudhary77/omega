@@ -58,5 +58,11 @@
   "card": {
     "title": "Puri Emerald Bay",
     "alt": "Puri Emerald Bay modular kitchen with center island by The Omega Group"
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.7",
+    "order": 21
   }
 }

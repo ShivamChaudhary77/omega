@@ -33,5 +33,11 @@
     "css": [
       "/css/blog.css"
     ]
+  },
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "yearly",
+    "priority": "0.3",
+    "order": 8
   }
 }

@@ -209,7 +209,7 @@ The site is being converted to server-rendered PHP with a dashboard: see `DYNAMI
   ```bash
   php -S localhost:8000 router.php
   ```
-  Add `OMEGA_MODE=dynamic` to render dynamic pages even where a static file exists.
+  Add `OMEGA_MODE=dynamic` to render dynamic pages even where a static file exists. Use `OMEGA_MODE=live` to behave exactly like the site after go-live.
 - **Tests:**
   ```bash
   php tests/run.php
@@ -221,6 +221,7 @@ The site is being converted to server-rendered PHP with a dashboard: see `DYNAMI
   ```
   This rebuilds `content/pages/` from the static site and checks every URL against it. 148 of 148 pages matched in Phase 3.
 - **Maintenance:** `php app/cli.php rebuild | clear-cache | check | render /path/ | set-password`
+- **SEO automation (Phase 5):** `app/seo.php` serves live `/sitemap.xml`, `/sitemap-blog.xml` and `/llms.txt`, plus the dashboard's SEO checks and link checker. Dashboard redirects live in the content folder's `redirects.json` (Redirects screen); the 87 historic ones stay in `.htaccess`. After go-live, the static `sitemap*.xml` and `llms.txt` files must be deleted on the server so the live versions are served.
 - **Dashboard (Phase 4):** `/admin/` (code in `admin/`, plus `app/security.php`, `app/sanitize.php`, `app/media.php` and `app/admin_fields.php`).
   - **User guide:** `DASHBOARD-GUIDE.md`.
   - **End-to-end test:** `php tests/dashboard-http.php`.

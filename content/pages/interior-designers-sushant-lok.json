@@ -102,5 +102,11 @@
       "href": "/contact.html"
     }
   ],
-  "ctaContext": "sushant lok interior design project"
+  "ctaContext": "sushant lok interior design project",
+  "sitemap": {
+    "lastmod": "2026-08-04",
+    "changefreq": "monthly",
+    "priority": "0.8",
+    "order": 13
+  }
 }
