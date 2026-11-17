@@ -15,7 +15,8 @@
 #                   private setup link into the output instead. Used
 #                   automatically when there is no terminal, e.g. when run
 #                   from cPanel → Cron Jobs (see GO-LIVE.md, "No Terminal?")
-#   PHP=/path/to/php to choose the PHP binary (must be 8.0+, same as the website's)
+#   PHP=/path/to/php to force a PHP binary; otherwise the command-line PHP is
+#   found automatically (cron's plain "php" is often the web-only php-cgi)
 #
 # What --apply does, in order (stops at the first problem):
 #   1. checks PHP, extensions and that the new code is deployed
@@ -37,7 +38,7 @@ URL="https://theomegagroup.in"
 APPLY=0
 VERIFY=1
 SETUP_LINK=0
-PHP="${PHP:-php}"
+PHP_WANTED="${PHP:-}"
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -71,8 +72,35 @@ echo "  content:    $CONTENT"
 
 # ---------------------------------------------------------------- 1. checks
 say "1. Checks"
-command -v "$PHP" >/dev/null || fail "PHP not found (set PHP=/opt/cpanel/ea-php82/root/usr/bin/php or similar)"
-"$PHP" -r 'exit(version_compare(PHP_VERSION, "8.0.0", ">=") ? 0 : 1);' || fail "PHP 8.0 or newer is needed (found $("$PHP" -r 'echo PHP_VERSION;'))"
+# Find a command-line PHP 8.0+ with the needed extensions. Cron jobs often
+# get the web-only php-cgi as plain "php", so try the usual cPanel and
+# CloudLinux locations (newest first) and keep the first that qualifies.
+php_ok() { # binary -> prints version if it is a usable CLI PHP 8.0+
+  [ -x "$1" ] || command -v "$1" >/dev/null 2>&1 || return 1
+  "$1" -r 'if (PHP_SAPI !== "cli" || version_compare(PHP_VERSION, "8.0.0", "<")) exit(1);
+           foreach (["dom","gd","fileinfo","mbstring","json","session"] as $e) if (!extension_loaded($e)) exit(2);
+           echo PHP_VERSION;' 2>/dev/null
+}
+CANDIDATES=()
+[ -n "$PHP_WANTED" ] && CANDIDATES+=("$PHP_WANTED")
+CANDIDATES+=(/usr/local/bin/php)
+for c in $(ls -d /opt/cpanel/ea-php8*/root/usr/bin/php /opt/alt/php8*/usr/bin/php 2>/dev/null | sort -r); do CANDIDATES+=("$c"); done
+CANDIDATES+=(/usr/bin/php php)
+PHP=""
+for c in "${CANDIDATES[@]}"; do
+  if v="$(php_ok "$c")" && [[ "$v" =~ ^[0-9]+\.[0-9]+ ]]; then PHP="$c"; break; fi
+done
+if [ -z "$PHP" ]; then
+  echo "  PHP binaries tried:" >&2
+  for c in "${CANDIDATES[@]}"; do
+    if [ -x "$c" ] || command -v "$c" >/dev/null 2>&1; then
+      info="$("$c" -r 'echo PHP_SAPI, " ", PHP_VERSION; foreach (["dom","gd","fileinfo","mbstring"] as $e) if (!extension_loaded($e)) echo " missing:$e";' 2>/dev/null | head -1)"
+      echo "    $c → ${info:-not a command-line PHP}" >&2
+    fi
+  done
+  fail "no command-line PHP 8.0+ with the extensions dom, gd, fileinfo, mbstring found (cPanel → Select PHP Version → Extensions)"
+fi
+ok "using $PHP"
 ok "PHP $("$PHP" -r 'echo PHP_VERSION;')"
 for ext in dom gd fileinfo mbstring json session; do
   "$PHP" -r "exit(extension_loaded('$ext') ? 0 : 1);" || fail "PHP extension '$ext' is missing (cPanel → Select PHP Version → Extensions)"
