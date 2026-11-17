@@ -73,7 +73,7 @@ The website's SEO, GEO (Generative Engine Optimization), and AEO (Answer Engine 
 | Forms | Plain PHP + PDO + MySQL (`php/contact-submit.php`, `php/consultation-leads-submit.php`) |
 | Optional CMS | PHP/MySQL blog admin in `blog-cms/` (tables in `database/`) |
 | SEO / Meta | Meta, OG and canonical tags plus JSON-LD baked into each page by the generators. `js/schema.js` adds site-wide LocalBusiness/Breadcrumb/FAQ schema. |
-| Hosting / deploy | Hostinger (Apache, `.htaccess`). cPanel Git deployment rsyncs the repo to `public_html` (`.cpanel.yml`). |
+| Hosting / deploy | cPanel shared hosting (LiteSpeed, Apache-compatible `.htaccess`). cPanel Git deployment rsyncs the repo to `public_html` (`.cpanel.yml`). |
 | Typography | Space Grotesk (headings) + Helvetica Neue stack (body) |
 | Brand palette | Ivory, black/ink, antique gold (`css/style.css` `:root` tokens); navy + gold (internal documents) |
 

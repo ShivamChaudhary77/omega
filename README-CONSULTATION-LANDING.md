@@ -22,7 +22,7 @@ implementation this one mirrors.
 -- contents of php/consultation_leads_table.sql
 ```
 
-Run it in hPanel → phpMyAdmin (or your MySQL client) against the same
+Run it in cPanel → phpMyAdmin (or your MySQL client) against the same
 database `php/config.php` already points at — no new DB or credentials
 needed, this reuses the existing connection the contact form uses.
 
@@ -87,7 +87,7 @@ runtime and no network path to the production MySQL instance, so
 3. Submit the form on the live URL and confirm a row lands in
    `consultation_leads` with `is_qualified` set correctly for the budget/
    timeline combination you tested.
-4. Check `error_log` (hPanel → Advanced → PHP error logs) if it doesn't.
+4. Check `error_log` (cPanel → Metrics → Errors, or the `error_log` file) if it doesn't.
 
 ## Not in the sitemap, but not blocked either
 

@@ -1,4 +1,4 @@
--- Run this once against the production database (hPanel → phpMyAdmin, or
+-- Run this once against the production database (cPanel → phpMyAdmin, or
 -- your MySQL client of choice) before the free-design-consultation/ form
 -- goes live. No table prefix — matches the existing contact_form_submissions
 -- table's convention; there is no WordPress/wp_ install on this site.

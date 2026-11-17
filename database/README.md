@@ -30,7 +30,7 @@ rename yours before importing rather than risk a collision.
 006_create_blog_activity_logs.sql -- FK to blog_users
 ```
 
-Run each file's contents in hPanel → phpMyAdmin → SQL tab (or via the MySQL
+Run each file's contents in cPanel → phpMyAdmin → SQL tab (or via the MySQL
 CLI if you have shell access), in that exact order, against the same
 database `php/config.php` already points at. Do not run them out of order —
 `003` references `blog_categories`/`blog_users`, `004`'s final `ALTER TABLE`

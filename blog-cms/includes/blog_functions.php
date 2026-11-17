@@ -346,10 +346,10 @@ function blog_dashboard_stats(): array
 /**
  * Promotes any 'scheduled' post whose scheduled_at has arrived to
  * 'published'. Called cheaply at the top of the public router and the
- * public listing page — no cron is required on Hostinger shared hosting,
+ * public listing page — no cron is required on shared hosting,
  * at the cost of a scheduled post going live on the next real visitor hit
  * rather than the exact second (acceptable for a blog; documented in
- * DEPLOYMENT.md as optionally upgradeable to a real Hostinger cron job).
+ * DEPLOYMENT.md as optionally upgradeable to a real cPanel cron job).
  */
 function blog_promote_due_scheduled_posts(): void
 {
