@@ -198,7 +198,7 @@ function page_summary(array $page): array
 {
     $keys = ['id', 'type', 'status', 'urlPath', 'title', 'category', 'tags', 'publishDate',
         'modifiedDate', 'readingTimeMinutes', 'excerpt', 'featuredImage', 'name', 'projectType',
-        'location', 'image', 'card', 'sortOrder'];
+        'location', 'image', 'card', 'carouselCard', 'sortOrder', 'seq'];
     $summary = array_intersect_key($page, array_flip($keys));
     $summary['seoTitle'] = $page['seo']['title'] ?? '';
     return $summary;
@@ -216,7 +216,11 @@ function page_summaries(): array
 function posts_published(): array
 {
     $posts = array_filter(page_summaries(), fn ($p) => ($p['type'] ?? '') === 'blog-post' && ($p['status'] ?? '') === 'published');
-    usort($posts, fn ($a, $b) => strcmp((string) ($b['publishDate'] ?? ''), (string) ($a['publishDate'] ?? '')) ?: strcmp($a['id'], $b['id']));
+    // Newest first; posts published at the same moment keep the order they
+    // were added in ("seq"), then fall back to id.
+    usort($posts, fn ($a, $b) => strcmp((string) ($b['publishDate'] ?? ''), (string) ($a['publishDate'] ?? ''))
+        ?: ((int) ($a['seq'] ?? PHP_INT_MAX) <=> (int) ($b['seq'] ?? PHP_INT_MAX))
+        ?: strcmp($a['id'], $b['id']));
     return array_values($posts);
 }
 
@@ -292,6 +296,12 @@ function page_save(array $page): array
     $file = page_file($id);
     $existing = json_read($file);
     $now = date('c');
+
+    // New blog posts get the next "seq" (tie-breaker for posts published at
+    // the same moment; see posts_published()).
+    if (($page['type'] ?? '') === 'blog-post' && !isset($page['seq'])) {
+        $page['seq'] = $existing['seq'] ?? (max(array_merge([0], array_map(fn ($p) => (int) ($p['seq'] ?? 0), page_summaries()))) + 1);
+    }
 
     if ($existing) {
         page_history_add($id, $existing);

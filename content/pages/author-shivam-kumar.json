@@ -1,0 +1,58 @@
+{
+  "id": "author-shivam-kumar",
+  "type": "author",
+  "status": "published",
+  "urlPath": "/author/shivam-kumar/",
+  "seo": {
+    "title": "Shivam Kumar | Author at The Omega Group",
+    "description": "Shivam Kumar is a content writer and digital marketing professional at The Omega Group, focused on clear, research-driven content on SEO, technology, and digital growth."
+  },
+  "h1": "Shivam Kumar",
+  "breadcrumb": [
+    {
+      "name": "Home",
+      "path": "/index.html"
+    },
+    {
+      "name": "Shivam Kumar",
+      "path": null
+    }
+  ],
+  "navActive": "blog",
+  "cta": {
+    "text": "Have a question sparked by something you read? Talk it through with our design team — no obligation, just clarity on your next step."
+  },
+  "blocks": [
+    {
+      "type": "html",
+      "html": "<div class=\"container-fluid pb-5 hero-header hero-home\">\n        <div class=\"container py-5\">\n            <div class=\"hero-glass row g-3 align-items-center p-4 p-lg-5 mx-0\">\n                <div class=\"col-lg-6 text-center text-lg-start\">\n                    <h1 class=\"display-4 mb-0 animated slideInLeft\">Shivam Kumar</h1>\n                </div>\n                <div class=\"col-lg-6 animated slideInRight\">\n                    <nav aria-label=\"breadcrumb\">\n                        <ol class=\"breadcrumb justify-content-center justify-content-lg-end mb-0\">\n                            <li class=\"breadcrumb-item\"><a class=\"text-primary\" href=\"/index.html\">Home</a></li>\n                            <li class=\"breadcrumb-item text-secondary active\" aria-current=\"page\">Shivam Kumar</li>\n                        </ol>\n                    </nav>\n                </div>\n            </div>\n        </div>\n    </div>"
+    },
+    {
+      "type": "html",
+      "html": "<div class=\"container-fluid py-5\">\n        <div class=\"container py-5\">\n            <div class=\"row g-5 align-items-start\">\n                <div class=\"col-lg-8\">\n                    <span class=\"text-uppercase text-primary fw-bold d-block mb-2\" style=\"letter-spacing: 2px;\">Author</span>\n                    <h2 class=\"h1 mb-4\">Content Writer &amp; Digital Marketing Professional</h2>\n                    <p class=\"lead-answer\">Shivam Kumar is a content writer and digital marketing professional with an\n                        interest in SEO, technology, and digital growth. He focuses on creating clear, useful, and\n                        research-driven content that helps readers understand complex topics in a simple way.</p>\n                    <p>On The Omega Group's blog, Shivam writes the interior design guides, cost breakdowns, and\n                        planning articles published under his byline — researched and written to be genuinely useful\n                        to someone planning a home or office interior project, and reviewed for technical accuracy by\n                        The Omega Group's in-house design team.</p>\n                    <a href=\"https://www.linkedin.com/in/shivam-growth-engineer/\" target=\"_blank\" rel=\"noopener\"\n                        class=\"btn btn-primary py-3 px-4 mt-2\">\n                        <i class=\"fab fa-linkedin-in me-2\"></i>Connect on LinkedIn\n                    </a>\n                </div>\n                <div class=\"col-lg-4\">\n                    <div class=\"author-box\" style=\"margin: 0;\">\n                        <div class=\"author-box-logo\" style=\"width: 72px; height: 72px; font-size: 1.8rem;\">S</div>\n                        <div>\n                            <h3>Shivam Kumar</h3>\n                            <p class=\"mb-0\">Author at The Omega Group</p>\n                            <div class=\"author-box-links\">\n                                <a href=\"/blog.html\">Read his articles <i class=\"bi bi-arrow-right\"></i></a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>"
+    }
+  ],
+  "schemaExtra": [
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Shivam Kumar",
+      "url": "https://theomegagroup.in/author/shivam-kumar/",
+      "jobTitle": "Content Writer & Digital Marketing Professional",
+      "description": "Shivam Kumar is a content writer and digital marketing professional with an interest in SEO, technology, and digital growth. He focuses on creating clear, useful, and research-driven content that helps readers understand complex topics in a simple way.",
+      "sameAs": [
+        "https://www.linkedin.com/in/shivam-growth-engineer/"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "The Omega Group",
+        "url": "https://theomegagroup.in/"
+      }
+    }
+  ],
+  "assets": {
+    "css": [
+      "/css/blog.css"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "projects",
+  "type": "project-index",
+  "status": "published",
+  "urlPath": "/project.html",
+  "seo": {
+    "title": "Our Projects | The Omega Group – Luxury Interior Design Portfolio",
+    "description": "Browse a selection of The Omega Group's completed projects — luxury villas, apartments, and modular kitchens designed and delivered end-to-end for our clients.",
+    "keywords": "interior design portfolio, luxury home projects, villa interior projects, apartment interior projects, modular kitchen projects, The Omega Group projects"
+  },
+  "h1": "Our Projects",
+  "breadcrumb": [
+    {
+      "name": "Home",
+      "path": "/index.html"
+    },
+    {
+      "name": "Projects",
+      "path": null
+    }
+  ],
+  "navActive": "projects",
+  "blocks": [
+    {
+      "type": "html",
+      "html": "<div class=\"container-fluid pb-5 hero-header hero-home\">\n        <div class=\"container py-5\">\n            <div class=\"hero-glass row g-3 align-items-center p-4 p-lg-5 mx-0\">\n                <div class=\"col-lg-6 text-center text-lg-start\">\n                    <h1 class=\"display-4 mb-0 animated slideInLeft\">Our Projects</h1>\n                </div>\n                <div class=\"col-lg-6 animated slideInRight\">\n                    <nav aria-label=\"breadcrumb\">\n                        <ol class=\"breadcrumb justify-content-center justify-content-lg-end mb-0\">\n                            <li class=\"breadcrumb-item\"><a class=\"text-primary\" href=\"/index.html\">Home</a></li>\n                            <li class=\"breadcrumb-item text-secondary active\" aria-current=\"page\">Projects</li>\n                        </ol>\n                    </nav>\n                </div>\n            </div>\n        </div>\n    </div>"
+    },
+    {
+      "type": "project-cards",
+      "style": "grid",
+      "headingHtml": "Our <span class=\"text-uppercase text-primary bg-light px-2\">Projects</span>",
+      "intro": "Every Omega Group project starts with a conversation about how you want to live or work, and ends with a space delivered exactly as promised — on budget and on time.",
+      "buttonLabel": "Start Your Project",
+      "buttonHref": "/contact.html"
+    },
+    {
+      "type": "html",
+      "html": "<div class=\"container-xxl pb-5\">\n        <div class=\"container pb-5\">\n            <div class=\"text-center wow fadeIn\" data-wow-delay=\"0.1s\">\n                <h2 class=\"h1 mb-5\">From Our <span class=\"text-uppercase text-primary bg-light px-2\">Clients</span>\n                </h2>\n            </div>\n            <div class=\"row justify-content-center\">\n                <div class=\"col-md-12 col-lg-9\">\n                    <div class=\"owl-carousel testimonial-carousel wow fadeIn\" data-wow-delay=\"0.2s\">\n                        <div class=\"testimonial-item\">\n                            <div class=\"testimonial-text\">\n                                <i class=\"fa fa-quote-left fa-2x mb-4\"></i>\n                                <p>SOBHA turned out beyond what we imagined. The Omega Group's team\n                                    translated our scattered ideas into one coherent, elegant home.</p>\n                                <h5 class=\"mb-0\">Ritu Ahluwalia, Apartment Owner</h5>\n                            </div>\n                        </div>\n                        <div class=\"testimonial-item\">\n                            <div class=\"testimonial-text\">\n                                <i class=\"fa fa-quote-left fa-2x mb-4\"></i>\n                                <p>Working with The Omega Group on M3M Woodshire was seamless from day one. Every\n                                    decision was explained clearly and delivered as agreed.</p>\n                                <h5 class=\"mb-0\">Sanjay Kulkarni, Villa Owner</h5>\n                            </div>\n                        </div>\n                        <div class=\"testimonial-item\">\n                            <div class=\"testimonial-text\">\n                                <i class=\"fa fa-quote-left fa-2x mb-4\"></i>\n                                <p>Our Shree Balaji CGHS renovation was finished two weeks ahead of schedule, without\n                                    a single compromise on quality.</p>\n                                <h5 class=\"mb-0\">Meenal Joshi, Homeowner</h5>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>"
+    }
+  ],
+  "assets": {
+    "css": [
+      "/css/blog.css"
+    ],
+    "owlCarousel": true
+  }
+}

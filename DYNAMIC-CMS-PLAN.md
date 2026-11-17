@@ -1,6 +1,6 @@
 # Plan: Static Site → Dynamic Site with a Simple Dashboard
 
-**Status:** Phases 1–2 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
+**Status:** Phases 1–3 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
 
 ## Progress
 
@@ -8,7 +8,7 @@
 |---|---|---|
 | 1. Foundations | ✅ Done | See "Phase 1 delivered" below |
 | 2. Templates | ✅ Done | See "Phase 2 delivered" below |
-| 3. Migration + comparison | Not started | Also converts the hand-written pages into blocks (see Phase 2 notes) |
+| 3. Migration + comparison | ✅ Done | See "Phase 3 delivered" below |
 | 4. Dashboard | Not started | |
 | 5. SEO automation | Not started | |
 | 6. Staging, go-live, monitoring | Not started | |
@@ -55,6 +55,23 @@
 - Visitors notice no change. Every existing URL keeps working, with the same design.
 
 ---
+
+### Phase 3 delivered
+- **`scripts/migrate-to-dynamic.py`:** converts the whole site into `content/pages/`: **148 pages** (114 posts, 8 locations, 14 projects, 12 hand-written pages).
+  - **Hand-written pages are split into blocks** (`scripts/html_sections.py`). The projects carousel and grid, "From The Blog", the blog listing and simple FAQ sections become structured blocks. Every other section stays exact HTML.
+  - **Page-level details are captured:** SEO tags, breadcrumbs, nav highlight, consultation-box text, page-specific CSS/JS and page-specific structured data (`schemaExtra`).
+  - **Landing pages** keep every element, using the bare layout.
+- **`tests/compare-site.php`:** compares **every static page with its dynamic version**. It checks status, title, description, canonical, robots, h1 and structured data (nothing the static page had may be missing). For the page body above the footer, it checks visible text, links, images and structure (every element's tag and classes, in order). Blog posts are checked for their full article text.
+  - **Result: 148 of 148 pages match.**
+- **Additions needed for exactness:**
+  - FAQ answers with links (`answerHtml`).
+  - FAQ schema read from exact-HTML accordions.
+  - Separate homepage-carousel card text (`carouselCard`) and an `exclude` list for the carousel.
+  - A hidden `seq` tie-breaker so posts with the same publish date keep their order.
+- **Intended differences:**
+  - The hidden, empty "Latest From The Team" blog-CMS teaser on `blog.html` is gone.
+  - The footer is now the same everywhere: root-absolute links and the map on every page.
+- **⚠️ Re-run before go-live.** The static site is still where new posts are published until Phase 6. Run `python3 scripts/migrate-to-dynamic.py && php tests/compare-site.php` again right before the switch, so content added in the meantime is carried over. Anyone who hand-edits a generated page must also update its source (see the Phase 2 note on `location_pages_content.py`), or the migration won't see the edit.
 
 ## 1. The approach in one paragraph
 

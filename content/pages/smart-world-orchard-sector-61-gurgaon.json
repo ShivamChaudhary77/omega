@@ -1,0 +1,59 @@
+{
+  "id": "smart-world-orchard-sector-61-gurgaon",
+  "type": "project",
+  "status": "published",
+  "urlPath": "/project/smart-world-orchard-sector-61-gurgaon/",
+  "seo": {
+    "title": "Smart World Orchard | Apartment Interior by The Omega Group",
+    "description": "Smart World Orchard — a apartment interior designed and delivered end-to-end by The Omega Group, Sector 61, Gurgaon. See the finished space and how we approach every project."
+  },
+  "name": "Smart World Orchard",
+  "projectType": "Apartment Interior",
+  "location": "Sector 61, Gurgaon",
+  "image": "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-banner.webp",
+  "imageAlt": "Smart World Orchard — Apartment Interior designed by The Omega Group",
+  "gallery": [
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-01.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-02.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-03.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-04.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-05.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-06.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-07.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-08.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-09.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-10.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-11.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-12.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-13.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-14.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-15.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-16.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-17.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-18.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-19.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-20.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-21.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-22.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-23.webp",
+    "/img/projects/smart-world-orchard-sector-61-gurgaon/smart-world-orchard-sector-61-gurgaon-24.webp"
+  ],
+  "h1": "Smart World Orchard — Apartment Interior, Sector 61, Gurgaon",
+  "leadAnswer": "Smart World Orchard is a apartment interior designed and delivered end-to-end by The Omega Group, Sector 61, Gurgaon — design, material sourcing, and on-site execution managed by one team from first consultation to final handover.",
+  "sections": [
+    {
+      "heading": "About This Project",
+      "html": "<p>This apartment interior was designed and delivered end-to-end by The Omega Group — layout, lighting, furniture, and finishes planned as one cohesive whole rather than room-by-room afterthoughts. As with every Omega Group apartment project, the brief balanced everyday livability with a considered, premium finish.</p>"
+    },
+    {
+      "heading": "The Omega Group Approach",
+      "html": "<p>Every project — including this one — follows the same process: a detailed consultation about the space and how it's actually used, design and material sign-off before any work begins, execution by our own site team with quality checks at every milestone, and a final walkthrough before handover. It's the same process we walk through in detail on our <a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a>.</p>"
+    }
+  ],
+  "relatedBlogPosts": [],
+  "sortOrder": 14,
+  "card": {
+    "title": "Smart World Orchard",
+    "alt": "Smart World Orchard apartment interior with bespoke bar unit by The Omega Group"
+  }
+}

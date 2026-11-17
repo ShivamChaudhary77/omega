@@ -8,10 +8,12 @@
  *   headingHtml  section heading
  *   intro        paragraph under the heading
  *   buttonLabel, buttonHref   carousel: button under the cards; grid: button above them
+ *   exclude      optional list of project ids to leave out
  *
  * @var array $block
  */
-$projects = projects_published();
+$exclude = (array) ($block['exclude'] ?? []);
+$projects = array_values(array_filter(projects_published(), fn ($p) => !in_array($p['id'], $exclude, true)));
 $style = ($block['style'] ?? 'grid') === 'carousel' ? 'carousel' : 'grid';
 $heading = $block['headingHtml'] ?? 'Our <span class="text-uppercase text-primary bg-light px-2">Projects</span>';
 ?>

@@ -177,18 +177,46 @@ function page_schema(array $page, array $site, string $canonical): array
     if ($type === 'blog-index') {
         $schema[] = schema_collection($page, $canonical, array_map(fn ($p) => ['url' => $p['urlPath'], 'name' => $p['title'] ?? $p['seoTitle']], array_slice(posts_published(), 0, 30)));
     }
-    $schema[] = schema_faq(page_faqs($page));
+    // Page-specific structured data kept from the original page (e.g. the
+    // Service list on the services page, the author's Person profile).
+    $extra = array_values(array_filter((array) ($page['schemaExtra'] ?? []), 'is_array'));
+    $extraTypes = array_map(fn ($s) => $s['@type'] ?? '', $extra);
+    if (!in_array('FAQPage', $extraTypes, true)) {
+        $schema[] = schema_faq(page_faqs($page));
+    }
+    foreach ($extra as $item) {
+        $schema[] = array_merge(['@context' => 'https://schema.org'], $item);
+    }
     return $schema;
 }
 
-/** Every FAQ on the page: the page-level "faqs" plus any FAQ blocks. */
+/**
+ * Every FAQ on the page: the page-level "faqs", FAQ blocks, and accordions
+ * inside "html" blocks marked data-faq-schema (what js/schema.js used to
+ * read in the browser).
+ */
 function page_faqs(array $page): array
 {
     $faqs = (array) ($page['faqs'] ?? []);
     foreach ((array) ($page['blocks'] ?? []) as $block) {
-        if (($block['type'] ?? '') === 'faq') {
+        $type = $block['type'] ?? '';
+        if ($type === 'faq') {
             $faqs = array_merge($faqs, (array) ($block['items'] ?? []));
+        } elseif ($type === 'html' && str_contains((string) ($block['html'] ?? ''), 'data-faq-schema')) {
+            $faqs = array_merge($faqs, faqs_from_html((string) $block['html']));
         }
+    }
+    return $faqs;
+}
+
+/** Question/answer pairs from Bootstrap accordion markup. */
+function faqs_from_html(string $html): array
+{
+    $faqs = [];
+    preg_match_all('#<button class="accordion-button[^"]*"[^>]*>(.*?)</button>.*?<div class="accordion-body">(.*?)</div>#s', $html, $m, PREG_SET_ORDER);
+    foreach ($m as [, $question, $answer]) {
+        $clean = fn ($s) => trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($s), ENT_QUOTES | ENT_HTML5, 'UTF-8')) ?? '');
+        $faqs[] = ['question' => $clean($question), 'answer' => $clean($answer)];
     }
     return $faqs;
 }
@@ -373,7 +401,7 @@ function schema_faq(array $faqs): ?array
     $entities = [];
     foreach ($faqs as $faq) {
         $q = trim((string) ($faq['question'] ?? ''));
-        $a = trim(html_entity_decode(strip_tags((string) ($faq['answer'] ?? '')), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+        $a = trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags((string) ($faq['answer'] ?? ($faq['answerHtml'] ?? ''))), ENT_QUOTES | ENT_HTML5, 'UTF-8')) ?? '');
         if ($q !== '' && $a !== '') {
             $entities[] = ['@type' => 'Question', 'name' => $q, 'acceptedAnswer' => ['@type' => 'Answer', 'text' => $a]];
         }

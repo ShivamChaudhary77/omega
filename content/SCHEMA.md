@@ -2,7 +2,7 @@
 
 Every page is one JSON file: `content/pages/<id>.json` locally, and the same file inside the content directory outside `public_html` in production. Site-wide settings live in `site.json`. This file documents both, for the Phase 3 migration and the Phase 4 dashboard.
 
-**Escaping rule:** a field named `html` or ending in `Html` (`contentHtml`, `headingHtml`) holds HTML and is printed as-is, so the dashboard must sanitise it on save. Every other field is plain text and is escaped when printed. FAQ answers are plain text.
+**Escaping rule:** a field named `html` or ending in `Html` (`contentHtml`, `headingHtml`, `answerHtml`) holds HTML and is printed as-is, so the dashboard must sanitise it on save. Every other field is plain text and is escaped when printed. FAQ answers are plain text (`answer`) unless they need links (`answerHtml`). An `html` block holding an accordion marked `data-faq-schema` also feeds the FAQPage schema.
 
 ## Fields every page has
 
@@ -20,9 +20,10 @@ Every page is one JSON file: `content/pages/<id>.json` locally, and the same fil
 | `layout` | `default` or `bare` (no site nav, footer or CTA; for the ads landing pages) |
 | `assets` | `css[]`, `js[]` (added to the defaults), `scripts[]` (replaces all scripts), `owlCarousel` (bool), `animateCss` (bool, default true) |
 | `headHtml` | advanced: extra HTML for `<head>` |
+| `schemaExtra` | advanced: page-specific JSON-LD kept from the original page (e.g. Service list, author Person, a landing page's FAQ) |
 
 ## Blog post (`blog-post`)
-`title, category, tags[], publishDate, modifiedDate, author, reviewedBy, readingTimeMinutes, featuredImage{src,alt,width,height}, excerpt, keyTakeaways[], contentHtml, faqs[{question,answer}], internalLinks[{text,href}]`
+`title, category, tags[], seq (hidden tie-breaker for posts with the same publishDate, assigned automatically), publishDate, modifiedDate, author, reviewedBy, readingTimeMinutes, featuredImage{src,alt,width,height}, excerpt, keyTakeaways[], contentHtml, faqs[{question,answer}], internalLinks[{text,href}]`
 
 The table of contents, heading anchors, related posts (same category first), author box (from `site.json` `authors`) and share links are generated automatically.
 
@@ -30,7 +31,7 @@ The table of contents, heading anchors, related posts (same category first), aut
 `h1, heroImage, directAnswer, facts[{label,value}], keyTakeaways[], sections[{heading, html}], faqs[], internalLinks[], ctaContext` (fills `{ctaContext}` in the location CTA text).
 
 ## Project (`project`)
-`name, projectType, configuration, location, sizeSqFt, budgetBand, timeline, image, imageAlt, gallery[], h1, leadAnswer, sections[{heading, html}], relatedBlogPosts[{text,href}], sortOrder, card{title, alt, image}`
+`name, projectType, configuration, location, sizeSqFt, budgetBand, timeline, image, imageAlt, gallery[], h1, leadAnswer, sections[{heading, html}], relatedBlogPosts[{text,href}], sortOrder, card{title, alt, image}` (projects grid), `carouselCard{title, alt, image}` (optional homepage-carousel overrides)
 
 - **Gallery-only project:** leave `leadAnswer` and `sections` empty.
 - **Never invent facts:** leave size, budget and timeline empty unless the client supplied real figures.
@@ -44,9 +45,9 @@ A page with `blocks: [...]` is rendered block by block, in order:
 | `html` | `html` | exact HTML; keeps hand-designed sections pixel-identical |
 | `hero` | `h1`, `variant` (`wide`) | title band with breadcrumb |
 | `rich-text` | `heading`, `html` | formatted text section |
-| `faq` | `heading` or `headingHtml`, `items[{question,answer}]`, `id` | added to FAQPage schema automatically |
+| `faq` | `heading` or `headingHtml`, `items[{question, answer or answerHtml}]`, `id` | added to FAQPage schema automatically |
 | `latest-posts` | `headingHtml`, `intro`, `count`, `buttonLabel`, `buttonHref` | newest published posts |
-| `project-cards` | `style` (`carousel` or `grid`), `headingHtml`, `intro`, `buttonLabel`, `buttonHref` | every published project, by `sortOrder` |
+| `project-cards` | `style` (`carousel` or `grid`), `headingHtml`, `intro`, `buttonLabel`, `buttonHref`, `exclude[]` | every published project by `sortOrder`, minus `exclude` |
 | `blog-listing` | none | pinned post, filter, search and the first 9 cards; `js/blog.js` reads `/api/posts.json` |
 
 A page **without** blocks is a simple page: `h1`, `intro` (HTML), `sections[{heading, html}]`, `faqs[]`.

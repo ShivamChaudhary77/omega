@@ -3,9 +3,13 @@
  * Project card (same markup as the homepage carousel and project.html grid).
  *
  * @var array $project  a project summary (see page_summary())
- * @var bool  $grid     true = project.html grid item (adds data-project-slug)
+ * @var bool  $grid     true = project.html grid item (adds data-project-slug);
+ *                      false = homepage carousel (uses "carouselCard" overrides)
  */
 $card = (array) ($project['card'] ?? []);
+if (empty($grid)) {
+    $card = array_merge($card, (array) ($project['carouselCard'] ?? []));
+}
 $title = (string) ($card['title'] ?? $project['name'] ?? '');
 $alt = (string) ($card['alt'] ?? $title);
 $image = (string) ($card['image'] ?? $project['image'] ?? '');

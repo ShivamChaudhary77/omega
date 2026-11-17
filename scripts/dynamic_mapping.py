@@ -54,8 +54,10 @@ def root_path(path):
     return "/" + path
 
 
-def post_page(post):
-    return {
+def post_page(post, seq=None):
+    """seq: the post's position in blog-data.json; breaks ties between posts
+    published at the same moment so listings keep their current order."""
+    page = {
         "id": post["slug"],
         "type": "blog-post",
         "status": "published",
@@ -80,6 +82,9 @@ def post_page(post):
         "faqs": [{"question": text(f["question"]), "answer": text(f["answer"])} for f in post.get("faqs", [])],
         "internalLinks": [{"text": text(l.get("text", "")), "href": l["href"]} for l in post.get("internalLinks", [])],
     }
+    if seq is not None:
+        page["seq"] = seq
+    return page
 
 
 def location_page(slug, data):

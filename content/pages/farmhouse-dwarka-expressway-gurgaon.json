@@ -1,0 +1,46 @@
+{
+  "id": "farmhouse-dwarka-expressway-gurgaon",
+  "type": "project",
+  "status": "published",
+  "urlPath": "/project/farmhouse-dwarka-expressway-gurgaon/",
+  "seo": {
+    "title": "Farmhouse Interior Design | Dwarka Expressway",
+    "description": "Photo gallery of our farmhouse interior design project on Dwarka Expressway, Gurgaon — designed and delivered end-to-end by The Omega Group."
+  },
+  "name": "Dwarka Expressway Farmhouse",
+  "projectType": "Farmhouse Interior",
+  "location": "Dwarka Expressway, Gurgaon",
+  "image": "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-banner.webp",
+  "imageAlt": "Dwarka Expressway Farmhouse — Farmhouse Interior designed by The Omega Group",
+  "gallery": [
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-01.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-02.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-03.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-04.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-05.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-06.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-07.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-08.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-09.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-10.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-11.webp",
+    "/img/projects/farmhouse-dwarka-expressway-gurgaon/farmhouse-dwarka-expressway-gurgaon-12.webp"
+  ],
+  "h1": "Farmhouse Interior Design — Dwarka Expressway, Gurgaon",
+  "sections": [],
+  "relatedBlogPosts": [
+    {
+      "text": "Villa Interior Design in Gurgaon",
+      "href": "/home-residential-interiors/villa-interior-design-gurgaon/"
+    },
+    {
+      "text": "Farmhouse Interior Design Near Gurgaon",
+      "href": "/home-residential-interiors/farmhouse-interior-design-gurgaon/"
+    }
+  ],
+  "sortOrder": 5,
+  "card": {
+    "title": "Dwarka Expressway Farmhouse",
+    "alt": "Farmhouse interior design, Dwarka Expressway, Gurgaon, by The Omega Group"
+  }
+}

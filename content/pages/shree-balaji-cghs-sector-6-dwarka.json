@@ -1,0 +1,50 @@
+{
+  "id": "shree-balaji-cghs-sector-6-dwarka",
+  "type": "project",
+  "status": "published",
+  "urlPath": "/project/shree-balaji-cghs-sector-6-dwarka/",
+  "seo": {
+    "title": "Shree Balaji CGHS | Modular Kitchen by The Omega Group",
+    "description": "Shree Balaji CGHS — a modular kitchen designed and delivered end-to-end by The Omega Group, Sector 6, Dwarka. See the finished space and how we approach every project."
+  },
+  "name": "Shree Balaji CGHS",
+  "projectType": "Modular Kitchen",
+  "location": "Sector 6, Dwarka",
+  "image": "/img/projects/shree-balaji-cghs/shree-balaji-cghs-banner.webp",
+  "imageAlt": "Shree Balaji CGHS — Modular Kitchen designed by The Omega Group",
+  "gallery": [
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-01.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-02.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-03.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-04.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-05.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-06.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-07.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-08.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-09.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-10.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-11.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-12.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-13.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-14.webp",
+    "/img/projects/shree-balaji-cghs/shree-balaji-cghs-15.webp"
+  ],
+  "h1": "Shree Balaji CGHS — Modular Kitchen, Sector 6, Dwarka",
+  "leadAnswer": "Shree Balaji CGHS is a modular kitchen designed and delivered end-to-end by The Omega Group, Sector 6, Dwarka — design, material sourcing, and on-site execution managed by one team from first consultation to final handover.",
+  "sections": [
+    {
+      "heading": "About This Project",
+      "html": "<p>This modular kitchen was designed and installed by The Omega Group, built around real cooking habits and storage needs rather than a stock layout — the same zoning and material-selection process we walk every renovation client through.</p>"
+    },
+    {
+      "heading": "The Omega Group Approach",
+      "html": "<p>Every project — including this one — follows the same process: a detailed consultation about the space and how it's actually used, design and material sign-off before any work begins, execution by our own site team with quality checks at every milestone, and a final walkthrough before handover. It's the same process we walk through in detail on our <a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a>.</p>"
+    }
+  ],
+  "relatedBlogPosts": [],
+  "sortOrder": 8,
+  "card": {
+    "title": "Shree Balaji CGHS",
+    "alt": "Shree Balaji CGHS modular kitchen by The Omega Group"
+  }
+}
