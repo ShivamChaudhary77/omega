@@ -3,10 +3,10 @@
 This module is additive: nothing here touches the existing site's HTML pages, existing tables, or existing PHP endpoints. Follow these steps in order.
 
 ## 1. Backup current website
-In hPanel → Files → Backups (or File Manager), create a full backup of `public_html` before uploading anything new.
+In cPanel → Files → Backup (or File Manager), create a full backup of `public_html` before uploading anything new.
 
 ## 2. Backup existing database
-hPanel → Databases → phpMyAdmin → Export → the database named in `php/config.php` (referred to as `theomega_wp824` in `README-CONTACT-FORM.md`). Choose "Quick" export, SQL format.
+cPanel → Databases → phpMyAdmin → Export → the database named in `php/config.php` (referred to as `theomega_wp824` in `README-CONTACT-FORM.md`). Choose "Quick" export, SQL format.
 
 ## 3. Upload new CMS files
 Upload the entire `blog-cms/` folder, the `database/` folder, and the updated `robots.txt` and `.htaccess` to the site root via File Manager or FTP/SFTP. Nothing else needs to move — every existing file and folder stays exactly where it is.
@@ -23,7 +23,7 @@ Nothing to do here — `blog-cms/includes/db.php` reuses the site's existing `ph
 Nothing to configure — CMS posts use the exact same `/<category-slug>/<post-slug>/` URL shape as the existing static posts (see `blog-cms/config/blog_config.php`'s `blog_url_note`).
 
 ## 7. Configure media directory
-`blog-cms/uploads/` must be writable by PHP. On Hostinger this is usually the default for a newly uploaded folder, but confirm permissions are `755` (directories) — see step 8.
+`blog-cms/uploads/` must be writable by PHP. On cPanel hosting this is usually the default for a newly uploaded folder, but confirm permissions are `755` (directories) — see step 8.
 
 ## 8. Set correct permissions
 - `blog-cms/uploads/` and its subfolders: `755`
@@ -67,5 +67,5 @@ Check the new post's live page and the admin dashboard on a phone-width viewport
 Because every existing file is untouched except `.htaccess` and `robots.txt` (both additive edits), rolling back the CMS entirely is: delete the `blog-cms/` folder, remove the "Blog CMS dynamic routing" block from `.htaccess` (or restore your step-1 backup of it), remove the third `Sitemap:` line and the `Disallow: /blog-cms/admin/` line from `robots.txt`, and drop the 6 `blog_*` tables if you want the database fully clean. The existing static posts and every other page are unaffected either way.
 
 ## Known limitations (see the implementation report for the full list)
-- Scheduled posts go live on the next real visitor request after their scheduled time, not the exact second (no cron dependency — see `blog_functions.php`'s `blog_promote_due_scheduled_posts()`). Upgradeable later to a real Hostinger cron job hitting `blog-cms/public/router.php` or a dedicated cron script on a schedule, if exact-time publishing ever matters.
+- Scheduled posts go live on the next real visitor request after their scheduled time, not the exact second (no cron dependency — see `blog_functions.php`'s `blog_promote_due_scheduled_posts()`). Upgradeable later to a real cPanel cron job hitting `blog-cms/public/router.php` or a dedicated cron script on a schedule, if exact-time publishing ever matters.
 - New CMS posts do not yet appear in the existing `blog.html` listing page's client-side grid (that page only reads `data/blog-data.json`). They ARE fully live, correct, and indexed at their real URLs, and are included in `blog-cms/public/sitemap.php`. Integrating them into `blog.html`'s listing is a small, separate follow-up (see the implementation report).

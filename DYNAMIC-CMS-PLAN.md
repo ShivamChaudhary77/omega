@@ -37,7 +37,7 @@
 
 ## 1. The approach in one paragraph
 
-Replace the "edit JSON, run Python scripts, upload static HTML" workflow with **plain PHP that renders each page on the server when it's requested**, reading content from **JSON files stored on the server**. A small **`/admin` dashboard**, also plain PHP plus one JavaScript text editor, edits those JSON files. There is no database (the existing MySQL stays for the contact and consultation forms only). Hostinger already runs PHP, so no new hosting is needed.
+Replace the "edit JSON, run Python scripts, upload static HTML" workflow with **plain PHP that renders each page on the server when it's requested**, reading content from **JSON files stored on the server**. A small **`/admin` dashboard**, also plain PHP plus one JavaScript text editor, edits those JSON files. There is no database (the existing MySQL stays for the contact and consultation forms only). The cPanel host already runs PHP, so no new hosting is needed.
 
 ```
 Visitor ──► /kitchen-design/modular-kitchen-cost-gurgaon-2026/
@@ -169,7 +169,7 @@ A one-time script converts what exists today into the new content files:
 
 1. Build and test locally with `php -S localhost:8000`.
 2. Deploy to a **staging subdomain** (e.g. `staging.theomegagroup.in`, password-protected and noindex). The owner tries the dashboard there.
-3. Back up `public_html` and the database in hPanel.
+3. Back up `public_html` and the database in cPanel.
 4. Deploy the PHP site. **Delete the old static post, location and project folders on the server.** Apache serves a real folder before the router, so leftover folders would hide the dynamic pages, and the cPanel rsync doesn't delete them by itself.
 5. Run the comparison script against the live site. Submit both sitemaps in Search Console.
 6. Watch GSC Coverage and GA4 for 2 weeks.
@@ -225,7 +225,7 @@ A one-time script converts what exists today into the new content files:
 ## 13. Open questions for the owner
 
 1. Is any content currently live in `/blog-cms/`? (Check `https://theomegagroup.in/blog-cms/admin/login.php`.)
-2. Which PHP version does the Hostinger plan run? (Need 8.0+. Check hPanel → Advanced → PHP Configuration.)
+2. Which PHP version does the cPanel hosting account run? (Need 8.0+. Check cPanel → Software → Select PHP Version / MultiPHP Manager.)
 3. Are staging subdomains allowed on the plan?
 4. Should the dashboard send an email notification when content is published or deleted? (Optional.)
 5. Who will keep the dashboard password, and where (a password manager is recommended)?

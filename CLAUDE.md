@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Static HTML site for The Omega Group (theomegagroup.in), hosted on Hostinger (Apache + PHP/MySQL for forms). **Not WordPress.**
+Static HTML site for The Omega Group (theomegagroup.in), hosted on cPanel shared hosting (LiteSpeed web server, Apache-compatible `.htaccess`; PHP/MySQL for forms). **Not WordPress.**
 
 **Read `KNOWLEDGE-BASE.md` first.** It has the architecture, sources of truth, build scripts, update recipes and known issues.
 

@@ -4,7 +4,7 @@
  * real values. config.php is gitignored; never commit real credentials.
  */
 
-// Hostinger shared hosting runs MySQL on the same account, so this is almost
+// cPanel shared hosting runs MySQL on the same account, so this is almost
 // always "localhost" — change only if your DB is genuinely on a separate host.
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'your_db_name');

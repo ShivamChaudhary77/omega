@@ -24,9 +24,9 @@ Read this before changing the site. It covers how the site is built, which file 
 | JS | jQuery with template libs in `lib/` (owl carousel, wow, waypoints, counterup, easing, animate). Custom code is in `js/` ([§6](#6-front-end-javascript)). |
 | Data | JSON in `data/`. This is the source of truth for blog posts, projects and the business's name/address/phone details (NAP). |
 | Generators | Python 3 scripts in `scripts/`. There is no npm build step. `package.json` only lists Playwright, a dev tool. |
-| Backend | Plain PHP 8 with PDO and MySQL on Hostinger: two lead-form endpoints in `php/`, plus an optional MySQL-backed **Blog CMS** in `blog-cms/`. |
-| Hosting | **Hostinger (Apache)** is the live target: `.htaccess` handles redirects, the 404 page and CMS routing, and the PHP code needs it. `vercel.json` and `_redirects` (Netlify) are generated alternatives and are not in use. |
-| Deploy | cPanel Git deployment: `.cpanel.yml` rsyncs the repo to `/home/theomega/public_html/`, excluding `.git`, `.claude`, `.DS_Store`, `php/config.php`, `blog-cms/uploads`, `node_modules`, `/tests`, `/content`, `/uploads` and `app/config.local.php`. |
+| Backend | Plain PHP 8 with PDO and MySQL on the cPanel host: two lead-form endpoints in `php/`, plus an optional MySQL-backed **Blog CMS** in `blog-cms/`. |
+| Hosting | **cPanel shared hosting** (LiteSpeed web server, which honours Apache `.htaccess` rules) is the live host. **It is not on Hostinger.** `.htaccess` handles redirects, the 404 page and CMS routing, and the PHP code needs it. `vercel.json` and `_redirects` (Netlify) are generated alternatives and are not in use. |
+| Deploy | cPanel Git Version Control, triggered by hand (Update from Remote, then Deploy HEAD Commit; a GitHub push alone does not deploy). `.cpanel.yml` rsyncs the repo to `/home/theomega/public_html/`, excluding `.git`, `.claude`, `.DS_Store`, `php/config.php`, `blog-cms/uploads`, `node_modules`, `/tests`, `/content`, `/uploads` and `app/config.local.php`. |
 | Tracking | GA4 `G-FSNHC0N7BD`, Meta Pixel `857790543995038`, GSC verification meta tag. Every page has all of them (checked across all HTML files). |
 
 ### Directory map
@@ -149,13 +149,13 @@ Add `{source, destination, permanent:true}` to `redirects.json`, then run `build
 
 Blog post **bodies are rendered client-side.** Only the `<head>` and JSON-LD are baked into the HTML, so crawlers that don't run JS see the metadata but not the article text. See [§10](#10-known-issues--tech-debt).
 
-## 7. Backend (PHP and MySQL on Hostinger)
+## 7. Backend (PHP and MySQL on the cPanel host)
 
 - **DB config:** `php/config.php` (gitignored and not tracked; it exists only locally and on the server). `php/config.example.php` is the template. `php/.htaccess` blocks web access to both files.
 - **Contact form:** `contact.html` → `php/contact-submit.php` → table `contact_form_submissions`. Fields: name, phone, city, project details, plus page URL, referrer, IP and user agent. Spam defence: a honeypot field named `website`.
 - **Consultation landing page:** `free-design-consultation/` → `php/consultation-leads-submit.php` → table `consultation_leads` (schema in `php/consultation_leads_table.sql`). The server sets `is_qualified` when budget ≥ ₹15 L and the timeline isn't "Just Exploring".
 - **Blog CMS** (`blog-cms/`): an optional admin for writing posts in a browser instead of editing JSON. Roles: author, editor, super_admin. It includes revisions, a media library, scheduled posts and an activity log. Its tables are `blog_*` (`database/001–006`). A published CMS post is served by `blog-cms/public/router.php` **only when no static file exists** at that URL (the `.htaccess` rewrite). CMS posts appear in `blog-cms/public/sitemap.php` and the `blog.html` "Latest From The Team" grid, **not** in `blog-data.json` or `sitemap-blog.xml`. Setup: `blog-cms/DEPLOYMENT.md`. The repo has no record of whether it was actually deployed; check `/blog-cms/admin/login.php` on the live site.
-- **Never commit credentials.** If `config.php` is ever committed, rotate the DB password in hPanel.
+- **Never commit credentials.** If `config.php` is ever committed, rotate the DB password in cPanel.
 
 ## 8. Design system
 
@@ -182,7 +182,7 @@ Fixed on 17 Nov 2026: the 90 duplicate blog URLs removed from `sitemap.xml` (plu
 |---|---|---|
 | 1 | `/author/shivam-kumar/` is in no sitemap. | Add it to `sitemap.xml`. |
 | 2 | `organization.json` `areaServed` (and so the LocalBusiness schema) doesn't include Golf Course Road, though it has a location page. | Add it if the business confirms. |
-| 3 | `.cpanel.yml` rsync has no `--delete`, so files removed or moved in git (e.g. an old post directory) **stay live on the server**. | Remove them in hPanel File Manager, or add `--delete` with care (it would also remove server-only files not in the exclude list). |
+| 3 | `.cpanel.yml` rsync has no `--delete`, so files removed or moved in git (e.g. an old post directory) **stay live on the server**. | Remove them in cPanel File Manager, or add `--delete` with care (it would also remove server-only files not in the exclude list). |
 | 4 | Blog post body text is rendered only by JS. Non-JS crawlers (some AI/LLM bots) get the head metadata but no article. | Extend `build-post-pages.py` to bake `contentHtml`, FAQs and takeaways into the HTML, as `build-blog-index.py` already does for the listing. |
 | 5 | Nav, footer and NAP are duplicated across about 6 sources (see [§5.6](#56-change-nav-or-footer)), so a change in one place doesn't reach the others. | Consider a shared partial step in the generators, or a single "rebuild all" script. |
 | 6 | No single command rebuilds everything. | Add `scripts/build-all.sh` that runs every generator in order. |
@@ -195,7 +195,7 @@ Fixed on 17 Nov 2026: the 90 duplicate blog URLs removed from `sitemap.xml` (plu
 
 1. Run the relevant generators and preview locally (`python3 -m http.server 8000`; PHP endpoints only work on the host or with `php -S`).
 2. Spot-check that `git diff` contains only the expected files. Generators are idempotent, so unexpected diffs mean something changed upstream.
-3. Commit and push, then deploy through cPanel Git Version Control (`.cpanel.yml` rsyncs the repo into `public_html`). The rsync doesn't delete anything, so if you removed or renamed a page, also delete the old copy on the server.
+3. Commit and push to GitHub `main`. **Pushing does not deploy by itself.** In cPanel open **Git Version Control → Manage → Pull or Deploy**, click **Update from Remote**, then **Deploy HEAD Commit** (`.cpanel.yml` then rsyncs the repo into `public_html`). The rsync doesn't delete anything, so if you removed or renamed a page, also delete the old copy on the server.
 4. On the live site, check the new URL, view the source for title, canonical and JSON-LD, test any redirect, and submit the URL or sitemap in GSC.
 5. For form or PHP changes, submit a test lead and confirm the row in phpMyAdmin.
 
