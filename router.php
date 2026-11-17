@@ -71,7 +71,7 @@ if (!$hasDynamicPage) {
     // HTML pages are deleted: only real non-HTML files are served directly.
     $isStaticHtml = str_ends_with($path, '.html') || (is_dir($file) && is_file(rtrim($file, '/') . '/index.html'));
     if ($mode === 'live' && $isStaticHtml) {
-        front_handle_request();
+        dispatch_dynamic();
         return true;
     }
     if (is_file($file) || (is_dir($file) && (is_file("$file/index.html") || is_file("$file/index.php")))) {
@@ -79,5 +79,15 @@ if (!$hasDynamicPage) {
     }
 }
 
-front_handle_request();
+dispatch_dynamic();
 return true;
+
+/** Hand the request to index.php when it exists (as Apache does), else straight to the front controller. */
+function dispatch_dynamic(): void
+{
+    if (is_file(__DIR__ . '/index.php')) {
+        require __DIR__ . '/index.php';
+        return;
+    }
+    front_handle_request();
+}
