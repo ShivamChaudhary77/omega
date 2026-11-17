@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /blog-cms/admin/
+Disallow: /admin/
 
 # Static site — no WooCommerce/cart/account scaffolding exists to block.
 # 404.html is served directly by the host on unmatched paths and also

@@ -22,6 +22,9 @@ const PAGE_TYPES = ['home', 'page', 'about', 'blog-post', 'location', 'project',
     'project-index', 'service', 'contact', 'faqs', 'landing', 'author', 'not-found'];
 const PAGE_STATUSES = ['draft', 'published'];
 
+/** Bump when page_summary() or the index layout changes, so old indexes rebuild themselves. */
+const INDEX_VERSION = 2;
+
 function content_dir(): string
 {
     return rtrim((string) config('content_dir'), '/');
@@ -150,7 +153,7 @@ function page_index(): array
     }
     $indexFile = content_path('_cache/index.json');
     $index = is_file($indexFile) ? json_read($indexFile) : null;
-    if (!$index || ($index['pagesMtime'] ?? -1) !== $pagesMtime || !isset($index['summaries'])) {
+    if (!$index || ($index['pagesMtime'] ?? -1) !== $pagesMtime || ($index['version'] ?? 0) !== INDEX_VERSION) {
         $index = page_index_rebuild();
     }
     $memo[$dir] = $index;
@@ -179,6 +182,7 @@ function page_index_rebuild(): array
     }
     $pagesDir = content_path('pages');
     $index = [
+        'version' => INDEX_VERSION,
         'pagesMtime' => is_dir($pagesDir) ? (int) filemtime($pagesDir) : 0,
         'builtAt' => date('c'),
         'paths' => $paths,
@@ -198,7 +202,7 @@ function page_summary(array $page): array
 {
     $keys = ['id', 'type', 'status', 'urlPath', 'title', 'category', 'tags', 'publishDate',
         'modifiedDate', 'readingTimeMinutes', 'excerpt', 'featuredImage', 'name', 'projectType',
-        'location', 'image', 'card', 'carouselCard', 'sortOrder', 'seq'];
+        'location', 'image', 'card', 'carouselCard', 'sortOrder', 'seq', 'h1', 'updatedAt'];
     $summary = array_intersect_key($page, array_flip($keys));
     $summary['seoTitle'] = $page['seo']['title'] ?? '';
     return $summary;

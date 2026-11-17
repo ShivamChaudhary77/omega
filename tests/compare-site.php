@@ -26,7 +26,7 @@ if (PHP_SAPI !== 'cli') {
     exit;
 }
 
-require dirname(__DIR__) . '/app/bootstrap.php';
+require_once dirname(__DIR__) . '/app/bootstrap.php';
 config_set(['cache_enabled' => false]);
 page_index_rebuild();
 

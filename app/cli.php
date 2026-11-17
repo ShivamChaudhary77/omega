@@ -7,6 +7,7 @@
  *   php app/cli.php clear-cache    clear the rendered-page cache
  *   php app/cli.php check          validate every page file and report problems
  *   php app/cli.php render /path/  print the HTML the site would send for a URL
+ *   php app/cli.php set-password   set or reset the dashboard password
  */
 
 declare(strict_types=1);
@@ -16,7 +17,7 @@ if (PHP_SAPI !== 'cli') {
     exit;
 }
 
-require __DIR__ . '/bootstrap.php';
+require_once __DIR__ . '/bootstrap.php';
 
 $command = $argv[1] ?? 'help';
 
@@ -55,6 +56,41 @@ switch ($command) {
         echo $result['body'];
         break;
 
+    case 'set-password':
+        require_once OMEGA_APP . '/security.php';
+        $ask = function (string $prompt): string {
+            fwrite(STDOUT, $prompt);
+            $silent = DIRECTORY_SEPARATOR === '/' && posix_isatty_safe();
+            if ($silent) {
+                shell_exec('stty -echo');
+            }
+            $line = trim((string) fgets(STDIN));
+            if ($silent) {
+                shell_exec('stty echo');
+                fwrite(STDOUT, "\n");
+            }
+            return $line;
+        };
+        $password = $ask('New dashboard password (at least ' . PASSWORD_MIN_LENGTH . ' characters): ');
+        if ($password !== $ask('Repeat it: ')) {
+            fwrite(STDERR, "The passwords do not match. Nothing changed.\n");
+            exit(1);
+        }
+        try {
+            admin_password_set($password);
+        } catch (InvalidArgumentException $e) {
+            fwrite(STDERR, $e->getMessage() . " Nothing changed.\n");
+            exit(1);
+        }
+        echo "Dashboard password saved (" . admin_password_file() . ").\n";
+        break;
+
     default:
-        echo "Usage: php app/cli.php rebuild|clear-cache|check|render <path>\n";
+        echo "Usage: php app/cli.php rebuild|clear-cache|check|render <path>|set-password\n";
+}
+
+/** True when STDIN is an interactive terminal (so typing can be hidden). */
+function posix_isatty_safe(): bool
+{
+    return function_exists('posix_isatty') ? @posix_isatty(STDIN) : (function_exists('stream_isatty') && @stream_isatty(STDIN));
 }

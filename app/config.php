@@ -29,6 +29,14 @@ return [
 
     'timezone' => 'Asia/Kolkata',
 
+    // Where dashboard image uploads are stored (served at /uploads/).
+    'uploads_dir' => getenv('OMEGA_UPLOADS_DIR') ?: dirname(__DIR__) . '/uploads',
+
+    // Optional one-time setup link for the dashboard password on a server
+    // without a terminal: put a long random string here (in
+    // app/config.local.php, never in git) and open /admin/setup.php?token=...
+    'admin_setup_token' => null,
+
     // How many previous versions of each page to keep in _history/.
     'history_keep' => 30,
 

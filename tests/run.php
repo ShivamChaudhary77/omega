@@ -20,7 +20,7 @@ if (PHP_SAPI !== 'cli') {
 define('TESTS_DIR', __DIR__);
 define('REPO_DIR', dirname(__DIR__));
 
-require REPO_DIR . '/app/bootstrap.php';
+require_once REPO_DIR . '/app/bootstrap.php';
 
 $passed = 0;
 $failed = [];

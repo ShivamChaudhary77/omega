@@ -13,3 +13,7 @@ app/config.local.php
 content/_cache/
 content/_history/
 content/_trash/
+content/_security/
+
+# Dashboard image uploads (live on the server only; excluded from deploys).
+/uploads/

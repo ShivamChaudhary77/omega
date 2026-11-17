@@ -1,6 +1,6 @@
 # Plan: Static Site → Dynamic Site with a Simple Dashboard
 
-**Status:** Phases 1–3 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
+**Status:** Phases 1–4 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
 
 ## Progress
 
@@ -9,7 +9,7 @@
 | 1. Foundations | ✅ Done | See "Phase 1 delivered" below |
 | 2. Templates | ✅ Done | See "Phase 2 delivered" below |
 | 3. Migration + comparison | ✅ Done | See "Phase 3 delivered" below |
-| 4. Dashboard | Not started | |
+| 4. Dashboard | ✅ Done | See "Phase 4 delivered" below |
 | 5. SEO automation | Not started | |
 | 6. Staging, go-live, monitoring | Not started | |
 
@@ -72,6 +72,34 @@
   - The hidden, empty "Latest From The Team" blog-CMS teaser on `blog.html` is gone.
   - The footer is now the same everywhere: root-absolute links and the map on every page.
 - **⚠️ Re-run before go-live.** The static site is still where new posts are published until Phase 6. Run `python3 scripts/migrate-to-dynamic.py && php tests/compare-site.php` again right before the switch, so content added in the meantime is carried over. Anyone who hand-edits a generated page must also update its source (see the Phase 2 note on `location_pages_content.py`), or the migration won't see the edit.
+
+### Phase 4 delivered
+- **`/admin/` dashboard** in plain PHP, using the site's own Bootstrap CSS and one JS file:
+  - **Login:** one shared password.
+  - **Page list:** search and filters by type and status.
+  - **Edit forms per page type**, driven by `app/admin_fields.php`: rich text (TinyMCE 6 from cdnjs), repeating rows (FAQs, links, sections, facts), an image picker with upload, and a page-sections editor (add, move, remove).
+  - **Drafts, preview, trash and history:** drafts and preview of the saved version; trash with restore and "delete for good"; version history with restore.
+  - **Images page and site settings:** a page for uploaded images; site settings (business details, figures, menu, footer, CTA wording, tracking IDs); password change.
+- **"Edit text" for designed sections:** the hand-designed HTML sections can be reworded field by field (texts and image descriptions) without touching their markup (`app/sanitize.php` → `html_text_parts()` / `html_apply_text_edits()`). "Edit HTML (advanced)" is still available.
+- **Security** (`app/security.php`):
+  - the password is stored only as a hash in `<content>/_security/admin.json` (`php app/cli.php set-password`, or the one-time `/admin/setup.php` with a setup token)
+  - session cookie limited to `/admin`, HttpOnly, SameSite=Strict, Secure on HTTPS; 2-hour idle logout
+  - CSRF tokens on every form; 5 failed logins per IP lock that IP for 15 minutes
+  - HTTPS forced; `noindex` and anti-framing headers; `/admin/` disallowed in `robots.txt`
+  - helper files denied by `.htaccess`
+- **Saved content is cleaned:**
+  - Rich text goes through an allow-list. Styling classes are kept, pasted junk attributes and scripts are removed.
+  - Designed sections only lose scripts, event handlers and `javascript:` links.
+  - Both leave all 58 migrated designed sections byte-identical.
+- **Uploads** (`app/media.php`): checked by real file type, max 5 MB, resized to 1600 px and saved as WebP. They go to `/uploads/`, which is excluded from deploys and protected by an auto-created `.htaccess` that blocks scripts.
+- **Automatic values:** reading time, featured-image size, `modifiedDate` when the article changes, `seq` for new posts, and the URL from category + title.
+- **The dashboard stays off until set up:** it shows "not set up" until the content folder exists, so deploying it before Phase 6 is safe.
+- **`DASHBOARD-GUIDE.md`:** a plain-language guide for the person who will manage the site.
+- **Tests:**
+  - `tests/suite-dashboard.php`: open-and-save of **all 148 real pages renders identically**, plus editing, text-only edits, reordering, cleaning, password and lockout. 172 unit checks in total.
+  - `tests/dashboard-http.php`: 38 end-to-end checks over real HTTP (login, CSRF, edit, text edit on the home page, upload, create/publish, duplicate URL, preview, delete/restore, settings, logout, lockout).
+  - Browser walkthrough of the list, editor, image picker and section editor, including phone width.
+- **Left for Phase 5, as planned:** automatic redirects when a URL changes or a page is deleted, and the SEO panel (Google preview, duplicate-title and keyword warnings).
 
 ## 1. The approach in one paragraph
 

@@ -23,7 +23,7 @@ if (PHP_SAPI !== 'cli-server') {
     exit;
 }
 
-require __DIR__ . '/app/bootstrap.php';
+require_once __DIR__ . '/app/bootstrap.php';
 
 $path = path_normalize($_SERVER['REQUEST_URI'] ?? '/') ?? '/';
 
@@ -31,6 +31,19 @@ $path = path_normalize($_SERVER['REQUEST_URI'] ?? '/') ?? '/';
 if (preg_match('#^/(app|templates|content|tests)(/|$)#', $path) || basename($path) === 'router.php') {
     http_response_code(403);
     echo 'Forbidden';
+    return true;
+}
+
+// Dashboard uploads may live outside the repo (OMEGA_UPLOADS_DIR); serve them from there.
+if (str_starts_with($path, '/uploads/')) {
+    require_once OMEGA_APP . '/media.php';
+    $file = uploads_dir() . substr($path, strlen('/uploads'));
+    if (!str_contains($path, '..') && is_file($file) && preg_match('/\.(webp|jpe?g|png)$/i', $file)) {
+        header('Content-Type: ' . (mime_content_type($file) ?: 'application/octet-stream'));
+        readfile($file);
+        return true;
+    }
+    http_response_code(404);
     return true;
 }
 

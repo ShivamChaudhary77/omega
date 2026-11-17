@@ -214,12 +214,22 @@ The site is being converted to server-rendered PHP with a dashboard: see `DYNAMI
   ```bash
   php tests/run.php
   ```
+  This runs the core, templates and dashboard suites.
 - **Migrate and compare** (re-run before go-live):
   ```bash
   python3 scripts/migrate-to-dynamic.py && php tests/compare-site.php
   ```
   This rebuilds `content/pages/` from the static site and checks every URL against it. 148 of 148 pages matched in Phase 3.
-- **Maintenance:** `php app/cli.php rebuild | clear-cache | check | render /path/`
+- **Maintenance:** `php app/cli.php rebuild | clear-cache | check | render /path/ | set-password`
+- **Dashboard (Phase 4):** `/admin/` (code in `admin/`, plus `app/security.php`, `app/sanitize.php`, `app/media.php` and `app/admin_fields.php`).
+  - **User guide:** `DASHBOARD-GUIDE.md`.
+  - **End-to-end test:** `php tests/dashboard-http.php`.
+  - **Local try-out:**
+    ```bash
+    OMEGA_CONTENT_DIR=/tmp/c php app/cli.php set-password
+    ```
+    Copy `content/` to `/tmp/c` first, then run `php -S localhost:8000 router.php` with the same `OMEGA_CONTENT_DIR`.
+  - **Adding a field to a page type** = one line in `admin_form_groups()`.
 - **Keep in sync until go-live:** business details are in both `data/organization.json` (static site) and `content/site.json` (dynamic site).
 - **Production content directory:** this must sit outside `public_html` and is set in `app/config.local.php` (gitignored, not deployed). It gets created in Phase 6.
 
