@@ -62,7 +62,34 @@ It asks for the **dashboard password** twice. Choose a strong one (at least 10 c
 
 It ends with **"Done: the dynamic site is live."** and prints the exact **undo command**. Copy that undo command somewhere safe.
 
-**No Terminal in your cPanel?** Ask your host to run these two commands for you, or let your developer know: there are other ways.
+**No Terminal in your cPanel?** Use **Cron Jobs** instead (next section).
+
+### Step 2 without Terminal: cPanel → Cron Jobs
+
+Cron Jobs runs a command on the server for you. The script notices it has no terminal, so it doesn't ask for a password. It writes a **private one-time link** into a log file instead, and you use that link to set the password in your browser.
+
+**2a. Dry run (checks only, changes nothing)**
+1. Open cPanel → **Cron Jobs**. Under **Add New Cron Job**, set **Common Settings** to **Once Per Minute**, and paste this **Command**:
+
+   ```bash
+   bash $HOME/public_html/scripts/go-live.sh > $HOME/go-live-dryrun.txt 2>&1
+   ```
+
+2. Click **Add New Cron Job**, wait 2 minutes, then **delete** that cron job (the bin icon in the list below).
+3. Open cPanel → **File Manager**. In your **home folder** (the one that contains `public_html`, not inside it), open `go-live-dryrun.txt`. It should end with *"Dry run finished: everything is ready."* If it shows ✗ lines instead, send them to your developer.
+
+**2b. Switch on**
+1. Add a new cron job, again **Once Per Minute**, with this command:
+
+   ```bash
+   [ -e "$HOME/omega-content" ] || bash $HOME/public_html/scripts/go-live.sh --apply > $HOME/go-live-log.txt 2>&1
+   ```
+
+   The part before `||` makes sure it can only ever run once.
+2. Wait 2 minutes, then **delete** the cron job.
+3. In File Manager, open `go-live-log.txt` (home folder). Near the end it says **"Done: the dynamic site is live."**
+4. It also contains a line like `https://theomegagroup.in/admin/setup.php?token=…`. Open that link in your browser and choose the dashboard password (at least 10 characters; save it in a password manager). The link stops working once the password is set.
+5. Keep `go-live-log.txt`: it also contains the **undo command**. If you ever need to undo without Terminal, run that command the same way, as a once-only cron job.
 
 ## Step 3: remove the static pages from the repository
 

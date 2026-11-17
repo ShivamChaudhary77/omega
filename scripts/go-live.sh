@@ -11,6 +11,10 @@
 #   --content DIR   content folder to create (default: ~/omega-content), must be OUTSIDE --public
 #   --url     URL   site address to verify   (default: https://theomegagroup.in)
 #   --no-verify     skip the final web checks (e.g. when testing without the domain)
+#   --setup-link    don't ask for the dashboard password; write a one-time
+#                   private setup link into the output instead. Used
+#                   automatically when there is no terminal, e.g. when run
+#                   from cPanel → Cron Jobs (see GO-LIVE.md, "No Terminal?")
 #   PHP=/path/to/php to choose the PHP binary (must be 8.0+, same as the website's)
 #
 # What --apply does, in order (stops at the first problem):
@@ -32,6 +36,7 @@ CONTENT="$HOME/omega-content"
 URL="https://theomegagroup.in"
 APPLY=0
 VERIFY=1
+SETUP_LINK=0
 PHP="${PHP:-php}"
 
 while [ $# -gt 0 ]; do
@@ -41,12 +46,21 @@ while [ $# -gt 0 ]; do
     --content) CONTENT="${2%/}"; shift ;;
     --url) URL="${2%/}"; shift ;;
     --no-verify) VERIFY=0 ;;
+    --setup-link) SETUP_LINK=1 ;;
     *) echo "Unknown option: $1" >&2; exit 2 ;;
   esac
   shift
 done
 
-say()  { printf '\n\033[1m%s\033[0m\n' "$*"; }
+if [ $SETUP_LINK = 0 ] && [ -z "${OMEGA_ADMIN_PASSWORD:-}" ] && ! [ -t 0 ]; then
+  SETUP_LINK=1   # no terminal to type a password into (e.g. cPanel Cron Jobs)
+fi
+
+if [ -t 1 ]; then
+  say() { printf '\n\033[1m%s\033[0m\n' "$*"; }
+else
+  say() { printf '\n== %s\n' "$*"; }   # plain text for log files
+fi
 ok()   { printf '  ✓ %s\n' "$*"; }
 fail() { printf '  ✗ %s\n' "$*" >&2; exit 1; }
 
@@ -112,12 +126,18 @@ ok "created $CONTENT with $PAGES pages"
 # ---------------------------------------------------------------- 4. config
 say "4. Configuration"
 umask 027
+TOKEN_LINE=""
+if [ $SETUP_LINK = 1 ]; then
+  TOKEN="$("$PHP" -r 'echo bin2hex(random_bytes(24));')"
+  TOKEN_LINE="    'admin_setup_token' => '$TOKEN', // one-time password setup link; useless once a password is set"
+fi
 cat > "$PUBLIC/app/config.local.php" <<PHPCONF
 <?php
 // Server-only settings (not in git, not overwritten by deploys). Written by scripts/go-live.sh on $STAMP.
 return [
     'enabled' => true,
     'content_dir' => '$CONTENT',
+$TOKEN_LINE
 ];
 PHPCONF
 chmod 640 "$PUBLIC/app/config.local.php"
@@ -125,7 +145,14 @@ ok "wrote $PUBLIC/app/config.local.php"
 
 # ---------------------------------------------------------------- 5. password
 say "5. Dashboard password"
-if [ -n "${OMEGA_ADMIN_PASSWORD:-}" ]; then
+if [ $SETUP_LINK = 1 ]; then
+  ok "no password asked (no terminal). Set it with this private one-time link:"
+  echo
+  echo "      $URL/admin/setup.php?token=$TOKEN"
+  echo
+  echo "    Open it in your browser, choose the password, and keep this file private."
+  echo "    Until a password is set, nobody can log in; after that the link stops working."
+elif [ -n "${OMEGA_ADMIN_PASSWORD:-}" ]; then
   printf '%s\n%s\n' "$OMEGA_ADMIN_PASSWORD" "$OMEGA_ADMIN_PASSWORD" | "$PHP" "$PUBLIC/app/cli.php" set-password >/dev/null
   ok "password set from OMEGA_ADMIN_PASSWORD"
 else

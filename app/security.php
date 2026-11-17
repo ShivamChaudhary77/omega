@@ -118,7 +118,8 @@ function request_is_https(): bool
  */
 function request_is_local(): bool
 {
-    return PHP_SAPI === 'cli-server';
+    // OMEGA_SIMULATE_REMOTE=1 lets local rehearsals exercise the live-server path.
+    return PHP_SAPI === 'cli-server' && getenv('OMEGA_SIMULATE_REMOTE') !== '1';
 }
 
 function admin_session_start(): void
