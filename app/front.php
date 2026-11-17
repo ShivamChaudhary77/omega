@@ -138,8 +138,17 @@ function not_found_response(int $status = 404): array
         return response($status, render_page($page), ['Content-Type' => 'text/html; charset=utf-8', 'X-Robots-Tag' => 'noindex']);
     }
     $file = OMEGA_ROOT . '/404.html';
-    $body = is_file($file) ? (string) file_get_contents($file) : '<h1>Page not found</h1>';
-    return response($status, $body, ['Content-Type' => 'text/html; charset=utf-8', 'X-Robots-Tag' => 'noindex']);
+    if (is_file($file)) {
+        return response($status, (string) file_get_contents($file), ['Content-Type' => 'text/html; charset=utf-8', 'X-Robots-Tag' => 'noindex']);
+    }
+    // Last resort: a simple branded page in the site layout.
+    $fallback = [
+        'id' => 'not-found', 'type' => 'not-found', 'status' => 'published', 'urlPath' => '/404.html',
+        'seo' => ['title' => 'Page Not Found | ' . (site('business')['name'] ?? ''), 'noindex' => true],
+        'h1' => 'Page Not Found',
+        'intro' => '<p>The page you are looking for may have moved or no longer exists. Try the <a href="/index.html">home page</a> or the <a href="/blog.html">blog</a>.</p>',
+    ];
+    return response($status, render_page($fallback), ['Content-Type' => 'text/html; charset=utf-8', 'X-Robots-Tag' => 'noindex']);
 }
 
 /** Run the current request and send the response. */
