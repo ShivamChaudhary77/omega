@@ -126,7 +126,8 @@ def extract_seo(head, url):
 
 
 def extract_assets(head, body, url, bare):
-    css = [resolve(h, url) for h in re.findall(r'<link href="([^"]+\.css)" rel="stylesheet"', head)]
+    # Optional "?v=N" cache-busting query is allowed (e.g. gurgaon-landing.css?v=2).
+    css = [resolve(h, url) for h in re.findall(r'<link href="([^"]+\.css(?:\?[^"]*)?)" rel="stylesheet"', head)]
     js = [resolve(s, url) for s in re.findall(r'<script src="([^"]+)"></script>', body)]
     assets = {}
     extra_css = [c for c in css if c not in DEFAULT_CSS]
