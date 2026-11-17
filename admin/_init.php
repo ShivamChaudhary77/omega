@@ -28,10 +28,10 @@ if (!request_is_https() && !request_is_local()) {
     exit;
 }
 
-/** True once the content folder exists (Phase 6 creates it on the live server). */
+/** True once the site is switched on (scripts/go-live.sh) and the content folder exists. */
 function dashboard_available(): bool
 {
-    return is_file(content_path('site.json'));
+    return config('enabled') && is_file(content_path('site.json'));
 }
 
 if (!dashboard_available()) {

@@ -35,5 +35,5 @@ fi
 rm -f "$PUBLIC/app/config.local.php"
 tar -xzf "$BACKUP" -C "$PUBLIC"
 echo "Rolled back: the static site is being served again."
-echo "Note: the next cPanel deploy of the go-live commit brings back the go-live .htaccess; that's harmless"
-echo "while config.local.php is absent (index.php then serves the static pages)."
+echo "While app/config.local.php is absent, index.php serves the static pages, so the new code can stay deployed."
+echo "If the 'remove static pages' commit was already deployed, keep this restore and redeploy an earlier commit if needed."

@@ -18,8 +18,9 @@
 #   2. backs up every static page it will remove (+ .htaccess, robots.txt)
 #   3. creates the content folder from the repository's content/
 #   4. writes public/app/config.local.php pointing at it
-#   5. asks for the dashboard password
+#   5. asks for the dashboard password (the site switches on here)
 #   6. removes the static pages the dynamic site now serves
+#      (afterwards deploy the "remove static pages" commit; see GO-LIVE.md)
 #   7. checks the live site answers dynamically
 # Undo with scripts/rollback-go-live.sh (printed at the end).
 
@@ -70,6 +71,11 @@ ok "go-live code is deployed"
 [ -f "$REPO/content/site.json" ] && [ -d "$REPO/content/pages" ] || fail "$REPO/content is missing: run this from the Git repository folder"
 case "$CONTENT/" in "$PUBLIC"/*) fail "the content folder must be OUTSIDE $PUBLIC";; esac
 [ ! -e "$CONTENT" ] || fail "$CONTENT already exists. Already switched on? (Use the dashboard, or move it aside to start again.)"
+if [ -d "$PUBLIC/.git" ]; then
+  ok "deploy style: repository checked out in $PUBLIC (git pull)"
+else
+  ok "deploy style: files copied into $PUBLIC"
+fi
 [ ! -e "$PUBLIC/app/config.local.php" ] || fail "$PUBLIC/app/config.local.php already exists"
 PAGES=$(ls "$REPO/content/pages"/*.json | wc -l | tr -d ' ')
 ok "$PAGES content pages ready in the repository"
@@ -110,6 +116,7 @@ cat > "$PUBLIC/app/config.local.php" <<PHPCONF
 <?php
 // Server-only settings (not in git, not overwritten by deploys). Written by scripts/go-live.sh on $STAMP.
 return [
+    'enabled' => true,
     'content_dir' => '$CONTENT',
 ];
 PHPCONF

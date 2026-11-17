@@ -17,6 +17,14 @@ declare(strict_types=1);
 return [
     'site_url' => 'https://theomegagroup.in',
 
+    // The on-switch. The dynamic site (and the dashboard) only run on the
+    // web server once app/config.local.php says 'enabled' => true, which
+    // scripts/go-live.sh writes. Until then index.php keeps serving the
+    // static pages, even if the code and content folder are deployed.
+    // Local development (php -S / CLI) is enabled by default; set
+    // OMEGA_ENABLED=0 or 1 to override.
+    'enabled' => getenv('OMEGA_ENABLED') !== false ? getenv('OMEGA_ENABLED') === '1' : in_array(PHP_SAPI, ['cli', 'cli-server'], true),
+
     // Where page JSON, site.json, redirects, history, trash and the page
     // cache live. Locally this is the repo's content/ folder. In production
     // it must be OUTSIDE public_html (e.g. /home/theomega/omega-content) so

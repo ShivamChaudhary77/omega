@@ -67,8 +67,11 @@ if DYNAMIC:
     htaccess_lines += [
         "",
         "# ---- Dynamic site front controller (index.php -> app/front.php) ----",
-        "# Internal folders are never served (each also has its own deny .htaccess).",
-        "RewriteRule ^(app|templates|content|tests)(/|$) - [F,L]",
+        "# Internal folders and files are never served (repository docs, scripts,",
+        "# deploy config, git metadata, data sources).",
+        "RewriteRule ^(app|templates|content|tests|scripts|database|scss|node_modules|data|\\.git)(/|$) - [F,L]",
+        "RewriteRule (^|/)[^/]+\\.(md|MD|py|sh|sql|yml|yaml|lock|log)$ - [F,L]",
+        "RewriteRule ^(package(-lock)?\\.json|redirects\\.json|_redirects|vercel\\.json|\\.cpanel\\.yml|\\.gitignore|LICENSE\\.txt|router\\.php)$ - [F,L]",
         "",
         "# Real files (CSS, JS, images, PHP form endpoints, uploads) are served as-is.",
         "# Every other URL is a content page rendered by index.php, which also",
