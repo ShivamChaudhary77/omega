@@ -76,6 +76,25 @@ function base_page(array $overrides = []): array
     ], $overrides);
 }
 
+/**
+ * A static-site file used as a reference (e.g. "/sitemap.xml"): from disk
+ * while the static site exists, otherwise its last version in git history
+ * (the go-live commit removes the static pages).
+ */
+function static_reference(string $rel): string
+{
+    $rel = ltrim($rel, '/');
+    if (is_file(REPO_DIR . "/$rel")) {
+        return (string) file_get_contents(REPO_DIR . "/$rel");
+    }
+    $arg = escapeshellarg($rel);
+    $commit = trim((string) shell_exec('cd ' . escapeshellarg(REPO_DIR) . " && git rev-list -1 HEAD -- $arg 2>/dev/null"));
+    if ($commit === '') {
+        return '';
+    }
+    return (string) shell_exec('cd ' . escapeshellarg(REPO_DIR) . " && git show " . escapeshellarg("$commit^:$rel") . ' 2>/dev/null');
+}
+
 /** Fresh, empty content directory (with site.json) for a suite. */
 function fresh_content_dir(): string
 {

@@ -80,7 +80,7 @@ $post = page_load('bespoke-interiors-gurgaon');
 $r = get($post['urlPath']);
 $html = $r['body'];
 check('post renders 200', $r['status'] === 200, (string) $r['status']);
-$static = (string) file_get_contents(REPO_DIR . $post['urlPath'] . 'index.html');
+$static = static_reference($post['urlPath'] . 'index.html');
 check('post SEO tags match static page', seo_tags($html) === seo_tags($static), json_encode([seo_tags($static), seo_tags($html)]));
 check('post schema types match static page', page_ld_types($html) === page_ld_types($static), implode(',', page_ld_types($html)));
 $staticArticle = array_values(array_filter(ld_blocks($static), fn ($b) => ($b['@type'] ?? '') === 'BlogPosting'))[0] ?? [];
@@ -110,7 +110,7 @@ foreach (['interior-designers-manesar', 'interior-designers-gurgaon'] as $id) {
     $page = page_load($id);
     $r = get($page['urlPath']);
     $html = $r['body'];
-    $static = (string) file_get_contents(REPO_DIR . $page['urlPath'] . 'index.html');
+    $static = static_reference($page['urlPath'] . 'index.html');
     check("$id renders 200", $r['status'] === 200);
     check("$id SEO tags match static", seo_tags($html) === seo_tags($static), json_encode([seo_tags($static), seo_tags($html)]));
     check("$id schema types match static (+ server-side)", page_ld_types($html) === ['BreadcrumbList', 'FAQPage'], implode(',', page_ld_types($html)));
@@ -128,7 +128,7 @@ foreach (['joyville-sector-102-gurgaon', 'abhiyan-apartments-sector-12-dwarka', 
     $page = page_load($id);
     $r = get($page['urlPath']);
     $html = $r['body'];
-    $static = (string) file_get_contents(REPO_DIR . $page['urlPath'] . 'index.html');
+    $static = static_reference($page['urlPath'] . 'index.html');
     check("$id renders 200", $r['status'] === 200);
     check("$id SEO tags match static", seo_tags($html) === seo_tags($static), json_encode([seo_tags($static), seo_tags($html)]));
     check("$id schema types match static", page_ld_types($html) === page_ld_types($static), implode(',', page_ld_types($html)) . ' vs ' . implode(',', page_ld_types($static)));

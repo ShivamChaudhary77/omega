@@ -173,6 +173,10 @@ function text_difference(string $a, string $b): string
 /* ---------------------------------------------------------------- */
 
 $urls = $only ?: static_urls($root);
+if (!$urls) {
+    echo "No static pages found: the static site has been removed (after go-live). Use tests/verify-live.php instead.\n";
+    exit(0);
+}
 $problems = [];
 $okCount = 0;
 
