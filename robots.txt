@@ -3,9 +3,8 @@ Allow: /
 Disallow: /blog-cms/admin/
 Disallow: /admin/
 
-# Static site — no WooCommerce/cart/account scaffolding exists to block.
-# 404.html is served directly by the host on unmatched paths and also
-# carries its own noindex meta tag; nothing to disallow here.
+# Unknown addresses get the branded 404 page (noindex) from index.php.
+# /admin/ is the content dashboard (login required, noindex).
 #
 # /blog-cms/admin/ is disallowed above as defense-in-depth on top of its own
 # login wall + per-page noindex meta tag — every admin page already refuses
@@ -15,4 +14,3 @@ Disallow: /admin/
 
 Sitemap: https://theomegagroup.in/sitemap.xml
 Sitemap: https://theomegagroup.in/sitemap-blog.xml
-Sitemap: https://theomegagroup.in/blog-cms/public/sitemap.php

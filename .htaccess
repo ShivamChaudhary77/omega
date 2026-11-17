@@ -2,114 +2,112 @@
 # redirect block below; edit redirects.json and re-run the script instead.
 RewriteEngine On
 
-# Serve the site's own branded 404 page for any unmatched URL, instead of
-# the host's generic default error page. 404.html already carries its own
-# noindex meta tag, so this does not affect indexability — only what a
-# visitor (or a crawler checking the page itself) actually sees. The
-# blog-cms router has its own equivalent fallback for its specific
-# category/slug routes (see blog-cms/public/router.php) and is unaffected.
-ErrorDocument 404 /404.html
+# Unknown addresses are answered by index.php with the site's branded 404
+# page (content-managed, noindex).
+ErrorDocument 404 /index.php
 
-Redirect 301 /blog.htmldesign-on-a-budget-finding-a-good-interior-designer-in-gurgaon/ https://theomegagroup.in/cost-planning-guides/design-on-a-budget-finding-a-good-interior-designer-in-gurgaon/
-Redirect 301 /best-home-interior-designer-in-dwarka/ https://theomegagroup.in/interior-designers-dwarka-expressway/
-Redirect 301 /turnkey-interior-contractors-in-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /modular-kitchen-designer-gurgaon-renovation-guide/ https://theomegagroup.in/blog/modular-kitchen-designer-gurgaon-renovation-guide/
-Redirect 301 /turnkey-interior-design-gurgaon-guide/ https://theomegagroup.in/home-residential-interiors/turnkey-interior-design-gurgaon-guide/
-Redirect 301 /interior-designer-dwarka-expressway-compare-choose/ https://theomegagroup.in/home-residential-interiors/interior-designer-dwarka-expressway-compare-choose/
-Redirect 301 /10-innovative-and-sustainable-office-interior-designing-ideas-by-the-omega-group/ https://theomegagroup.in/office-commercial-interiors/10-innovative-and-sustainable-office-interior-designing-ideas-by-the-omega-group/
-Redirect 301 /modular-kitchen-cost-gurgaon-2026/ https://theomegagroup.in/kitchen-design/modular-kitchen-cost-gurgaon-2026/
-Redirect 301 /project/ https://theomegagroup.in/project.html
-Redirect 301 /a-budget-friendly-guide-to-interior-design-services-in-gurgaon/ https://theomegagroup.in/cost-planning-guides/a-budget-friendly-guide-to-interior-design-services-in-gurgaon/
-Redirect 301 /design-on-a-budget-finding-a-good-interior-designer-in-gurgaon/ https://theomegagroup.in/cost-planning-guides/design-on-a-budget-finding-a-good-interior-designer-in-gurgaon/
-Redirect 301 /crafting-dreams-unveiling-the-top-10-interior-designers-in-gurgaon/ https://theomegagroup.in/office-commercial-interiors/crafting-dreams-unveiling-the-top-10-interior-designers-in-gurgaon/
-Redirect 301 /best-interior-designers-near-dwarka-expressway-comparison-guide/ https://theomegagroup.in/home-residential-interiors/best-interior-designers-near-dwarka-expressway-comparison-guide/
-Redirect 301 /luxury-interior-designer-gurgaon-sobha-city-4bhk-transformation/ https://theomegagroup.in/home-residential-interiors/luxury-interior-designer-gurgaon-sobha-city-4bhk-transformation/
-Redirect 301 /pop-ceiling-vs-false-ceiling-gurgaon/ https://theomegagroup.in/home-residential-interiors/pop-ceiling-vs-false-ceiling-gurgaon/
-Redirect 301 /luxury-living-room-interior-gurgaon/ https://theomegagroup.in/home-residential-interiors/luxury-living-room-interior-gurgaon/
-Redirect 301 /smart-home-interior-design-gurgaon/ https://theomegagroup.in/home-residential-interiors/smart-home-interior-design-gurgaon/
-Redirect 301 /turnkey-interior-design-gurgaon-vs-modular/ https://theomegagroup.in/home-residential-interiors/turnkey-interior-design-gurgaon-vs-modular/
-Redirect 301 /5bhk-interior-design-gurgaon/ https://theomegagroup.in/home-residential-interiors/5bhk-interior-design-gurgaon/
-Redirect 301 /luxury-interior-design-trends-gurgaon/ https://theomegagroup.in/home-residential-interiors/luxury-interior-design-trends-gurgaon/
-Redirect 301 /interior-design-cost-in-gurgaon-2bhk-3bhk-4bhk-2026/ https://theomegagroup.in/home-residential-interiors/interior-design-cost-in-gurgaon-2bhk-3bhk-4bhk-2026/
-Redirect 301 /adani-oyster-grande-interior-design-sector-102/ https://theomegagroup.in/home-residential-interiors/adani-oyster-grande-interior-design-sector-102/
-Redirect 301 /interior-design-gurgaon-3bhk-2026/ https://theomegagroup.in/home-residential-interiors/interior-design-gurgaon-3bhk-2026/
-Redirect 301 /modular-kitchen-designer-gurgaon-3bhk-designs/ https://theomegagroup.in/kitchen-design/modular-kitchen-designer-gurgaon-3bhk-designs/
-Redirect 301 /from-budget-friendly-to-luxe-decoding-the-best-interior-designers-in-gurgaon/ https://theomegagroup.in/cost-planning-guides/from-budget-friendly-to-luxe-decoding-the-best-interior-designers-in-gurgaon/
-Redirect 301 /our-services/ https://theomegagroup.in/service.html
-Redirect 301 /interior-designer-dwarka-expressway-checklist/ https://theomegagroup.in/home-residential-interiors/interior-designer-dwarka-expressway-checklist/
-Redirect 301 /modular-vs-custom-furniture-gurgaon-flats/ https://theomegagroup.in/home-residential-interiors/modular-vs-custom-furniture-gurgaon-flats/
-Redirect 301 /interior-design-experion-windchants-sector-112/ https://theomegagroup.in/home-residential-interiors/interior-design-experion-windchants-sector-112/
-Redirect 301 /interior-designer-dwarka-expressway-client-stories/ https://theomegagroup.in/home-residential-interiors/interior-designer-dwarka-expressway-client-stories/
-Redirect 301 /category/project/ https://theomegagroup.in/project.html
-Redirect 301 /about-us/ https://theomegagroup.in/about.html
-Redirect 301 /contact/ https://theomegagroup.in/contact.html
-Redirect 301 /affordable-luxury-interior-designer-in-gurgaon/ https://theomegagroup.in/cost-planning-guides/affordable-luxury-interior-designer-in-gurgaon/
-Redirect 301 /affordable-interior-designing-solution-in-gurgaon-the-omega-group/ https://theomegagroup.in/home-residential-interiors/affordable-interior-designing-solution-in-gurgaon-the-omega-group/
-Redirect 301 /smart-stylish-insider-secrets-for-commercial-interior-design/ https://theomegagroup.in/office-commercial-interiors/smart-stylish-insider-secrets-for-commercial-interior-design/
-Redirect 301 /best-office-interior-designing-ideas-by-office-interior-designer-in-gurgaon/ https://theomegagroup.in/office-commercial-interiors/best-office-interior-designing-ideas-by-office-interior-designer-in-gurgaon/
-Redirect 301 /home-decor-tips-by-the-best-home-interior-designer-in-gurgaon/ https://theomegagroup.in/home-residential-interiors/home-decor-tips-by-the-best-home-interior-designer-in-gurgaon/
-Redirect 301 /4bhk-interior-design-gurgaon/ https://theomegagroup.in/home-residential-interiors/4bhk-interior-design-gurgaon/
-Redirect 301 /blog/ https://theomegagroup.in/blog.html
-Redirect 301 /exploring-the-world-of-custom-furniture-design/ https://theomegagroup.in/home-residential-interiors/exploring-the-world-of-custom-furniture-design/
-Redirect 301 /projects/ https://theomegagroup.in/project.html
-Redirect 301 /luxury-interior-designer-gurgaon-italian-vs-contemporary/ https://theomegagroup.in/home-residential-interiors/luxury-interior-designer-gurgaon-italian-vs-contemporary/
-Redirect 301 /best-interior-designing-company-in-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /luxury-residential-interior-designer-in-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /budget-interior-designers-in-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /home-interior-design-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /luxury-interior-designer-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /gurgaon-top-interior-designer/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /best-luxury-interior-designers-in-gurugram/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /best-home-interior-designers-in-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /office-interior-designers-in-gurgaon/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /gurgaon-interior-designer/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /best-interior-designer-in-dwarka-expressway/ https://theomegagroup.in/interior-designers-dwarka-expressway/
-Redirect 301 /best-interior-designers-in-dwarka/ https://theomegagroup.in/interior-designers-dwarka-expressway/
-Redirect 301 /interior-design-for-dlf-privana-gurgaon/ https://theomegagroup.in/interior-designers-dlf-gurgaon/
-Redirect 301 /modular-kitchen-cost-in-gurgaon-2026-budget-mid-range-luxury-kitchen-pricing-guide/ https://theomegagroup.in/kitchen-design/modular-kitchen-cost-gurgaon-2026/
-Redirect 301 /modern_bedroom_interior_design_gurgaon/ https://theomegagroup.in/home-residential-interiors/balancing-aesthetics-and-functionality-in-gurgaons-modern-bedroom-designs/
-Redirect 301 /luxury-interiors/ https://theomegagroup.in/service.html
-Redirect 301 /luxuryinteriors/ https://theomegagroup.in/service.html
-Redirect 301 /our-services/bespoke-interior-designer-in-gurgaon/ https://theomegagroup.in/service.html
-Redirect 301 /virtual-showroom/ https://theomegagroup.in/project.html
-Redirect 301 /client-diaries/ https://theomegagroup.in/project.html
-Redirect 301 /testimonial/asda/ https://theomegagroup.in/project.html
-Redirect 301 /project-cat/coastal/ https://theomegagroup.in/project.html
-Redirect 301 /project/project-1/ https://theomegagroup.in/project.html
-Redirect 301 /career/ https://theomegagroup.in/about.html
-Redirect 301 /thank-you/ https://theomegagroup.in/contact.html
-Redirect 301 /book-appointment/ https://theomegagroup.in/contact.html
-Redirect 301 /category/blog/page/7/ https://theomegagroup.in/blog.html
-Redirect 301 /category/blog/page/2/ https://theomegagroup.in/blog.html
-Redirect 301 /blog/page/6/ https://theomegagroup.in/blog.html
-Redirect 301 /blog/page/7/ https://theomegagroup.in/blog.html
-Redirect 301 /author/seo_omega/ https://theomegagroup.in/blog.html
-Redirect 301 /project/pareena-heights-second-sector-99-gurgaon/ https://theomegagroup.in/project/pareena-heights-sector-99-gurgaon/
-Redirect 301 /home-residential-interiors/gurgaon-interior-designer/ https://theomegagroup.in/interior-designers-gurgaon/
-Redirect 301 /privacy-policy/ https://theomegagroup.in/privacy-policy.html
-Redirect 301 /faqs/ https://theomegagroup.in/faqs.html
-Redirect 301 /project/emaar/ https://theomegagroup.in/project.html
-Redirect 301 /project/hibiscus/ https://theomegagroup.in/project.html
-Redirect 301 /project/adani-m2k/ https://theomegagroup.in/project.html
-Redirect 301 /project/curzon/ https://theomegagroup.in/project.html
-Redirect 301 /project/crest/ https://theomegagroup.in/project.html
-Redirect 301 /project/dwarka-farmhouse/ https://theomegagroup.in/project.html
-Redirect 301 /project/krishna/ https://theomegagroup.in/project.html
-Redirect 301 /service/bespoke-furniture/ https://theomegagroup.in/service.html
-Redirect 301 /author/admin/page/4/ https://theomegagroup.in/blog.html
+# The dynamic site's front door comes first; index.html is only a fallback.
+DirectoryIndex index.php index.html
 
-# Clean directory-style URLs (blog posts + location pages) are real
-# directories with their own index.html, so no rewrite rules are needed
-# for them — Apache serves <dir>/index.html for <dir>/ automatically.
+# Historic redirects (exact address, with or without the final slash).
+RewriteRule ^blog\.htmldesign\-on\-a\-budget\-finding\-a\-good\-interior\-designer\-in\-gurgaon/?$ https://theomegagroup.in/cost-planning-guides/design-on-a-budget-finding-a-good-interior-designer-in-gurgaon/ [R=301,L]
+RewriteRule ^best\-home\-interior\-designer\-in\-dwarka/?$ https://theomegagroup.in/interior-designers-dwarka-expressway/ [R=301,L]
+RewriteRule ^turnkey\-interior\-contractors\-in\-gurgaon/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^modular\-kitchen\-designer\-gurgaon\-renovation\-guide/?$ https://theomegagroup.in/blog/modular-kitchen-designer-gurgaon-renovation-guide/ [R=301,L]
+RewriteRule ^turnkey\-interior\-design\-gurgaon\-guide/?$ https://theomegagroup.in/home-residential-interiors/turnkey-interior-design-gurgaon-guide/ [R=301,L]
+RewriteRule ^interior\-designer\-dwarka\-expressway\-compare\-choose/?$ https://theomegagroup.in/home-residential-interiors/interior-designer-dwarka-expressway-compare-choose/ [R=301,L]
+RewriteRule ^10\-innovative\-and\-sustainable\-office\-interior\-designing\-ideas\-by\-the\-omega\-group/?$ https://theomegagroup.in/office-commercial-interiors/10-innovative-and-sustainable-office-interior-designing-ideas-by-the-omega-group/ [R=301,L]
+RewriteRule ^modular\-kitchen\-cost\-gurgaon\-2026/?$ https://theomegagroup.in/kitchen-design/modular-kitchen-cost-gurgaon-2026/ [R=301,L]
+RewriteRule ^project/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^a\-budget\-friendly\-guide\-to\-interior\-design\-services\-in\-gurgaon/?$ https://theomegagroup.in/cost-planning-guides/a-budget-friendly-guide-to-interior-design-services-in-gurgaon/ [R=301,L]
+RewriteRule ^design\-on\-a\-budget\-finding\-a\-good\-interior\-designer\-in\-gurgaon/?$ https://theomegagroup.in/cost-planning-guides/design-on-a-budget-finding-a-good-interior-designer-in-gurgaon/ [R=301,L]
+RewriteRule ^crafting\-dreams\-unveiling\-the\-top\-10\-interior\-designers\-in\-gurgaon/?$ https://theomegagroup.in/office-commercial-interiors/crafting-dreams-unveiling-the-top-10-interior-designers-in-gurgaon/ [R=301,L]
+RewriteRule ^best\-interior\-designers\-near\-dwarka\-expressway\-comparison\-guide/?$ https://theomegagroup.in/home-residential-interiors/best-interior-designers-near-dwarka-expressway-comparison-guide/ [R=301,L]
+RewriteRule ^luxury\-interior\-designer\-gurgaon\-sobha\-city\-4bhk\-transformation/?$ https://theomegagroup.in/home-residential-interiors/luxury-interior-designer-gurgaon-sobha-city-4bhk-transformation/ [R=301,L]
+RewriteRule ^pop\-ceiling\-vs\-false\-ceiling\-gurgaon/?$ https://theomegagroup.in/home-residential-interiors/pop-ceiling-vs-false-ceiling-gurgaon/ [R=301,L]
+RewriteRule ^luxury\-living\-room\-interior\-gurgaon/?$ https://theomegagroup.in/home-residential-interiors/luxury-living-room-interior-gurgaon/ [R=301,L]
+RewriteRule ^smart\-home\-interior\-design\-gurgaon/?$ https://theomegagroup.in/home-residential-interiors/smart-home-interior-design-gurgaon/ [R=301,L]
+RewriteRule ^turnkey\-interior\-design\-gurgaon\-vs\-modular/?$ https://theomegagroup.in/home-residential-interiors/turnkey-interior-design-gurgaon-vs-modular/ [R=301,L]
+RewriteRule ^5bhk\-interior\-design\-gurgaon/?$ https://theomegagroup.in/home-residential-interiors/5bhk-interior-design-gurgaon/ [R=301,L]
+RewriteRule ^luxury\-interior\-design\-trends\-gurgaon/?$ https://theomegagroup.in/home-residential-interiors/luxury-interior-design-trends-gurgaon/ [R=301,L]
+RewriteRule ^interior\-design\-cost\-in\-gurgaon\-2bhk\-3bhk\-4bhk\-2026/?$ https://theomegagroup.in/home-residential-interiors/interior-design-cost-in-gurgaon-2bhk-3bhk-4bhk-2026/ [R=301,L]
+RewriteRule ^adani\-oyster\-grande\-interior\-design\-sector\-102/?$ https://theomegagroup.in/home-residential-interiors/adani-oyster-grande-interior-design-sector-102/ [R=301,L]
+RewriteRule ^interior\-design\-gurgaon\-3bhk\-2026/?$ https://theomegagroup.in/home-residential-interiors/interior-design-gurgaon-3bhk-2026/ [R=301,L]
+RewriteRule ^modular\-kitchen\-designer\-gurgaon\-3bhk\-designs/?$ https://theomegagroup.in/kitchen-design/modular-kitchen-designer-gurgaon-3bhk-designs/ [R=301,L]
+RewriteRule ^from\-budget\-friendly\-to\-luxe\-decoding\-the\-best\-interior\-designers\-in\-gurgaon/?$ https://theomegagroup.in/cost-planning-guides/from-budget-friendly-to-luxe-decoding-the-best-interior-designers-in-gurgaon/ [R=301,L]
+RewriteRule ^our\-services/?$ https://theomegagroup.in/service.html [R=301,L]
+RewriteRule ^interior\-designer\-dwarka\-expressway\-checklist/?$ https://theomegagroup.in/home-residential-interiors/interior-designer-dwarka-expressway-checklist/ [R=301,L]
+RewriteRule ^modular\-vs\-custom\-furniture\-gurgaon\-flats/?$ https://theomegagroup.in/home-residential-interiors/modular-vs-custom-furniture-gurgaon-flats/ [R=301,L]
+RewriteRule ^interior\-design\-experion\-windchants\-sector\-112/?$ https://theomegagroup.in/home-residential-interiors/interior-design-experion-windchants-sector-112/ [R=301,L]
+RewriteRule ^interior\-designer\-dwarka\-expressway\-client\-stories/?$ https://theomegagroup.in/home-residential-interiors/interior-designer-dwarka-expressway-client-stories/ [R=301,L]
+RewriteRule ^category/project/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^about\-us/?$ https://theomegagroup.in/about.html [R=301,L]
+RewriteRule ^contact/?$ https://theomegagroup.in/contact.html [R=301,L]
+RewriteRule ^affordable\-luxury\-interior\-designer\-in\-gurgaon/?$ https://theomegagroup.in/cost-planning-guides/affordable-luxury-interior-designer-in-gurgaon/ [R=301,L]
+RewriteRule ^affordable\-interior\-designing\-solution\-in\-gurgaon\-the\-omega\-group/?$ https://theomegagroup.in/home-residential-interiors/affordable-interior-designing-solution-in-gurgaon-the-omega-group/ [R=301,L]
+RewriteRule ^smart\-stylish\-insider\-secrets\-for\-commercial\-interior\-design/?$ https://theomegagroup.in/office-commercial-interiors/smart-stylish-insider-secrets-for-commercial-interior-design/ [R=301,L]
+RewriteRule ^best\-office\-interior\-designing\-ideas\-by\-office\-interior\-designer\-in\-gurgaon/?$ https://theomegagroup.in/office-commercial-interiors/best-office-interior-designing-ideas-by-office-interior-designer-in-gurgaon/ [R=301,L]
+RewriteRule ^home\-decor\-tips\-by\-the\-best\-home\-interior\-designer\-in\-gurgaon/?$ https://theomegagroup.in/home-residential-interiors/home-decor-tips-by-the-best-home-interior-designer-in-gurgaon/ [R=301,L]
+RewriteRule ^4bhk\-interior\-design\-gurgaon/?$ https://theomegagroup.in/home-residential-interiors/4bhk-interior-design-gurgaon/ [R=301,L]
+RewriteRule ^blog/?$ https://theomegagroup.in/blog.html [R=301,L]
+RewriteRule ^exploring\-the\-world\-of\-custom\-furniture\-design/?$ https://theomegagroup.in/home-residential-interiors/exploring-the-world-of-custom-furniture-design/ [R=301,L]
+RewriteRule ^projects/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^luxury\-interior\-designer\-gurgaon\-italian\-vs\-contemporary/?$ https://theomegagroup.in/home-residential-interiors/luxury-interior-designer-gurgaon-italian-vs-contemporary/ [R=301,L]
+RewriteRule ^best\-interior\-designing\-company\-in\-gurgaon/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^luxury\-residential\-interior\-designer\-in\-gurgaon/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^budget\-interior\-designers\-in\-gurgaon/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^home\-interior\-design\-gurgaon/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^luxury\-interior\-designer\-gurgaon/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^gurgaon\-top\-interior\-designer/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^best\-luxury\-interior\-designers\-in\-gurugram/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^best\-home\-interior\-designers\-in\-gurgaon/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^office\-interior\-designers\-in\-gurgaon/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^gurgaon\-interior\-designer/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^best\-interior\-designer\-in\-dwarka\-expressway/?$ https://theomegagroup.in/interior-designers-dwarka-expressway/ [R=301,L]
+RewriteRule ^best\-interior\-designers\-in\-dwarka/?$ https://theomegagroup.in/interior-designers-dwarka-expressway/ [R=301,L]
+RewriteRule ^interior\-design\-for\-dlf\-privana\-gurgaon/?$ https://theomegagroup.in/interior-designers-dlf-gurgaon/ [R=301,L]
+RewriteRule ^modular\-kitchen\-cost\-in\-gurgaon\-2026\-budget\-mid\-range\-luxury\-kitchen\-pricing\-guide/?$ https://theomegagroup.in/kitchen-design/modular-kitchen-cost-gurgaon-2026/ [R=301,L]
+RewriteRule ^modern_bedroom_interior_design_gurgaon/?$ https://theomegagroup.in/home-residential-interiors/balancing-aesthetics-and-functionality-in-gurgaons-modern-bedroom-designs/ [R=301,L]
+RewriteRule ^luxury\-interiors/?$ https://theomegagroup.in/service.html [R=301,L]
+RewriteRule ^luxuryinteriors/?$ https://theomegagroup.in/service.html [R=301,L]
+RewriteRule ^our\-services/bespoke\-interior\-designer\-in\-gurgaon/?$ https://theomegagroup.in/service.html [R=301,L]
+RewriteRule ^virtual\-showroom/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^client\-diaries/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^testimonial/asda/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^project\-cat/coastal/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^project/project\-1/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^career/?$ https://theomegagroup.in/about.html [R=301,L]
+RewriteRule ^thank\-you/?$ https://theomegagroup.in/contact.html [R=301,L]
+RewriteRule ^book\-appointment/?$ https://theomegagroup.in/contact.html [R=301,L]
+RewriteRule ^category/blog/page/7/?$ https://theomegagroup.in/blog.html [R=301,L]
+RewriteRule ^category/blog/page/2/?$ https://theomegagroup.in/blog.html [R=301,L]
+RewriteRule ^blog/page/6/?$ https://theomegagroup.in/blog.html [R=301,L]
+RewriteRule ^blog/page/7/?$ https://theomegagroup.in/blog.html [R=301,L]
+RewriteRule ^author/seo_omega/?$ https://theomegagroup.in/blog.html [R=301,L]
+RewriteRule ^project/pareena\-heights\-second\-sector\-99\-gurgaon/?$ https://theomegagroup.in/project/pareena-heights-sector-99-gurgaon/ [R=301,L]
+RewriteRule ^home\-residential\-interiors/gurgaon\-interior\-designer/?$ https://theomegagroup.in/interior-designers-gurgaon/ [R=301,L]
+RewriteRule ^privacy\-policy/?$ https://theomegagroup.in/privacy-policy.html [R=301,L]
+RewriteRule ^faqs/?$ https://theomegagroup.in/faqs.html [R=301,L]
+RewriteRule ^project/emaar/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^project/hibiscus/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^project/adani\-m2k/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^project/curzon/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^project/crest/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^project/dwarka\-farmhouse/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^project/krishna/?$ https://theomegagroup.in/project.html [R=301,L]
+RewriteRule ^service/bespoke\-furniture/?$ https://theomegagroup.in/service.html [R=301,L]
+RewriteRule ^author/admin/page/4/?$ https://theomegagroup.in/blog.html [R=301,L]
 
-# ---- Blog CMS dynamic routing (blog-cms/public/router.php) ----
-# Added for the Blog CMS module (see BLOG-README.md / blog-cms/DEPLOYMENT.md).
-# This block ONLY ever fires when Apache found NO existing static file or
-# directory for the request — every one of the existing static blog posts,
-# and every other existing page, resolves exactly as before and never
-# reaches this rule at all. Only a URL with no matching static content
-# falls through to the CMS's MySQL-backed router, which serves it if a
-# published CMS post exists at that category/slug or a real 404 if not.
+# ---- Dynamic site front controller (index.php -> app/front.php) ----
+# Internal folders and files are never served (repository docs, scripts,
+# deploy config, git metadata, data sources).
+RewriteRule ^(app|templates|content|tests|scripts|database|scss|node_modules|data|\.git)(/|$) - [F,L]
+RewriteRule (^|/)[^/]+\.(md|MD|py|sh|sql|yml|yaml|lock|log)$ - [F,L]
+RewriteRule ^(package(-lock)?\.json|redirects\.json|_redirects|vercel\.json|\.cpanel\.yml|\.gitignore|LICENSE\.txt|router\.php)$ - [F,L]
+
+# Real files (CSS, JS, images, PHP form endpoints, uploads) are served as-is.
+# Every other URL is a content page rendered by index.php, which also
+# handles dashboard redirects and the branded 404.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-z0-9-]+)/([a-z0-9-]+)/?$ /blog-cms/public/router.php?category_slug=$1&post_slug=$2 [L,QSA]
+RewriteRule ^ index.php [L,QSA]
