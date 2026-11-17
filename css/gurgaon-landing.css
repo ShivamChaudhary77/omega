@@ -307,3 +307,104 @@
         padding: 28px 22px;
     }
 }
+
+/* SEO content sections (home types, turnkey scope, climate materials).
+   White band so they sit apart from the cream/beige sections around them
+   without adding a new colour. */
+.gl-seo-intro {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gl-seo-card {
+    background-color: var(--clr-dark);
+    border: 1px solid var(--clr-dark-3);
+    border-radius: 14px;
+    padding: 28px 26px;
+}
+
+.gl-seo-card > i {
+    color: var(--clr-gold);
+    display: block;
+}
+
+.gl-seo-card h3 {
+    margin-bottom: .75rem;
+}
+
+.gl-seo-card p {
+    font-size: .95rem;
+}
+
+.gl-seo-step {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    color: var(--clr-gold);
+    margin-bottom: .5rem;
+}
+
+.gl-seo-list {
+    list-style: none;
+    padding-left: 0;
+    font-size: .95rem;
+}
+
+.gl-seo-list li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: .5rem;
+}
+
+.gl-seo-list li:last-child {
+    margin-bottom: 0;
+}
+
+.gl-seo-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: .55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--clr-gold);
+}
+
+.gl-seo a:not(.btn) {
+    color: var(--clr-gold-dark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.gl-seo a:not(.btn):hover {
+    color: var(--clr-black);
+}
+
+.gl-seo-note {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background-color: var(--clr-dark-2);
+    border-left: 3px solid var(--clr-gold);
+    border-radius: 10px;
+    padding: 18px 22px;
+    font-size: .95rem;
+}
+
+.gl-seo-note > i {
+    color: var(--clr-gold-dark);
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+
+@media (max-width: 767.98px) {
+    .gl-seo-card {
+        padding: 22px 20px;
+    }
+
+    .gl-seo-note {
+        padding: 16px 18px;
+    }
+}

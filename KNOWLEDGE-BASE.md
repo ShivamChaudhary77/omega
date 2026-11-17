@@ -39,7 +39,7 @@ Read this before changing the site. It covers how the site is built, which file 
 /project/<slug>/          14 project detail pages (generated)
 /author/shivam-kumar/     author page (E-E-A-T)
 /free-design-consultation/ paid-ads landing page (noindex)
-/gurgaon-home-interiors/  paid-ads landing page for Gurgaon homes (noindex; same form/endpoint
+/gurgaon-home-interiors/  Gurgaon home interiors page + ads landing page (indexed, in sitemap; same form/endpoint
                           as above; extra styles in css/gurgaon-landing.css)
 /blog/<slug>/             1 legacy post URL kept to preserve rankings
 /builder-floor-…-2026/, /dlf-the-arbour-…-2026/   2 one-off legacy post dirs (category = the dir itself)
@@ -170,7 +170,7 @@ Blog post **bodies are rendered client-side.** Only the `<head>` and JSON-LD are
 - **Sitemaps** (all listed in `robots.txt`): `sitemap.xml` (core, location and project pages only, hand-maintained; **no blog posts**), `sitemap-blog.xml` (all static posts, generated) and `blog-cms/public/sitemap.php` (CMS posts).
 - **Structured data:** LocalBusiness (all pages), Article + Breadcrumb + FAQPage (posts), FAQPage (location pages and faqs), CreativeWork (projects), CollectionPage/ItemList (`project.html`, `blog.html`). No AggregateRating until real reviews exist in `data/reviews.json`.
 - **AI crawlers:** `llms.txt` holds a brand fact sheet and key URLs. Keep it in sync with `organization.json`.
-- **Noindex:** only `404.html` and the two ads landing pages, `free-design-consultation/` and `gurgaon-home-interiors/` (deliberately not blocked in `robots.txt`, and kept out of the sitemaps). `robots.txt` disallows `/blog-cms/admin/`.
+- **Noindex:** only `404.html` and the ads landing page `free-design-consultation/` (deliberately not blocked in `robots.txt`, and kept out of the sitemaps). `gurgaon-home-interiors/` is indexed and targets "home interiors gurgaon" (see `keyword-map.md`). `robots.txt` disallows `/blog-cms/admin/`.
 - **E-E-A-T:** every post's author is **Shivam Kumar**, linked to `/author/shivam-kumar/` and a LinkedIn `sameAs`. To add an author, extend `AUTHORS` in `build-post-pages.py`, the matching logic in `js/single-post.js`, and create an `/author/<slug>/` page.
 - **Hard rule across all past work:** no fabricated reviews, stats, project sizes, budgets or testimonials.
 
