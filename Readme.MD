@@ -63,20 +63,19 @@ The website's SEO, GEO (Generative Engine Optimization), and AEO (Answer Engine 
 
 ## 4. Tech Stack
 
+> The site was originally on WordPress. Its content was imported in July 2026 and **the live site is now static HTML**. WordPress, ACF and CF7 are no longer used. See `KNOWLEDGE-BASE.md` for the full technical reference.
+
 | Layer | Details |
 |---|---|
-| CMS | WordPress |
-| Custom fields | ACF Pro (Advanced Custom Fields) — Options page, Repeater, Relationship fields |
-| Custom post types | `project`, `service` |
-| Forms | Contact Form 7 (CF7 shortcode) |
-| SEO / Meta | Meta tags, OG tags, and canonicals handled via SEO plugin (not hardcoded in-template) |
-| Structured data | JSON-LD handled in-template, dynamically populated from ACF fields, with null-stripping for empty values |
-| Typography | Marcellus (display) + Jost (body), via Google Fonts |
-| Brand palette | Ivory, deep charcoal, warm taupe, antique gold (site); navy + gold (internal documents) |
-
-### Templates in active development
-- **Homepage template** — multi-section, ACF Pro-integrated, JSON-LD schema, performance-optimized
-- **Single blog post template (`single.php`)** — SEO-optimized, with structured data, OG tags, and canonical handling
+| Pages | Static HTML (Bootstrap 5 + jQuery). Clean URLs are directories with an `index.html`. |
+| Content data | JSON in `data/`: `blog-data.json` (all blog posts), `projects.json`, `organization.json` (business name, address, phone, stats) |
+| Page generation | Python 3 scripts in `scripts/` build the blog post, location and project pages, the schema blocks, sitemaps and redirects from that data |
+| Forms | Plain PHP + PDO + MySQL (`php/contact-submit.php`, `php/consultation-leads-submit.php`) |
+| Optional CMS | PHP/MySQL blog admin in `blog-cms/` (tables in `database/`) |
+| SEO / Meta | Meta, OG and canonical tags plus JSON-LD baked into each page by the generators. `js/schema.js` adds site-wide LocalBusiness/Breadcrumb/FAQ schema. |
+| Hosting / deploy | Hostinger (Apache, `.htaccess`). cPanel Git deployment rsyncs the repo to `public_html` (`.cpanel.yml`). |
+| Typography | Space Grotesk (headings) + Helvetica Neue stack (body) |
+| Brand palette | Ivory, black/ink, antique gold (`css/style.css` `:root` tokens); navy + gold (internal documents) |
 
 ### Engineering standards
 - **Accessibility:** `prefers-reduced-motion` support
@@ -87,7 +86,7 @@ The website's SEO, GEO (Generative Engine Optimization), and AEO (Answer Engine 
 
 ## 5. Content & SEO Workflow
 
-1. **Audit before writing** — search `site:theomegagroup.in blog [keyword]` and review all paginated blog archive pages (`/blog/page/2/` through `/blog/page/N/`), not just the homepage, before producing new content.
+1. **Audit before writing.** Check `keyword-map.md` and the `focusKeyword` / `slug` values in `data/blog-data.json`, which lists every published static post. Also search `site:theomegagroup.in [keyword]`. The blog has no `/blog/page/N/` archive URLs; pagination is client-side.
 2. **Identify gaps** — avoid duplicating existing topics/keywords.
 3. **Generate full post** — meta title, meta description, URL slug, AEO-style FAQs, internal linking recommendations, image alt text.
 4. **Deliver as formatted `.docx`** — branded navy/gold formatting, cover page, colored tables. Filenames use underscores (e.g., `Omega_Blog_-_Topic_Name.docx`).

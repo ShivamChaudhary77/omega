@@ -20,7 +20,7 @@ In phpMyAdmin, run the 6 files in `database/` **in numeric order** (001 through 
 Nothing to do here — `blog-cms/includes/db.php` reuses the site's existing `php/config.php` automatically. If that file doesn't exist yet (e.g. a brand-new deployment), copy `php/config.example.php` to `php/config.php` and fill in real credentials first.
 
 ## 6. Configure blog URL
-Nothing to configure — CMS posts use the exact same `/<category-slug>/<post-slug>/` URL shape as the 79 existing static posts (see `blog-cms/config/blog_config.php`'s `blog_url_note`).
+Nothing to configure — CMS posts use the exact same `/<category-slug>/<post-slug>/` URL shape as the existing static posts (see `blog-cms/config/blog_config.php`'s `blog_url_note`).
 
 ## 7. Configure media directory
 `blog-cms/uploads/` must be writable by PHP. On Hostinger this is usually the default for a newly uploaded folder, but confirm permissions are `755` (directories) — see step 8.
@@ -49,13 +49,13 @@ Back in the editor, change Status to "Published" and Save (only Editor/Super Adm
 On the published post's live URL, View Source and confirm: a real `<title>`, `<meta name="description">`, `<link rel="canonical">`, OG/Twitter tags, and two `<script type="application/ld+json">` blocks (Article + BreadcrumbList) with real values — not placeholders.
 
 ## 15. Verify sitemap
-Visit `https://theomegagroup.in/blog-cms/public/sitemap.php` and confirm the new published post's URL appears. This is a separate sitemap from `sitemap.xml`/`sitemap-blog.xml` (which stay exactly as they were, listing only the 79 existing static posts) — `robots.txt` now references all three.
+Visit `https://theomegagroup.in/blog-cms/public/sitemap.php` and confirm the new published post's URL appears. This is a separate sitemap from `sitemap.xml`/`sitemap-blog.xml` (which stay exactly as they were, listing only the static posts from `data/blog-data.json`) — `robots.txt` now references all three.
 
 ## 16. Verify existing forms
 Submit the real contact form (`/contact.html`) and the consultation landing page form (`/free-design-consultation/`) once each, and confirm both still insert rows into `contact_form_submissions` / `consultation_leads` as before. Nothing in this deployment touches either.
 
 ## 17. Verify existing pages
-Spot-check `index.html`, a few of the 79 existing blog posts, a project page, and a location page (e.g. `/interior-designers-manesar/`) — all should look and function exactly as before, since none of their files changed.
+Spot-check `index.html`, a few of the existing static blog posts, a project page, and a location page (e.g. `/interior-designers-manesar/`) — all should look and function exactly as before, since none of their files changed.
 
 ## 18. Verify mobile responsiveness
 Check the new post's live page and the admin dashboard on a phone-width viewport. The admin CSS (`blog-cms/assets/css/admin.css`) has its own mobile breakpoint; the public post page reuses the site's existing responsive CSS.
@@ -64,7 +64,7 @@ Check the new post's live page and the admin dashboard on a phone-width viewport
 
 ## Rolling back
 
-Because every existing file is untouched except `.htaccess` and `robots.txt` (both additive edits), rolling back the CMS entirely is: delete the `blog-cms/` folder, remove the "Blog CMS dynamic routing" block from `.htaccess` (or restore your step-1 backup of it), remove the third `Sitemap:` line and the `Disallow: /blog-cms/admin/` line from `robots.txt`, and drop the 6 `blog_*` tables if you want the database fully clean. The 79 existing posts and every other page are unaffected either way.
+Because every existing file is untouched except `.htaccess` and `robots.txt` (both additive edits), rolling back the CMS entirely is: delete the `blog-cms/` folder, remove the "Blog CMS dynamic routing" block from `.htaccess` (or restore your step-1 backup of it), remove the third `Sitemap:` line and the `Disallow: /blog-cms/admin/` line from `robots.txt`, and drop the 6 `blog_*` tables if you want the database fully clean. The existing static posts and every other page are unaffected either way.
 
 ## Known limitations (see the implementation report for the full list)
 - Scheduled posts go live on the next real visitor request after their scheduled time, not the exact second (no cron dependency — see `blog_functions.php`'s `blog_promote_due_scheduled_posts()`). Upgradeable later to a real Hostinger cron job hitting `blog-cms/public/router.php` or a dedicated cron script on a schedule, if exact-time publishing ever matters.

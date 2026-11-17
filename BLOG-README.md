@@ -1,13 +1,13 @@
 # Blog System — The Omega Group
 
-A static, JSON-driven blog built on top of the existing site template. No build step, no server-side code — one dynamic template renders every post, but each post also gets a real, crawlable, query-string-free URL.
+A static, JSON-driven blog built on top of the existing site template. There is no server-side code: Python scripts generate one page per post from `data/blog-data.json`, so each post gets a real, crawlable URL with no query string. (`KNOWLEDGE-BASE.md` is the site-wide reference; this file covers the blog in detail.)
 
 ## URL structure
 
 Every post lives at **`https://theomegagroup.in/<category-slug>/<post-slug>/`** — e.g.
 `/office-commercial-interiors/how-to-choose-the-best-office-interior-designer-in-gurgaon/`.
 
-This is a real file on disk, not a client-side route: `scripts/build-post-pages.py` copies `single-post.html` (the template) to `<category-slug>/<post-slug>/index.html` for every post. The copy is byte-identical to the template — `js/single-post.js` reads the slug from `location.pathname` (the last path segment) at runtime and fetches `/data/blog-data.json` to find that post, so "generating a page" is really just placing the same shell at its URL. This works on **any** static host (Hostinger, Netlify, GitHub Pages, etc.) with zero server configuration — no `.htaccess` rewrite rules needed, because `/category/slug/` naturally resolves to `/category/slug/index.html` on every standard web server.
+This is a real file on disk, not a client-side route: `scripts/build-post-pages.py` copies `single-post.html` (the template) to `<category-slug>/<post-slug>/index.html` for every post. Each copy gets that post's `<head>` baked in (title, meta description, canonical, OG/Twitter tags and Article/Breadcrumb/FAQPage JSON-LD). The visible article body is still rendered at runtime: `js/single-post.js` reads the slug from `location.pathname` (the last path segment) and fetches `/data/blog-data.json` to find the post. This works on **any** static host (Hostinger, Netlify, GitHub Pages, etc.) with zero server configuration — no `.htaccess` rewrite rules needed, because `/category/slug/` naturally resolves to `/category/slug/index.html` on every standard web server.
 
 The root `single-post.html` still works directly with `?slug=your-slug` (query param takes priority over the path) — handy for local testing before a post's category/directory exists.
 
@@ -16,9 +16,11 @@ The root `single-post.html` still works directly with `?slug=your-slug` (query p
 - **`data/blog-data.json`** — one object per post (schema below). This is the single source of truth. Each post's `urlPath` (e.g. `/office-commercial-interiors/how-to-choose-.../`) and `canonicalUrl` (the same path, absolute) are computed from its `category` + `slug` at import time.
 - **`blog.html`** + **`js/blog.js`** — listing page. Renders a pinned "latest article" card, a category filter bar, a client-side search box, and a paginated grid (9 posts/page). Card links point straight at each post's `urlPath`.
 - **`single-post.html`** + **`js/single-post.js`** — the single-post template described above. Renders SEO tags, JSON-LD, breadcrumb, key takeaways, table of contents, body, FAQ accordion, internal links, author box, related posts — all keyed off whatever slug it resolves from the URL.
-- **`scripts/build-post-pages.py`** — generates the 62 `<category>/<slug>/index.html` files from `single-post.html` + `blog-data.json`. **Re-run this any time you add/remove a post or change a post's `category`** (changing category changes its URL).
+- **`scripts/build-post-pages.py`** generates one `<category>/<slug>/index.html` per post from `single-post.html` + `blog-data.json`. **Re-run it whenever you add, remove or edit a post.** Changing a post's `category` changes its URL.
+- **`scripts/build-blog-index.py`** pre-renders the pinned post and first grid page into `blog.html`, and the 4 newest posts into the homepage's "From The Blog" section.
+- **`scripts/build-sitemap.py`** regenerates `sitemap-blog.xml` from `blog-data.json`.
 - **`css/blog.css`** — all blog-specific styling, layered on top of `css/style.css` and reusing the site's existing `--clr-*` variables and card/shadow language, so it looks native to the rest of the site rather than bolted on.
-- **`sitemap-blog.xml`** — every published post's real URL + `blog.html`, for search engines (see "Pagination & crawlability" below).
+- **`sitemap-blog.xml`** lists every published static post's URL for search engines (`blog.html` itself is in `sitemap.xml`) (see "Pagination & crawlability" below).
 
 ## Local testing
 
@@ -46,7 +48,8 @@ Append a new object to the array in `data/blog-data.json` with this shape:
   "tags": ["Gurgaon", "Luxury Interiors"],
   "publishDate": "2026-07-30T12:00:00",
   "modifiedDate": "2026-07-30T12:00:00",
-  "author": "The Omega Group Design Team",
+  "author": "Shivam Kumar",
+  "reviewedBy": "The Omega Group design team",
   "readingTimeMinutes": 6,
   "featuredImage": { "src": "/img/blog/featured/your-image.jpg", "alt": "Descriptive alt text", "width": 1200, "height": 800 },
   "excerpt": "One or two sentences shown on cards and used as the meta description fallback.",
@@ -62,35 +65,24 @@ Append a new object to the array in `data/blog-data.json` with this shape:
 `urlPath` must be `/<slugified-category>/<slug>/` (lowercase, spaces/`&` → `-`) and `canonicalUrl` is just `https://theomegagroup.in` + `urlPath` — keep them in sync with `category`.
 
 Then:
-1. Drop the featured image into `img/blog/featured/` (and any inline content images into `img/blog/content/`) — reference them with a leading `/` (e.g. `/img/blog/featured/your-image.jpg`).
-2. Run `python3 scripts/build-post-pages.py` to generate the new post's `<category>/<slug>/index.html`.
-3. Regenerate `sitemap-blog.xml` (see below), or add a `<url>` block for the new post by hand following the existing pattern.
-4. No other file needs to change. `blog.html` picks up new categories automatically for the filter bar.
+1. Drop the featured image into `img/blog/featured/` (and any inline content images into `img/blog/content/`). Reference them with a leading `/` (e.g. `/img/blog/featured/your-image.jpg`).
+2. Run all three generators:
+   ```bash
+   python3 scripts/build-post-pages.py && python3 scripts/build-blog-index.py && python3 scripts/build-sitemap.py
+   ```
+3. No other file needs to change. `blog.html` picks up new categories automatically for the filter bar.
 
 **If you change an existing post's `urlPath`** (e.g. moving it to a new category, or — as with the modular kitchen renovation guide — giving it a one-off `/blog/<slug>/` URL to preserve external rankings): `build-post-pages.py` only ever *creates/updates* directories, it never deletes. After regenerating, manually `rm -rf` the old `<old-category>/<slug>/` directory yourself, or the post will be reachable (and indexable) at two URLs at once.
 
 ### Regenerating the sitemap
 
-```python
-python3 - <<'EOF'
-import json
-from datetime import datetime, timezone
-posts = json.load(open("data/blog-data.json"))
-today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-lines = ['<?xml version="1.0" encoding="UTF-8"?>',
-         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-         '  <url><loc>https://theomegagroup.in/blog.html</loc>'
-         f'<lastmod>{today}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>']
-for p in sorted(posts, key=lambda x: x["publishDate"]):
-    mod = (p.get("modifiedDate") or p["publishDate"])[:10]
-    lines.append(f'  <url><loc>{p["canonicalUrl"]}</loc><lastmod>{mod}</lastmod>'
-                 '<changefreq>monthly</changefreq><priority>0.6</priority></url>')
-lines.append('</urlset>')
-open("sitemap-blog.xml", "w").write("\n".join(lines) + "\n")
-EOF
+```bash
+python3 scripts/build-sitemap.py
 ```
 
-## Where the initial 62 posts came from
+This rewrites `sitemap-blog.xml` from `blog-data.json`. Blog posts belong only in `sitemap-blog.xml`; the script warns if `sitemap.xml` (core, location and project pages) lists any of them.
+
+## Where the initial 62 posts came from (July 2026 WordPress import)
 
 They were imported from a WordPress export (`theomega.WordPress.2026-07-29.xml`, 66 posts total). 4 were excluded automatically: 1 scheduled ("future") post and 3 drafts (2 of which had no body content). The import:
 
@@ -110,7 +102,7 @@ Pagination in `blog.html` is client-side (no `/blog/page/2/`-style URLs). To kee
 
 ## Design decisions worth knowing about
 
-- **Typography/color**: kept the site's existing Space Grotesk / Open Sans / gold-black-ivory system instead of introducing new fonts, to stay visually consistent with the rest of the site (home, about, service, project, contact) rather than making the blog look like a different product.
+- **Typography/color**: kept the site's existing Space Grotesk headings / Helvetica Neue body / gold-black-ivory system instead of introducing new fonts, to stay visually consistent with the rest of the site (home, about, service, project, contact) rather than making the blog look like a different product.
 - **Nav/footer**: added a "Blog" link to the nav, footer Quick Links, and footer bottom menu on all five existing pages (including the home page) — without it the blog would be unreachable from the rest of the site.
-- **Author field**: the WordPress export's author was the literal admin username `Omega@Admin`; every post now credits **"The Omega Group Design Team"** instead.
+- **Author field**: the WordPress export's author was the literal admin username `Omega@Admin`; posts were first credited to "The Omega Group Design Team". Since Oct 2026 every post credits **Shivam Kumar** (linked to `/author/shivam-kumar/`; see `AUTHORS` in `scripts/build-post-pages.py`), with an optional `reviewedBy` field.
 - **Root-absolute asset paths**: `single-post.html` references its CSS/JS/images as `/css/style.css`, `/js/main.js`, etc. (leading slash), not `css/style.css`. This is deliberate — the same file gets copied to `<category>/<slug>/index.html`, two directories deep, so a relative path would resolve incorrectly there. `blog.html` and the other top-level pages don't need this since they only ever live at the site root.

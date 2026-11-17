@@ -12,7 +12,7 @@ declare(strict_types=1);
 return [
     'site_url' => 'https://theomegagroup.in',
     'blog_url_note' => 'CMS posts use the same /<category-slug>/<post-slug>/ URL shape as the '
-        . 'existing 79 static posts — there is no separate /blog/ URL prefix. See BLOG-README.md.',
+        . 'existing static posts — there is no separate /blog/ URL prefix. See BLOG-README.md.',
     'upload_dir' => '/blog-cms/uploads/',
     'max_upload_bytes' => 5 * 1024 * 1024,
     'allowed_image_mime_types' => ['image/jpeg', 'image/png', 'image/webp'],

@@ -5,7 +5,7 @@
  * Apache only ever forwards a request here (see the .htaccess block added
  * by scripts/build-redirects.py / documented in DEPLOYMENT.md) when NO
  * static file or directory already exists at the requested path — so this
- * script never sees a request for one of the 79 existing static posts,
+ * script never sees a request for one of the existing static posts,
  * never competes with them, and a bug here cannot break them.
  *
  * Expected inbound query params (set by the .htaccess RewriteRule):

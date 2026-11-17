@@ -2,7 +2,7 @@
 
 One governing rule: **every keyword below is assigned to exactly one URL.** If a keyword could plausibly fit two pages, it's listed once, under the page that should legitimately rank for it — the other page must not target it as a primary phrase (incidental mentions in body copy are fine; H1s, title tags, and meta descriptions must not compete).
 
-**Intent boundary that keeps this from recreating the old cannibalization:** the two pillar + five satellite pages own **commercial "hire a designer in [place]" intent**. The blog owns **informational "how do I / how much does / what is" intent**. Same core topic (e.g. modular kitchens) can legitimately have a page on both sides — a satellite page ranks for "interior designer near me in Sohna Road," a blog post ranks for "modular kitchen cost in Gurgaon" — because the search intent, and therefore the ideal result, is different. Where a query is ambiguous, it's assigned to the commercial page, since that's this site's business goal.
+**Intent boundary that keeps this from recreating the old cannibalization:** the two pillar + six satellite pages own **commercial "hire a designer in [place]" intent**. The blog owns **informational "how do I / how much does / what is" intent**. Same core topic (e.g. modular kitchens) can legitimately have a page on both sides — a satellite page ranks for "interior designer near me in Sohna Road," a blog post ranks for "modular kitchen cost in Gurgaon" — because the search intent, and therefore the ideal result, is different. Where a query is ambiguous, it's assigned to the commercial page, since that's this site's business goal.
 
 ## Pillar pages
 
@@ -20,6 +20,7 @@ One governing rule: **every keyword below is assigned to exactly one URL.** If a
 | `/interior-designers-new-gurgaon/` | interior designer new gurgaon | interior design new gurgaon sector · new gurgaon home interior designer |
 | `/interior-designers-dlf-gurgaon/` | interior designer dlf gurgaon | interior design dlf phase 1–5 · dlf gurgaon apartment interior designer |
 | `/interior-designers-manesar/` | interior designer manesar | interior design manesar gurgaon · manesar home interior designer |
+| `/interior-designers-golf-course-road/` | interior designer golf course road | interior design golf course road gurgaon · golf course extension road interior designer (DLF5 society terms stay with the DLF page and the DLF5 blog posts) |
 
 ## Existing core pages
 

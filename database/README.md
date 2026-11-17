@@ -50,7 +50,7 @@ site's existing taxonomy (Home & Residential Interiors, Kitchen Design,
 Cost & Planning Guides, Office & Commercial Interiors, Design Trends &
 Inspiration, Interior Design Insights, and a generic "Blog" fallback) so a
 new CMS post filed under one of these gets the same `/category-slug/` URL
-prefix visitors and Google already know from the existing 79 posts. Two
+prefix visitors and Google already know from the existing static posts. Two
 legacy one-off directories from the original WordPress import
 (`builder-floor-interior-design-gurgaon-2026`,
 `dlf-the-arbour-interior-design-cost-guide-2026` — each holds exactly one
