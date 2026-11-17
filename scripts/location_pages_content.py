@@ -173,6 +173,7 @@ CONTENT = {
             ("Interior Designer in DLF Gurgaon", "/interior-designers-dlf-gurgaon/"),
             ("Interior Designer in Golf Course Road", "/interior-designers-golf-course-road/"),
             ("Interior Designer in Manesar", "/interior-designers-manesar/"),
+            ("Turnkey Home Interiors in Gurgaon", "/gurgaon-home-interiors/"),
             ("Our Services", "/service.html"),
             ("Our Projects", "/project.html"),
             ("Book a Consultation", "/contact.html"),
