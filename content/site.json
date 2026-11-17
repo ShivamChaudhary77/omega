@@ -1,0 +1,210 @@
+{
+    "_note": "Site-wide settings for the dynamic site (Phase 1+). Until go-live (Phase 6) the static pages still read data/organization.json; keep business details in both files in sync until then.",
+    "business": {
+        "name": "The Omega Group",
+        "alternateName": "Omega Interiors & Furniture",
+        "telephone": "+91-981-1001-900",
+        "email": "thegroupomega@gmail.com",
+        "priceRange": "₹₹₹₹",
+        "foundingDate": "2022-06",
+        "address": {
+            "streetAddress": "Plot S4 & S5, Main Dwarka Expressway, Near Daulatabad Chowk, opp. Pillar 109",
+            "addressLocality": "Gurugram",
+            "addressRegion": "Haryana",
+            "postalCode": "122006",
+            "addressCountry": "IN"
+        },
+        "geo": {
+            "latitude": 28.4499,
+            "longitude": 76.9995
+        },
+        "areaServed": [
+            "Gurgaon",
+            "Delhi NCR",
+            "DLF Gurgaon",
+            "Sushant Lok",
+            "Dwarka Expressway",
+            "Sohna Road",
+            "New Gurgaon",
+            "Manesar"
+        ],
+        "sameAs": [
+            "https://www.facebook.com/theomegainteriors",
+            "https://www.instagram.com/theomegainteriors/"
+        ],
+        "logo": "/img/logo.png",
+        "image": "/img/about-1.webp"
+    },
+    "phoneDisplay": "+91 981 1001 900",
+    "whatsappNumber": "919811001900",
+    "startingPrice": {
+        "amount": 1500000,
+        "currency": "INR",
+        "display": "₹15 Lakhs+",
+        "unit": "full home turnkey"
+    },
+    "stats": {
+        "yearsExperience": "10+",
+        "projectsDelivered": "90+",
+        "onTimeDeliveryRate": "90%",
+        "qcChecksPerProject": "70+",
+        "customFurnitureDesigns": "290+"
+    },
+    "googleBusinessProfileUrl": "",
+    "mapEmbedUrl": "https://www.google.com/maps?q=Plot%20S4%20%26%20S5%2C%20Main%20Dwarka%20Expressway%2C%20Near%2C%20Daulatabad%20Chowk%2C%20opp.%20Pillar%20109%2C%20Gurugram%2C%20Haryana%20122006&output=embed",
+    "defaultOgImage": "/img/about-1.webp",
+    "tracking": {
+        "ga4MeasurementId": "G-FSNHC0N7BD",
+        "metaPixelId": "857790543995038",
+        "googleSiteVerification": "WfK6bn2Y0riMl83guJlVGhq8GrnN6rbKjyn5Nrk43Ls"
+    },
+    "nav": [
+        {
+            "key": "home",
+            "label": "Home",
+            "href": "/index.html"
+        },
+        {
+            "key": "about",
+            "label": "About",
+            "href": "/about.html"
+        },
+        {
+            "key": "services",
+            "label": "Services",
+            "href": "/service.html"
+        },
+        {
+            "key": "projects",
+            "label": "Projects",
+            "href": "/project.html"
+        },
+        {
+            "key": "blog",
+            "label": "Blog",
+            "href": "/blog.html"
+        },
+        {
+            "key": "contact",
+            "label": "Contact",
+            "href": "/contact.html"
+        }
+    ],
+    "footer": {
+        "about": "The Omega Group is a premium interior design and turnkey execution studio, crafting bespoke homes and commercial spaces for clients who expect nothing less than excellence.",
+        "quickLinks": [
+            {
+                "label": "About Us",
+                "href": "/about.html"
+            },
+            {
+                "label": "Our Projects",
+                "href": "/project.html"
+            },
+            {
+                "label": "Our Services",
+                "href": "/service.html"
+            },
+            {
+                "label": "Blog",
+                "href": "/blog.html"
+            },
+            {
+                "label": "FAQs",
+                "href": "/faqs.html"
+            },
+            {
+                "label": "Book a Consultation",
+                "href": "/contact.html"
+            }
+        ],
+        "serviceAreas": [
+            {
+                "label": "Gurgaon",
+                "href": "/interior-designers-gurgaon/"
+            },
+            {
+                "label": "Dwarka Expressway",
+                "href": "/interior-designers-dwarka-expressway/"
+            },
+            {
+                "label": "Sohna Road",
+                "href": "/interior-designers-sohna-road/"
+            },
+            {
+                "label": "Sushant Lok",
+                "href": "/interior-designers-sushant-lok/"
+            },
+            {
+                "label": "New Gurgaon",
+                "href": "/interior-designers-new-gurgaon/"
+            },
+            {
+                "label": "DLF Gurgaon",
+                "href": "/interior-designers-dlf-gurgaon/"
+            },
+            {
+                "label": "Golf Course Road",
+                "href": "/interior-designers-golf-course-road/"
+            },
+            {
+                "label": "Manesar",
+                "href": "/interior-designers-manesar/"
+            }
+        ],
+        "services": [
+            {
+                "label": "Luxury Home Interiors",
+                "href": "/service.html"
+            },
+            {
+                "label": "Villa & Apartment Interiors",
+                "href": "/service.html"
+            },
+            {
+                "label": "Office & Commercial Interiors",
+                "href": "/service.html"
+            },
+            {
+                "label": "Bespoke Furniture",
+                "href": "/service.html"
+            }
+        ],
+        "addressDisplay": "Plot S4 & S5, Main Dwarka Expressway, Near, Daulatabad Chowk, opp. Pillar 109, Gurugram, Haryana 122006",
+        "bottomMenu": [
+            {
+                "label": "Home",
+                "href": "/index.html"
+            },
+            {
+                "label": "About",
+                "href": "/about.html"
+            },
+            {
+                "label": "Services",
+                "href": "/service.html"
+            },
+            {
+                "label": "Blog",
+                "href": "/blog.html"
+            },
+            {
+                "label": "Contact",
+                "href": "/contact.html"
+            },
+            {
+                "label": "Privacy Policy",
+                "href": "/privacy-policy.html"
+            }
+        ]
+    },
+    "cta": {
+        "eyebrow": "Book Your Appointment",
+        "heading": "Free Luxury Design Consultation",
+        "text": "Your design is an expression of who you are, and its design should match your lifestyle. Whether you have traditional tastes or desire a modern feel, we can design your dream space to suit any purpose.",
+        "buttonLabel": "Book Consultation",
+        "buttonHref": "/contact.html",
+        "image": "/img/cta-consultation.webp",
+        "imageAlt": "Luxury bedroom suite with marble accent wall and custom dressing area designed by The Omega Group"
+    }
+}

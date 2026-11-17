@@ -1,6 +1,30 @@
 # Plan: Static Site → Dynamic Site with a Simple Dashboard
 
-**Status:** proposal, not started · **Written:** 17 Nov 2026
+**Status:** Phase 1 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
+
+## Progress
+
+| Phase | Status | Notes |
+|---|---|---|
+| 1. Foundations | ✅ Done | See "Phase 1 delivered" below |
+| 2. Templates | Not started | |
+| 3. Migration + comparison | Not started | |
+| 4. Dashboard | Not started | |
+| 5. SEO automation | Not started | |
+| 6. Staging, go-live, monitoring | Not started | |
+
+### Phase 1 delivered
+- `app/`: config (`config.php`, optional gitignored `config.local.php`), `bootstrap.php`, `helpers.php` (escaping, atomic JSON writes), `content.php` (pages, URL index, validation, history, trash, dashboard redirects), `cache.php` (rendered-page cache, cleared on every change), `render.php` (templates, `<head>` and schema builders), `front.php` (front controller), and `cli.php` (`rebuild`, `clear-cache`, `check`, `render`).
+- `templates/`: `layout.php` plus partials `head`, `nav`, `footer`, `cta`, `hero`, `faq`, `scripts`. The nav, footer and CTA now exist **once**, driven by `content/site.json`. There's also a generic `page.php` body template.
+- `content/site.json`: business details, tracking IDs, nav, footer and CTA text. `content/pages/` is empty until Phase 3.
+- `router.php`: local development server (`php -S localhost:8000 router.php`; add `OMEGA_MODE=dynamic` to prefer dynamic pages over the static files). It does nothing on the live server.
+- `scripts/build-redirects.py --dynamic`: generates the go-live `.htaccess` (front-controller rules). The default output is unchanged.
+- `.cpanel.yml` no longer deploys `tests/`, `content/`, `uploads/` or `app/config.local.php`. Internal folders each carry a deny-all `.htaccess`.
+- `tests/run.php`: 59 automated checks (`php tests/run.php`).
+
+**The live site is unaffected:** there is no root `index.php` and the `.htaccess` hasn't changed, so the static pages are still what visitors get. Phase 6 adds `index.php` (a single `require app/bootstrap.php; front_handle_request();`) and switches `.htaccess` to `--dynamic`.
+
+**Deviation from §3:** the front-controller logic lives in `app/front.php`, not a root `index.php`, so it could be deployed safely before go-live.
 **Goal:** let a non-technical person create, edit and delete website content from a password-protected dashboard, without losing any SEO the site has today.
 
 **Constraints agreed:**

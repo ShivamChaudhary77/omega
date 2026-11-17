@@ -2,10 +2,18 @@
 """Generate host-specific redirect config from redirects.json (single source
 of truth). Re-run after adding entries to redirects.json.
 
-Usage: python3 scripts/build-redirects.py
+Usage:
+  python3 scripts/build-redirects.py            current static site (default)
+  python3 scripts/build-redirects.py --dynamic  dynamic PHP site (Phase 6 go-live):
+      replaces the Blog CMS routing block with the front-controller rules that
+      send every URL without a real file to index.php, and blocks the internal
+      app/, templates/, content/ and tests/ folders.
 """
 import json
+import sys
 from pathlib import Path
+
+DYNAMIC = "--dynamic" in sys.argv[1:]
 
 SITE_ROOT = Path(__file__).resolve().parent.parent
 DOMAIN = "https://theomegagroup.in"
@@ -34,7 +42,22 @@ htaccess_lines = [
 ]
 for r in redirects:
     htaccess_lines.append(f"Redirect 301 {r['from']} {DOMAIN}{r['to']}")
-htaccess_lines += [
+if DYNAMIC:
+    htaccess_lines += [
+        "",
+        "# ---- Dynamic site front controller (index.php -> app/front.php) ----",
+        "# Internal folders are never served (each also has its own deny .htaccess).",
+        "RewriteRule ^(app|templates|content|tests)(/|$) - [F,L]",
+        "",
+        "# Real files (CSS, JS, images, PHP form endpoints, uploads) are served as-is.",
+        "# Every other URL is a content page rendered by index.php, which also",
+        "# handles dashboard redirects and the branded 404.",
+        "RewriteCond %{REQUEST_FILENAME} !-f",
+        "RewriteCond %{REQUEST_FILENAME} !-d",
+        "RewriteRule ^ index.php [L,QSA]",
+    ]
+else:
+    htaccess_lines += [
     "",
     "# Clean directory-style URLs (blog posts + location pages) are real",
     "# directories with their own index.html, so no rewrite rules are needed",

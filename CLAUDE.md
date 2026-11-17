@@ -11,3 +11,4 @@ Key rules:
 - Never fabricate stats, reviews, testimonials or project facts.
 - Never commit `php/config.php`.
 - Preview with `python3 -m http.server 8000` (`file://` breaks the JSON fetches).
+- A conversion to a dynamic PHP site with a dashboard is in progress (`DYNAMIC-CMS-PLAN.md`, `KNOWLEDGE-BASE.md` §12). Run `php tests/run.php` after touching `app/` or `templates/`. Never add a root `index.php` before Phase 6 go-live: it would replace the live homepage.

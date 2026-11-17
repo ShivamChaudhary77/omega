@@ -26,7 +26,7 @@ Read this before changing the site. It covers how the site is built, which file 
 | Generators | Python 3 scripts in `scripts/`. There is no npm build step. `package.json` only lists Playwright, a dev tool. |
 | Backend | Plain PHP 8 with PDO and MySQL on Hostinger: two lead-form endpoints in `php/`, plus an optional MySQL-backed **Blog CMS** in `blog-cms/`. |
 | Hosting | **Hostinger (Apache)** is the live target: `.htaccess` handles redirects, the 404 page and CMS routing, and the PHP code needs it. `vercel.json` and `_redirects` (Netlify) are generated alternatives and are not in use. |
-| Deploy | cPanel Git deployment: `.cpanel.yml` rsyncs the repo to `/home/theomega/public_html/`, excluding `.git`, `.claude`, `.DS_Store`, `php/config.php`, `blog-cms/uploads` and `node_modules`. |
+| Deploy | cPanel Git deployment: `.cpanel.yml` rsyncs the repo to `/home/theomega/public_html/`, excluding `.git`, `.claude`, `.DS_Store`, `php/config.php`, `blog-cms/uploads`, `node_modules`, `/tests`, `/content`, `/uploads` and `app/config.local.php`. |
 | Tracking | GA4 `G-FSNHC0N7BD`, Meta Pixel `857790543995038`, GSC verification meta tag. Every page has all of them (checked across all HTML files). |
 
 ### Directory map
@@ -199,7 +199,25 @@ Fixed on 17 Nov 2026: the 90 duplicate blog URLs removed from `sitemap.xml` (plu
 4. On the live site, check the new URL, view the source for title, canonical and JSON-LD, test any redirect, and submit the URL or sitemap in GSC.
 5. For form or PHP changes, submit a test lead and confirm the row in phpMyAdmin.
 
-## 12. Other docs in the repo
+## 12. Dynamic site (in progress)
+
+The site is being converted to server-rendered PHP with a dashboard: see `DYNAMIC-CMS-PLAN.md` for the 6 phases and their status. **Until Phase 6 (go-live), everything above still describes the live site.** The new code is deployed but inactive.
+
+- **Code:** `app/` (logic), `templates/` (layout and partials), `content/site.json` (site-wide settings). Pages will live as `content/pages/<id>.json`.
+- **Local preview:**
+  ```bash
+  php -S localhost:8000 router.php
+  ```
+  Add `OMEGA_MODE=dynamic` to render dynamic pages even where a static file exists.
+- **Tests:**
+  ```bash
+  php tests/run.php
+  ```
+- **Maintenance:** `php app/cli.php rebuild | clear-cache | check | render /path/`
+- **Keep in sync until go-live:** business details are in both `data/organization.json` (static site) and `content/site.json` (dynamic site).
+- **Production content directory:** this must sit outside `public_html` and is set in `app/config.local.php` (gitignored, not deployed). It gets created in Phase 6.
+
+## 13. Other docs in the repo
 
 | File | Covers |
 |---|---|
