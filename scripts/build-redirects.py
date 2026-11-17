@@ -31,17 +31,38 @@ htaccess_lines = [
     "# redirect block below; edit redirects.json and re-run the script instead.",
     "RewriteEngine On",
     "",
+] + ([
+    "# Unknown addresses are answered by index.php with the site's branded 404",
+    "# page (content-managed, noindex).",
+] if DYNAMIC else []) + [
     "# Serve the site's own branded 404 page for any unmatched URL, instead of",
     "# the host's generic default error page. 404.html already carries its own",
     "# noindex meta tag, so this does not affect indexability — only what a",
     "# visitor (or a crawler checking the page itself) actually sees. The",
     "# blog-cms router has its own equivalent fallback for its specific",
     "# category/slug routes (see blog-cms/public/router.php) and is unaffected.",
-    "ErrorDocument 404 /404.html",
+    "ErrorDocument 404 /404.html" if not DYNAMIC else "ErrorDocument 404 /index.php",
     "",
 ]
-for r in redirects:
-    htaccess_lines.append(f"Redirect 301 {r['from']} {DOMAIN}{r['to']}")
+if DYNAMIC:
+    htaccess_lines += [
+        "# The dynamic site's front door comes first; index.html is only a fallback.",
+        "DirectoryIndex index.php index.html",
+        "",
+    ]
+if DYNAMIC:
+    # Exact-match rewrite rules instead of mod_alias "Redirect": mod_alias
+    # matches a path PREFIX (Redirect /project/ would also catch every
+    # /project/<slug>/ page once the static folders are gone), and Apache and
+    # LiteSpeed treat it differently. These behave the same everywhere.
+    import re as _re
+    htaccess_lines.append("# Historic redirects (exact address, with or without the final slash).")
+    for r in redirects:
+        pattern = _re.escape(r["from"].strip("/"))
+        htaccess_lines.append(f"RewriteRule ^{pattern}/?$ {DOMAIN}{r['to']} [R=301,L]")
+else:
+    for r in redirects:
+        htaccess_lines.append(f"Redirect 301 {r['from']} {DOMAIN}{r['to']}")
 if DYNAMIC:
     htaccess_lines += [
         "",
@@ -75,6 +96,16 @@ else:
     "RewriteCond %{REQUEST_FILENAME} !-d",
     "RewriteRule ^([a-z0-9-]+)/([a-z0-9-]+)/?$ /blog-cms/public/router.php?category_slug=$1&post_slug=$2 [L,QSA]",
 ]
+if DYNAMIC:
+    static_comment = [
+        "# Serve the site's own branded 404 page for any unmatched URL, instead of",
+        "# the host's generic default error page. 404.html already carries its own",
+        "# noindex meta tag, so this does not affect indexability — only what a",
+        "# visitor (or a crawler checking the page itself) actually sees. The",
+        "# blog-cms router has its own equivalent fallback for its specific",
+        "# category/slug routes (see blog-cms/public/router.php) and is unaffected.",
+    ]
+    htaccess_lines = [line for line in htaccess_lines if line not in static_comment]
 (SITE_ROOT / ".htaccess").write_text("\n".join(htaccess_lines) + "\n", encoding="utf-8")
 
 # ---------- Vercel vercel.json ----------

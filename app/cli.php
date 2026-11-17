@@ -8,6 +8,9 @@
  *   php app/cli.php check          validate every page file and report problems
  *   php app/cli.php render /path/  print the HTML the site would send for a URL
  *   php app/cli.php set-password   set or reset the dashboard password
+ *   php app/cli.php static-files [root]
+ *                                  list the static files the dynamic site replaces
+ *                                  (deleted on the server at go-live), relative to root
  */
 
 declare(strict_types=1);
@@ -85,12 +88,41 @@ switch ($command) {
         echo "Dashboard password saved (" . admin_password_file() . ").\n";
         break;
 
+    case 'static-files':
+        foreach (static_files_replaced($argv[2] ?? OMEGA_ROOT) as $file) {
+            echo $file . "\n";
+        }
+        break;
+
     default:
-        echo "Usage: php app/cli.php rebuild|clear-cache|check|render <path>|set-password\n";
+        echo "Usage: php app/cli.php rebuild|clear-cache|check|render <path>|set-password|static-files [root]\n";
 }
 
 /** True when STDIN is an interactive terminal (so typing can be hidden). */
 function posix_isatty_safe(): bool
 {
     return function_exists('posix_isatty') ? @posix_isatty(STDIN) : (function_exists('stream_isatty') && @stream_isatty(STDIN));
+}
+
+/**
+ * Static files that would shadow a dynamic page or generated file (Apache
+ * serves a real file before the front controller), relative to $root.
+ * Only files that actually exist are listed.
+ */
+function static_files_replaced(string $root): array
+{
+    $root = rtrim($root, '/');
+    $files = ['sitemap.xml', 'sitemap-blog.xml', 'llms.txt', 'single-post.html', '404.html', 'index.html'];
+    foreach (pages_all() as $page) {
+        foreach (array_merge([$page['urlPath']], (array) ($page['aliases'] ?? [])) as $path) {
+            $path = ltrim((string) $path, '/');
+            if ($path === '') {
+                continue;
+            }
+            $files[] = str_ends_with($path, '/') ? $path . 'index.html' : $path;
+        }
+    }
+    $files = array_values(array_unique(array_filter($files, fn ($f) => is_file("$root/$f") && !str_contains($f, '..'))));
+    sort($files);
+    return $files;
 }

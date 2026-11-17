@@ -38,6 +38,16 @@ if (preg_match('#^/(app|templates|content|tests)(/|$)#', $path) || basename($pat
     return true;
 }
 
+// The historic redirects live in .htaccess on the real server as exact-match
+// rewrite rules (go-live version); emulate them here so local runs match.
+$historic = (json_read(__DIR__ . '/redirects.json') ?? [])['redirects'] ?? [];
+foreach ($historic as $rule) {
+    if (rtrim($path, '/') === rtrim((string) $rule['from'], '/')) {
+        header('Location: ' . absolute_url((string) $rule['to']), true, 301);
+        return true;
+    }
+}
+
 // Dashboard uploads may live outside the repo (OMEGA_UPLOADS_DIR); serve them from there.
 if (str_starts_with($path, '/uploads/')) {
     require_once OMEGA_APP . '/media.php';
