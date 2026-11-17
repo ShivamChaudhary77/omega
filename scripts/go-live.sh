@@ -71,7 +71,7 @@ ok "go-live code is deployed"
 [ -f "$REPO/content/site.json" ] && [ -d "$REPO/content/pages" ] || fail "$REPO/content is missing: run this from the Git repository folder"
 case "$CONTENT/" in "$PUBLIC"/*) fail "the content folder must be OUTSIDE $PUBLIC";; esac
 [ ! -e "$CONTENT" ] || fail "$CONTENT already exists. Already switched on? (Use the dashboard, or move it aside to start again.)"
-if [ -d "$PUBLIC/.git" ]; then
+if [ -e "$PUBLIC/.git" ]; then
   ok "deploy style: repository checked out in $PUBLIC (git pull)"
 else
   ok "deploy style: files copied into $PUBLIC"
