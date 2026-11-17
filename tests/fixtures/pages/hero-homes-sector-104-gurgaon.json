@@ -1,0 +1,53 @@
+{
+  "id": "hero-homes-sector-104-gurgaon",
+  "type": "project",
+  "status": "published",
+  "urlPath": "/project/hero-homes-sector-104-gurgaon/",
+  "seo": {
+    "title": "Hero Homes Interior Design | Sector 104 Gurgaon",
+    "description": "Photo gallery of our apartment interior design project at Hero Homes, Sector 104, Gurgaon — designed and delivered end-to-end by The Omega Group."
+  },
+  "name": "Hero Homes",
+  "projectType": "Apartment Interior",
+  "configuration": null,
+  "location": "Sector 104, Gurgaon",
+  "sizeSqFt": null,
+  "budgetBand": null,
+  "timeline": null,
+  "image": "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-banner.webp",
+  "imageAlt": "Hero Homes — Apartment Interior designed by The Omega Group",
+  "gallery": [
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-01.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-02.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-03.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-04.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-05.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-06.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-07.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-08.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-09.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-10.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-11.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-12.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-13.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-14.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-15.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-16.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-17.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-18.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-19.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-20.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-21.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-22.webp",
+    "/img/projects/hero-homes-sector-104-gurgaon/hero-homes-sector-104-gurgaon-23.webp"
+  ],
+  "h1": "Hero Homes Interior Design — Sector 104, Gurgaon",
+  "leadAnswer": null,
+  "sections": [],
+  "relatedBlogPosts": [],
+  "sortOrder": 2,
+  "card": {
+    "title": "Hero Homes",
+    "alt": "Hero Homes interior design, Sector 104, Gurgaon, by The Omega Group"
+  }
+}

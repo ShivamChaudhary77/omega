@@ -35,7 +35,7 @@ return [
     // URL prefixes a content page may never use, because real folders or
     // system areas already live there.
     'reserved_prefixes' => [
-        '/admin', '/app', '/templates', '/content', '/tests', '/css', '/js', '/img',
+        '/admin', '/api', '/app', '/templates', '/content', '/tests', '/css', '/js', '/img',
         '/lib', '/php', '/uploads', '/blog-cms', '/data', '/scripts', '/video',
         '/database', '/scss', '/node_modules',
     ],

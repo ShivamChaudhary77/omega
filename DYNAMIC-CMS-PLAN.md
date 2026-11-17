@@ -1,14 +1,14 @@
 # Plan: Static Site → Dynamic Site with a Simple Dashboard
 
-**Status:** Phase 1 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
+**Status:** Phases 1–2 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
 
 ## Progress
 
 | Phase | Status | Notes |
 |---|---|---|
 | 1. Foundations | ✅ Done | See "Phase 1 delivered" below |
-| 2. Templates | Not started | |
-| 3. Migration + comparison | Not started | |
+| 2. Templates | ✅ Done | See "Phase 2 delivered" below |
+| 3. Migration + comparison | Not started | Also converts the hand-written pages into blocks (see Phase 2 notes) |
 | 4. Dashboard | Not started | |
 | 5. SEO automation | Not started | |
 | 6. Staging, go-live, monitoring | Not started | |
@@ -25,6 +25,27 @@
 **The live site is unaffected:** there is no root `index.php` and the `.htaccess` hasn't changed, so the static pages are still what visitors get. Phase 6 adds `index.php` (a single `require app/bootstrap.php; front_handle_request();`) and switches `.htaccess` to `--dynamic`.
 
 **Deviation from §3:** the front-controller logic lives in `app/front.php`, not a root `index.php`, so it could be deployed safely before go-live.
+
+### Phase 2 delivered
+- **Templates:**
+  - `templates/blog-post.php`: the full article is now rendered on the server, including the table of contents, takeaways, FAQs, author box, related posts and share links. `single-post.js` is no longer needed.
+  - `templates/location.php` and `templates/project.php`.
+  - `templates/page.php`: simple pages and the block renderer.
+- **Blocks** (`templates/blocks/`): `html`, `hero`, `rich-text`, `faq`, `latest-posts` (homepage "From The Blog"), `project-cards` (homepage carousel and projects grid) and `blog-listing` (blog page).
+  - **Lists update themselves:** the latest-posts, project-cards and blog-listing blocks always show the current posts and projects.
+  - **Hand-designed sections stay exact:** the unique sections of the home, about, service, contact and landing pages become `html` blocks.
+- **Extra partials:** `faq-accordion`, `post-card` and `project-card`. The CTA text now varies by page type (`site.json` → `ctaTextByType`).
+- **Layouts:** a `bare` layout for the ads landing pages (no site nav, footer or CTA; own script list). The 404 page is content-managed (page id `not-found`).
+- **`/api/posts.json`:** a live feed for `js/blog.js`, whose data URL is now configurable (the static site still uses `data/blog-data.json`).
+- **Server-rendered schema per type:** BlogPosting, CreativeWork, CollectionPage/ItemList, plus Breadcrumb and FAQ from page data and FAQ blocks.
+- **`content/SCHEMA.md`:** documents the content format of every page type and block.
+- **`scripts/dynamic_mapping.py`:** converts blog-data.json, location content and projects.json into page JSON. Phase 3 reuses it.
+- **Tests: 141 checks.** `tests/make-fixtures.py` builds fixtures from **real** site data. The tests confirm that the location and project pages show **identical visible text, links, titles, descriptions and canonicals** to the current static pages. Blog posts are checked against their data and their schema against the static pages.
+- **Intended differences from the static site:**
+  - Every page has the fuller LocalBusiness schema (static posts had a basic Organization).
+  - Article text is in the HTML instead of being loaded by JavaScript.
+  - Related posts are ordered newest-first.
+  - Every page gets OG/Twitter tags.
 **Goal:** let a non-technical person create, edit and delete website content from a password-protected dashboard, without losing any SEO the site has today.
 
 **Constraints agreed:**

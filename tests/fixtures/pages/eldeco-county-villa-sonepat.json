@@ -1,0 +1,40 @@
+{
+  "id": "eldeco-county-villa-sonepat",
+  "type": "project",
+  "status": "published",
+  "urlPath": "/project/eldeco-county-villa-sonepat/",
+  "seo": {
+    "title": "Eldeco County Villa Interior Design | Sonepat",
+    "description": "Photo gallery of our villa interior design project at Eldeco County Villa, Sonepat — designed and delivered end-to-end by The Omega Group."
+  },
+  "name": "Eldeco County Villa",
+  "projectType": "Villa Interior",
+  "configuration": null,
+  "location": "Sonepat",
+  "sizeSqFt": null,
+  "budgetBand": null,
+  "timeline": null,
+  "image": "/img/projects/eldeco-county-villa-sonepat/eldeco-county-villa-sonepat-banner.webp",
+  "imageAlt": "Eldeco County Villa — Villa Interior designed by The Omega Group",
+  "gallery": [
+    "/img/projects/eldeco-county-villa-sonepat/eldeco-county-villa-sonepat-01.webp",
+    "/img/projects/eldeco-county-villa-sonepat/eldeco-county-villa-sonepat-02.webp",
+    "/img/projects/eldeco-county-villa-sonepat/eldeco-county-villa-sonepat-03.webp",
+    "/img/projects/eldeco-county-villa-sonepat/eldeco-county-villa-sonepat-04.webp",
+    "/img/projects/eldeco-county-villa-sonepat/eldeco-county-villa-sonepat-05.webp"
+  ],
+  "h1": "Eldeco County Villa Interior Design — Sonepat",
+  "leadAnswer": null,
+  "sections": [],
+  "relatedBlogPosts": [
+    {
+      "text": "Villa Interior Design in Gurgaon",
+      "href": "/home-residential-interiors/villa-interior-design-gurgaon/"
+    }
+  ],
+  "sortOrder": 4,
+  "card": {
+    "title": "Eldeco County Villa",
+    "alt": "Eldeco County Villa interior design, Sonepat, by The Omega Group"
+  }
+}

@@ -18,8 +18,8 @@
 
 declare(strict_types=1);
 
-const PAGE_TYPES = ['home', 'page', 'blog-post', 'location', 'project', 'blog-index',
-    'project-index', 'service', 'contact', 'landing', 'author'];
+const PAGE_TYPES = ['home', 'page', 'about', 'blog-post', 'location', 'project', 'blog-index',
+    'project-index', 'service', 'contact', 'faqs', 'landing', 'author', 'not-found'];
 const PAGE_STATUSES = ['draft', 'published'];
 
 function content_dir(): string
@@ -150,7 +150,7 @@ function page_index(): array
     }
     $indexFile = content_path('_cache/index.json');
     $index = is_file($indexFile) ? json_read($indexFile) : null;
-    if (!$index || ($index['pagesMtime'] ?? -1) !== $pagesMtime) {
+    if (!$index || ($index['pagesMtime'] ?? -1) !== $pagesMtime || !isset($index['summaries'])) {
         $index = page_index_rebuild();
     }
     $memo[$dir] = $index;
@@ -168,23 +168,64 @@ function page_index_rebuild(): array
 {
     clearstatcache();
     $paths = [];
+    $summaries = [];
     foreach (pages_all() as $id => $page) {
         foreach (array_merge([$page['urlPath'] ?? ''], (array) ($page['aliases'] ?? [])) as $path) {
             if (is_string($path) && $path !== '') {
                 $paths[$path] = $id;
             }
         }
+        $summaries[$id] = page_summary($page);
     }
     $pagesDir = content_path('pages');
     $index = [
         'pagesMtime' => is_dir($pagesDir) ? (int) filemtime($pagesDir) : 0,
         'builtAt' => date('c'),
         'paths' => $paths,
+        'summaries' => $summaries,
     ];
     json_write(content_path('_cache/index.json'), $index);
     $memo = &page_index_memo();
     $memo[content_dir()] = $index;
     return $index;
+}
+
+/**
+ * The small set of fields listings need (cards, related posts, schema
+ * lists), so listing pages never have to load every full page file.
+ */
+function page_summary(array $page): array
+{
+    $keys = ['id', 'type', 'status', 'urlPath', 'title', 'category', 'tags', 'publishDate',
+        'modifiedDate', 'readingTimeMinutes', 'excerpt', 'featuredImage', 'name', 'projectType',
+        'location', 'image', 'card', 'sortOrder'];
+    $summary = array_intersect_key($page, array_flip($keys));
+    $summary['seoTitle'] = $page['seo']['title'] ?? '';
+    return $summary;
+}
+
+/** Summaries of every page (drafts included), keyed by id. */
+function page_summaries(): array
+{
+    page_index();
+    $memo = &page_index_memo();
+    return $memo[content_dir()]['summaries'] ?? [];
+}
+
+/** Published blog posts, newest first. */
+function posts_published(): array
+{
+    $posts = array_filter(page_summaries(), fn ($p) => ($p['type'] ?? '') === 'blog-post' && ($p['status'] ?? '') === 'published');
+    usort($posts, fn ($a, $b) => strcmp((string) ($b['publishDate'] ?? ''), (string) ($a['publishDate'] ?? '')) ?: strcmp($a['id'], $b['id']));
+    return array_values($posts);
+}
+
+/** Published projects in display order (sortOrder, then name). */
+function projects_published(): array
+{
+    $projects = array_filter(page_summaries(), fn ($p) => ($p['type'] ?? '') === 'project' && ($p['status'] ?? '') === 'published');
+    usort($projects, fn ($a, $b) => ((int) ($a['sortOrder'] ?? 9999) <=> (int) ($b['sortOrder'] ?? 9999)) ?: strcmp((string) ($a['name'] ?? ''), (string) ($b['name'] ?? '')));
+    return array_values($projects);
 }
 
 /** The page published at a URL path (or alias), or null. Drafts excluded unless asked. */

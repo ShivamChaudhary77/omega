@@ -203,7 +203,8 @@ Fixed on 17 Nov 2026: the 90 duplicate blog URLs removed from `sitemap.xml` (plu
 
 The site is being converted to server-rendered PHP with a dashboard: see `DYNAMIC-CMS-PLAN.md` for the 6 phases and their status. **Until Phase 6 (go-live), everything above still describes the live site.** The new code is deployed but inactive.
 
-- **Code:** `app/` (logic), `templates/` (layout and partials), `content/site.json` (site-wide settings). Pages will live as `content/pages/<id>.json`.
+- **Code:** `app/` (logic), `templates/` (layout, page types, `blocks/`, `partials/`), `content/site.json` (site-wide settings). Pages will live as `content/pages/<id>.json`. The content format is documented in `content/SCHEMA.md`.
+- **Test data:** `python3 tests/make-fixtures.py` rebuilds the test fixtures from real site data. `scripts/dynamic_mapping.py` holds the conversion rules.
 - **Local preview:**
   ```bash
   php -S localhost:8000 router.php

@@ -1,15 +1,23 @@
 <?php
 /**
- * Simple page: title band, rich-text sections, optional FAQs.
- * Also the fallback for page types whose own template arrives in Phase 2.
+ * Every page type without a dedicated template: home, about, service,
+ * contact, faqs, blog index, project index, author, landing pages, 404 and
+ * any new simple page.
  *
- * Page fields used:
- *   h1, breadcrumb (optional), intro (optional HTML),
+ * A page with "blocks" is rendered block by block (see templates/blocks/).
+ * A page without blocks is a simple page: title band, rich-text sections,
+ * optional FAQs.
+ *
+ * Simple-page fields: h1, breadcrumb (optional), intro (HTML, optional),
  *   sections: [{heading, html}], faqs: [{question, answer}]
  *
  * @var array $page
  * @var array $site
  */
+if (!empty($page['blocks'])) {
+    echo render_blocks($page, $site);
+    return;
+}
 $sections = (array) ($page['sections'] ?? []);
 ?>
 <?php partial('hero', ['page' => $page]); ?>

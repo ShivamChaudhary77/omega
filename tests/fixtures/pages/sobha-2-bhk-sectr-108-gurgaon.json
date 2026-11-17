@@ -1,0 +1,60 @@
+{
+  "id": "sobha-2-bhk-sectr-108-gurgaon",
+  "type": "project",
+  "status": "published",
+  "urlPath": "/project/sobha-2-bhk-sectr-108-gurgaon/",
+  "seo": {
+    "title": "SOBHA | Apartment Interior by The Omega Group",
+    "description": "SOBHA — a apartment interior designed and delivered end-to-end by The Omega Group, Sector 108, Gurgaon. See the finished space and how we approach every project."
+  },
+  "name": "SOBHA",
+  "projectType": "Apartment Interior",
+  "configuration": "2 BHK",
+  "location": "Sector 108, Gurgaon",
+  "sizeSqFt": null,
+  "budgetBand": null,
+  "timeline": null,
+  "image": "/img/projects/sobha/sobha-banner.webp",
+  "imageAlt": "SOBHA — Apartment Interior designed by The Omega Group",
+  "gallery": [
+    "/img/projects/sobha/sobha-01.webp",
+    "/img/projects/sobha/sobha-02.webp",
+    "/img/projects/sobha/sobha-03.webp",
+    "/img/projects/sobha/sobha-04.webp",
+    "/img/projects/sobha/sobha-05.webp",
+    "/img/projects/sobha/sobha-06.webp",
+    "/img/projects/sobha/sobha-07.webp",
+    "/img/projects/sobha/sobha-08.webp",
+    "/img/projects/sobha/sobha-09.webp",
+    "/img/projects/sobha/sobha-10.webp",
+    "/img/projects/sobha/sobha-11.webp",
+    "/img/projects/sobha/sobha-12.webp",
+    "/img/projects/sobha/sobha-13.webp",
+    "/img/projects/sobha/sobha-14.webp",
+    "/img/projects/sobha/sobha-15.webp",
+    "/img/projects/sobha/sobha-16.webp",
+    "/img/projects/sobha/sobha-17.webp",
+    "/img/projects/sobha/sobha-18.webp",
+    "/img/projects/sobha/sobha-19.webp",
+    "/img/projects/sobha/sobha-20.webp",
+    "/img/projects/sobha/sobha-21.webp"
+  ],
+  "h1": "SOBHA — Apartment Interior, Sector 108, Gurgaon",
+  "leadAnswer": "SOBHA is a apartment interior designed and delivered end-to-end by The Omega Group, Sector 108, Gurgaon — design, material sourcing, and on-site execution managed by one team from first consultation to final handover.",
+  "sections": [
+    {
+      "heading": "About This Project",
+      "html": "<p>This apartment interior was designed and delivered end-to-end by The Omega Group — layout, lighting, furniture, and finishes planned as one cohesive whole rather than room-by-room afterthoughts. As with every Omega Group apartment project, the brief balanced everyday livability with a considered, premium finish.</p>"
+    },
+    {
+      "heading": "The Omega Group Approach",
+      "html": "<p>Every project — including this one — follows the same process: a detailed consultation about the space and how it's actually used, design and material sign-off before any work begins, execution by our own site team with quality checks at every milestone, and a final walkthrough before handover. It's the same process we walk through in detail on our <a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a>.</p>"
+    }
+  ],
+  "relatedBlogPosts": [],
+  "sortOrder": 7,
+  "card": {
+    "title": "SOBHA",
+    "alt": "Open-plan apartment living and dining area with teal accents by The Omega Group"
+  }
+}

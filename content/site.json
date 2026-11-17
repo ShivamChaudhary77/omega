@@ -206,5 +206,20 @@
         "buttonHref": "/contact.html",
         "image": "/img/cta-consultation.webp",
         "imageAlt": "Luxury bedroom suite with marble accent wall and custom dressing area designed by The Omega Group"
+    },
+    "ctaTextByType": {
+        "blog-post": "Have a question sparked by this article? Talk it through with our design team — no obligation, just clarity on your next step.",
+        "location": "Talk to our design team about your {ctaContext} — no obligation, just clarity on scope, timeline, and budget.",
+        "project": "Like what you see? Talk to our design team about a project for your own home — no obligation, just clarity on scope, timeline, and budget."
+    },
+    "authors": {
+        "Shivam Kumar": {
+            "url": "/author/shivam-kumar/",
+            "sameAs": [
+                "https://www.linkedin.com/in/shivam-growth-engineer/"
+            ],
+            "bio": "Shivam Kumar is a content writer and digital marketing professional with an interest in SEO, technology, and digital growth. He focuses on creating clear, useful, and research-driven content that helps readers understand complex topics in a simple way.",
+            "reviewedNote": "Reviewed for accuracy by The Omega Group's in-house design team — Gurgaon's luxury interior design and turnkey execution studio."
+        }
     }
 }

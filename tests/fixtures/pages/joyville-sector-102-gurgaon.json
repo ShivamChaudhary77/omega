@@ -1,0 +1,52 @@
+{
+  "id": "joyville-sector-102-gurgaon",
+  "type": "project",
+  "status": "published",
+  "urlPath": "/project/joyville-sector-102-gurgaon/",
+  "seo": {
+    "title": "Joyville | Apartment Interior by The Omega Group",
+    "description": "Joyville — a apartment interior designed and delivered end-to-end by The Omega Group, Sector 102, Gurgaon. See the finished space and how we approach every project."
+  },
+  "name": "Joyville",
+  "projectType": "Apartment Interior",
+  "configuration": null,
+  "location": "Sector 102, Gurgaon",
+  "sizeSqFt": null,
+  "budgetBand": null,
+  "timeline": null,
+  "image": "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-banner.webp",
+  "imageAlt": "Joyville — Apartment Interior designed by The Omega Group",
+  "gallery": [
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-01.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-02.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-03.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-04.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-05.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-06.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-07.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-08.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-09.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-10.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-11.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-12.webp",
+    "/img/projects/joyville-sector-102-gurgaon/joyville-sector-102-gurgaon-13.webp"
+  ],
+  "h1": "Joyville — Apartment Interior, Sector 102, Gurgaon",
+  "leadAnswer": "Joyville is a apartment interior designed and delivered end-to-end by The Omega Group, Sector 102, Gurgaon — design, material sourcing, and on-site execution managed by one team from first consultation to final handover.",
+  "sections": [
+    {
+      "heading": "About This Project",
+      "html": "<p>This apartment interior was designed and delivered end-to-end by The Omega Group — layout, lighting, furniture, and finishes planned as one cohesive whole rather than room-by-room afterthoughts. As with every Omega Group apartment project, the brief balanced everyday livability with a considered, premium finish.</p>"
+    },
+    {
+      "heading": "The Omega Group Approach",
+      "html": "<p>Every project — including this one — follows the same process: a detailed consultation about the space and how it's actually used, design and material sign-off before any work begins, execution by our own site team with quality checks at every milestone, and a final walkthrough before handover. It's the same process we walk through in detail on our <a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a>.</p>"
+    }
+  ],
+  "relatedBlogPosts": [],
+  "sortOrder": 13,
+  "card": {
+    "title": "Joyville",
+    "alt": "Joyville, Sector 102 apartment interior by The Omega Group"
+  }
+}

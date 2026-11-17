@@ -53,6 +53,15 @@ function front_dispatch(string $method, string $uri): array
         return response($code, '', ['Location' => $location]);
     }
 
+    if ($path === '/api/posts.json') {
+        $result = response(200, posts_feed_json(), [
+            'Content-Type' => 'application/json; charset=utf-8',
+            'X-Omega-Cache' => 'MISS',
+        ]);
+        cache_put($path, $result);
+        return $result;
+    }
+
     $page = page_find_by_path($path);
     if ($page) {
         $result = response(200, render_page($page), [
@@ -76,9 +85,36 @@ function response(int $status, string $body, array $headers = []): array
     return ['status' => $status, 'headers' => $headers, 'body' => $body];
 }
 
-/** The site's branded 404 page (404.html, which carries its own noindex). */
+/**
+ * Published blog posts in the shape js/blog.js expects (the same fields as
+ * the old data/blog-data.json), newest first.
+ */
+function posts_feed_json(): string
+{
+    $feed = array_map(fn ($p) => [
+        'slug' => $p['id'],
+        'title' => $p['title'] ?? '',
+        'category' => $p['category'] ?? '',
+        'tags' => array_values((array) ($p['tags'] ?? [])),
+        'publishDate' => $p['publishDate'] ?? '',
+        'readingTimeMinutes' => (int) ($p['readingTimeMinutes'] ?? 0),
+        'featuredImage' => $p['featuredImage'] ?? ['src' => '', 'alt' => '', 'width' => 1200, 'height' => 800],
+        'excerpt' => $p['excerpt'] ?? '',
+        'urlPath' => $p['urlPath'],
+    ], posts_published());
+    return (string) json_encode($feed, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+}
+
+/**
+ * The branded 404 page: the published content page with id "not-found" if
+ * there is one, otherwise the static 404.html (which carries its own noindex).
+ */
 function not_found_response(int $status = 404): array
 {
+    $page = page_load('not-found');
+    if ($page && ($page['status'] ?? '') === 'published') {
+        return response($status, render_page($page), ['Content-Type' => 'text/html; charset=utf-8', 'X-Robots-Tag' => 'noindex']);
+    }
     $file = OMEGA_ROOT . '/404.html';
     $body = is_file($file) ? (string) file_get_contents($file) : '<h1>Page not found</h1>';
     return response($status, $body, ['Content-Type' => 'text/html; charset=utf-8', 'X-Robots-Tag' => 'noindex']);

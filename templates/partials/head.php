@@ -88,8 +88,10 @@ $verification = (string) ($tracking['googleSiteVerification'] ?? '');
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+<?php if ($head['animateCss']): ?>
     <!-- Libraries Stylesheet -->
     <link href="/lib/animate/animate.min.css" rel="stylesheet">
+<?php endif; ?>
 <?php if ($head['owlCarousel']): ?>
     <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 <?php endif; ?>
@@ -102,6 +104,13 @@ $verification = (string) ($tracking['googleSiteVerification'] ?? '');
 <?php foreach ($head['extraCss'] as $css): ?>
     <link href="<?= e($css) ?>" rel="stylesheet">
 <?php endforeach; ?>
+<?php if ($head['preload'] !== ''): ?>
+    <link rel="preload" as="image" href="<?= e($head['preload']) ?>">
+<?php endif; ?>
+<?php if ($head['headHtml'] !== ''): ?>
+    <?= $head['headHtml'] ?>
+
+<?php endif; ?>
 <?php foreach ($head['schema'] as $schema): ?>
     <?= json_ld($schema) ?>
 

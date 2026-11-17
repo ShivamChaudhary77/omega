@@ -1,7 +1,9 @@
 (function () {
     "use strict";
 
-    const DATA_URL = "/data/blog-data.json";
+    // The dynamic site sets window.OMEGA_BLOG_DATA_URL to its live /api/posts.json
+    // feed; the static site keeps reading data/blog-data.json.
+    const DATA_URL = window.OMEGA_BLOG_DATA_URL || "/data/blog-data.json";
     const PAGE_SIZE = 9;
 
     let allPosts = [];

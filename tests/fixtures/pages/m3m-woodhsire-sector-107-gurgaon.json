@@ -1,0 +1,61 @@
+{
+  "id": "m3m-woodhsire-sector-107-gurgaon",
+  "type": "project",
+  "status": "published",
+  "urlPath": "/project/m3m-woodhsire-sector-107-gurgaon/",
+  "seo": {
+    "title": "M3M Woodshire | Villa Interior by The Omega Group",
+    "description": "M3M Woodshire — a villa interior designed and delivered end-to-end by The Omega Group, Sector 107, Gurgaon. See the finished space and how we approach every project."
+  },
+  "name": "M3M Woodshire",
+  "projectType": "Villa Interior",
+  "configuration": null,
+  "location": "Sector 107, Gurgaon",
+  "sizeSqFt": null,
+  "budgetBand": null,
+  "timeline": null,
+  "image": "/img/projects/m3m-woodshire/m3m-woodshire-banner.webp",
+  "imageAlt": "M3M Woodshire — Villa Interior designed by The Omega Group",
+  "gallery": [
+    "/img/projects/m3m-woodshire/m3m-woodshire-01.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-02.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-03.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-04.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-05.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-06.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-07.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-08.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-09.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-10.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-11.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-12.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-13.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-14.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-15.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-16.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-17.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-18.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-19.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-20.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-21.webp",
+    "/img/projects/m3m-woodshire/m3m-woodshire-22.webp"
+  ],
+  "h1": "M3M Woodshire — Villa Interior, Sector 107, Gurgaon",
+  "leadAnswer": "M3M Woodshire is a villa interior designed and delivered end-to-end by The Omega Group, Sector 107, Gurgaon — design, material sourcing, and on-site execution managed by one team from first consultation to final handover.",
+  "sections": [
+    {
+      "heading": "About This Project",
+      "html": "<p>This villa interior was designed and delivered end-to-end by The Omega Group, balancing the expansive scale of independent-villa living with a considered, liveable luxury — indoor-outdoor flow, layered lighting, and finishes chosen to suit the home's proportions rather than a generic template.</p>"
+    },
+    {
+      "heading": "The Omega Group Approach",
+      "html": "<p>Every project — including this one — follows the same process: a detailed consultation about the space and how it's actually used, design and material sign-off before any work begins, execution by our own site team with quality checks at every milestone, and a final walkthrough before handover. It's the same process we walk through in detail on our <a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a>.</p>"
+    }
+  ],
+  "relatedBlogPosts": [],
+  "sortOrder": 10,
+  "card": {
+    "title": "M3M Woodshire",
+    "alt": "M3M Woodshire villa interior and lounge by The Omega Group"
+  }
+}

@@ -1,13 +1,13 @@
 <?php
 /**
  * "Free Luxury Design Consultation" block shown above the footer.
- * Text comes from site.json "cta"; a page can override any field with its
- * own "cta" object, or hide the block with "cta": false.
+ * Text: site.json "cta", then site.json "ctaTextByType" for the page type,
+ * then the page's own "cta" object. A page hides it with "cta": false.
  *
  * @var array $site
  * @var array $page
  */
-$cta = array_merge((array) ($site['cta'] ?? []), is_array($page['cta'] ?? null) ? $page['cta'] : []);
+$cta = page_cta($page, $site);
 ?>
     <!-- Final CTA Start -->
     <div class="container-fluid bg-primary newsletter p-0">
@@ -15,7 +15,7 @@ $cta = array_merge((array) ($site['cta'] ?? []), is_array($page['cta'] ?? null) 
             <div class="row g-0 align-items-center">
                 <div class="col-md-5 ps-lg-0 text-start wow fadeIn" data-wow-delay="0.2s">
                     <img class="img-fluid w-100 h-100" style="object-fit: cover;" src="<?= e($cta['image'] ?? '') ?>"
-                        alt="<?= e($cta['imageAlt'] ?? '') ?>" loading="lazy">
+                        alt="<?= e($cta['imageAlt'] ?? '') ?>" loading="lazy" width="720" height="480">
                 </div>
                 <div class="col-md-7 py-5 newsletter-text wow fadeIn" data-wow-delay="0.5s">
                     <div class="p-5">

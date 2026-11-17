@@ -1,0 +1,51 @@
+{
+  "id": "krisumi-sector-36a-gurgaon",
+  "type": "project",
+  "status": "published",
+  "urlPath": "/project/krisumi-sector-36a-gurgaon/",
+  "seo": {
+    "title": "Krisumi Interior Design | Sector 36A Gurgaon",
+    "description": "Photo gallery of our apartment interior design project at Krisumi, Sector 36A, Gurgaon — designed and delivered end-to-end by The Omega Group."
+  },
+  "name": "Krisumi",
+  "projectType": "Apartment Interior",
+  "configuration": null,
+  "location": "Sector 36A, Gurgaon",
+  "sizeSqFt": null,
+  "budgetBand": null,
+  "timeline": null,
+  "image": "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-banner.webp",
+  "imageAlt": "Krisumi — Apartment Interior designed by The Omega Group",
+  "gallery": [
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-01.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-02.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-03.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-04.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-05.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-06.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-07.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-08.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-09.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-10.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-11.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-12.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-13.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-14.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-15.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-16.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-17.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-18.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-19.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-20.webp",
+    "/img/projects/krisumi-sector-36a-gurgaon/krisumi-sector-36a-gurgaon-21.webp"
+  ],
+  "h1": "Krisumi Interior Design — Sector 36A, Gurgaon",
+  "leadAnswer": null,
+  "sections": [],
+  "relatedBlogPosts": [],
+  "sortOrder": 3,
+  "card": {
+    "title": "Krisumi",
+    "alt": "Krisumi interior design, Sector 36A, Gurgaon, by The Omega Group"
+  }
+}
