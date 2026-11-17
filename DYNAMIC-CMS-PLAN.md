@@ -1,6 +1,6 @@
 # Plan: Static Site → Dynamic Site with a Simple Dashboard
 
-**Status:** Phases 1–5 of 6 done (17 Nov 2026) · **Written:** 17 Nov 2026
+**Status:** Phases 1–5 done; Phase 6 ready and rehearsed, waiting for the switch on the server (17 Nov 2026) · **Written:** 17 Nov 2026
 
 ## Progress
 
@@ -11,7 +11,7 @@
 | 3. Migration + comparison | ✅ Done | See "Phase 3 delivered" below |
 | 4. Dashboard | ✅ Done | See "Phase 4 delivered" below |
 | 5. SEO automation | ✅ Done | See "Phase 5 delivered" below |
-| 6. Staging, go-live, monitoring | Not started | |
+| 6. Staging, go-live, monitoring | 🟡 Ready | Rehearsed; switch with GO-LIVE.md. See "Phase 6 delivered" below |
 
 ### Phase 1 delivered
 - `app/`: config (`config.php`, optional gitignored `config.local.php`), `bootstrap.php`, `helpers.php` (escaping, atomic JSON writes), `content.php` (pages, URL index, validation, history, trash, dashboard redirects), `cache.php` (rendered-page cache, cleared on every change), `render.php` (templates, `<head>` and schema builders), `front.php` (front controller), and `cli.php` (`rebuild`, `clear-cache`, `check`, `render`).
@@ -126,6 +126,34 @@
   - 42 SEO titles over 60 characters and 40 meta descriptions over 160.
   - 3 posts share one SEO title, and the two Pareena Heights projects share "Pareena Heights".
   - One broken link: the DLF Phase 1–5 post links to `/home-residential-interiors/golf-course-road-interior-design-ultra-luxury-guide/`, which doesn't exist.
+
+### Phase 6 delivered (ready to switch)
+- **Runbook:** [GO-LIVE.md](GO-LIVE.md), step by step for the cPanel server.
+- **Server scripts:**
+  - **`scripts/go-live.sh`:** dry run by default. `--apply` checks PHP and the deployed code, backs up every static page it replaces, creates the content folder outside `public_html`, writes `app/config.local.php` (the on-switch), sets the password, removes the replaced static files and checks the live site.
+  - **`scripts/rollback-go-live.sh`:** undoes the switch in seconds and keeps the content folder.
+  - **`scripts/backup-content.sh`:** daily cron backup of content and uploads, keeping 14.
+- **`tests/verify-live.php`:** checks a running site against the content. It covers every page's status, title and GA tag, the sitemaps, the historic redirects, the 404, assets, private files and the admin login.
+- **Explicit on-switch** (`'enabled'` in `app/config.php`): the dynamic site only runs on the web server once `config.local.php` enables it. This matters because the live server receives repository files that `.cpanel.yml` excludes (`content/` and `.cpanel.yml` itself are on the server), which suggests the repository is checked out straight into `public_html`.
+- **`go-live` branch:**
+  - **Step A** (`index.php` with a static fallback, go-live `.htaccess`, `robots.txt`) is safe to deploy any time.
+  - **Step B** removes the 152 static files from git. Deploy it only after the switch.
+- **Go-live `.htaccess`:**
+  - the 87 historic redirects become exact-match rules, because mod_alias prefix matching would swallow `/project/<slug>/` once the folders are gone, and Apache and LiteSpeed differ on it
+  - `DirectoryIndex index.php`
+  - internal files and folders blocked (`*.md`, `.cpanel.yml`, scripts, data, git)
+  - the old blog-cms rewrite dropped
+- **Problems found on today's live server (fixed by go-live):**
+  - unknown two-level addresses such as `/project/x/` return **HTTP 500**
+  - `KNOWLEDGE-BASE.md`, `DYNAMIC-CMS-PLAN.md`, `blog-cms/DEPLOYMENT.md` and `.cpanel.yml` are publicly readable
+  - the server is still on an early Phase 1 deploy
+- **Rehearsal** on simulated servers, for both deploy styles (git checkout in `public_html`, and copy):
+  - deploy step A: the site is unchanged and the dashboard is off, even with `content/` present
+  - `go-live.sh --apply`, then `verify-live.php`: 187 of 187 checks pass
+  - deploy step B: 187 of 187 still pass
+  - rollback: the static site is back, the dashboard is off, the content is kept
+- **Tests** read removed static reference files from git history, so they keep working after step B. The dev router hands requests to `index.php` like Apache does, and emulates the historic redirects.
+- **Left for the go-live day:** the steps in GO-LIVE.md (only someone with cPanel access can run them), then `verify-live.php` against production and two weeks of watching Search Console and GA4.
 
 ## 1. The approach in one paragraph
 

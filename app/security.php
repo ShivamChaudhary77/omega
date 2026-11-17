@@ -112,10 +112,13 @@ function request_is_https(): bool
         || ((int) ($_SERVER['SERVER_PORT'] ?? 0) === 443);
 }
 
+/**
+ * True only on the local development server (php -S). Never based on the
+ * Host header or client address, which a visitor can influence.
+ */
 function request_is_local(): bool
 {
-    $host = strtolower(explode(':', (string) ($_SERVER['HTTP_HOST'] ?? ''))[0]);
-    return in_array($host, ['localhost', '127.0.0.1', '[::1]'], true) || str_ends_with($host, '.localhost') || str_ends_with($host, '.test');
+    return PHP_SAPI === 'cli-server';
 }
 
 function admin_session_start(): void

@@ -201,6 +201,8 @@ Fixed on 17 Nov 2026: the 90 duplicate blog URLs removed from `sitemap.xml` (plu
 
 ## 12. Dynamic site (in progress)
 
+> **Go-live:** follow [GO-LIVE.md](GO-LIVE.md). After go-live, sections 3–5 above (the Python generators and `data/blog-data.json`) are **retired**: content is managed in the dashboard and lives on the server in `/home/theomega/omega-content`, outside the git repository.
+
 The site is being converted to server-rendered PHP with a dashboard: see `DYNAMIC-CMS-PLAN.md` for the 6 phases and their status. **Until Phase 6 (go-live), everything above still describes the live site.** The new code is deployed but inactive.
 
 - **Code:** `app/` (logic), `templates/` (layout, page types, `blocks/`, `partials/`), `content/site.json` (site-wide settings). Pages will live as `content/pages/<id>.json`. The content format is documented in `content/SCHEMA.md`.
