@@ -1,69 +1,71 @@
 {
-  "id": "pareena-heights-sector-99-gurgaon",
-  "type": "project",
-  "status": "published",
-  "urlPath": "/project/pareena-heights-sector-99-gurgaon/",
-  "seo": {
-    "title": "Pareena Heights | Apartment Interior by The Omega Group",
-    "description": "Pareena Heights — a apartment interior designed and delivered end-to-end by The Omega Group, Sector 99, Gurgaon. See the finished space and how we approach every project."
-  },
-  "name": "Pareena Heights",
-  "projectType": "Apartment Interior",
-  "location": "Sector 99, Gurgaon",
-  "image": "/img/projects/pareena-heights/pareena-heights-banner.webp",
-  "imageAlt": "Pareena Heights — Apartment Interior designed by The Omega Group",
-  "gallery": [
-    "/img/projects/pareena-heights/pareena-heights-01.webp",
-    "/img/projects/pareena-heights/pareena-heights-02.webp",
-    "/img/projects/pareena-heights/pareena-heights-03.webp",
-    "/img/projects/pareena-heights/pareena-heights-04.webp",
-    "/img/projects/pareena-heights/pareena-heights-05.webp",
-    "/img/projects/pareena-heights/pareena-heights-06.webp",
-    "/img/projects/pareena-heights/pareena-heights-07.webp",
-    "/img/projects/pareena-heights/pareena-heights-08.webp",
-    "/img/projects/pareena-heights/pareena-heights-09.webp",
-    "/img/projects/pareena-heights/pareena-heights-10.webp",
-    "/img/projects/pareena-heights/pareena-heights-11.webp",
-    "/img/projects/pareena-heights/pareena-heights-12.webp",
-    "/img/projects/pareena-heights/pareena-heights-13.webp",
-    "/img/projects/pareena-heights/pareena-heights-14.webp",
-    "/img/projects/pareena-heights/pareena-heights-15.webp",
-    "/img/projects/pareena-heights/pareena-heights-16.webp",
-    "/img/projects/pareena-heights/pareena-heights-17.webp",
-    "/img/projects/pareena-heights/pareena-heights-18.webp",
-    "/img/projects/pareena-heights/pareena-heights-19.webp",
-    "/img/projects/pareena-heights/pareena-heights-20.webp",
-    "/img/projects/pareena-heights/pareena-heights-21.webp",
-    "/img/projects/pareena-heights/pareena-heights-22.webp",
-    "/img/projects/pareena-heights/pareena-heights-23.webp",
-    "/img/projects/pareena-heights/pareena-heights-24.webp",
-    "/img/projects/pareena-heights/pareena-heights-25.webp"
-  ],
-  "h1": "Pareena Heights — Apartment Interior, Sector 99, Gurgaon",
-  "leadAnswer": "Pareena Heights is a apartment interior designed and delivered end-to-end by The Omega Group, Sector 99, Gurgaon — design, material sourcing, and on-site execution managed by one team from first consultation to final handover.",
-  "sections": [
-    {
-      "heading": "About This Project",
-      "html": "<p>This apartment interior was designed and delivered end-to-end by The Omega Group — layout, lighting, furniture, and finishes planned as one cohesive whole rather than room-by-room afterthoughts. As with every Omega Group apartment project, the brief balanced everyday livability with a considered, premium finish.</p>"
+    "id": "pareena-heights-sector-99-gurgaon",
+    "type": "project",
+    "status": "published",
+    "urlPath": "/project/pareena-heights-sector-99-gurgaon/",
+    "seo": {
+        "title": "Pareena Heights Sector 99 | Interior by The Omega Group",
+        "description": "Pareena Heights: an apartment interior designed and delivered end-to-end by The Omega Group in Sector 99, Gurgaon. See the finished space and our approach."
     },
-    {
-      "heading": "The Omega Group Approach",
-      "html": "<p>Every project — including this one — follows the same process: a detailed consultation about the space and how it's actually used, design and material sign-off before any work begins, execution by our own site team with quality checks at every milestone, and a final walkthrough before handover. It's the same process we walk through in detail on our <a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a>.</p>"
-    }
-  ],
-  "relatedBlogPosts": [],
-  "sortOrder": 9,
-  "card": {
-    "title": "Pareena Heights, Sector 99",
-    "alt": "Pareena Heights, Sector 99 apartment interior by The Omega Group"
-  },
-  "carouselCard": {
-    "title": "Pareena Heights"
-  },
-  "sitemap": {
-    "lastmod": "2026-08-04",
-    "changefreq": "yearly",
-    "priority": "0.7",
-    "order": 19
-  }
+    "name": "Pareena Heights",
+    "projectType": "Apartment Interior",
+    "location": "Sector 99, Gurgaon",
+    "image": "/img/projects/pareena-heights/pareena-heights-banner.webp",
+    "imageAlt": "Pareena Heights — Apartment Interior designed by The Omega Group",
+    "gallery": [
+        "/img/projects/pareena-heights/pareena-heights-01.webp",
+        "/img/projects/pareena-heights/pareena-heights-02.webp",
+        "/img/projects/pareena-heights/pareena-heights-03.webp",
+        "/img/projects/pareena-heights/pareena-heights-04.webp",
+        "/img/projects/pareena-heights/pareena-heights-05.webp",
+        "/img/projects/pareena-heights/pareena-heights-06.webp",
+        "/img/projects/pareena-heights/pareena-heights-07.webp",
+        "/img/projects/pareena-heights/pareena-heights-08.webp",
+        "/img/projects/pareena-heights/pareena-heights-09.webp",
+        "/img/projects/pareena-heights/pareena-heights-10.webp",
+        "/img/projects/pareena-heights/pareena-heights-11.webp",
+        "/img/projects/pareena-heights/pareena-heights-12.webp",
+        "/img/projects/pareena-heights/pareena-heights-13.webp",
+        "/img/projects/pareena-heights/pareena-heights-14.webp",
+        "/img/projects/pareena-heights/pareena-heights-15.webp",
+        "/img/projects/pareena-heights/pareena-heights-16.webp",
+        "/img/projects/pareena-heights/pareena-heights-17.webp",
+        "/img/projects/pareena-heights/pareena-heights-18.webp",
+        "/img/projects/pareena-heights/pareena-heights-19.webp",
+        "/img/projects/pareena-heights/pareena-heights-20.webp",
+        "/img/projects/pareena-heights/pareena-heights-21.webp",
+        "/img/projects/pareena-heights/pareena-heights-22.webp",
+        "/img/projects/pareena-heights/pareena-heights-23.webp",
+        "/img/projects/pareena-heights/pareena-heights-24.webp",
+        "/img/projects/pareena-heights/pareena-heights-25.webp"
+    ],
+    "h1": "Pareena Heights — Apartment Interior, Sector 99, Gurgaon",
+    "leadAnswer": "Pareena Heights is an apartment interior designed and delivered end-to-end by The Omega Group, Sector 99, Gurgaon — design, material sourcing, and on-site execution managed by one team from first consultation to final handover.",
+    "sections": [
+        {
+            "heading": "About This Project",
+            "html": "<p>This apartment interior was designed and delivered end-to-end by The Omega Group — layout, lighting, furniture, and finishes planned as one cohesive whole rather than room-by-room afterthoughts. As with every Omega Group apartment project, the brief balanced everyday livability with a considered, premium finish.</p>"
+        },
+        {
+            "heading": "The Omega Group Approach",
+            "html": "<p>Every project — including this one — follows the same process: a detailed consultation about the space and how it's actually used, design and material sign-off before any work begins, execution by our own site team with quality checks at every milestone, and a final walkthrough before handover. It's the same process we walk through in detail on our <a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a>.</p>"
+        }
+    ],
+    "relatedBlogPosts": [],
+    "sortOrder": 9,
+    "card": {
+        "title": "Pareena Heights, Sector 99",
+        "alt": "Pareena Heights, Sector 99 apartment interior by The Omega Group"
+    },
+    "carouselCard": {
+        "title": "Pareena Heights"
+    },
+    "sitemap": {
+        "lastmod": "2026-08-04",
+        "changefreq": "yearly",
+        "priority": "0.7",
+        "order": 19
+    },
+    "createdAt": "2026-11-18T09:13:56+05:30",
+    "updatedAt": "2026-11-18T09:13:56+05:30"
 }

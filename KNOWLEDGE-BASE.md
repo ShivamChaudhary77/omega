@@ -222,7 +222,7 @@ The site is being converted to server-rendered PHP with a dashboard: see `DYNAMI
   python3 scripts/migrate-to-dynamic.py && php tests/compare-site.php
   ```
   This rebuilds `content/pages/` from the static site and checks every URL against it. 148 of 148 pages matched in Phase 3.
-- **Maintenance:** `php app/cli.php rebuild | clear-cache | check | render /path/ | set-password`
+- **Maintenance:** `php app/cli.php rebuild | clear-cache | check | render /path/ | set-password | apply-fixes <file> [--apply]`. `apply-fixes` applies a reviewed JSON list of content fixes on the server (dry run by default; skips any page edited since the fix was written; keeps page history). Example: `scripts/seo-fixes-2026-11-18.json`.
 - **SEO automation (Phase 5):** `app/seo.php` serves live `/sitemap.xml`, `/sitemap-blog.xml` and `/llms.txt`, plus the dashboard's SEO checks and link checker. Dashboard redirects live in the content folder's `redirects.json` (Redirects screen); the 87 historic ones stay in `.htaccess`. After go-live, the static `sitemap*.xml` and `llms.txt` files must be deleted on the server so the live versions are served.
 - **Dashboard (Phase 4):** `/admin/` (code in `admin/`, plus `app/security.php`, `app/sanitize.php`, `app/media.php` and `app/admin_fields.php`).
   - **User guide:** `DASHBOARD-GUIDE.md`.

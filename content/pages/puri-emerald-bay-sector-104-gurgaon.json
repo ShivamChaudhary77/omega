@@ -1,68 +1,70 @@
 {
-  "id": "puri-emerald-bay-sector-104-gurgaon",
-  "type": "project",
-  "status": "published",
-  "urlPath": "/project/puri-emerald-bay-sector-104-gurgaon/",
-  "seo": {
-    "title": "Puri Emerald Bay | Modular Kitchen by The Omega Group",
-    "description": "Puri Emerald Bay — a modular kitchen designed and delivered end-to-end by The Omega Group, Sector 104, Gurgaon. See the finished space and how we approach every project."
-  },
-  "name": "Puri Emerald Bay",
-  "projectType": "Modular Kitchen",
-  "location": "Sector 104, Gurgaon",
-  "image": "/img/projects/puri-emerald-bay/puri-emerald-bay-banner.webp",
-  "imageAlt": "Puri Emerald Bay — Modular Kitchen designed by The Omega Group",
-  "gallery": [
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-01.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-02.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-03.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-04.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-05.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-06.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-07.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-08.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-09.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-10.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-11.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-12.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-13.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-14.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-15.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-16.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-17.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-18.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-19.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-20.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-21.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-22.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-23.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-24.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-25.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-26.webp",
-    "/img/projects/puri-emerald-bay/puri-emerald-bay-27.webp"
-  ],
-  "h1": "Puri Emerald Bay — Modular Kitchen, Sector 104, Gurgaon",
-  "leadAnswer": "Puri Emerald Bay is a modular kitchen designed and delivered end-to-end by The Omega Group, Sector 104, Gurgaon — design, material sourcing, and on-site execution managed by one team from first consultation to final handover.",
-  "sections": [
-    {
-      "heading": "About This Project",
-      "html": "<p>This modular kitchen was designed and installed by The Omega Group, built around real cooking habits and storage needs rather than a stock layout — the same zoning and material-selection process we walk every renovation client through.</p>"
+    "id": "puri-emerald-bay-sector-104-gurgaon",
+    "type": "project",
+    "status": "published",
+    "urlPath": "/project/puri-emerald-bay-sector-104-gurgaon/",
+    "seo": {
+        "title": "Puri Emerald Bay | Modular Kitchen by The Omega Group",
+        "description": "Puri Emerald Bay: a modular kitchen designed and delivered end-to-end by The Omega Group in Sector 104, Gurgaon. See the finished space and our approach."
     },
-    {
-      "heading": "The Omega Group Approach",
-      "html": "<p>Every project — including this one — follows the same process: a detailed consultation about the space and how it's actually used, design and material sign-off before any work begins, execution by our own site team with quality checks at every milestone, and a final walkthrough before handover. It's the same process we walk through in detail on our <a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a>.</p>"
-    }
-  ],
-  "relatedBlogPosts": [],
-  "sortOrder": 11,
-  "card": {
-    "title": "Puri Emerald Bay",
-    "alt": "Puri Emerald Bay modular kitchen with center island by The Omega Group"
-  },
-  "sitemap": {
-    "lastmod": "2026-08-04",
-    "changefreq": "yearly",
-    "priority": "0.7",
-    "order": 21
-  }
+    "name": "Puri Emerald Bay",
+    "projectType": "Modular Kitchen",
+    "location": "Sector 104, Gurgaon",
+    "image": "/img/projects/puri-emerald-bay/puri-emerald-bay-banner.webp",
+    "imageAlt": "Puri Emerald Bay — Modular Kitchen designed by The Omega Group",
+    "gallery": [
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-01.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-02.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-03.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-04.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-05.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-06.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-07.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-08.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-09.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-10.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-11.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-12.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-13.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-14.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-15.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-16.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-17.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-18.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-19.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-20.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-21.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-22.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-23.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-24.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-25.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-26.webp",
+        "/img/projects/puri-emerald-bay/puri-emerald-bay-27.webp"
+    ],
+    "h1": "Puri Emerald Bay — Modular Kitchen, Sector 104, Gurgaon",
+    "leadAnswer": "Puri Emerald Bay is a modular kitchen designed and delivered end-to-end by The Omega Group, Sector 104, Gurgaon — design, material sourcing, and on-site execution managed by one team from first consultation to final handover.",
+    "sections": [
+        {
+            "heading": "About This Project",
+            "html": "<p>This modular kitchen was designed and installed by The Omega Group, built around real cooking habits and storage needs rather than a stock layout — the same zoning and material-selection process we walk every renovation client through.</p>"
+        },
+        {
+            "heading": "The Omega Group Approach",
+            "html": "<p>Every project — including this one — follows the same process: a detailed consultation about the space and how it's actually used, design and material sign-off before any work begins, execution by our own site team with quality checks at every milestone, and a final walkthrough before handover. It's the same process we walk through in detail on our <a href=\"/interior-designers-gurgaon/\">Gurgaon interior design page</a>.</p>"
+        }
+    ],
+    "relatedBlogPosts": [],
+    "sortOrder": 11,
+    "card": {
+        "title": "Puri Emerald Bay",
+        "alt": "Puri Emerald Bay modular kitchen with center island by The Omega Group"
+    },
+    "sitemap": {
+        "lastmod": "2026-08-04",
+        "changefreq": "yearly",
+        "priority": "0.7",
+        "order": 21
+    },
+    "createdAt": "2026-11-18T09:13:56+05:30",
+    "updatedAt": "2026-11-18T09:13:56+05:30"
 }

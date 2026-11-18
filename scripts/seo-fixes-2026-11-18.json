@@ -1,0 +1,663 @@
+{
+    "description": "SEO fixes from the 18 Nov 2026 audit: titles 30-60 chars, descriptions 120-160 chars, duplicate titles, grammar, one broken link.",
+    "fixes": [
+        {
+            "page": "10-innovative-and-sustainable-office-interior-designing-ideas-by-the-omega-group",
+            "field": "seo.title",
+            "op": "set",
+            "from": "10 Innovative Office Interior designing ideas in Gurgaon - The Omega group",
+            "to": "10 Innovative Office Interior Designing Ideas | Gurgaon"
+        },
+        {
+            "page": "4bhk-interior-design-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "4BHK Interior Design Gurgaon | Luxury Layout & Design Guide 2026",
+            "to": "4BHK Interior Design Gurgaon | Luxury Design Guide 2026"
+        },
+        {
+            "page": "5-must-ask-questions-before-hiring-an-interior-designing-service",
+            "field": "seo.title",
+            "op": "set",
+            "from": "5 Must-Ask Questions Before Hiring an Interior Designing Service",
+            "to": "5 Must-Ask Questions Before Hiring an Interior Designer"
+        },
+        {
+            "page": "5-tips-for-choosing-the-best-home-interior-designer-in-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "5 Tips for Choosing the Best Home Interior Designer in Gurgaon",
+            "to": "5 Tips to Choose a Home Interior Designer in Gurgaon"
+        },
+        {
+            "page": "a-budget-friendly-guide-to-interior-design-services-in-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "A Budget-Friendly Guide to Interior Design Services in Gurgaon | The Omega Group",
+            "to": "Budget Guide to Interior Design Services in Gurgaon"
+        },
+        {
+            "page": "affordable-interior-designing-solution-in-gurgaon-the-omega-group",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Affordable Interior Designing Solution in Gurgaon | The Omega Group",
+            "to": "Affordable Interior Designing Solutions in Gurgaon"
+        },
+        {
+            "page": "affordable-luxury-interior-designer-in-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Gurgaon's Premier Affordable Luxury Interior Designer | The Omega Group",
+            "to": "Affordable Luxury Interior Designer in Gurgaon"
+        },
+        {
+            "page": "balancing-aesthetics-and-functionality-in-gurgaons-modern-bedroom-designs",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Balancing Aesthetics and Functionality in Gurgaon's Modern Bedroom Designs",
+            "to": "Modern Bedroom Interior Design Gurgaon: Style & Function"
+        },
+        {
+            "page": "best-interior-designers-near-dwarka-expressway-comparison-guide",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Best Interior Designer Dwarka Expressway | Compare & Choose | Omega Group",
+            "to": "Best Interior Designer Dwarka Expressway: Compare & Choose"
+        },
+        {
+            "page": "best-office-interior-designing-ideas-by-office-interior-designer-in-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "%%title%% %%page%%",
+            "to": "Office Ideas from Office Interior Designers in Gurgaon"
+        },
+        {
+            "page": "big-style-on-a-small-budget-interior-design-hacks-for-maximum-impact",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Big Style on a Small Budget: Interior Design Hacks for Maximum Impact",
+            "to": "Big Style on a Small Budget: Interior Design Hacks"
+        },
+        {
+            "page": "builder-floor-interior-design-gurgaon-2026",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Builder Floor Interior Design Gurgaon (2026 Guide) | The Omega Group",
+            "to": "Builder Floor Interior Design Gurgaon (2026 Guide)"
+        },
+        {
+            "page": "crafting-dreams-unveiling-the-top-10-interior-designers-in-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Crafting Dreams: Unveiling the Top 10 Interior Designers in Gurgaon | The Omega Group",
+            "to": "Top 10 Interior Designers in Gurgaon | The Omega Group"
+        },
+        {
+            "page": "design-on-a-budget-finding-a-good-interior-designer-in-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Design on a Budget: Finding A Good Interior Designer in Gurgaon | The Omega Group",
+            "to": "Design on a Budget: Good Interior Designers in Gurgaon"
+        },
+        {
+            "page": "designing-workspaces-in-gurgaon-blending-collaboration-with-comfort",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Designing Workspaces in Gurgaon: Blending Collaboration with Comfort",
+            "to": "Designing Workspaces in Gurgaon: Collaboration & Comfort"
+        },
+        {
+            "page": "dlf-the-arbour-interior-design-cost-guide-2026",
+            "field": "seo.title",
+            "op": "set",
+            "from": "DLF The Arbour Interior Design Cost Guide (2026) | The Omega Group",
+            "to": "DLF The Arbour Interior Design Cost Guide (2026)"
+        },
+        {
+            "page": "dwarka-expressway-possession-2026-interior-planning",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Dwarka Expressway Possession 2026: Interior Planning Timeline",
+            "to": "Dwarka Expressway Possession 2026: Interior Planning"
+        },
+        {
+            "page": "exploring-the-world-of-custom-furniture-design",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Exploring the World of Custom Furniture Design | Bespoke furniture",
+            "to": "Exploring the World of Custom Furniture Design"
+        },
+        {
+            "page": "from-budget-friendly-to-luxe-decoding-the-best-interior-designers-in-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "%%title%% %%page%%",
+            "to": "Budget to Luxe: The Best Interior Designers in Gurgaon"
+        },
+        {
+            "page": "from-vision-to-reality-the-process-of-luxury-interior-designing",
+            "field": "seo.title",
+            "op": "set",
+            "from": "From Vision to Reality: The Process of Luxury Interior Designing",
+            "to": "From Vision to Reality: The Luxury Interior Design Process"
+        },
+        {
+            "page": "gurgaon-home-interiors",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Home Interiors in Gurgaon | Turnkey Apartments, Floors & Villas | The Omega Group",
+            "to": "Home Interiors in Gurgaon: Apartments, Floors & Villas"
+        },
+        {
+            "page": "home-decor-tips-by-the-best-home-interior-designer-in-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "%%title%% %%page%%",
+            "to": "Decor Tips from the Best Home Interior Designer in Gurgaon"
+        },
+        {
+            "page": "how-to-design-your-home-efficiently-in-10-steps-efficient-home-interior-design-the-omega-group",
+            "field": "seo.title",
+            "op": "set",
+            "from": "How to Design Your Home Efficiently in 10 steps -Efficient Home Interior Design",
+            "to": "Efficient Home Interior Design: Plan Your Home in 10 Steps"
+        },
+        {
+            "page": "innovative-design-approaches-by-the-best-interior-designer-in-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Innovative Design Approaches by the Best Interior Designer in Gurgaon | The Omega Group",
+            "to": "Innovative Design Approaches | Interior Designer in Gurgaon"
+        },
+        {
+            "page": "interior-design-experion-windchants-sector-112",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Interior Designer Dwarka Expressway Guide: Interior Design Ideas for Experion Windchants 3 & 4 BHK Homes | The Omega Group",
+            "to": "Experion Windchants Interior Design: 3 & 4 BHK Ideas"
+        },
+        {
+            "page": "interior-design-gurgaon-3bhk-2026",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Interior Design Gurgaon: 3BHK Complete Breakdown (2026 Guide) | The Omega Group",
+            "to": "Interior Design Gurgaon: 3BHK Complete Breakdown (2026)"
+        },
+        {
+            "page": "interior-designer-dwarka-expressway-checklist",
+            "field": "seo.title",
+            "op": "set",
+            "from": "New Possession Flat? Complete Interior Design Checklist by an Interior Designer Dwarka Expressway | The Omega Group",
+            "to": "Interior Designer Dwarka Expressway: New Flat Checklist"
+        },
+        {
+            "page": "interior-designer-dwarka-expressway-compare-choose",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Best Interior Designers Near Dwarka Expressway — How to Compare & Choose the Right Design Partner for Your Home",
+            "to": "Interior Designers Near Dwarka Expressway: How to Choose"
+        },
+        {
+            "page": "luxury-interior-design-trends-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Top 7 Luxury Interior Design Trends for Gurgaon Homes in 2026 | The Omega Group",
+            "to": "7 Luxury Interior Design Trends for Gurgaon Homes (2026)"
+        },
+        {
+            "page": "luxury-interior-designer-gurgaon-guide",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Luxury Interior Designer Gurgaon: What Truly Defines a ‘Luxury’ Interior Design Project? | The Omega Group",
+            "to": "Luxury Interior Designer Gurgaon: What Defines Luxury?"
+        },
+        {
+            "page": "luxury-interior-designer-gurgaon-italian-vs-contemporary",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Luxury Interior Designer Gurgaon Guide: Italian vs. Contemporary Interior Design for Gurgaon Villas | The Omega Group",
+            "to": "Italian vs Contemporary Interiors for Gurgaon Villas"
+        },
+        {
+            "page": "luxury-living-room-interior-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Luxury Interior Designer Gurgaon: High-End Living Room Designs for 3BHK & 4BHK Flats | The Omega Group",
+            "to": "Luxury Living Room Interiors for 3BHK & 4BHK in Gurgaon"
+        },
+        {
+            "page": "luxury-on-a-budget-affordable-interior-design-ideas-that-wow",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Luxury on a Budget: Affordable Interior Design Ideas That Wow",
+            "to": "Luxury on a Budget: Affordable Interior Design Ideas"
+        },
+        {
+            "page": "modular-kitchen-cost-gurgaon-2026",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Modular Kitchen Cost in Gurgaon 2026 | Budget to Luxury Guide",
+            "to": "Modular Kitchen Cost in Gurgaon 2026: Budget to Luxury"
+        },
+        {
+            "page": "modular-vs-custom-furniture-gurgaon-flats",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Modular vs. Custom Furniture: Which is Better for Gurgaon Flats? | Expert Guide by a Modular Kitchen Designer Gurgaon | The Omega Group",
+            "to": "Modular vs Custom Furniture: Which Suits Gurgaon Flats?"
+        },
+        {
+            "page": "new-gurgaon-under-construction-interior-planning",
+            "field": "seo.title",
+            "op": "set",
+            "from": "New Gurgaon Interior Planning: What to Decide Before Possession",
+            "to": "New Gurgaon Interior Planning: Decide Before Possession"
+        },
+        {
+            "page": "projects",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Our Projects | The Omega Group – Luxury Interior Design Portfolio",
+            "to": "Projects | The Omega Group Interior Design Portfolio"
+        },
+        {
+            "page": "service",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Our Services | The Omega Group – Luxury Interior Design Services",
+            "to": "Interior Design Services | The Omega Group"
+        },
+        {
+            "page": "smart-stylish-insider-secrets-for-commercial-interior-design",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Smart & Stylish: Insider Secrets for Commercial Interior Design",
+            "to": "Smart & Stylish: Secrets of Commercial Interior Design"
+        },
+        {
+            "page": "spa-style-luxury-transforming-your-bathroom-into-a-relaxation-haven",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Spa-Style Luxury: Transforming Your Bathroom into a Relaxation Haven",
+            "to": "Spa-Style Luxury: Turn Your Bathroom into a Retreat"
+        },
+        {
+            "page": "top-10-home-interior-designing-ideas",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Discover Gurgaon's Best Home Interior Designer: Top 10 Interior Design Ideas",
+            "to": "Top 10 Home Interior Designing Ideas | The Omega Group"
+        },
+        {
+            "page": "top-residential-interior-design-mistakes-you-should-never-make",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Top Residential Interior Design Mistakes You Should Never Make",
+            "to": "Residential Interior Design Mistakes You Should Avoid"
+        },
+        {
+            "page": "trends-in-gurgaons-corporate-spaces-by-the-interior-design-firms",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Trends in Gurgaon's Corporate Spaces by The Interior Design Firms | The Omega Group",
+            "to": "Corporate Trends from Interior Design Firms in Gurgaon"
+        },
+        {
+            "page": "turnkey-interior-design-gurgaon-guide",
+            "field": "seo.title",
+            "op": "set",
+            "from": "What is Turnkey Interior Design in Gurgaon? Complete Guide for Homeowners (2026) | The Omega Group",
+            "to": "What Is Turnkey Interior Design in Gurgaon? (2026 Guide)"
+        },
+        {
+            "page": "turnkey-interior-design-gurgaon-vs-modular",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Turnkey Interior Design Gurgaon vs Modular Interiors — What’s Best for Luxury Flats? | The Omega Group",
+            "to": "Turnkey Interior Design Gurgaon vs Modular Interiors"
+        },
+        {
+            "page": "pareena-heights-sector-99-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Pareena Heights | Apartment Interior by The Omega Group",
+            "to": "Pareena Heights Sector 99 | Interior by The Omega Group"
+        },
+        {
+            "page": "pareena-heights-sector-100-gurgaon",
+            "field": "seo.title",
+            "op": "set",
+            "from": "Pareena Heights | Apartment Interior by The Omega Group",
+            "to": "Pareena Heights Sector 100 | Interior by The Omega Group"
+        },
+        {
+            "page": "4bhk-interior-design-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Explore the complete 4BHK interior design guide for Gurgaon homeowners. Discover layout planning, modular kitchens, storage solutions, interior costs, luxury design styles, and smart home trends for 2026.",
+            "to": "Complete 4BHK interior design guide for Gurgaon: layout planning, modular kitchens, storage, interior costs, luxury styles and smart home trends for 2026."
+        },
+        {
+            "page": "a-budget-friendly-guide-to-interior-design-services-in-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Transform your space without breaking the bank with The Omega Group's Budget-Friendly Guide to Interior Design Services in Gurgaon. Discover affordable solutions and expert tips for stylish interiors that fit your budget seamlessly. Elevate your living spaces with our curated design insights.\"",
+            "to": "A budget-friendly guide to interior design services in Gurgaon: affordable solutions and expert tips for stylish interiors that fit your budget."
+        },
+        {
+            "page": "about",
+            "field": "seo.description",
+            "op": "set",
+            "from": "The Omega Group is a premium interior design and turnkey execution studio with 10+ years of experience designing bespoke homes, villas, apartments, and commercial spaces.",
+            "to": "The Omega Group is a premium interior design and turnkey execution studio with 10+ years of experience in bespoke homes, villas, apartments and offices."
+        },
+        {
+            "page": "affordable-luxury-interior-designer-in-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Experience the epitome of refined living with our luxury interior designer in Gurgaon. Craft a home that exudes elegance and sophistication, personalized to your unique style and preferences",
+            "to": "Work with a luxury interior designer in Gurgaon to create an elegant, sophisticated home that is personalised to your own style and preferences."
+        },
+        {
+            "page": "author-shivam-kumar",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Shivam Kumar is a content writer and digital marketing professional at The Omega Group, focused on clear, research-driven content on SEO, technology, and digital growth.",
+            "to": "Shivam Kumar is a content writer and digital marketing professional at The Omega Group, writing research-driven content on SEO, technology and growth."
+        },
+        {
+            "page": "balancing-aesthetics-and-functionality-in-gurgaons-modern-bedroom-designs",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Delve into Gurgaon's modern bedroom interior designs where aesthetics meet functionality seamlessly. Unlock the secrets to creating spaces that exude both style and practicality",
+            "to": "Modern bedroom interior design in Gurgaon where aesthetics meet functionality: how to create bedrooms that are both stylish and practical."
+        },
+        {
+            "page": "best-interior-designers-near-dwarka-expressway-comparison-guide",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Discover how to choose the best interior designer near Dwarka Expressway. Compare top designers, understand costs & find luxury home interior solutions in Gurgaon.",
+            "to": "How to choose the best interior designer near Dwarka Expressway: compare designers, understand costs and find luxury home interiors in Gurgaon."
+        },
+        {
+            "page": "best-office-interior-designing-ideas-by-office-interior-designer-in-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Gain access to exclusive office interior design ideas curated by the leading interior designer in Gurgaon. Elevate your office aesthetics, optimize space, and foster a productive environment.",
+            "to": "Office interior design ideas from office interior designers in Gurgaon: improve how your office looks, use space better and support productive work."
+        },
+        {
+            "page": "builder-floor-interior-design-gurgaon-2026",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Planning interiors for a builder floor in Gurgaon? Learn what's different from apartment design — staircases, terraces, utilities — plus real cost guidance for 2026.",
+            "to": "Planning builder floor interiors in Gurgaon? What differs from apartment design (staircases, terraces, utilities), plus real cost guidance for 2026."
+        },
+        {
+            "page": "crafting-dreams-unveiling-the-top-10-interior-designers-in-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Discover the epitome of exquisite design with our curated list of the Top 10 Interior Designers in Gurgaon. Transform your space with the expertise and creativity of these renowned professionals. Elevate your home or office with the best Interior Firms in Gurgaon. Explore now",
+            "to": "Our curated list of the top 10 interior designers in Gurgaon, to help you choose the right firm to transform your home or office."
+        },
+        {
+            "page": "design-on-a-budget-finding-a-good-interior-designer-in-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "How to Find a Good Interior Designer in Gurgaon -Tips. Uncover the secrets to finding a skilled and affordable interior designer who can transform your space without breaking the bank. Elevate your home without compromising your budget – your dream design is just a step away",
+            "to": "How to find a good interior designer in Gurgaon who is skilled and affordable, and transform your home without going over your budget."
+        },
+        {
+            "page": "designing-your-living-how-to-do-interior-designing-for-your-home-an-interior-designers-guide",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Looking to redesign your home but don't know where to start? The Omega Group – leading Interior Designer in Gurgaon will walk you through the entire process, from defining your style to choosing the right furniture and finishes.",
+            "to": "Redesigning your home but unsure where to start? The Omega Group, interior designer in Gurgaon, walks you through it, from style to furniture and finishes."
+        },
+        {
+            "page": "dlf-the-arbour-interior-design-cost-guide-2026",
+            "field": "seo.description",
+            "op": "set",
+            "from": "What drives interior design cost in DLF's ultra-luxury developments like The Arbour? Material grade, bespoke furniture, automation, and scale — explained for 2026.",
+            "to": "What drives interior design cost in DLF ultra-luxury homes like The Arbour? Material grade, bespoke furniture, automation and scale, explained for 2026."
+        },
+        {
+            "page": "exploring-the-world-of-custom-furniture-design",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Dive into the world of bespoke furniture with our guide to custom design! Explore the art of personalization and discover how to transform your space with unique, tailored pieces.",
+            "to": "A guide to custom furniture design: explore the art of personalisation and how bespoke, tailored pieces can transform your space."
+        },
+        {
+            "page": "faqs",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Answers to common questions about working with The Omega Group — how projects start, how pricing and payments work, timelines, approvals, and what to expect after handover.",
+            "to": "Answers to common questions about working with The Omega Group: how projects start, pricing and payments, timelines, approvals and after handover."
+        },
+        {
+            "page": "from-budget-friendly-to-luxe-decoding-the-best-interior-designers-in-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Explore the spectrum of interior design in Gurgaon, from budget-friendly transformations to luxurious makeovers. Discover the Best Interior Designers in Gurgaon who bring creativity and style to every space.",
+            "to": "Interior design in Gurgaon from budget-friendly makeovers to luxury homes: how to find the best interior designers in Gurgaon for your space."
+        },
+        {
+            "page": "gurgaon-home-interiors",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Turnkey home interiors in Gurgaon for apartments, builder floors and villas. Design, materials and execution by one team. 10+ years, 90+ projects. Free consultation.",
+            "to": "Turnkey home interiors in Gurgaon for apartments, builder floors and villas. Design, materials and execution by one team. 10+ years, 90+ projects."
+        },
+        {
+            "page": "home",
+            "field": "seo.description",
+            "op": "set",
+            "from": "The Omega Group designs and delivers bespoke luxury interiors for homes, villas, apartments and commercial spaces, with end-to-end turnkey execution from concept to handover.",
+            "to": "The Omega Group designs and delivers bespoke luxury interiors for homes, villas, apartments and commercial spaces, with turnkey execution to handover."
+        },
+        {
+            "page": "home-decor-tips-by-the-best-home-interior-designer-in-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Discover expert home decor tips and tricks from the leading home interior designer in Gurgaon. Elevate your space with innovative design ideas tailored to transform your home beautifully.",
+            "to": "Home decor tips from the best home interior designer in Gurgaon, with practical design ideas to help you transform your home beautifully."
+        },
+        {
+            "page": "how-to-choose-the-best-office-interior-designer-in-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Discover the steps to choose the best office interior designer in Gurgaon. Expert tips to transform your workspace. Enhance productivity and aesthetics. Read now!",
+            "to": "Steps to choose the best office interior designer in Gurgaon, with expert tips to transform your workspace for productivity and aesthetics."
+        },
+        {
+            "page": "interior-designers-dlf-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Looking for an interior designer in DLF Gurgaon, Gurgaon? The Omega Group designs and delivers luxury home and commercial interiors with full turnkey execution — 10+ years, 90+ projects, 90% on-time delivery.",
+            "to": "Interior designer in DLF, Gurgaon: The Omega Group designs and delivers luxury home and commercial interiors, turnkey. 10+ years, 90+ projects."
+        },
+        {
+            "page": "interior-designers-dwarka-expressway",
+            "field": "seo.description",
+            "op": "set",
+            "from": "The Omega Group is headquartered on Dwarka Expressway and designs luxury home and commercial interiors for the corridor — 10+ years, 90+ projects, full turnkey execution from design to handover.",
+            "to": "The Omega Group is headquartered on Dwarka Expressway and designs luxury home and commercial interiors for the corridor. 10+ years, 90+ projects."
+        },
+        {
+            "page": "interior-designers-golf-course-road",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Looking for an interior designer in Golf Course Road, Gurgaon? The Omega Group designs and delivers luxury home and commercial interiors with full turnkey execution — 10+ years, 90+ projects, 90% on-time delivery.",
+            "to": "Interior designer in Golf Course Road, Gurgaon: The Omega Group designs and delivers luxury home and commercial interiors, turnkey. 10+ years, 90+ projects."
+        },
+        {
+            "page": "interior-designers-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "The Omega Group is a Gurgaon-based luxury interior design and turnkey execution studio — 10+ years, 90+ projects, 90% on-time delivery. Residential and commercial interiors across every Gurgaon micro-market.",
+            "to": "The Omega Group is a Gurgaon-based luxury interior design and turnkey execution studio: 10+ years, 90+ projects, 90% on-time delivery."
+        },
+        {
+            "page": "interior-designers-manesar",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Looking for an interior designer in Manesar, Gurgaon? The Omega Group designs and delivers luxury home and commercial interiors with full turnkey execution — 10+ years, 90+ projects, 90% on-time delivery.",
+            "to": "Interior designer in Manesar, Gurgaon: The Omega Group designs and delivers luxury home and commercial interiors, turnkey. 10+ years, 90+ projects."
+        },
+        {
+            "page": "interior-designers-new-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Looking for an interior designer in New Gurgaon, Gurgaon? The Omega Group designs and delivers luxury home and commercial interiors with full turnkey execution — 10+ years, 90+ projects, 90% on-time delivery.",
+            "to": "Interior designer in New Gurgaon, Gurgaon: The Omega Group designs and delivers luxury home and commercial interiors, turnkey. 10+ years, 90+ projects."
+        },
+        {
+            "page": "interior-designers-sohna-road",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Looking for an interior designer in Sohna Road, Gurgaon? The Omega Group designs and delivers luxury home and commercial interiors with full turnkey execution — 10+ years, 90+ projects, 90% on-time delivery.",
+            "to": "Interior designer in Sohna Road, Gurgaon: The Omega Group designs and delivers luxury home and commercial interiors, turnkey. 10+ years, 90+ projects."
+        },
+        {
+            "page": "interior-designers-sushant-lok",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Looking for an interior designer in Sushant Lok, Gurgaon? The Omega Group designs and delivers luxury home and commercial interiors with full turnkey execution — 10+ years, 90+ projects, 90% on-time delivery.",
+            "to": "Interior designer in Sushant Lok, Gurgaon: The Omega Group designs and delivers luxury home and commercial interiors, turnkey. 10+ years, 90+ projects."
+        },
+        {
+            "page": "service",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Explore The Omega Group's interior design services — luxury home, villa and apartment interiors, turnkey execution, office and commercial interiors, modular kitchens, bespoke furniture, space planning, and styling.",
+            "to": "Interior design services by The Omega Group: luxury homes, villas and apartments, turnkey execution, offices, modular kitchens and bespoke furniture."
+        },
+        {
+            "page": "the-complete-guide-to-turnkey-interior-solutions",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Dive into the definitive manual for hassle-free interior makeovers with \"The Complete Guide to Turnkey Interior Solutions.\" Explore step-by-step instructions and innovative ideas for a flawless design journey",
+            "to": "The complete guide to turnkey interior solutions: step-by-step guidance and ideas for a hassle-free, well-managed interior design project."
+        },
+        {
+            "page": "top-10-home-interior-designing-ideas",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Description - Transform your living spaces with expert guidance! Explore the top 10 home interior design ideas curated by Gurgaon's leading home interior designer, The Omega Group",
+            "to": "Transform your home with the top 10 home interior designing ideas, curated by Gurgaon home interior designer The Omega Group."
+        },
+        {
+            "page": "trends-in-gurgaons-corporate-spaces-by-the-interior-design-firms",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Explore the latest trends shaping Gurgaon's corporate spaces with insights from leading interior design firms. Discover innovative designs and strategies for optimizing work environments",
+            "to": "The latest trends shaping Gurgaon's corporate spaces, with insights from interior design firms in Gurgaon on designs for better work environments."
+        },
+        {
+            "page": "joyville-sector-102-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Joyville — a apartment interior designed and delivered end-to-end by The Omega Group, Sector 102, Gurgaon. See the finished space and how we approach every project.",
+            "to": "Joyville: an apartment interior designed and delivered end-to-end by The Omega Group in Sector 102, Gurgaon. See the finished space and our approach."
+        },
+        {
+            "page": "joyville-sector-102-gurgaon",
+            "field": "leadAnswer",
+            "op": "replace",
+            "from": " is a apartment ",
+            "to": " is an apartment "
+        },
+        {
+            "page": "m3m-woodhsire-sector-107-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "M3M Woodshire — a villa interior designed and delivered end-to-end by The Omega Group, Sector 107, Gurgaon. See the finished space and how we approach every project.",
+            "to": "M3M Woodshire: a villa interior designed and delivered end-to-end by The Omega Group in Sector 107, Gurgaon. See the finished space and our approach."
+        },
+        {
+            "page": "pareena-heights-sector-100-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Pareena Heights — a apartment interior designed and delivered end-to-end by The Omega Group, Sector 100, Gurgaon. See the finished space and how we approach every project.",
+            "to": "Pareena Heights: an apartment interior designed and delivered end-to-end by The Omega Group in Sector 100, Gurgaon. See the finished space and our approach."
+        },
+        {
+            "page": "pareena-heights-sector-100-gurgaon",
+            "field": "leadAnswer",
+            "op": "replace",
+            "from": " is a apartment ",
+            "to": " is an apartment "
+        },
+        {
+            "page": "pareena-heights-sector-99-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Pareena Heights — a apartment interior designed and delivered end-to-end by The Omega Group, Sector 99, Gurgaon. See the finished space and how we approach every project.",
+            "to": "Pareena Heights: an apartment interior designed and delivered end-to-end by The Omega Group in Sector 99, Gurgaon. See the finished space and our approach."
+        },
+        {
+            "page": "pareena-heights-sector-99-gurgaon",
+            "field": "leadAnswer",
+            "op": "replace",
+            "from": " is a apartment ",
+            "to": " is an apartment "
+        },
+        {
+            "page": "puri-emerald-bay-sector-104-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Puri Emerald Bay — a modular kitchen designed and delivered end-to-end by The Omega Group, Sector 104, Gurgaon. See the finished space and how we approach every project.",
+            "to": "Puri Emerald Bay: a modular kitchen designed and delivered end-to-end by The Omega Group in Sector 104, Gurgaon. See the finished space and our approach."
+        },
+        {
+            "page": "shree-balaji-cghs-sector-6-dwarka",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Shree Balaji CGHS — a modular kitchen designed and delivered end-to-end by The Omega Group, Sector 6, Dwarka. See the finished space and how we approach every project.",
+            "to": "Shree Balaji CGHS: a modular kitchen designed and delivered end-to-end by The Omega Group in Sector 6, Dwarka. See the finished space and our approach."
+        },
+        {
+            "page": "smart-world-orchard-sector-61-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "Smart World Orchard — a apartment interior designed and delivered end-to-end by The Omega Group, Sector 61, Gurgaon. See the finished space and how we approach every project.",
+            "to": "Smart World Orchard: an apartment interior designed and delivered end-to-end by The Omega Group in Sector 61, Gurgaon. See the finished space and our approach."
+        },
+        {
+            "page": "smart-world-orchard-sector-61-gurgaon",
+            "field": "leadAnswer",
+            "op": "replace",
+            "from": " is a apartment ",
+            "to": " is an apartment "
+        },
+        {
+            "page": "sobha-2-bhk-sectr-108-gurgaon",
+            "field": "seo.description",
+            "op": "set",
+            "from": "SOBHA — a apartment interior designed and delivered end-to-end by The Omega Group, Sector 108, Gurgaon. See the finished space and how we approach every project.",
+            "to": "SOBHA: an apartment interior designed and delivered end-to-end by The Omega Group in Sector 108, Gurgaon. See the finished space and our approach."
+        },
+        {
+            "page": "sobha-2-bhk-sectr-108-gurgaon",
+            "field": "leadAnswer",
+            "op": "replace",
+            "from": " is a apartment ",
+            "to": " is an apartment "
+        },
+        {
+            "page": "interior-design-dlf-phase-1-2-3-4-5-gurgaon",
+            "field": "contentHtml",
+            "op": "replace",
+            "from": "/home-residential-interiors/golf-course-road-interior-design-ultra-luxury-guide/",
+            "to": "/home-residential-interiors/what-makes-golf-course-road-interiors-different/"
+        },
+        {
+            "page": "interior-design-dlf-phase-1-2-3-4-5-gurgaon",
+            "field": "internalLinks.1.href",
+            "op": "set",
+            "from": "/home-residential-interiors/golf-course-road-interior-design-ultra-luxury-guide/",
+            "to": "/home-residential-interiors/what-makes-golf-course-road-interiors-different/"
+        }
+    ]
+}

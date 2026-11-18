@@ -15,7 +15,9 @@ echo "Live files\n";
 $sm = get('/sitemap.xml');
 check('/sitemap.xml served as XML', $sm['status'] === 200 && str_starts_with($sm['headers']['Content-Type'] ?? '', 'application/xml'));
 check('/sitemap.xml is valid XML', @simplexml_load_string($sm['body']) !== false);
-check('/sitemap-blog.xml identical to the current static file', get('/sitemap-blog.xml')['body'] === static_reference('/sitemap-blog.xml'));
+// Same URLs as the go-live static file. Dates and order change once posts are edited.
+$blogEntries = fn (string $xml) => (function ($lines) { sort($lines); return $lines; })(array_map(fn ($l) => preg_replace('#<lastmod>[^<]*</lastmod>#', '', $l), explode("\n", trim($xml))));
+check('/sitemap-blog.xml has the same URLs as the go-live static file', $blogEntries(get('/sitemap-blog.xml')['body']) === $blogEntries(static_reference('/sitemap-blog.xml')));
 check('/llms.txt identical to the current static file', get('/llms.txt')['body'] === static_reference('/llms.txt'));
 preg_match_all('#<loc>([^<]+)</loc>#', static_reference('/sitemap.xml'), $old);
 preg_match_all('#<loc>([^<]+)</loc>#', $sm['body'], $new);

@@ -1,112 +1,114 @@
 {
-  "id": "interior-designers-manesar",
-  "type": "location",
-  "status": "published",
-  "urlPath": "/interior-designers-manesar/",
-  "seo": {
-    "title": "Interior Designer in Manesar | The Omega Group",
-    "description": "Looking for an interior designer in Manesar, Gurgaon? The Omega Group designs and delivers luxury home and commercial interiors with full turnkey execution — 10+ years, 90+ projects, 90% on-time delivery.",
-    "keywords": "interior designer manesar, interior design manesar gurgaon, home interior designer manesar"
-  },
-  "h1": "Interior Designer in Manesar",
-  "heroImage": "/img/about-2.webp",
-  "breadcrumb": [
-    {
-      "name": "Home",
-      "path": "/index.html"
+    "id": "interior-designers-manesar",
+    "type": "location",
+    "status": "published",
+    "urlPath": "/interior-designers-manesar/",
+    "seo": {
+        "title": "Interior Designer in Manesar | The Omega Group",
+        "description": "Interior designer in Manesar, Gurgaon: The Omega Group designs and delivers luxury home and commercial interiors, turnkey. 10+ years, 90+ projects.",
+        "keywords": "interior designer manesar, interior design manesar gurgaon, home interior designer manesar"
     },
-    {
-      "name": "Interior Designer in Manesar",
-      "path": null
-    }
-  ],
-  "directAnswer": "The Omega Group is a Gurgaon-based luxury interior design and turnkey execution studio serving Manesar and the surrounding area. Manesar's residential and industrial-adjacent developments fall within our standard Gurgaon service radius. We handle design, material sourcing, and on-site execution as one accountable team — from first consultation to final handover.",
-  "facts": [
-    {
-      "label": "Years Experience",
-      "value": "10+"
+    "h1": "Interior Designer in Manesar",
+    "heroImage": "/img/about-2.webp",
+    "breadcrumb": [
+        {
+            "name": "Home",
+            "path": "/index.html"
+        },
+        {
+            "name": "Interior Designer in Manesar",
+            "path": null
+        }
+    ],
+    "directAnswer": "The Omega Group is a Gurgaon-based luxury interior design and turnkey execution studio serving Manesar and the surrounding area. Manesar's residential and industrial-adjacent developments fall within our standard Gurgaon service radius. We handle design, material sourcing, and on-site execution as one accountable team — from first consultation to final handover.",
+    "facts": [
+        {
+            "label": "Years Experience",
+            "value": "10+"
+        },
+        {
+            "label": "Projects Delivered",
+            "value": "90+"
+        },
+        {
+            "label": "On-Time Delivery",
+            "value": "90%"
+        },
+        {
+            "label": "QC Checks / Project",
+            "value": "70+"
+        }
+    ],
+    "keyTakeaways": [
+        "The Omega Group designs and delivers residential and commercial interiors for clients in Manesar and across Gurgaon.",
+        "Full turnkey execution — one team for design, procurement, and site work, not separate vendors to coordinate.",
+        "10+ years of experience, 90+ projects delivered, with 90% completed on schedule."
+    ],
+    "sections": [
+        {
+            "heading": "Interior Design Services in Manesar",
+            "html": "<p>Whether you're furnishing a new apartment, renovating a villa, or fitting out an office in Manesar, our team covers the full range of interior design work: full-home and apartment interiors, modular kitchens, bespoke furniture, and office &amp; commercial interiors. See the complete list on our <a href=\"/service.html\">Services page</a>.</p>"
+        },
+        {
+            "heading": "Why Manesar Homeowners Choose The Omega Group",
+            "html": "<p>Homeowners in Manesar work with us because every project is led by one design team from concept to handover — not a design firm on one side and a separate execution contractor on the other. That single point of accountability is what keeps timelines and budgets predictable, backed by 70+ quality checks across a typical project.</p>"
+        },
+        {
+            "heading": "Our Interior Design Process",
+            "html": "<p>Every project — whether it's a single room or a full turnkey build — follows the same five-stage process, run by one design team from first call to final walkthrough:</p>\n<ul>\n    <li><strong>Consultation.</strong> We start with a detailed conversation about your space, lifestyle, and budget — in person at your site wherever possible.</li>\n    <li><strong>Design planning.</strong> Our designers translate that brief into layouts, mood boards, and material concepts for your sign-off.</li>\n    <li><strong>Material selection.</strong> We curate finishes, fittings, and furnishings from trusted premium suppliers to match your design and budget.</li>\n    <li><strong>Execution.</strong> Our site teams carry out the build, with quality checks at every milestone — 70+ checks across a typical project.</li>\n    <li><strong>Final handover.</strong> We complete a walkthrough with you before handing over a space that's ready to live or work in.</li>\n</ul>"
+        },
+        {
+            "heading": "Interior Design Costs",
+            "html": "<p>Full-home turnkey interior design with The Omega Group starts at <strong>₹15 Lakhs+</strong>, scaling with home size, material grade, and level of customization. Every quote is itemised — you see exactly what you're paying for before work begins, no hidden line items added mid-project.</p>\n<p>For a detailed, size-by-size cost breakdown, see our <a href=\"/home-residential-interiors/interior-design-cost-in-gurgaon-2bhk-3bhk-4bhk-2026/\">2BHK/3BHK/4BHK interior design cost guide</a> and <a href=\"/kitchen-design/modular-kitchen-cost-gurgaon-2026/\">modular kitchen cost guide</a> for Gurgaon.</p>"
+        },
+        {
+            "heading": "Areas We Serve Near Manesar",
+            "html": "<p>The Omega Group is headquartered on Dwarka Expressway and serves clients across every major Gurgaon micro-market:</p>\n<ul>\n    <li><a href=\"/interior-designers-dwarka-expressway/\">Dwarka Expressway</a></li>\n    <li><a href=\"/interior-designers-sohna-road/\">Sohna Road</a></li>\n    <li><a href=\"/interior-designers-sushant-lok/\">Sushant Lok</a></li>\n    <li><a href=\"/interior-designers-new-gurgaon/\">New Gurgaon</a></li>\n    <li><a href=\"/interior-designers-dlf-gurgaon/\">DLF Gurgaon</a></li>\n    <li><a href=\"/interior-designers-golf-course-road/\">Golf Course Road</a></li>\n    <li><a href=\"/interior-designers-manesar/\">Manesar</a></li>\n</ul>"
+        }
+    ],
+    "faqs": [
+        {
+            "question": "Does The Omega Group work in Manesar?",
+            "answer": "Yes — The Omega Group designs and executes residential and commercial interior projects for clients in Manesar and across Gurgaon, including Dwarka Expressway, Sohna Road, Sushant Lok, New Gurgaon, DLF, and Manesar."
+        },
+        {
+            "question": "What interior design services do you offer?",
+            "answer": "Full-home and apartment interiors, villa interiors, modular kitchens, bespoke furniture, and office & commercial interiors, all delivered on a turnkey basis — design, procurement, and execution under one team."
+        },
+        {
+            "question": "How much does interior design cost?",
+            "answer": "Full-home turnkey interior design starts at ₹15 Lakhs+, scaling with home size, material grade, and customization. See our detailed cost guides on the blog for a size-by-size breakdown."
+        },
+        {
+            "question": "How do I get started?",
+            "answer": "Book a complimentary design consultation through our Contact page or call us directly — we'll discuss your space, budget, and timeline before proposing a design direction."
+        }
+    ],
+    "internalLinks": [
+        {
+            "text": "Interior Designers in Gurgaon (full service area)",
+            "href": "/interior-designers-gurgaon/"
+        },
+        {
+            "text": "Our Services",
+            "href": "/service.html"
+        },
+        {
+            "text": "Our Projects",
+            "href": "/project.html"
+        },
+        {
+            "text": "Book a Consultation",
+            "href": "/contact.html"
+        }
+    ],
+    "ctaContext": "manesar interior design project",
+    "sitemap": {
+        "lastmod": "2026-08-04",
+        "changefreq": "monthly",
+        "priority": "0.8",
+        "order": 16
     },
-    {
-      "label": "Projects Delivered",
-      "value": "90+"
-    },
-    {
-      "label": "On-Time Delivery",
-      "value": "90%"
-    },
-    {
-      "label": "QC Checks / Project",
-      "value": "70+"
-    }
-  ],
-  "keyTakeaways": [
-    "The Omega Group designs and delivers residential and commercial interiors for clients in Manesar and across Gurgaon.",
-    "Full turnkey execution — one team for design, procurement, and site work, not separate vendors to coordinate.",
-    "10+ years of experience, 90+ projects delivered, with 90% completed on schedule."
-  ],
-  "sections": [
-    {
-      "heading": "Interior Design Services in Manesar",
-      "html": "<p>Whether you're furnishing a new apartment, renovating a villa, or fitting out an office in Manesar, our team covers the full range of interior design work: full-home and apartment interiors, modular kitchens, bespoke furniture, and office &amp; commercial interiors. See the complete list on our <a href=\"/service.html\">Services page</a>.</p>"
-    },
-    {
-      "heading": "Why Manesar Homeowners Choose The Omega Group",
-      "html": "<p>Homeowners in Manesar work with us because every project is led by one design team from concept to handover — not a design firm on one side and a separate execution contractor on the other. That single point of accountability is what keeps timelines and budgets predictable, backed by 70+ quality checks across a typical project.</p>"
-    },
-    {
-      "heading": "Our Interior Design Process",
-      "html": "<p>Every project — whether it's a single room or a full turnkey build — follows the same five-stage process, run by one design team from first call to final walkthrough:</p>\n<ul>\n    <li><strong>Consultation.</strong> We start with a detailed conversation about your space, lifestyle, and budget — in person at your site wherever possible.</li>\n    <li><strong>Design planning.</strong> Our designers translate that brief into layouts, mood boards, and material concepts for your sign-off.</li>\n    <li><strong>Material selection.</strong> We curate finishes, fittings, and furnishings from trusted premium suppliers to match your design and budget.</li>\n    <li><strong>Execution.</strong> Our site teams carry out the build, with quality checks at every milestone — 70+ checks across a typical project.</li>\n    <li><strong>Final handover.</strong> We complete a walkthrough with you before handing over a space that's ready to live or work in.</li>\n</ul>"
-    },
-    {
-      "heading": "Interior Design Costs",
-      "html": "<p>Full-home turnkey interior design with The Omega Group starts at <strong>₹15 Lakhs+</strong>, scaling with home size, material grade, and level of customization. Every quote is itemised — you see exactly what you're paying for before work begins, no hidden line items added mid-project.</p>\n<p>For a detailed, size-by-size cost breakdown, see our <a href=\"/home-residential-interiors/interior-design-cost-in-gurgaon-2bhk-3bhk-4bhk-2026/\">2BHK/3BHK/4BHK interior design cost guide</a> and <a href=\"/kitchen-design/modular-kitchen-cost-gurgaon-2026/\">modular kitchen cost guide</a> for Gurgaon.</p>"
-    },
-    {
-      "heading": "Areas We Serve Near Manesar",
-      "html": "<p>The Omega Group is headquartered on Dwarka Expressway and serves clients across every major Gurgaon micro-market:</p>\n<ul>\n    <li><a href=\"/interior-designers-dwarka-expressway/\">Dwarka Expressway</a></li>\n    <li><a href=\"/interior-designers-sohna-road/\">Sohna Road</a></li>\n    <li><a href=\"/interior-designers-sushant-lok/\">Sushant Lok</a></li>\n    <li><a href=\"/interior-designers-new-gurgaon/\">New Gurgaon</a></li>\n    <li><a href=\"/interior-designers-dlf-gurgaon/\">DLF Gurgaon</a></li>\n    <li><a href=\"/interior-designers-golf-course-road/\">Golf Course Road</a></li>\n    <li><a href=\"/interior-designers-manesar/\">Manesar</a></li>\n</ul>"
-    }
-  ],
-  "faqs": [
-    {
-      "question": "Does The Omega Group work in Manesar?",
-      "answer": "Yes — The Omega Group designs and executes residential and commercial interior projects for clients in Manesar and across Gurgaon, including Dwarka Expressway, Sohna Road, Sushant Lok, New Gurgaon, DLF, and Manesar."
-    },
-    {
-      "question": "What interior design services do you offer?",
-      "answer": "Full-home and apartment interiors, villa interiors, modular kitchens, bespoke furniture, and office & commercial interiors, all delivered on a turnkey basis — design, procurement, and execution under one team."
-    },
-    {
-      "question": "How much does interior design cost?",
-      "answer": "Full-home turnkey interior design starts at ₹15 Lakhs+, scaling with home size, material grade, and customization. See our detailed cost guides on the blog for a size-by-size breakdown."
-    },
-    {
-      "question": "How do I get started?",
-      "answer": "Book a complimentary design consultation through our Contact page or call us directly — we'll discuss your space, budget, and timeline before proposing a design direction."
-    }
-  ],
-  "internalLinks": [
-    {
-      "text": "Interior Designers in Gurgaon (full service area)",
-      "href": "/interior-designers-gurgaon/"
-    },
-    {
-      "text": "Our Services",
-      "href": "/service.html"
-    },
-    {
-      "text": "Our Projects",
-      "href": "/project.html"
-    },
-    {
-      "text": "Book a Consultation",
-      "href": "/contact.html"
-    }
-  ],
-  "ctaContext": "manesar interior design project",
-  "sitemap": {
-    "lastmod": "2026-08-04",
-    "changefreq": "monthly",
-    "priority": "0.8",
-    "order": 16
-  }
+    "createdAt": "2026-11-18T09:13:56+05:30",
+    "updatedAt": "2026-11-18T09:13:56+05:30"
 }
