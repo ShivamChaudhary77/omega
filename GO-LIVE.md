@@ -21,7 +21,7 @@
 
 ## Step 1: deploy the new code (nothing changes for visitors)
 
-Your developer merges and pushes "Go live (step A)" to GitHub `main`. Then in cPanel → Git Version Control → Manage → **Pull or Deploy**:
+Your developer merges and pushes "Go live (step A)" to GitHub `main`. Then in cPanel → Git Version Control → Manage → **Pull or Deploy**. (If the repository is checked out in `public_html` and **Deploy HEAD Commit** is greyed out, **Update from Remote** alone is the deploy.)
 1. Click **Update from Remote**.
 2. Click **Deploy HEAD Commit**.
 

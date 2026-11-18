@@ -1,6 +1,6 @@
 # Plan: Static Site → Dynamic Site with a Simple Dashboard
 
-**Status:** Phases 1–5 done; Phase 6 ready and rehearsed, waiting for the switch on the server (17 Nov 2026) · **Written:** 17 Nov 2026
+**Status:** ✅ All 6 phases done. The dynamic site went live on 18 Nov 2026. · **Written:** 17 Nov 2026
 
 ## Progress
 
@@ -11,7 +11,7 @@
 | 3. Migration + comparison | ✅ Done | See "Phase 3 delivered" below |
 | 4. Dashboard | ✅ Done | See "Phase 4 delivered" below |
 | 5. SEO automation | ✅ Done | See "Phase 5 delivered" below |
-| 6. Staging, go-live, monitoring | 🟡 Ready | Rehearsed; switch with GO-LIVE.md. See "Phase 6 delivered" below |
+| 6. Staging, go-live, monitoring | ✅ Live (18 Nov 2026) | See "Phase 6 delivered" and "Go-live notes" below |
 
 ### Phase 1 delivered
 - `app/`: config (`config.php`, optional gitignored `config.local.php`), `bootstrap.php`, `helpers.php` (escaping, atomic JSON writes), `content.php` (pages, URL index, validation, history, trash, dashboard redirects), `cache.php` (rendered-page cache, cleared on every change), `render.php` (templates, `<head>` and schema builders), `front.php` (front controller), and `cli.php` (`rebuild`, `clear-cache`, `check`, `render`).
@@ -154,6 +154,16 @@
   - rollback: the static site is back, the dashboard is off, the content is kept
 - **Tests** read removed static reference files from git history, so they keep working after step B. The dev router hands requests to `index.php` like Apache does, and emulates the historic redirects.
 - **Left for the go-live day:** the steps in GO-LIVE.md (only someone with cPanel access can run them), then `verify-live.php` against production and two weeks of watching Search Console and GA4.
+
+### Go-live notes (18 Nov 2026)
+- **How the switch ran:** the server's cPanel has no Terminal, so it ran through **Cron Jobs** (GO-LIVE.md, "Step 2 without Terminal"). The dashboard password is set through a one-time setup link printed in `/home/theomega/go-live-log.txt`.
+- **Cron's PHP:** cron's plain `php` is the web-only `php-cgi`. `go-live.sh` now finds the command-line PHP itself (on the server: `/usr/local/bin/php`, PHP 8.2.35).
+- **Deploying:** the repository is checked out directly in `/home/theomega/public_html`, so **"Update from Remote" is the deploy**. The "Deploy HEAD Commit" button is disabled on this server and isn't needed.
+- **Result:**
+  - The switch completed.
+  - `verify-live.php` against production: all 148 pages, the generated files, the redirects, the 404 page and the private files OK (186 of 187 checks; the only miss was the dashboard showing password setup before a password existed).
+  - Step B (removing the static pages from git) was merged afterwards.
+- **Server backup** of the old static pages: `/home/theomega/omega-golive-backup-20261117-185807.tar.gz` (the undo command is in the go-live log).
 
 ## 1. The approach in one paragraph
 
