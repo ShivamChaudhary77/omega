@@ -104,16 +104,17 @@ $scripts = [];
 <?php if ($errors): ?>
         <div class="alert alert-danger"><ul class="mb-0"><?php foreach ($errors as $msg): ?><li><?= e($msg) ?></li><?php endforeach; ?></ul></div>
 <?php endif; ?>
-        <form method="post" class="admin-settings">
+        <p class="admin-lead mb-3">Details used across the whole website. Change them once here and every page updates.</p>
+        <form method="post" class="admin-settings" data-tabs>
             <?= csrf_field() ?>
             <input type="hidden" name="action" value="settings">
 <?php foreach ($fields as $title => $group): ?>
-            <section class="card admin-card">
+            <section class="card admin-card" data-tab-title="<?= e($title) ?>" data-tab-icon="<?= e(['Business details' => 'bi-shop', 'Key figures' => 'bi-bar-chart', 'Menu and footer' => 'bi-menu-button-wide', 'Consultation box (default wording)' => 'bi-chat-square-text', 'Tracking codes' => 'bi-graph-up'][$title] ?? 'bi-card-text') ?>">
                 <h2 class="admin-card-title"><?= e($title) ?></h2>
 <?php foreach ($group as $field) { render_field($field, arr_get($site, $field['key']), field_name($field['key']), $errors); } ?>
             </section>
 <?php endforeach; ?>
-            <button class="btn btn-dark" type="submit">Save settings</button>
+            <button class="btn btn-dark" type="submit"><i class="bi bi-check2"></i> Save settings</button>
         </form>
 
         <section class="card admin-card mt-5" id="password">

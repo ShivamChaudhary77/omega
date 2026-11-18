@@ -278,7 +278,11 @@
     });
 
     var dirty = false;
-    function markDirty() { dirty = true; }
+    function markDirty() {
+        dirty = true;
+        var flag = document.querySelector("[data-unsaved]");
+        if (flag) flag.hidden = false;
+    }
     var editForm = document.getElementById("edit-form");
     if (editForm) {
         editForm.addEventListener("input", markDirty);
@@ -314,6 +318,117 @@
     document.querySelectorAll("[data-redirect-choice]").forEach(function (sel) {
         var custom = sel.form.querySelector("[data-redirect-custom]");
         sel.addEventListener("change", function () { custom.hidden = sel.value !== "custom"; if (!custom.hidden) custom.focus(); });
+    });
+
+    /* ================= Layout and navigation (display only) ================= */
+
+    /* Sidebar slides in on phones. */
+    var sidebar = document.getElementById("admin-sidebar");
+    function setSidebar(open) {
+        document.body.classList.toggle("sidebar-open", open);
+        var btn = document.querySelector("[data-sidebar-toggle]");
+        if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    document.addEventListener("click", function (e) {
+        if (e.target.closest("[data-sidebar-toggle]")) setSidebar(!document.body.classList.contains("sidebar-open"));
+        else if (e.target.closest("[data-sidebar-close]")) setSidebar(false);
+    });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setSidebar(false); });
+
+    /* Success messages fade away after a few seconds. */
+    document.querySelectorAll(".admin-flash.alert-success").forEach(function (el) {
+        setTimeout(function () { el.classList.add("fade-out"); setTimeout(function () { el.remove(); }, 600); }, 7000);
+    });
+
+    /* Instant search on the pages list (the Search button still works too). */
+    document.querySelectorAll("[data-live-search]").forEach(function (input) {
+        var table = document.querySelector(input.dataset.liveSearch);
+        if (!table) return;
+        var rows = Array.prototype.slice.call(table.querySelectorAll("tbody tr[data-search]"));
+        var empty = table.querySelector(".admin-empty-row");
+        var counter = document.querySelector("[data-live-count]");
+        input.addEventListener("input", function () {
+            var words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+            var shown = 0;
+            rows.forEach(function (row) {
+                var hay = row.dataset.search;
+                var match = words.every(function (w) { return hay.indexOf(w) !== -1; });
+                row.hidden = !match;
+                if (match) shown++;
+            });
+            if (counter) counter.textContent = shown;
+            if (empty) empty.hidden = shown > 0;
+        });
+    });
+
+    /* Refresh rich-text editors that just became visible. */
+    function refreshEditors(root) {
+        if (!window.tinymce) return;
+        root.querySelectorAll("textarea.richtext").forEach(function (ta) {
+            var ed = tinymce.get(ta.id);
+            if (ed) { try { ed.execCommand("mceAutoResize"); } catch (err) { /* ignore */ } }
+        });
+    }
+
+    /* Editor: Content / SEO / Consultation box become tabs. */
+    document.querySelectorAll(".admin-edit-main, [data-tabs]").forEach(function (editMain) {
+        var cards = Array.prototype.slice.call(editMain.querySelectorAll(":scope > .admin-card[data-tab-title]"));
+        if (cards.length > 1) {
+            var bar = document.createElement("div");
+            bar.className = "admin-tabs";
+            bar.setAttribute("role", "tablist");
+            var storeKey = "omega-tab:" + location.pathname + location.search;
+            var showTab = function (i, remember) {
+                cards.forEach(function (card, j) { card.classList.toggle("tab-hidden", i !== j); });
+                Array.prototype.forEach.call(bar.children, function (b, j) {
+                    b.classList.toggle("active", i === j);
+                    b.setAttribute("aria-selected", i === j ? "true" : "false");
+                });
+                refreshEditors(cards[i]);
+                if (remember) { try { sessionStorage.setItem(storeKey, String(i)); } catch (err) { /* ignore */ } }
+            };
+            cards.forEach(function (card, i) {
+                var b = document.createElement("button");
+                b.type = "button";
+                b.className = "admin-tab";
+                b.setAttribute("role", "tab");
+                var errors = card.querySelectorAll(".is-invalid").length;
+                b.innerHTML = '<i class="bi ' + (card.dataset.tabIcon || "bi-card-text") + '"></i> <span></span>' + (errors ? ' <span class="admin-tab-badge">' + errors + "</span>" : "");
+                b.querySelector("span").textContent = card.dataset.tabTitle;
+                b.addEventListener("click", function () { showTab(i, true); window.scrollTo({ top: editMain.getBoundingClientRect().top + window.scrollY - 80, behavior: "smooth" }); });
+                bar.appendChild(b);
+            });
+            editMain.insertBefore(bar, cards[0]);
+            var start = 0;
+            var firstError = cards.findIndex(function (c) { return c.querySelector(".is-invalid"); });
+            if (firstError >= 0) start = firstError;
+            else { try { var saved = parseInt(sessionStorage.getItem(storeKey), 10); if (saved >= 0 && saved < cards.length) start = saved; } catch (err) { /* ignore */ } }
+            showTab(start, false);
+        }
+    });
+
+    /* Page sections: click a section's title bar to fold or unfold it. */
+    document.querySelectorAll(".blocks-editor").forEach(function (ed) {
+        var items = function () { return Array.prototype.slice.call(ed.querySelectorAll(":scope > .repeater-items > .block-item")); };
+        if (items().length > 2) items().forEach(function (it) { it.classList.add("collapsed"); });
+        var tools = document.createElement("div");
+        tools.className = "admin-blocks-tools";
+        tools.innerHTML = '<span><i class="bi bi-info-circle"></i> Click a section to open it. Use the arrows to reorder.</span>' +
+            '<span><button type="button" class="btn btn-link btn-sm" data-blocks="open">Open all</button>' +
+            '<button type="button" class="btn btn-link btn-sm" data-blocks="close">Close all</button></span>';
+        ed.insertBefore(tools, ed.firstChild);
+        tools.addEventListener("click", function (e) {
+            var b = e.target.closest("[data-blocks]");
+            if (!b) return;
+            items().forEach(function (it) { it.classList.toggle("collapsed", b.dataset.blocks === "close"); if (b.dataset.blocks === "open") refreshEditors(it); });
+        });
+    });
+    document.addEventListener("click", function (e) {
+        var label = e.target.closest(".block-item > .item-tools .item-label");
+        if (!label) return;
+        var item = label.closest(".block-item");
+        item.classList.toggle("collapsed");
+        if (!item.classList.contains("collapsed")) refreshEditors(item);
     });
 
     initEditors(document);

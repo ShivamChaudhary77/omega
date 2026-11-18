@@ -108,7 +108,7 @@ $scripts = ['https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js
 
             <div class="admin-edit-main">
 <?php foreach (admin_form_groups($page) as $gi => $group): ?>
-                <section class="card admin-card">
+                <section class="card admin-card" data-tab-title="<?= e($group['title']) ?>" data-tab-icon="<?= e(['Content' => 'bi-pencil-square', 'Search engines (SEO)' => 'bi-search', 'Consultation box' => 'bi-chat-square-text'][$group['title']] ?? 'bi-card-text') ?>">
                     <h2 class="admin-card-title"><?= e($group['title']) ?></h2>
 <?php foreach ($group['fields'] as $field): ?>
 <?php
@@ -142,7 +142,8 @@ $scripts = ['https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js
                     <label class="form-label" for="meta_url">URL</label>
                     <input class="form-control mb-1<?= isset($errors['meta.urlPath']) ? ' is-invalid' : '' ?>" id="meta_url" name="meta[urlPath]" value="<?= e($isNew ? $meta['urlPath'] : ($page['urlPath'] ?? '')) ?>" placeholder="<?= $isNew ? 'set automatically' : '' ?>">
                     <div class="form-text mb-3"><?= $isNew ? 'Leave empty to set it automatically.' : 'Changing the URL breaks existing links and search rankings. Avoid it unless necessary.' ?></div>
-                    <button class="btn btn-dark w-100 mb-2" type="submit">Save</button>
+                    <div class="admin-unsaved" data-unsaved hidden><i class="bi bi-dot"></i> Unsaved changes</div>
+                    <button class="btn btn-dark w-100 mb-2" type="submit"><i class="bi bi-check2"></i> Save</button>
 <?php if (!$isNew): ?>
                     <a class="btn btn-outline-dark w-100 mb-2" href="/admin/preview.php?id=<?= e($page['id']) ?>" target="_blank" rel="noopener">Preview saved version</a>
 <?php if (($stored['status'] ?? '') === 'published'): ?>
@@ -168,6 +169,7 @@ $scripts = ['https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.3/tinymce.min.js
                     <div class="form-text"><?= $isNew ? 'Checks run on the saved page; save to update them.' : 'Checked when the page was opened or last saved.' ?></div>
                 </section>
             </aside>
+            <button type="submit" class="btn btn-dark admin-fab-save" aria-label="Save"><i class="bi bi-check2"></i> Save</button>
         </form>
 
 <?php if (!$isNew && $page['type'] !== 'home'): ?>
