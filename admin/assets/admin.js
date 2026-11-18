@@ -431,6 +431,49 @@
         if (!item.classList.contains("collapsed")) refreshEditors(item);
     });
 
+    /* Images page: search, folder and usage filters, copy address. */
+    var mediaGrid = document.querySelector("[data-media-grid]");
+    if (mediaGrid) {
+        var mSearch = document.querySelector("[data-media-search]");
+        var mGroup = document.querySelector("[data-media-group]");
+        var mUsage = document.querySelector("[data-media-usage]");
+        var mCount = document.querySelector("[data-media-count]");
+        var mEmpty = document.querySelector("[data-media-empty]");
+        var cards = Array.prototype.slice.call(mediaGrid.querySelectorAll(".media-item"));
+        var filterMedia = function () {
+            var words = (mSearch ? mSearch.value : "").toLowerCase().split(/\s+/).filter(Boolean);
+            var group = mGroup ? mGroup.value : "";
+            var usage = mUsage ? mUsage.value : "";
+            var shown = 0;
+            cards.forEach(function (card) {
+                var ok = words.every(function (w) { return card.dataset.name.indexOf(w) !== -1; })
+                    && (!group || card.dataset.group === group)
+                    && (!usage || card.dataset.used === usage);
+                card.hidden = !ok;
+                if (ok) shown++;
+            });
+            if (mCount) mCount.textContent = shown;
+            if (mEmpty) mEmpty.hidden = shown > 0 || !cards.length;
+        };
+        [mSearch, mGroup, mUsage].forEach(function (el) { if (el) el.addEventListener("input", filterMedia); });
+    }
+    document.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-copy]");
+        if (!btn) return;
+        var text = btn.dataset.copy;
+        var done = function () {
+            var old = btn.innerHTML;
+            btn.innerHTML = '<i class="bi bi-check2"></i> Copied';
+            btn.classList.add("copied");
+            setTimeout(function () { btn.innerHTML = old; btn.classList.remove("copied"); }, 1500);
+        };
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).then(done, function () { window.prompt("Copy this address:", text); });
+        } else {
+            window.prompt("Copy this address:", text);
+        }
+    });
+
     initEditors(document);
     initCounters(document);
 })();
