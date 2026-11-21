@@ -138,8 +138,10 @@ function static_files_replaced(string $root): array
 
 /**
  * Applies a fixes file: {"fixes": [{"page", "field" (dot path, e.g. seo.title or
- * internalLinks.1.href), "op" ("set": the field must equal "from"; "replace": the
- * field must contain "from", every occurrence is replaced), "from", "to"}]}.
+ * internalLinks.1.href), "op" ("set": the field must equal "from", or one of the
+ * values in "fromAny"; any JSON value, e.g. a page's whole "blocks" list;
+ * "replace": the text field must contain "from", every occurrence is replaced),
+ * "from", "to"}]}.
  * Returns the exit code.
  */
 function apply_fixes_command(string $file, bool $apply): int
@@ -155,9 +157,13 @@ function apply_fixes_command(string $file, bool $apply): int
     foreach ($data['fixes'] as $n => $fix) {
         $id = (string) ($fix['page'] ?? '');
         $keys = explode('.', (string) ($fix['field'] ?? ''));
-        $from = (string) ($fix['from'] ?? '');
-        $to = (string) ($fix['to'] ?? '');
         $op = $fix['op'] ?? 'set';
+        // "set" may carry any JSON value (text, a list of blocks…) and may accept
+        // several old values ("fromAny"); "replace" works on text only.
+        $olds = $op === 'set' && is_array($fix['fromAny'] ?? null) ? $fix['fromAny'] : [$fix['from'] ?? ''];
+        $from = $op === 'set' ? ($fix['from'] ?? null) : (string) ($fix['from'] ?? '');
+        $to = $op === 'set' ? ($fix['to'] ?? null) : (string) ($fix['to'] ?? '');
+        $shown = is_string($to) ? $to : '(' . (is_array($to) ? count($to) . ' item(s)' : json_encode($to)) . ')';
         $label = "#$n $id {$fix['field']}";
         $page = $pages[$id] ?? page_load($id);
         if (!$page) {
@@ -174,16 +180,16 @@ function apply_fixes_command(string $file, bool $apply): int
             }
             $ref = &$ref[$k];
         }
-        $current = is_string($ref) ? $ref : null;
-        if ($current === null) {
+        $current = $ref;
+        if ($current === null || ($op === 'replace' && !is_string($current))) {
             echo "  skip  $label: field not found\n";
             $skipped++;
         } elseif ($op === 'set' && $current === $to || $op === 'replace' && !str_contains($current, $from) && str_contains($current, $to)) {
             echo "  ok    $label: already fixed\n";
             $already++;
-        } elseif ($op === 'set' && $current === $from) {
+        } elseif ($op === 'set' && in_array($current, $olds, true)) {
             $ref = $to;
-            echo "  fix   $label: \"$to\"\n";
+            echo "  fix   $label: \"$shown\"\n";
             $done++;
         } elseif ($op === 'replace' && $from !== '' && str_contains($current, $from)) {
             $ref = str_replace($from, $to, $current);
